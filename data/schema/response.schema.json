@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IMPACT — Réponse d'une entité",
+  "description": "Réponse publiée ou communiquée par une entité au sujet d'une ou plusieurs affirmations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "entity_id", "related_claim_ids", "summary", "publication_status"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+    "entity_id": { "type": "string", "minLength": 3, "maxLength": 80 },
+    "related_claim_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "received_at": { "type": ["string", "null"], "format": "date" },
+    "published_at": { "type": ["string", "null"], "format": "date" },
+    "source_id": { "type": ["string", "null"], "minLength": 3, "maxLength": 80 },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 3000 },
+    "full_response_url": { "type": ["string", "null"], "format": "uri", "maxLength": 2000 },
+    "publication_status": { "type": "string", "enum": ["published", "not_published", "withheld", "unavailable"] }
+  }
+}
