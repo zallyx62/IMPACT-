@@ -1,6 +1,6 @@
 # IMPACT
 
-**Comprendre. Vérifier. Comparer. Agir.**
+**Comprendre. Choisir. Agir.**
 
 IMPACT est un projet citoyen, gratuit et open source qui vise à rendre accessibles des informations documentées sur les entreprises, les produits, les technologies et les conséquences de nos choix.
 
