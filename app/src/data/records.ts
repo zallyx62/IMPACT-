@@ -41,6 +41,8 @@ export interface EvidenceRecord {
   summary: string;
   excerpt?: string;
   limitations?: string;
+  supports_claim_ids?: string[];
+  contradicts_claim_ids?: string[];
 }
 
 export interface RelationshipRecord {
