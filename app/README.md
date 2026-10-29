@@ -19,8 +19,15 @@ Contrôles :
 
 ```sh
 npm run typecheck
+npm run test
 npm run build
 npm run preview
+```
+
+Le test du service worker est exécuté depuis la racine du dépôt :
+
+```sh
+node scripts/test-service-worker.mjs
 ```
 
 Le build de production est généré dans `dist/`.
