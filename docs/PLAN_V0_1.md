@@ -11,7 +11,7 @@
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
 - Manifest PWA et mise en cache de ressources statiques.
-- Contrôle de typage et build dans GitHub Actions.
+- Contrôle de typage, tests unitaires, tests simulés du service worker, validation des schémas et build dans GitHub Actions.
 
 ## Hors périmètre de la version 0.1
 
