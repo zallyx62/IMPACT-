@@ -20,7 +20,7 @@ Les contenus éditoriaux sont conservés dans le dépôt sous forme de fichiers 
 - **JSON versionné** : format initial des données éditoriales.
 - **IndexedDB** : stockage local futur lorsque le besoin sera établi.
 - **Service worker** : cache des ressources de l'application pour un usage hors ligne progressif.
-- **GitHub Actions** : vérification automatisée du typage et de la compilation.
+- **GitHub Actions** : vérification automatisée du typage, des tests unitaires, du comportement simulé du service worker, de la compilation et des invariants éditoriaux des schémas.
 - **GitHub Pages ou autre hébergement statique** : cible possible, uniquement après tests.
 
 Les versions directes des dépendances sont fixées dans `app/package.json`. Vite 8 exige une version récente de Node.js (20.19+ ou 22.12+). Le workflow de contrôle utilise Node 22.
@@ -110,11 +110,15 @@ Exigences :
 
 ## 8. Qualité et sécurité
 
-Les contrôles automatisés de base doivent :
+Les contrôles automatisés de base exécutés dans GitHub Actions sont :
 1. installer les dépendances ;
 2. vérifier TypeScript ;
-3. construire les fichiers de production ;
-4. vérifier que les schémas de données sont du JSON syntaxiquement valide.
+3. exécuter les tests unitaires de recherche ;
+4. simuler les principaux scénarios du service worker (installation, activation, mise à jour, repli hors ligne et exclusions) ;
+5. construire les fichiers de production ;
+6. vérifier les schémas JSON et les invariants éditoriaux.
+
+Ces tests simulés ne remplacent pas les essais sur un vrai navigateur ou téléphone.
 
 Ces contrôles ne constituent ni un audit de sécurité, ni un audit de confidentialité, ni une validation éditoriale. Des tests d'accessibilité, de navigation, d'installation PWA et de comportement hors ligne restent nécessaires.
 

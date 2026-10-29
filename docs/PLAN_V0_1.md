@@ -11,7 +11,7 @@
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
 - Manifest PWA et mise en cache de ressources statiques.
-- Contrôle de typage et build dans GitHub Actions.
+- Contrôle de typage, tests unitaires, tests simulés du service worker, validation des schémas et build dans GitHub Actions.
 
 ## Hors périmètre de la version 0.1
 
@@ -29,6 +29,8 @@
 
 - Le projet s'installe avec Node.js compatible et npm.
 - `npm run typecheck` réussit.
+- `npm run test` réussit.
+- `node scripts/test-service-worker.mjs` réussit depuis la racine du dépôt.
 - `npm run build` réussit.
 - Les six univers s'affichent et sont sélectionnables.
 - La recherche filtre les titres, descriptions et mots-clés locaux.
@@ -36,7 +38,8 @@
 - Les fonctions encore indisponibles sont clairement signalées.
 - Le navigateur n'envoie ni recherche, ni préférence à un serveur.
 - L'application n'inclut pas de publicités, suivi analytique, compte ni IA générative.
-- Le service worker et l'utilisation hors ligne sont testés manuellement avant déploiement.
+- Le service worker passe les tests automatisés simulés.
+- Le service worker et l'utilisation hors ligne sont testés manuellement sur de vrais navigateurs et appareils avant déploiement.
 
 ## Ordre de travail
 

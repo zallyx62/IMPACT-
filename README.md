@@ -40,7 +40,7 @@ Le projet veut aider chacun à comprendre, vérifier et comparer des information
 
 **Phase : prototype web 0.1 en construction.**
 
-Le prototype propose une interface bilingue, une recherche locale parmi les six univers et les outils prévus. Il ne contient pas encore de dossiers factuels vérifiés sur des entreprises, produits ou campagnes. La publication stable et le fonctionnement hors ligne restent à tester.
+Le prototype propose une interface bilingue, une recherche locale parmi les six univers et les outils prévus. Il ne contient pas encore de dossiers factuels vérifiés sur des entreprises, produits ou campagnes. Les tests automatisés du service worker couvrent le cache initial, les mises à jour, le repli hors ligne et les exclusions de requêtes. Les essais réels sur navigateurs et téléphones, l'audit d'accessibilité et la publication restent à faire.
 
 ## Documentation
 
@@ -57,7 +57,7 @@ Le prototype propose une interface bilingue, une recherche locale parmi les six 
 
 ## Développement
 
-Consultez [app/README.md](app/README.md) pour démarrer le prototype. Le workflow GitHub Actions vérifie le typage, la compilation et la syntaxe JSON des schémas.
+Consultez [app/README.md](app/README.md) pour démarrer le prototype. Le workflow GitHub Actions vérifie le typage, les tests unitaires, le comportement simulé du service worker, le build et les invariants éditoriaux des schémas.
 
 Ces contrôles ne remplacent pas une revue humaine de l'accessibilité, de la sécurité, de la confidentialité et du contenu éditorial.
 
