@@ -34,6 +34,15 @@ jobs:
         working-directory: app
         run: npm install --no-audit --no-fund
 
+      - name: Export generated npm lockfile once
+        if: github.event_name == 'pull_request' && github.head_ref == 'build/export-lockfile'
+        uses: actions/upload-artifact@v4
+        with:
+          name: impact-npm-lockfile
+          path: app/package-lock.json
+          if-no-files-found: error
+          retention-days: 1
+
       - name: Check TypeScript
         working-directory: app
         run: npm run typecheck
