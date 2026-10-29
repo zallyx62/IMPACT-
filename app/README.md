@@ -1,6 +1,6 @@
 # IMPACT — application web
 
-Premier squelette de l'application web progressive. Il s'agit d'un prototype de navigation, pas encore d'une base d'informations vérifiées.
+Application web progressive avec navigation, recherche locale et lecteur de dossiers documentés alimenté par des fichiers JSON versionnés. Le dépôt ne contient pas encore de dossier factuel publié.
 
 ## Prérequis
 

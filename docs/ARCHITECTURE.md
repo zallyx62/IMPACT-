@@ -55,7 +55,9 @@ Les dépendances devront être réexaminées et un fichier de verrouillage npm d
 │   │   └── sw.js
 │   ├── src/
 │   │   ├── data/catalog.ts
+│   │   ├── data/records.ts
 │   │   ├── App.tsx
+│   │   ├── DossierPanel.tsx
 │   │   ├── main.tsx
 │   │   └── styles.css
 │   ├── index.html

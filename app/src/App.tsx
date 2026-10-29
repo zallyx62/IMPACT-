@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { tools, universes, type CatalogItem, type Language } from "./data/catalog";
 import { normalizeSearch, searchableText } from "./data/search";
+import { entities, getEntityDossier, type EntityRecord } from "./data/records";
+import DossierPanel from "./DossierPanel";
 
-type Selection = { type: "universe" | "tool"; id: string } | null;
+type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
 
 const copy: Record<Language, Record<string, string>> = {
   fr: {
@@ -11,10 +13,10 @@ const copy: Record<Language, Record<string, string>> = {
     title: "Comprendre ce qui se cache derrière nos choix.",
     subtitle: "Des informations sourcées, des incertitudes visibles et des pistes d’action — sans décider à votre place.",
     searchLabel: "Rechercher dans IMPACT", placeholder: "Entreprise, marque, sujet, alternative…",
-    searchHint: "La recherche porte sur les six univers et les outils de ce prototype. Les dossiers factuels seront ajoutés après vérification humaine.",
+    searchHint: "La recherche couvre les univers, les outils et les dossiers publiés après vérification humaine.",
     explore: "Explorer les six univers", exploreText: "Six portes d’entrée pour comprendre les conséquences de nos choix.",
     tools: "Les outils IMPACT", toolsText: "Des outils conçus pour vérifier, comparer et suivre les changements.",
-    results: "Résultats dans le prototype", noResults: "Aucun résultat dans les univers ou outils actuellement présentés.",
+    results: "Résultats dans IMPACT", noResults: "Aucun résultat dans les dossiers, univers ou outils actuellement présentés.",
     clear: "Effacer", selected: "EXPLORER CET ESPACE", inPrep: "Espace en préparation",
     prepText: "Cette version pose la structure de navigation. Elle ne contient pas encore de dossier factuel validé sur des entreprises, produits ou campagnes.",
     back: "Retour à l’accueil", privacy: "La confidentialité dès la conception",
@@ -25,7 +27,7 @@ const copy: Record<Language, Record<string, string>> = {
     honestText: "Les univers et outils ci-dessus sont des structures de navigation. Les informations factuelles ne seront publiées qu’avec des sources et une validation éditoriale humaine. Le fonctionnement hors ligne doit encore être testé.",
     footer: "Projet open source · Licence AGPL-3.0-only · Aucune IA générative dans l’application publique",
     discover: "Découvrir", exploreLabel: "EXPLORER", crossTools: "OUTILS TRANSVERSAUX",
-    localSearch: "RECHERCHE LOCALE"
+    localSearch: "RECHERCHE LOCALE", dossiers: "Dossiers documentés", dossiersText: "Fiches d’entités publiées après vérification humaine.", noDossiers: "Aucun dossier vérifié n’est encore publié. Les fiches apparaîtront ici après examen des sources et validation éditoriale."
   },
   en: {
     skip: "Skip to content", method: "Our method", switchLanguage: "Switch to French",
@@ -33,10 +35,10 @@ const copy: Record<Language, Record<string, string>> = {
     title: "Understand what sits behind our choices.",
     subtitle: "Sourced information, visible uncertainty and ways to act — without making decisions for you.",
     searchLabel: "Search IMPACT", placeholder: "Company, brand, topic, alternative…",
-    searchHint: "Search covers the six areas and tools in this prototype. Factual dossiers will be added after human review.",
+    searchHint: "Search covers areas, tools and dossiers published after human review.",
     explore: "Explore the six areas", exploreText: "Six entry points to understand the consequences of our choices.",
     tools: "IMPACT tools", toolsText: "Tools designed to verify, compare and track change.",
-    results: "Results in this prototype", noResults: "No results in the areas or tools currently presented.",
+    results: "Results in IMPACT", noResults: "No results in the dossiers, areas or tools currently presented.",
     clear: "Clear", selected: "EXPLORE THIS SPACE", inPrep: "Area in preparation",
     prepText: "This version establishes the navigation structure. It does not yet contain fact-checked dossiers about companies, products or campaigns.",
     back: "Back to home", privacy: "Privacy by design",
@@ -47,7 +49,7 @@ const copy: Record<Language, Record<string, string>> = {
     honestText: "The areas and tools above are navigation structures. Factual information will only be published with sources and human editorial review. Offline behaviour still needs testing.",
     footer: "Open-source project · AGPL-3.0-only licence · No generative AI in the public app",
     discover: "Explore", exploreLabel: "EXPLORE", crossTools: "CROSS-CUTTING TOOLS",
-    localSearch: "LOCAL SEARCH"
+    localSearch: "LOCAL SEARCH", dossiers: "Documented dossiers", dossiersText: "Entity records published after human review.", noDossiers: "No verified dossiers have been published yet. Records will appear here after source review and editorial approval."
   }
 };
 
@@ -70,12 +72,18 @@ function App() {
     () => trimmedQuery ? tools.filter((item) => searchableText(item).includes(trimmedQuery)) : [],
     [trimmedQuery],
   );
-  const chosen = selection
+  const publishedEntities = useMemo(() => entities.filter((item) => item.status === "published"), []);
+  const foundEntities = useMemo(
+    () => trimmedQuery ? publishedEntities.filter((item) => normalizeSearch([item.name, item.description ?? "", item.entity_type].join(" ")).includes(trimmedQuery)) : [],
+    [trimmedQuery, publishedEntities],
+  );
+  const chosen = selection && selection.type !== "entity"
     ? [...universes.map((item) => ({ ...item, type: "universe" as const })), ...tools.map((item) => ({ ...item, type: "tool" as const }))]
         .find((item) => item.id === selection.id && item.type === selection.type)
     : undefined;
+  const selectedDossier = selection?.type === "entity" ? getEntityDossier(selection.id) : undefined;
 
-  function open(type: "universe" | "tool", id: string) {
+  function open(type: "universe" | "tool" | "entity", id: string) {
     setSelection({ type, id });
     setQuery("");
   }
@@ -83,6 +91,19 @@ function App() {
   function reset() {
     setSelection(null);
     setQuery("");
+  }
+
+  function entityButton(item: EntityRecord) {
+    return (
+      <button className="result-item" key={item.id} type="button" onClick={() => open("entity", item.id)}>
+        <span className="result-mark" aria-hidden="true">D</span>
+        <span className="result-copy">
+          <strong>{item.name}</strong>
+          <span>{item.description || item.entity_type}</span>
+        </span>
+        <span className="result-arrow" aria-hidden="true">↗</span>
+      </button>
+    );
   }
 
   function itemButton(item: CatalogItem, type: "universe" | "tool") {
@@ -146,11 +167,12 @@ function App() {
           <section className="search-results" aria-live="polite" aria-labelledby="results-title">
             <div className="section-heading">
               <div><p className="section-kicker">{t.localSearch}</p><h2 id="results-title">{t.results}</h2></div>
-              <span className="result-count">{foundUniverses.length + foundTools.length}</span>
+              <span className="result-count">{foundUniverses.length + foundTools.length + foundEntities.length}</span>
             </div>
-            {foundUniverses.length === 0 && foundTools.length === 0
+            {foundUniverses.length === 0 && foundTools.length === 0 && foundEntities.length === 0
               ? <p className="empty-state">{t.noResults}</p>
               : <div className="result-list">
+                  {foundEntities.map((item) => entityButton(item))}
                   {foundUniverses.map((item) => itemButton(item, "universe"))}
                   {foundTools.map((item) => itemButton(item, "tool"))}
                 </div>}
@@ -172,8 +194,28 @@ function App() {
           </section>
         )}
 
-        {!trimmedQuery && !chosen && (
+        {selectedDossier && <DossierPanel dossier={selectedDossier} language={language} onBack={reset} />}
+
+        {!trimmedQuery && !chosen && !selectedDossier && (
           <>
+            <section className="content-section dossiers-section" aria-labelledby="dossiers-title">
+              <div className="section-heading">
+                <div><p className="section-kicker">{language === "fr" ? "INFORMATIONS SOURCÉES" : "SOURCED INFORMATION"}</p><h2 id="dossiers-title">{t.dossiers}</h2><p>{t.dossiersText}</p></div>
+              </div>
+              {publishedEntities.length === 0 ? <p className="empty-state">{t.noDossiers}</p> : (
+                <div className="dossier-grid">
+                  {publishedEntities.map((item) => (
+                    <button className="dossier-card" key={item.id} type="button" onClick={() => open("entity", item.id)}>
+                      <span className="dossier-card-type">{item.entity_type}</span>
+                      <strong>{item.name}</strong>
+                      <span>{item.description}</span>
+                      <span className="card-footer">{t.discover}<span aria-hidden="true">↗</span></span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </section>
+
             <section className="content-section" aria-labelledby="universes-title">
               <div className="section-heading">
                 <div><p className="section-kicker">{t.exploreLabel}</p><h2 id="universes-title">{t.explore}</h2><p>{t.exploreText}</p></div>
