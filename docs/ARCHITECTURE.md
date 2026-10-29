@@ -20,7 +20,7 @@ Les contenus éditoriaux sont conservés dans le dépôt sous forme de fichiers 
 - **JSON versionné** : format initial des données éditoriales.
 - **IndexedDB** : stockage local futur lorsque le besoin sera établi.
 - **Service worker** : cache des ressources de l'application pour un usage hors ligne progressif.
-- **GitHub Actions** : vérification automatisée du typage et de la compilation.
+- **GitHub Actions** : vérification automatisée du typage, des tests unitaires, du comportement simulé du service worker, de la compilation et des invariants éditoriaux des schémas.
 - **GitHub Pages ou autre hébergement statique** : cible possible, uniquement après tests.
 
 Les versions directes des dépendances sont fixées dans `app/package.json`. Vite 8 exige une version récente de Node.js (20.19+ ou 22.12+). Le workflow de contrôle utilise Node 22.
