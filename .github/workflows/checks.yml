@@ -38,6 +38,10 @@ jobs:
         working-directory: app
         run: npm run typecheck
 
+      - name: Run unit tests
+        working-directory: app
+        run: npm run test
+
       - name: Build production app
         working-directory: app
         run: npm run build

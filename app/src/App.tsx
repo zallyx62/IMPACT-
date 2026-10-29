@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { tools, universes, type CatalogItem, type Language } from "./data/catalog";
+import { normalizeSearch, searchableText } from "./data/search";
 
 type Selection = { type: "universe" | "tool"; id: string } | null;
 
@@ -49,21 +50,6 @@ const copy: Record<Language, Record<string, string>> = {
     localSearch: "LOCAL SEARCH"
   }
 };
-
-function normalizeSearch(value: string): string {
-  return value
-    .normalize("NFD")
-    .replace(/\\p{Diacritic}/gu, "")
-    .toLocaleLowerCase()
-    .trim();
-}
-
-function searchableText(item: CatalogItem): string {
-  return normalizeSearch([
-    item.title.fr, item.title.en, item.description.fr, item.description.en,
-    ...item.keywords,
-  ].join(" "));
-}
 
 function App() {
   const [language, setLanguage] = useState<Language>("fr");
