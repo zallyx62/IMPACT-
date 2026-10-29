@@ -11,6 +11,7 @@ on:
     paths:
       - "app/**"
       - "data/schema/**"
+      - "scripts/**"
       - ".github/workflows/checks.yml"
   workflow_dispatch:
 
@@ -19,7 +20,7 @@ permissions:
 
 jobs:
   web-quality:
-    name: Typecheck and production build
+    name: Quality checks
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
