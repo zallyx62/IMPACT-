@@ -52,6 +52,9 @@ Le prototype propose une interface bilingue, une recherche locale parmi les six 
 - [Charte éditoriale et de vérification](docs/CHARTE_EDITORIALE.md)
 - [Schéma JSON des affirmations](data/schema/claim.schema.json)
 - [Schéma JSON des sources](data/schema/source.schema.json)
+- [Schéma JSON des entités](data/schema/entity.schema.json)
+- [Schéma JSON des relations](data/schema/relationship.schema.json)
+- [Schéma JSON des éléments de preuve](data/schema/evidence.schema.json)
 - [Instructions de développement de l'application](app/README.md)
 - [Code de l'application web](app/src/App.tsx)
 
