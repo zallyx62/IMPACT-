@@ -39,7 +39,10 @@ Les dépendances devront être réexaminées et un fichier de verrouillage npm d
 ├── .github/workflows/checks.yml
 ├── data/schema/
 │   ├── claim.schema.json
-│   └── source.schema.json
+│   ├── source.schema.json
+│   ├── entity.schema.json
+│   ├── relationship.schema.json
+│   └── evidence.schema.json
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── CHARTE_EDITORIALE.md
@@ -60,6 +63,9 @@ Les dépendances devront être réexaminées et un fichier de verrouillage npm d
 │   ├── tsconfig.json
 │   ├── vite.config.ts
 │   └── README.md
+├── scripts/
+│   ├── check-schemas.mjs
+│   └── test-service-worker.mjs
 ├── .gitignore
 ├── LICENSE
 └── README.md
