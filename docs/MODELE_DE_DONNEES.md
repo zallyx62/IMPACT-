@@ -5,7 +5,7 @@
 **Langue :** français  
 **Objectif :** définir une structure cohérente, vérifiable et évolutive pour les informations publiées dans IMPACT.
 
-Ce document décrit le modèle éditorial et technique de départ. Il ne constitue pas encore une base de données exhaustive ni une validation juridique ou scientifique. Les schémas JSON initiaux couvrent les entités, les relations, les sources, les affirmations et les éléments de preuve ; les campagnes, réponses et engagements restent à formaliser.
+Ce document décrit le modèle éditorial et technique de départ. Il ne constitue pas encore une base de données exhaustive ni une validation juridique ou scientifique. Les schémas JSON initiaux couvrent les entités, les relations, les sources, les affirmations, les éléments de preuve, les campagnes, les réponses et les engagements.
 
 ## 1. Principes de conception
 

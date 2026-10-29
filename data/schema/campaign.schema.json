@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IMPACT — Campagne",
+  "description": "Campagne publique décrite avec ses organisateurs, cibles, demandes et sources. Une revendication n'est pas automatiquement un fait établi.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "target_entity_ids", "demands", "campaign_status", "source_ids"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+    "title": { "type": "string", "minLength": 3, "maxLength": 300 },
+    "organizer_entity_id": { "type": ["string", "null"], "minLength": 3, "maxLength": 80 },
+    "target_entity_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "demands": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 1000 },
+      "minItems": 1
+    },
+    "started_at": { "type": ["string", "null"], "format": "date" },
+    "ended_at": { "type": ["string", "null"], "format": "date" },
+    "campaign_status": { "type": "string", "enum": ["active", "completed", "suspended", "withdrawn", "unknown"] },
+    "claim_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 },
+      "uniqueItems": true,
+      "default": []
+    },
+    "response_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 },
+      "uniqueItems": true,
+      "default": []
+    },
+    "source_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "outcome_summary": { "type": "string", "maxLength": 3000 }
+  }
+}

@@ -10,6 +10,9 @@ const source = await loadSchema("source");
 const entity = await loadSchema("entity");
 const relationship = await loadSchema("relationship");
 const evidence = await loadSchema("evidence");
+const campaign = await loadSchema("campaign");
+const response = await loadSchema("response");
+const commitment = await loadSchema("commitment");
 
 function requireFields(schema, fields, label) {
   for (const field of fields) {
@@ -31,5 +34,14 @@ requireFields(entity, ["id", "name", "entity_type", "status", "reviewed_at"], "e
 requireFields(relationship, ["id", "from_entity_id", "to_entity_id", "relationship_type", "knowledge_status", "source_ids"], "relationship");
 requireSourcedArray(relationship, "source_ids", "relationship");
 requireFields(evidence, ["id", "source_id", "locator", "summary"], "evidence");
+requireFields(campaign, ["id", "title", "target_entity_ids", "demands", "campaign_status", "source_ids"], "campaign");
+requireSourcedArray(campaign, "source_ids", "campaign");
+assert.equal(campaign.properties.target_entity_ids.minItems, 1, "Every campaign must identify at least one target");
+assert.equal(campaign.properties.demands.minItems, 1, "Every campaign must state at least one demand");
+requireFields(response, ["id", "entity_id", "related_claim_ids", "summary", "publication_status"], "response");
+assert.equal(response.properties.related_claim_ids.minItems, 1, "Every response must relate to at least one claim");
+requireFields(commitment, ["id", "entity_id", "statement", "announced_at", "status", "source_ids", "reviewed_at"], "commitment");
+requireSourcedArray(commitment, "source_ids", "commitment");
+assert.ok(commitment.allOf.some((rule) => rule.if?.properties?.status?.const === "achieved" && rule.then?.required?.includes("measurement_method") && rule.then?.required?.includes("observed_result")), "Achieved commitments must require a measurement method and observed result");
 
-console.log("All five JSON schemas and editorial invariants are valid.");
+console.log("All eight JSON schemas and editorial invariants are valid.");

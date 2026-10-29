@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IMPACT — Engagement",
+  "description": "Objectif ou promesse publique d'une entité, séparé des résultats effectivement mesurés.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "entity_id", "statement", "announced_at", "status", "source_ids", "reviewed_at"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+    "entity_id": { "type": "string", "minLength": 3, "maxLength": 80 },
+    "statement": { "type": "string", "minLength": 20, "maxLength": 2000 },
+    "announced_at": { "type": "string", "format": "date" },
+    "target_date": { "type": ["string", "null"], "format": "date" },
+    "measurement_method": { "type": "string", "maxLength": 3000 },
+    "baseline": { "type": "string", "maxLength": 1000 },
+    "target_value": { "type": "string", "maxLength": 1000 },
+    "observed_result": { "type": "string", "maxLength": 3000 },
+    "status": { "type": "string", "enum": ["announced", "in_progress", "achieved", "not_achieved", "abandoned", "unable_to_assess"] },
+    "source_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "reviewed_at": { "type": "string", "format": "date" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "achieved" } }, "required": ["status"] },
+      "then": {
+        "required": ["measurement_method", "observed_result"],
+        "properties": {
+          "measurement_method": { "type": "string", "minLength": 20 },
+          "observed_result": { "type": "string", "minLength": 20 }
+        }
+      }
+    }
+  ]
+}

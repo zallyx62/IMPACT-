@@ -55,6 +55,9 @@ Le prototype propose une interface bilingue, une recherche locale parmi les six 
 - [Schéma JSON des entités](data/schema/entity.schema.json)
 - [Schéma JSON des relations](data/schema/relationship.schema.json)
 - [Schéma JSON des éléments de preuve](data/schema/evidence.schema.json)
+- [Schéma JSON des campagnes](data/schema/campaign.schema.json)
+- [Schéma JSON des réponses](data/schema/response.schema.json)
+- [Schéma JSON des engagements](data/schema/commitment.schema.json)
 - [Instructions de développement de l'application](app/README.md)
 - [Code de l'application web](app/src/App.tsx)
 
