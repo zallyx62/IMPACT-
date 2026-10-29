@@ -1,0 +1,32 @@
+# Données éditoriales
+
+Les enregistrements réels seront ajoutés ici, séparés par type :
+
+- `entities/` : organisations, marques, produits et services ;
+- `sources/` : documents et ressources consultés ;
+- `claims/` : affirmations documentées ;
+- `evidence/` : éléments précis extraits des sources ;
+- `relationships/` : liens qualifiés entre entités ;
+- `campaigns/` : campagnes publiques ;
+- `responses/` : réponses des entités ;
+- `commitments/` : engagements et résultats mesurés.
+
+Chaque enregistrement doit être un fichier JSON contenant un seul objet, avec un identifiant stable. Son nom de fichier peut reprendre cet identifiant.
+
+## Contrôles avant intégration
+
+Depuis la racine du dépôt :
+
+```sh
+node scripts/check-schemas.mjs
+node scripts/check-data.mjs
+node --test scripts/test-data-integrity.test.mjs
+```
+
+Le contrôle des références vérifie notamment que :
+- chaque affirmation pointe vers une entité et au moins une source existantes ;
+- chaque preuve pointe vers une source existante ;
+- chaque relation pointe vers deux entités existantes et des sources ;
+- les campagnes, réponses et engagements ne contiennent pas de références cassées.
+
+Les dossiers sont actuellement vides : aucun contenu factuel n'est publié par ce simple dispositif. Toute donnée ajoutée doit être sourcée, examinée et validée selon la charte éditoriale.
