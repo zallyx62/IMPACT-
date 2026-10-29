@@ -10,8 +10,14 @@ function cssVariable(name) {
 }
 
 function selectorRule(selector) {
-  const escaped = selector.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&");
-  const match = css.match(new RegExp(`${escaped}\\s*\\{([^}]*)\\}`));
+  const patterns = {
+    ".universe-number": "\\\\.universe-number",
+    ".section-index": "\\\\.section-index",
+    ".footer-version": "\\\\.footer-version",
+    ".search-field input::placeholder": "\\\\.search-field input::placeholder",
+    ".method-copy > p:not(.section-kicker)": "\\\\.method-copy > p:not\\\\(\\\\.section-kicker\\\\)"
+  };
+  const match = css.match(new RegExp(`${patterns[selector]}\\s*\\{([^}]*)\\}`));
   assert.ok(match, `Missing CSS rule for ${selector}`);
   return match[1];
 }
