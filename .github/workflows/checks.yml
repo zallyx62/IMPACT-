@@ -46,6 +46,5 @@ jobs:
         working-directory: app
         run: npm run build
 
-      - name: Check data schemas are valid JSON
-        run: |
-          node -e "for (const file of ['data/schema/claim.schema.json', 'data/schema/source.schema.json']) { JSON.parse(require('node:fs').readFileSync(file, 'utf8')); console.log('Valid JSON:', file); }"
+      - name: Check data schemas and editorial invariants
+        run: node scripts/check-schemas.mjs
