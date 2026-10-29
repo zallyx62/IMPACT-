@@ -42,6 +42,9 @@ jobs:
         working-directory: app
         run: npm run test
 
+      - name: Test service worker offline behaviour
+        run: node scripts/test-service-worker.mjs
+
       - name: Build production app
         working-directory: app
         run: npm run build

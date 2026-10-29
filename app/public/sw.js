@@ -1,4 +1,4 @@
-const CACHE_NAME = "impact-shell-v0.1";
+const CACHE_NAME = "impact-shell-v0.2";
 const BASE_PATH = new URL("./", self.location.href).pathname;
 const SHELL_URLS = [
   BASE_PATH,
@@ -32,6 +32,28 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok && response.type === "basic") {
+            return caches.open(CACHE_NAME).then((cache) =>
+              cache.put(request, response.clone())
+                .then(() => cache.put(BASE_PATH, response.clone()))
+                .then(() => response),
+            );
+          }
+          return response;
+        })
+        .catch(async () => {
+          const cachedPage = await caches.match(request) || await caches.match(BASE_PATH);
+          if (cachedPage) return cachedPage;
+          throw new Error("Page indisponible hors ligne.");
+        }),
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       if (cachedResponse) return cachedResponse;
@@ -44,7 +66,6 @@ self.addEventListener("fetch", (event) => {
         }
         return response;
       }).catch(() => {
-        if (request.mode === "navigate") return caches.match(BASE_PATH);
         throw new Error("Ressource indisponible hors ligne.");
       });
     }),
