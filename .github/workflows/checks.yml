@@ -69,6 +69,9 @@ jobs:
       - name: Test editorial data integrity validator
         run: node --test scripts/test-data-integrity.test.mjs
 
+      - name: Test JSON Schema validation
+        run: node --test scripts/test-schema-validation.test.mjs
+
       - name: Check secondary text contrast
         run: node scripts/check-contrast.mjs
 
