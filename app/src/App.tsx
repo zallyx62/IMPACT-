@@ -50,11 +50,19 @@ const copy: Record<Language, Record<string, string>> = {
   }
 };
 
+function normalizeSearch(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/\\p{Diacritic}/gu, "")
+    .toLocaleLowerCase()
+    .trim();
+}
+
 function searchableText(item: CatalogItem): string {
-  return [
+  return normalizeSearch([
     item.title.fr, item.title.en, item.description.fr, item.description.en,
     ...item.keywords,
-  ].join(" ").toLocaleLowerCase();
+  ].join(" "));
 }
 
 function App() {
@@ -62,7 +70,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<Selection>(null);
   const t = copy[language];
-  const trimmedQuery = query.trim().toLocaleLowerCase();
+  const trimmedQuery = normalizeSearch(query);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -109,7 +117,7 @@ function App() {
       <a className="skip-link" href="#main">{t.skip}</a>
       <header className="site-header">
         <div className="header-inner">
-          <button className="brand" type="button" onClick={reset} aria-label="IMPACT — accueil">
+          <button className="brand" type="button" onClick={reset} aria-label={language === "fr" ? "IMPACT — accueil" : "IMPACT — home"}>
             <span className="brand-mark" aria-hidden="true">I</span>
             <span className="brand-copy"><strong>IMPACT</strong><span>{language === "fr" ? "Comprendre. Vérifier. Comparer. Agir." : "Understand. Verify. Compare. Act."}</span></span>
           </button>
