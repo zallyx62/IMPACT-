@@ -5,6 +5,7 @@ on:
     paths:
       - "app/**"
       - "data/schema/**"
+      - "scripts/**"
       - ".github/workflows/checks.yml"
   pull_request:
     paths:
@@ -33,6 +34,10 @@ jobs:
       - name: Install app dependencies
         working-directory: app
         run: npm ci --no-audit --no-fund
+
+      - name: Audit dependencies
+        working-directory: app
+        run: npm audit --audit-level=high
 
       - name: Check TypeScript
         working-directory: app
