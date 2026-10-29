@@ -45,6 +45,8 @@ Le prototype propose une interface bilingue, une recherche locale parmi les six 
 ## Documentation
 
 - [Architecture technique](docs/ARCHITECTURE.md)
+- [Politique de confidentialité](PRIVACY.md)
+- [Guide de contribution](CONTRIBUTING.md)
 - [Plan de réalisation de la version 0.1](docs/PLAN_V0_1.md)
 - [Modèle de données](docs/MODELE_DE_DONNEES.md)
 - [Charte éditoriale et de vérification](docs/CHARTE_EDITORIALE.md)
