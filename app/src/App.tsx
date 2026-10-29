@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { tools, universes, type CatalogItem, type Language } from "./data/catalog";
 
 type Selection = { type: "universe" | "tool"; id: string } | null;
@@ -64,6 +64,10 @@ function App() {
   const t = copy[language];
   const trimmedQuery = query.trim().toLocaleLowerCase();
 
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const foundUniverses = useMemo(
     () => trimmedQuery ? universes.filter((item) => searchableText(item).includes(trimmedQuery)) : [],
     [trimmedQuery],
@@ -107,7 +111,7 @@ function App() {
         <div className="header-inner">
           <button className="brand" type="button" onClick={reset} aria-label="IMPACT — accueil">
             <span className="brand-mark" aria-hidden="true">I</span>
-            <span className="brand-copy"><strong>IMPACT</strong><span>Comprendre. Vérifier. Agir.</span></span>
+            <span className="brand-copy"><strong>IMPACT</strong><span>{language === "fr" ? "Comprendre. Vérifier. Comparer. Agir." : "Understand. Verify. Compare. Act."}</span></span>
           </button>
           <div className="header-actions">
             <a className="text-link" href="#method">{t.method}</a>
