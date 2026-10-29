@@ -1,5 +1,4 @@
 import { readdir, readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { COLLECTIONS, validateCollections } from "./lib/data-integrity.mjs";
 
 const root = new URL("../data/records/", import.meta.url);
