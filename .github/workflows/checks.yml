@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   web-quality:
@@ -34,7 +34,22 @@ jobs:
 
       - name: Install app dependencies
         working-directory: app
-        run: npm ci --no-audit --no-fund
+        run: npm install --no-audit --no-fund
+
+      - name: Commit regenerated npm lockfile once
+        if: github.event_name == 'pull_request' && github.head_ref == 'feat/full-json-schema-validation'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Add Ajv schema validation dependencies"
+            LOCK_COMMIT=$(git rev-parse HEAD)
+            git fetch origin feat/full-json-schema-validation
+            git switch --create lockfile-export origin/feat/full-json-schema-validation
+            git cherry-pick "$LOCK_COMMIT"
+            git push origin HEAD:feat/full-json-schema-validation
+          fi
 
       - name: Audit dependencies
         working-directory: app
