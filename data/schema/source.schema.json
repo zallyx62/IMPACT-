@@ -93,7 +93,10 @@
       "if": {
         "required": [
           "url"
-        ]
+        ],
+        "properties": {
+          "url": { "type": "string" }
+        }
       },
       "then": {
         "properties": {
