@@ -72,7 +72,8 @@
         "minLength": 3,
         "maxLength": 80
       },
-      "uniqueItems": true
+      "uniqueItems": true,
+      "minItems": 1
     },
     "evidence_ids": {
       "type": "array",
