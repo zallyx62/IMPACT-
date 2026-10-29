@@ -51,6 +51,9 @@ jobs:
       - name: Test service worker offline behaviour
         run: node scripts/test-service-worker.mjs
 
+      - name: Test editorial data integrity validator
+        run: node --test scripts/test-data-integrity.test.mjs
+
       - name: Check secondary text contrast
         run: node scripts/check-contrast.mjs
 
@@ -60,3 +63,6 @@ jobs:
 
       - name: Check data schemas and editorial invariants
         run: node scripts/check-schemas.mjs
+
+      - name: Check editorial data references
+        run: node scripts/check-data.mjs
