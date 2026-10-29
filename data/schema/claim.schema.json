@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://impact.example/schema/claim.schema.json",
   "title": "IMPACT — Affirmation documentée",
   "description": "Structure d'une affirmation éditoriale vérifiable. Les identifiants et exemples sont fictifs.",
   "type": "object",
