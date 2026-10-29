@@ -14,7 +14,6 @@ export async function compileRecordValidators() {
   const validators = new Map();
 
   for (const collection of COLLECTIONS) {
-    const schemaUrl = new URL(`../../data/schema/${collection.slice(0, -1)}.schema.json`, import.meta.url);
     const schemaName = {
       entities: "entity",
       sources: "source",
