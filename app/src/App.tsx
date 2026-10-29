@@ -105,7 +105,7 @@ function App() {
         <div className="header-inner">
           <button className="brand" type="button" onClick={reset} aria-label={language === "fr" ? "IMPACT — accueil" : "IMPACT — home"}>
             <span className="brand-mark" aria-hidden="true">I</span>
-            <span className="brand-copy"><strong>IMPACT</strong><span>{language === "fr" ? "Comprendre. Vérifier. Comparer. Agir." : "Understand. Verify. Compare. Act."}</span></span>
+            <span className="brand-copy"><strong>IMPACT</strong><span>{language === "fr" ? "Comprendre. Choisir. Agir." : "Understand. Choose. Act."}</span></span>
           </button>
           <div className="header-actions">
             <a className="text-link" href="#method">{t.method}</a>
