@@ -45,6 +45,9 @@ jobs:
       - name: Test service worker offline behaviour
         run: node scripts/test-service-worker.mjs
 
+      - name: Check secondary text contrast
+        run: node scripts/check-contrast.mjs
+
       - name: Build production app
         working-directory: app
         run: npm run build
