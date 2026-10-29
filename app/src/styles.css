@@ -230,7 +230,7 @@ a { color: inherit; }
 .source-reference a { color: var(--green-deep); font-weight: 700; overflow-wrap: anywhere; }
 .source-reference > span, .source-reference small, .evidence-reference small { color: var(--muted); font-size: .74rem; line-height: 1.5; }
 .evidence-reference { margin-top: .7rem; padding: .75rem; border-radius: 10px; background: var(--paper-soft); font-size: .8rem; line-height: 1.55; }
-.evidence-reference p { margin: .35rem 0; color: var(--muted); }
+.evidence-reference p { margin: .35rem 0; color: var(--muted-strong); }
 .dossier-section ul { display: grid; gap: .55rem; padding-left: 1.2rem; color: var(--muted); font-size: .85rem; line-height: 1.6; }
 @media (max-width: 760px) {
   .dossier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
