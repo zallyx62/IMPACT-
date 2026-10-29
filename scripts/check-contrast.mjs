@@ -10,16 +10,12 @@ function cssVariable(name) {
 }
 
 function selectorRule(selector) {
-  const patterns = {
-    ".universe-number": "\\\\.universe-number",
-    ".section-index": "\\\\.section-index",
-    ".footer-version": "\\\\.footer-version",
-    ".search-field input::placeholder": "\\\\.search-field input::placeholder",
-    ".method-copy > p:not(.section-kicker)": "\\\\.method-copy > p:not\\\\(\\\\.section-kicker\\\\)"
-  };
-  const match = css.match(new RegExp(`${patterns[selector]}\\s*\\{([^}]*)\\}`));
-  assert.ok(match, `Missing CSS rule for ${selector}`);
-  return match[1];
+  const index = css.indexOf(selector);
+  assert.notEqual(index, -1, `Missing CSS selector ${selector}`);
+  const open = css.indexOf("{", index);
+  const close = css.indexOf("}", open);
+  assert.ok(open !== -1 && close !== -1, `Invalid CSS rule for ${selector}`);
+  return css.slice(open + 1, close);
 }
 
 function luminance(hex) {
