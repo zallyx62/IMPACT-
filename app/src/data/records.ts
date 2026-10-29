@@ -158,6 +158,12 @@ export function getEntityDossier(entityId: string): EntityDossier | undefined {
   const entityCommitments = commitments.filter((item) => item.entity_id === entityId);
   entityCommitments.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
 
+  const relatedClaims = claims.filter((item) => claimIds.has(item.id));
+  relatedClaims.forEach((item) => {
+    item.source_ids.forEach((id) => sourceIds.add(id));
+    (item.evidence_ids ?? []).forEach((id) => evidenceIds.add(id));
+  });
+
   const relatedEvidence = evidence.filter(
     (item) => evidenceIds.has(item.id) || item.supports_claim_ids?.some((id) => claimIds.has(id)) || item.contradicts_claim_ids?.some((id) => claimIds.has(id)),
   );
@@ -167,7 +173,7 @@ export function getEntityDossier(entityId: string): EntityDossier | undefined {
 
   return {
     entity,
-    claims: entityClaims,
+    claims: relatedClaims,
     sources: relatedSources,
     evidence: relatedEvidence,
     relationships: entityRelationships,
