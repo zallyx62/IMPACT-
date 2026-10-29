@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   web-quality:
@@ -32,7 +32,7 @@ jobs:
 
       - name: Install app dependencies
         working-directory: app
-        run: npm ci --no-audit --no-fund
+        run: npm install --no-audit --no-fund
 
       - name: Check TypeScript
         working-directory: app
