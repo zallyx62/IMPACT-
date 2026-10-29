@@ -9,8 +9,8 @@ Le projet veut aider chacun à comprendre, vérifier et comparer des information
 ## Principes
 
 - Gratuit et sans publicité.
-- Code source sous licence AGPL-3.0.
-- Aucun tracker, aucune télémétrie ni profilage.
+- Code logiciel sous licence GNU AGPL-3.0-only.
+- Aucun tracker, aucune télémétrie ni profilage côté application.
 - Pas de compte obligatoire pour consulter les contenus.
 - Fonctionnement hors ligne recherché en priorité.
 - Sources, dates, incertitudes et corrections visibles.
@@ -38,26 +38,32 @@ Le projet veut aider chacun à comprendre, vérifier et comparer des information
 
 ## État du projet
 
-**Phase : fondations et spécifications.**
+**Phase : prototype web 0.1 en construction.**
 
-Le dépôt contient actuellement les premiers documents de conception et les schémas de données. L'application n'est pas encore publiée et aucune base de données de dossiers d'entreprises n'est considérée comme vérifiée.
-
-Les prochaines étapes sont la validation du modèle de données, la définition de l'architecture de la première version web, puis la construction et les tests du prototype.
+Le prototype propose une interface bilingue, une recherche locale parmi les six univers et les outils prévus. Il ne contient pas encore de dossiers factuels vérifiés sur des entreprises, produits ou campagnes. La publication stable et le fonctionnement hors ligne restent à tester.
 
 ## Documentation
 
+- [Architecture technique](docs/ARCHITECTURE.md)
+- [Plan de réalisation de la version 0.1](docs/PLAN_V0_1.md)
 - [Modèle de données](docs/MODELE_DE_DONNEES.md)
 - [Charte éditoriale et de vérification](docs/CHARTE_EDITORIALE.md)
 - [Schéma JSON des affirmations](data/schema/claim.schema.json)
 - [Schéma JSON des sources](data/schema/source.schema.json)
+- [Instructions de développement de l'application](app/README.md)
+- [Code de l'application web](app/src/App.tsx)
+
+## Développement
+
+Consultez [app/README.md](app/README.md) pour démarrer le prototype. Le workflow GitHub Actions vérifie le typage, la compilation et la syntaxe JSON des schémas.
+
+Ces contrôles ne remplacent pas une revue humaine de l'accessibilité, de la sécurité, de la confidentialité et du contenu éditorial.
 
 ## Licence
 
-Le code logiciel est destiné à être distribué sous licence GNU AGPL-3.0. Les contenus, données et médias peuvent relever de licences différentes ; leur licence doit être indiquée séparément avant toute réutilisation.
+Le code logiciel est distribué sous licence GNU AGPL-3.0-only ; voir [LICENSE](LICENSE). Les contenus, données et médias peuvent relever de licences différentes. Leur licence doit être indiquée séparément avant toute réutilisation.
 
-## Contribution
-
-Les contributions sont les bienvenues, mais les contenus éditoriaux ne sont pas automatiquement publiés : ils doivent être examinés selon la charte éditoriale.
+Les contributions éditoriales ne sont pas automatiquement publiées : elles doivent être examinées selon la charte éditoriale.
 
 ---
 
