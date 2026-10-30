@@ -135,7 +135,8 @@
       "then": {
         "required": [
           "published_at",
-          "publication_note"
+          "publication_note",
+          "requires_human_review"
         ],
         "properties": {
           "published_at": {
@@ -146,6 +147,9 @@
             "type": "string",
             "minLength": 20,
             "maxLength": 2000
+          },
+          "requires_human_review": {
+            "const": false
           }
         }
       }
