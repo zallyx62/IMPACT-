@@ -245,4 +245,5 @@ a { color: inherit; }
 /* Keep dossier cards on the dark surface after their base component styles. */
 @media (prefers-color-scheme: dark) {
   .dossier-card, .claim-card { background: var(--paper); }
+  .claim-uncertainty { background: #342f21; color: #e5d9b8; }
 }
