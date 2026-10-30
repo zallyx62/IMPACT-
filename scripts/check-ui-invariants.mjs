@@ -33,6 +33,8 @@ assert.match(app, /meta\[name="description"\]/);
 assert.match(css, /@media \(max-width: 760px\)/);
 assert.match(css, /@media \(max-width: 390px\)/);
 assert.match(css, /\.method-grid \{ grid-template-columns: 1fr;/, "editorial method cards must stack on mobile");
+assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.dossier-grid \{ grid-template-columns: repeat\(2, minmax\(0, 1fr\)\); \}/, "dossier cards must use two columns on tablet and narrow mobile screens");
+assert.match(css, /@media \(max-width: 430px\)[\s\S]*?\.dossier-grid \{ grid-template-columns: 1fr; \}/, "dossier cards must stack on compact phones");
 assert.equal((css.match(/prefers-reduced-motion:\s*reduce/g) ?? []).length, 1,
   "reduced-motion rules should be centralized to avoid conflicting duplicates");
 
