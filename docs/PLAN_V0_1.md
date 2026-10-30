@@ -15,7 +15,7 @@
 - Chargement des données éditoriales JSON versionnées et filtrage des éléments non examinés.
 - Validation des huit types d'enregistrements et de leurs références croisées.
 - Audit npm et vérification automatisée du paquet PWA.
-- Contrôle de typage, tests unitaires, tests simulés du service worker, validation des schémas et build dans GitHub Actions.
+- Contrôle de typage, tests unitaires, tests simulés du service worker, contrôle des contrastes en thèmes clair et sombre, invariants d'interface, validation des schémas et build dans GitHub Actions.
 
 ## Hors périmètre de la version 0.1
 
@@ -47,6 +47,7 @@
 - Le navigateur n'envoie ni recherche, ni préférence à un serveur.
 - L'application n'inclut pas de publicités, suivi analytique, compte ni IA générative.
 - Le service worker passe les tests automatisés simulés.
+- Les contrôles statiques de focus clavier, breakpoints mobiles, réduction des animations et contraste des thèmes clair/sombre réussissent.
 - Le service worker et l'utilisation hors ligne sont testés manuellement sur de vrais navigateurs et appareils avant déploiement.
 
 ## Ordre de travail
