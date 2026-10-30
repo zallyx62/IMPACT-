@@ -24,6 +24,11 @@ Pour chaque session, noter :
 - [ ] La recherche trouve les univers et les outils.
 - [ ] La recherche vide ou sans résultat reste compréhensible.
 - [ ] Le bouton de changement de langue modifie l'interface et la langue du document.
+- [ ] L’anglais est la langue affichée lors d’une première visite.
+- [ ] Le sélecteur de thème permet de passer du mode clair au mode sombre et inversement.
+- [ ] Le fond de page, les cartes, les panneaux, les champs et les fiches changent réellement de thème.
+- [ ] Le choix du thème reste appliqué après rechargement et n’est stocké que localement sur l’appareil.
+- [ ] Le mode sombre reste lisible avec le contraste, le focus clavier et les lecteurs d’écran.
 - [ ] Les liens externes s'ouvrent correctement.
 - [ ] Aucun texte n'est coupé à 320 px, 360 px, 390 px et sur tablette.
 - [ ] Le défilement horizontal involontaire est absent.

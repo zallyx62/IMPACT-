@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 20 sources sont `to_review`, et les 20 affirmations sont `not_reviewed` avec `reviewed_at: null`. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 20 sources sont `to_review`, les 20 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 22 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -110,7 +110,7 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 Ne publier le dossier qu'après :
 
 1. examen humain des 20 sources ;
-2. examen humain des 20 affirmations et de leurs 21 éléments de preuve ;
+2. examen humain des 20 affirmations et de leurs 22 éléments de preuve ;
 3. vérification des réponses de Nestlé ;
 4. correction de toute formulation trop large ou ambiguë ;
 5. mise à jour cohérente des statuts, dates de revue et références ;
