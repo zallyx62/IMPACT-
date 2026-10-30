@@ -124,6 +124,20 @@ function App() {
   }, [language]);
 
   useEffect(() => {
+    const handlePopState = () => {
+      const match = /^#(universe|tool|entity)\/(.+)$/.exec(window.location.hash);
+      if (match) {
+        setSelection({ type: match[1] as "universe" | "tool" | "entity", id: decodeURIComponent(match[2]) });
+      } else {
+        setSelection(null);
+      }
+      setQuery("");
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  useEffect(() => {
     document.documentElement.dataset.theme = theme;
     document.documentElement.dataset.accent = accent;
     document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute(
@@ -158,11 +172,17 @@ function App() {
   const selectedDossier = selection?.type === "entity" ? getEntityDossier(selection.id) : undefined;
 
   function open(type: "universe" | "tool" | "entity", id: string) {
+    window.history.pushState({ impactSelection: { type, id } }, "", `#${type}/${encodeURIComponent(id)}`);
     setSelection({ type, id });
     setQuery("");
   }
 
   function reset() {
+    if (selection && window.location.hash) {
+      window.history.back();
+      setQuery("");
+      return;
+    }
     setSelection(null);
     setQuery("");
   }
@@ -257,7 +277,7 @@ function App() {
             <div className="search-field">
               <span className="search-symbol" aria-hidden="true">⌕</span>
               <input id="global-search" type="search" value={query}
-                onChange={(event) => { setQuery(event.currentTarget.value); setSelection(null); }}
+                onChange={(event) => { window.history.replaceState(null, "", window.location.pathname + window.location.search); setQuery(event.currentTarget.value); setSelection(null); }}
                 placeholder={t.placeholder} autoComplete="off" spellCheck={false} />
               {query && <button className="clear-button" type="button" onClick={() => setQuery("")}>{t.clear}</button>}
             </div>
