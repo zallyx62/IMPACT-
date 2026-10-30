@@ -7,6 +7,7 @@ import EvidenceCentre from "./EvidenceCentre";
 import ActorMap from "./ActorMap";
 import CommitmentTracker from "./CommitmentTracker";
 import CitizenContribution from "./CitizenContribution";
+import UniverseExplorer from "./UniverseExplorer";
 import { getComparisonMetrics } from "./data/comparison-metrics";
 import { parseSelectionHash, type Selection } from "./data/hash-route";
 type Theme = "light" | "dark";
@@ -377,7 +378,9 @@ function App() {
               <div><p className="section-kicker">{t.selected}</p><h2 id="selected-title">{chosen.title[language]}</h2></div>
             </div>
             <p className="selected-description">{chosen.detail[language]}</p>
-            {chosen.type === "tool" && chosen.id === "evidence" ? (
+            {chosen.type === "universe" ? (
+              <UniverseExplorer universeId={chosen.id} entities={publishedEntities} onOpen={(id) => open("entity", id)} />
+            ) : chosen.type === "tool" && chosen.id === "evidence" ? (
               <EvidenceCentre entities={publishedEntities} />
             ) : chosen.type === "tool" && chosen.id === "compare" ? (
               <ComparisonTool entities={publishedEntities} leftId={comparisonLeftId} rightId={comparisonRightId}
