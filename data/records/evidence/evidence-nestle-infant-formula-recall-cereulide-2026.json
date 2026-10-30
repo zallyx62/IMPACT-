@@ -2,9 +2,9 @@
   "id": "evidence-nestle-infant-formula-recall-cereulide-2026",
   "source_id": "source-fr-health-ministry-infant-formula-recall-2026",
   "locator": "Communiqué ministériel du 22 janvier 2026, paragraphes sur l'origine de la contamination et l'absence de lien causal établi",
-  "summary": "Les autorités indiquent que les investigations ont identifié comme source de contamination une huile riche en acide arachidonique produite par un fournisseur chinois. Elles précisent que Nestlé avait engagé des retraits-rappels de lots de laits infantiles après la détection de céréulide et qu'aucun lien causal n'était établi à cette date entre les produits rappelés et les symptômes rapportés.",
+  "summary": "Le communiqué interministériel du 22 janvier 2026 indique que les autocontrôles de Nestlé ont détecté de la céréulide dans un lot non commercialisé, puis que les investigations ont identifié une huile riche en acide arachidonique d'un fournisseur chinois comme source de contamination et conduit au rappel de lots Nestlé. À cette date, aucun lien causal n'avait été mis en évidence entre la consommation des laits concernés et les symptômes rapportés.",
   "supports_claim_ids": [
     "claim-nestle-infant-formula-recall-cereulide-2026"
   ],
-  "limitations": "Le communiqué ne permet pas de conclure à un dommage sanitaire causé par les produits rappelés. Il décrit la situation au 22 janvier 2026."
+  "limitations": "Le communiqué du 22 janvier décrit l'état des connaissances à cette date. Le suivi ministériel mis à jour le 16 avril 2026 rapporte des décès et hospitalisations dans le cadre de l'alerte multi-marques, sans imputabilité scientifique établie pour les décès. Ces données générales ne doivent pas être attribuées à Nestlé."
 }
