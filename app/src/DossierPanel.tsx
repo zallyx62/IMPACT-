@@ -16,7 +16,7 @@ const labels = {
     noClaims: "Aucune affirmation publiée dans ce dossier.",
     status: "État de l’examen",
     uncertainty: "Limites et incertitudes",
-    sources: "Sources",
+    sources: "Sources", entitySources: "Sources de l’entité",
     noSource: "Aucune source associée.",
     evidence: "Éléments de preuve",
     relationships: "Relations documentées",
@@ -43,7 +43,7 @@ const labels = {
     noClaims: "No claims have been published in this dossier.",
     status: "Review status",
     uncertainty: "Limitations and uncertainty",
-    sources: "Sources",
+    sources: "Sources", entitySources: "Entity sources",
     noSource: "No sources are associated.",
     evidence: "Evidence",
     relationships: "Documented relationships",
@@ -77,6 +77,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
   const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
   const entityWebsite = safeExternalUrl(dossier.entity.website);
+  const entitySources = dossier.sources.filter((source) => dossier.entity.source_ids.includes(source.id));
   const sourceReference = (sourceId: string) => {
     const source = sourceById.get(sourceId);
     if (!source) return <span key={sourceId}>{sourceId}</span>;
@@ -101,6 +102,28 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
           <a href={entityWebsite} target="_blank" rel="noopener noreferrer">{entityWebsite}</a>
         )}
       </header>
+
+      {entitySources.length > 0 && (
+        <section className="dossier-section" aria-labelledby="entity-sources-heading">
+          <h3 id="entity-sources-heading">{t.entitySources}</h3>
+          <div className="claim-sources">
+            {entitySources.map((source) => {
+              const href = safeExternalUrl(source.url);
+              return (
+                <div className="source-reference" key={source.id}>
+                  {href
+                    ? <a href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
+                    : <strong>{source.title}</strong>}
+                  <span>{source.publisher} · {t.sourceAccessed} {dateLabel(source.accessed_at, language)}</span>
+                  {source.limitations && <small>{source.limitations}</small>}
+                  {source.source_license && <small>{t.sourceLicense} : {source.source_license}</small>}
+                  {source.rights_note && <small>{t.sourceRights} : {source.rights_note}</small>}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <section className="dossier-section" aria-labelledby="claims-heading">
         <h3 id="claims-heading">{t.claims}</h3>
