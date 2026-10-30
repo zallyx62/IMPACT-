@@ -139,6 +139,7 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-bms-marketing-atni-2024",
       "claim-nestle-bms-policy-gaps",
       "claim-nestle-baby-food-added-sugar",
+      "claim-nestle-baby-food-microplastics-2026",
       "claim-nestle-cocoa-cameroon-child-labor",
       "claim-nestle-cocoa-cameroon-forced-labor-risk",
       "claim-nestle-bms-marketing-company-count-2024",
