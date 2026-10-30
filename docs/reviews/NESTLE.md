@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 27 sources sont `to_review`, les 25 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 28 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 28 sources sont `to_review`, les 25 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 28 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -60,7 +60,7 @@ Affirmation à examiner :
 - `claim-nestle-infant-formula-recall-cereulide-2026` — rappel préventif de certains lots Guigoz et Nidal après identification de céréulide potentiellement liée à un ingrédient fournisseur.
 - `claim-nestle-infant-formula-notification-timeline-dispute-2026` — allégations de retards de notification formulées par Radio France, RTS et RTBF, et réponse de Nestlé sur la chronologie des rappels.
 
-Sources à lire ensemble : le communiqué des ministères du 22 janvier 2026 et le communiqué de Nestlé du 5 janvier 2026. Le communiqué gouvernemental indique qu'aucun lien causal n'était établi à cette date entre les produits rappelés et les symptômes rapportés. Ne pas suggérer qu'un décès ou une maladie a été causé par les produits. Le dossier de rappel doit être mis à jour à partir de RappelConso avant toute information pratique.
+Sources à lire ensemble : les communiqués des ministères du 22 janvier 2026 et le suivi sanitaire mis à jour le 16 avril 2026, ainsi que le communiqué de Nestlé du 5 janvier 2026. Le communiqué interministériel du 22 janvier 2026 indique qu'aucun lien causal n'était établi à cette date entre les produits rappelés et les symptômes rapportés. La page officielle de suivi, publiée le 29 janvier et mise à jour le 16 avril 2026, rapporte trois décès de nourrissons pour lesquels la consommation de laits concernés par les rappels a été signalée, sans imputabilité scientifique établie, ainsi que des hospitalisations rapportées dans le cadre de l'alerte multi-marques. Ces chiffres ne sont pas attribuables à Nestlé en particulier. Ne pas suggérer qu'un décès ou une maladie a été causé par les produits Nestlé. Le dossier de rappel doit être mis à jour à partir de RappelConso avant toute information pratique.
 
 La chronologie des notifications est contestée : des médias d'investigation ont allégué des retards et des retraits discrets dans certains pays ; Nestlé nie ces allégations et affirme avoir notifié les autorités le 10 décembre 2025 et lancé un rappel volontaire de 25 lots dans 16 pays européens. Lire les deux versions côte à côte et ne pas présenter le différend comme tranché par un tribunal.
 
@@ -122,7 +122,8 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `source-nestle-infant-formula-timeline-2026` — chronologie publiée par Nestlé le 29 janvier 2026, à confronter aux enquêtes journalistiques.
 - `source-reuters-nestle-cereulide-notification-2026` — compte rendu des allégations de Radio France, RTS et RTBF sur les délais de notification.
 - `source-reuters-nestle-perrier-raids-2026` — compte rendu des perquisitions à Vergèze et dans les Vosges en mai 2026.
-- `source-fr-health-ministry-infant-formula-recall-2026` — point de situation des autorités françaises.
+- `source-fr-health-ministry-infant-formula-recall-2026` — point de situation des autorités françaises du 22 janvier 2026.
+- `source-fr-health-ministry-infant-formula-update-2026` — suivi sanitaire officiel mis à jour le 16 avril 2026 ; données multi-marques, sans imputabilité scientifique établie pour les décès signalés.
 
 ## Conditions de publication
 
