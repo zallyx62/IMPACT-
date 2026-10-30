@@ -5,6 +5,8 @@ on:
     paths:
       - "app/**"
       - "android/**"
+      - "data/**"
+      - "scripts/generate-public-records.mjs"
       - "scripts/test-android-wrapper.mjs"
       - ".github/workflows/android.yml"
   pull_request:
