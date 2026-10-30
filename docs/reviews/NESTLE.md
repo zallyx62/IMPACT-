@@ -2,7 +2,7 @@
 
 **État actuel : brouillon non publiable.** L'entité est `review_needed`, les 25 sources sont `to_review`, les 21 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 26 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
-Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
+Ce document sert de registre de contrôle des preuves et des limites. Il distingue les éléments déjà publiés selon les critères documentaires de la charte des éléments encore en attente d'examen.
 
 ## Règles de validation
 
@@ -112,13 +112,25 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 ## Conditions de publication
 
-Ne publier le dossier qu'après :
+### Déjà publié selon les critères documentaires
 
-1. examen humain des 25 sources ;
-2. examen humain des 21 affirmations et de leurs 26 éléments de preuve ;
-3. vérification des réponses de Nestlé et de Gerber, en les attribuant clairement aux entreprises ;
-4. correction de toute formulation trop large ou ambiguë ;
-5. mise à jour cohérente des statuts, dates de revue et références ;
-6. nouvelle exécution complète des contrôles automatisés.
+- `source-greenpeace-baby-food-plastic-pouches-2026` — rapport primaire consulté ; méthode, commanditaire, taille d'échantillon et limites consignés. Publication fondée sur l'examen du document primaire, sans prétendre à une réplication indépendante.
+- `claim-nestle-baby-food-plastic-pouches-2025` — formulation limitée à ce que le rapport rapporte sur trois sachets d'un seul produit Gerber. La publication ne démontre ni migration depuis l'emballage, ni risque ou dommage sanitaire, ni représentativité pour toute la gamme.
+
+Ces deux enregistrements portent `publication_basis: evidence_verified`, une date et une note de publication. Ils ne portent pas de date de validation humaine.
+
+### Toujours non publiés
+
+Les 24 autres sources, les 20 autres affirmations, ainsi que les éléments de preuve et réponses associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain n'a pas été effectué. Les réponses de Nestlé et Gerber ne sont pas présentées comme examinées simplement parce qu'elles figurent dans le corpus de travail.
+
+Avant d'élargir le dossier :
+
+1. ouvrir les documents primaires et vérifier les passages cités ;
+2. confirmer le pays, le produit, les dates, les méthodes et les échantillons ;
+3. confronter les sources indépendantes lorsque la nature de l'affirmation l'exige ;
+4. consigner les limites, conflits d'intérêts et réponses des entreprises ;
+5. utiliser `evidence_verified` uniquement avec une méthode, une date et une note explicites ;
+6. réserver l'examen humain aux cas sensibles, aux accusations graves, aux preuves contradictoires non résolues ou aux risques de préjudice important ;
+7. relancer les contrôles automatisés après chaque modification.
 
 Le dossier doit informer et permettre au lecteur de se faire sa propre opinion ; il ne doit pas présenter un appel au boycott comme un fait.
