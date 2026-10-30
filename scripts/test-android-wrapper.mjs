@@ -25,6 +25,6 @@ assert.ok(activity.includes("setDomStorageEnabled(true)"), "the local theme pref
 assert.ok(gradle.includes('applicationId = "org.zallyx62.impact"'));
 assert.ok(gradle.includes('androidx.webkit:webkit:1.18.0'));
 assert.ok(buildScript.includes("npm ci") && buildScript.includes("npm run build"));
-assert.ok(buildScript.includes("app/dist") && buildScript.includes("assets/impact"));
+assert.ok(buildScript.includes("app/dist") && buildScript.includes("src/main/assets"));
 
 console.log("Android wrapper invariants passed: local assets, minimal permissions, restricted WebView and local-only theme storage.");
