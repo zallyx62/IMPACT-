@@ -239,6 +239,35 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         )}
       </header>
 
+      <section className="dossier-watchlist" aria-label={language === "fr" ? "Suivi local du dossier" : "Local dossier watchlist"}>
+        <div>
+          <strong>{language === "fr" ? "Suivi personnel" : "Personal watchlist"}</strong>
+          <p>{language === "fr" ? "Enregistré uniquement dans le stockage local de cet appareil. Aucun compte ni notification en arrière-plan." : "Saved only in this device's local storage. No account or background notifications."}</p>
+        </div>
+        <button type="button" onClick={toggleWatchlist} disabled={!watchlistAvailable}>
+          {isWatched ? t.unfollow : t.follow}
+        </button>
+        {hasNewActivity && (
+          <div className="watchlist-new" role="status">
+            <p>{t.newActivity}</p>
+            <button type="button" onClick={markActivitySeen}>{t.markSeen}</button>
+          </div>
+        )}
+        {!latestActivityDate && <small>{t.noActivityDate}</small>}
+        {watchlistMessage && <small role="alert">{watchlistMessage}</small>}
+        {!watchlistAvailable && <small role="status">{t.watchUnavailable}</small>}
+      </section>
+
+      <section className="dossier-action-guide" aria-labelledby="dossier-action-guide-title">
+        <h3 id="dossier-action-guide-title">{t.actionGuide}</h3>
+        <ol>
+          <li>{t.actionOne}</li>
+          <li>{t.actionTwo}</li>
+          <li>{t.actionThree}</li>
+          <li>{t.actionFour}</li>
+        </ol>
+      </section>
+
       {entitySources.length > 0 && (
         <section className="dossier-section" aria-labelledby="entity-sources-heading">
           <h3 id="entity-sources-heading">{t.entitySources}</h3>
