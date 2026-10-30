@@ -8,9 +8,12 @@
     "source-greenpeace-baby-food-plastic-pouches-2026"
   ],
   "evidence_ids": [
-    "evidence-nestle-baby-food-plastic-pouches-2025"
+    "evidence-nestle-baby-food-plastic-pouches-2025",
+    "evidence-fda-microplastics-health-uncertainty-2026",
+    "evidence-efsa-food-contact-microplastics-2025",
+    "evidence-efsa-microplastics-risk-status-2026"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "L'étude porte sur trois sachets d'un seul produit Nestlé, et non sur l'ensemble des produits Gerber ou Nestlé. L'identification du polyéthylène dans les aliments est qualifiée de tentative et ne prouve pas à elle seule une migration depuis l'emballage. La méthode détectait les particules de plus de 20 μm. L'étude n'établit pas d'effet sanitaire chez les enfants.",
-  "editorial_note": "Conserver la taille très réduite de l'échantillon, le caractère commandité de l'étude et les limites analytiques dans tout résumé. Ne pas transformer un risque d'exposition potentiel en dommage sanitaire démontré."
+  "uncertainty_note": "L'étude porte sur trois sachets d'un seul produit Nestlé fabriqués aux États-Unis, et non sur l'ensemble des produits Gerber ou Nestlé. L'identification du polyéthylène dans les aliments est qualifiée de tentative et ne prouve pas à elle seule une migration depuis l'emballage ; d'autres sources de contamination sont possibles. La méthode détectait les particules de plus de 20 μm. L'étude n'établit pas d'effet sanitaire chez les enfants. La FDA indique, dans sa synthèse générale, que les données actuelles ne démontrent pas que les niveaux de microplastiques détectés dans les aliments présentent un risque pour la santé humaine et qu'il n'existe pas de preuves suffisantes établissant une migration depuis les emballages alimentaires ; cette position n'est pas une évaluation du produit Gerber testé. La revue de littérature de l'EFSA publiée en 2025 relève des éléments de libération de microplastiques par certains matériaux au contact des aliments, mais à des niveaux réels bien inférieurs à ceux rapportés dans de nombreuses publications et sans données suffisantes pour estimer l'exposition. En octobre 2026, l'EFSA indique ne pas avoir achevé son évaluation complète des risques et prévoit son avis scientifique pour fin 2027. Ces éléments généraux ne prouvent ni n'excluent une migration depuis les sachets précis étudiés.",
+  "editorial_note": "Conserver la taille très réduite de l'échantillon, le caractère commandité de l'étude et les limites analytiques dans tout résumé. Présenter les positions générales de la FDA et de l'EFSA comme contexte scientifique, sans les faire passer pour une analyse des sachets Gerber testés. Ne pas transformer un risque d'exposition potentiel en dommage sanitaire démontré."
 }
