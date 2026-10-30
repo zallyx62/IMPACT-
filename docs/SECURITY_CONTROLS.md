@@ -22,7 +22,7 @@
 Dans **Settings → Branches**, protéger `main` avec les règles suivantes :
 - interdire la suppression de la branche et les force-push ;
 - demander une Pull Request pour intégrer les changements ;
-- exiger les contrôles `CodeQL security analysis` et `IMPACT checks` lorsqu'ils sont exécutés pour les fichiers concernés ;
+- exiger les contrôles `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions` (CodeQL). Le workflow `IMPACT checks` a été ajusté pour s'exécuter sur toutes les Pull Requests vers `main`, y compris les modifications de documentation ;
 - ne pas exiger d'approbation humaine obligatoire tant qu'il n'existe pas de second mainteneur disponible, afin de ne pas bloquer le propriétaire seul.
 
 Dans **Settings → Advanced Security**, vérifier et activer si disponibles :
