@@ -22,7 +22,7 @@ Le projet ne contient pas encore de Gradle Wrapper ; la CI installe explicitemen
 - Les ressources locales sont servies avec AndroidX `WebViewAssetLoader`, sous une origine HTTPS locale ; aucun chargement depuis `file://`.
 - L'accès WebView aux fichiers et aux fournisseurs de contenu est désactivé.
 - Les liens HTTP/HTTPS ne sont pas ouverts dans la WebView : une action explicite les transmet au navigateur du système.
-- Le stockage DOM est activé uniquement pour la préférence de thème clair/sombre, conservée localement par la WebView.
+- Le stockage DOM est activé uniquement pour les préférences d'apparence (thème clair/sombre et couleur d'accent), conservées localement par la WebView.
 - Aucun compte, tracker, publicité, télémétrie ni API applicative distante n'est intégré.
 
 La documentation Android recommande `WebViewAssetLoader` plutôt que les URL `file://`, et déconseille d'activer les accès fichier depuis une WebView. Ces précautions sont appliquées ici.
