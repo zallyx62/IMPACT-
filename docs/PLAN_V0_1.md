@@ -4,7 +4,7 @@
 
 ## Périmètre inclus
 
-- Accueil responsive en français par défaut et en anglais, avec sélecteur de langue explicite.
+- Accueil responsive en anglais par défaut et en français, avec sélecteur de langue explicite et modes d’affichage clair et sombre.
 - Architecture de localisation extensible ; espagnol, allemand et autres langues ajoutés après traduction humaine.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
@@ -43,7 +43,8 @@
 - `npm run build` réussit.
 - Les six univers s'affichent et sont sélectionnables.
 - La recherche filtre les titres, descriptions et mots-clés locaux des univers, outils et dossiers publiés.
-- Le sélecteur permet de choisir français ou anglais ; le français est sélectionné par défaut.
+- Le sélecteur permet de choisir français ou anglais ; l’anglais est sélectionné par défaut.
+- Le sélecteur permet de choisir le thème clair ou sombre ; le thème choisi est conservé uniquement sur l’appareil.
 - Les contenus éditoriaux ne sont affichés en anglais que lorsqu'une traduction humaine est disponible ; la langue originale des sources reste indiquée.
 - Les langues futures peuvent être ajoutées sans réécrire l'architecture.
 - Les fonctions encore indisponibles sont clairement signalées.
