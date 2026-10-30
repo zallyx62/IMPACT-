@@ -34,7 +34,7 @@ describe("searchableText", () => {
 describe("searchableEntityText", () => {
   const entity = { name: "Example Group", entity_type: "organization", description: "A published entity." };
   const dossier = {
-    claims: [{ statement: "Uses a documented supply-chain standard.", topic: "human_rights", uncertainty_note: "Coverage remains incomplete." }],
+    claims: [{ statement: "Uses a documented supply-chain standard.", topic: "human_rights", claim_status: "confirmed", uncertainty_note: "Coverage remains incomplete." }],
     sources: [{ title: "Supply chain report", publisher: "Independent Institute" }],
     evidence: [{ summary: "The report describes supplier audits.", locator: "Page 12" }],
     campaigns: [{ title: "Transparency campaign", demands: ["Publish supplier information"], outcome_summary: "A public response was issued." }],
@@ -50,6 +50,7 @@ describe("searchableEntityText", () => {
     assert.ok(matchesSearch(text, "transparency campaign"));
     assert.ok(matchesSearch(text, "supplier information"));
     assert.ok(matchesSearch(text, "droits humains"), "French topic names must match internal topic identifiers");
+    assert.ok(matchesSearch(text, "confirmee"), "French claim status labels must match internal status identifiers");
   });
 
   it("indexes published responses, commitments and relationships", () => {
