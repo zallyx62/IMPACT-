@@ -60,7 +60,18 @@ Pour chaque session, noter :
 
 **Limite connue :** les sources externes ne sont pas garanties hors ligne. L'application doit rester claire lorsque ces liens ne sont pas accessibles.
 
-## 5. Confidentialité et réseau
+## 5. Android natif
+
+- [ ] Installer le debug APK sur un appareil réel.
+- [ ] Vérifier que l'application démarre sans connexion après installation.
+- [ ] Tester le bouton Retour Android depuis un dossier et depuis l'accueil.
+- [ ] Vérifier que les liens externes s'ouvrent dans le navigateur système, jamais dans la WebView.
+- [ ] Confirmer qu'aucune permission inutile n'est demandée.
+- [ ] Vérifier que le mode clair/sombre choisi est conservé après fermeture forcée et relancement.
+- [ ] Vérifier TalkBack, clavier, rotation, petits écrans et mode avion.
+- [ ] Contrôler que l'application ne tente pas de charger de ressources distantes.
+
+## 6. Confidentialité et réseau
 
 Avec les outils réseau du navigateur, si disponibles :
 
@@ -73,7 +84,7 @@ Avec les outils réseau du navigateur, si disponibles :
 
 Les journaux techniques de l'hébergeur peuvent exister indépendamment du code de l'application ; ce point doit être évalué lors du choix de l'hébergement.
 
-## 6. Anomalies
+## 7. Anomalies
 
 Pour chaque anomalie, consigner :
 
@@ -84,7 +95,7 @@ Pour chaque anomalie, consigner :
 - Capture ou vidéo, si possible :
 - Gravité : bloquante / majeure / mineure
 
-## 7. Décision avant publication
+## 8. Décision avant publication
 
 La publication doit rester bloquée tant que :
 
