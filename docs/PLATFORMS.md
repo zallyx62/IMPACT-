@@ -33,7 +33,7 @@ Le workflow construit l'application, exécute les contrôles essentiels, puis pu
 
 Le réglage Pages est déjà activé dans les paramètres du dépôt. Le workflow ne déploie que depuis `main`.
 
-Le manifeste PWA fournit des icônes PNG de 192 × 192 et 512 × 512 pixels pour les navigateurs Chromium, ainsi qu'une icône Apple Touch de 180 × 180 pixels. Elles sont générées depuis la même icône vectorielle pour conserver la direction artistique ; la CI vérifie leur présence, leurs dimensions et leur déclaration. L'installation réelle et l'affichage de l'invite doivent encore être testés sur des appareils Android et iOS physiques.
+Le manifeste PWA fournit des icônes PNG de 192 × 192 et 512 × 512 pixels pour les navigateurs Chromium, ainsi qu'une icône Apple Touch de 180 × 180 pixels. Elles sont générées depuis les sources PNG versionnées dans `assets/pwa-icons/` pour conserver la direction artistique ; le build et la CI vérifient leur présence, leur signature PNG, leurs dimensions et leur déclaration. Le contrôle PWA a réussi sur `main` le 30 octobre 2026. L'installation réelle et l'affichage de l'invite doivent encore être testés sur des appareils Android et iOS physiques.
 
 ### Ajouter IMPACT à l'écran d'accueil
 
@@ -45,7 +45,7 @@ L'ajout à l'écran d'accueil ne transforme pas la version Web en application na
 
 ## Android — APK
 
-Le workflow [IMPACT Android build](https://github.com/zallyx62/IMPACT-/actions/workflows/android.yml) construit les APK debug et release. Une compilation debug/release a réussi le 30 octobre 2026 ; [récupérer l'APK debug de test dans l'exécution](https://github.com/zallyx62/IMPACT-/actions/runs/41043170926). L'APK debug peut être conservé temporairement comme artefact de test dans une exécution réussie du workflow ; les artefacts de CI ne sont pas des versions officielles et peuvent expirer.
+Le workflow [IMPACT Android build](https://github.com/zallyx62/IMPACT-/actions/workflows/android.yml) construit les APK debug et release. Une compilation debug/release a réussi le 30 octobre 2026 sur `main` (commit `94417b1`) ; [récupérer l'APK debug de test dans l'exécution](https://github.com/zallyx62/IMPACT-/actions/runs/41043170926). L'artefact expire le 6 novembre 2026 ; il faudra relancer le workflow pour obtenir un nouvel APK après expiration. L'APK debug peut être conservé temporairement comme artefact de test dans une exécution réussie du workflow ; les artefacts de CI ne sont pas des versions officielles et peuvent expirer.
 
 La release actuelle est non signée. Elle ne doit pas être présentée comme un téléchargement prêt à installer.
 
