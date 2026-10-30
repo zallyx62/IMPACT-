@@ -6,14 +6,25 @@ import DossierPanel from "./DossierPanel";
 
 type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
 type Theme = "light" | "dark";
+type Accent = "green" | "blue" | "violet" | "orange" | "rose";
 
 function getInitialTheme(): Theme {
   try {
-    return window.localStorage.getItem("impact-theme") === "dark" ? "dark" : "light";
+    return window.localStorage.getItem("impact-theme") === "light" ? "light" : "dark";
   } catch {
     return "light";
   }
 }
+
+function getInitialAccent(): Accent {
+  try {
+    const saved = window.localStorage.getItem("impact-accent");
+    return saved === "blue" || saved === "violet" || saved === "orange" || saved === "rose" ? saved : "green";
+  } catch {
+    return "green";
+  }
+}
+
 const entityTypeLabels: Record<Language, Record<string, string>> = {
   fr: {
     organization: "Organisation",
@@ -42,7 +53,7 @@ function entityTypeLabel(value: string, language: Language): string {
 
 const copy: Record<Language, Record<string, string>> = {
   fr: {
-    skip: "Aller au contenu", method: "Notre méthode", switchLanguage: "Passer en anglais", themeLabel: "Thème", lightMode: "Clair", darkMode: "Sombre",
+    skip: "Aller au contenu", method: "Notre méthode", switchLanguage: "Passer en anglais", themeLabel: "Apparence", lightMode: "Clair", darkMode: "Sombre", accentLabel: "Couleur", accentGreen: "Vert", accentBlue: "Bleu", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Paramètres",
     kicker: "PROJET LIBRE · PREMIER PROTOTYPE",
     title: "Comprendre ce qui se cache derrière nos choix.",
     subtitle: "Des informations sourcées, des incertitudes visibles et des pistes d’action — sans décider à votre place.",
@@ -64,7 +75,7 @@ const copy: Record<Language, Record<string, string>> = {
     localSearch: "RECHERCHE LOCALE", dossiers: "Dossiers documentés", dossiersText: "Fiches d’entités publiées après vérification humaine.", noDossiers: "Aucun dossier vérifié n’est encore publié. Les fiches apparaîtront ici après examen des sources et validation éditoriale."
   },
   en: {
-    skip: "Skip to content", method: "Our method", switchLanguage: "Switch to French", themeLabel: "Theme", lightMode: "Light", darkMode: "Dark",
+    skip: "Skip to content", method: "Our method", switchLanguage: "Switch to French", themeLabel: "Appearance", lightMode: "Light", darkMode: "Dark", accentLabel: "Accent colour", accentGreen: "Green", accentBlue: "Blue", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Settings",
     kicker: "OPEN PROJECT · FIRST PROTOTYPE",
     title: "Understand what sits behind our choices.",
     subtitle: "Sourced information, visible uncertainty and ways to act — without making decisions for you.",
@@ -90,6 +101,7 @@ const copy: Record<Language, Record<string, string>> = {
 function App() {
   const [language, setLanguage] = useState<Language>("en");
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [accent, setAccent] = useState<Accent>(getInitialAccent);
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<Selection>(null);
   const t = copy[language];
@@ -110,16 +122,18 @@ function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.accent = accent;
     document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute(
       "content",
       theme === "dark" ? "#111b16" : "#12664f",
     );
     try {
       window.localStorage.setItem("impact-theme", theme);
+      window.localStorage.setItem("impact-accent", accent);
     } catch {
       // The selected theme still applies for this session when storage is unavailable.
     }
-  }, [theme]);
+  }, [theme, accent]);
 
   const foundUniverses = useMemo(
     () => trimmedQuery ? universes.filter((item) => matchesSearch(searchableText(item), trimmedQuery)) : [],
@@ -187,15 +201,34 @@ function App() {
           </button>
           <div className="header-actions">
             <a className="text-link" href="#method">{t.method}</a>
-            <label className="language-control" htmlFor="theme-select">
-              <span className="language-label">{t.themeLabel}</span>
-              <select id="theme-select" className="language-select" value={theme}
-                onChange={(event) => setTheme(event.currentTarget.value as Theme)}
-                aria-label={t.themeLabel}>
-                <option value="light">{t.lightMode}</option>
-                <option value="dark">{t.darkMode}</option>
-              </select>
-            </label>
+            <details className="settings-menu">
+              <summary className="settings-trigger" aria-label={t.settings}>
+                <span className="settings-icon" aria-hidden="true">⚙</span><span>{t.settings}</span>
+              </summary>
+              <div className="settings-panel">
+                <label className="settings-field" htmlFor="theme-select">
+                  <span>{t.themeLabel}</span>
+                  <select id="theme-select" className="language-select" value={theme}
+                    onChange={(event) => setTheme(event.currentTarget.value as Theme)}
+                    aria-label={t.themeLabel}>
+                    <option value="dark">{t.darkMode}</option>
+                    <option value="light">{t.lightMode}</option>
+                  </select>
+                </label>
+                <label className="settings-field" htmlFor="accent-select">
+                  <span>{t.accentLabel}</span>
+                  <select id="accent-select" className="language-select" value={accent}
+                    onChange={(event) => setAccent(event.currentTarget.value as Accent)}
+                    aria-label={t.accentLabel}>
+                    <option value="green">{t.accentGreen}</option>
+                    <option value="blue">{t.accentBlue}</option>
+                    <option value="violet">{t.accentViolet}</option>
+                    <option value="orange">{t.accentOrange}</option>
+                    <option value="rose">{t.accentRose}</option>
+                  </select>
+                </label>
+              </div>
+            </details>
             <label className="language-control" htmlFor="language-select">
               <span className="language-label">{language === "fr" ? "Langue" : "Language"}</span>
               <select id="language-select" className="language-select" value={language}
