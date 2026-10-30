@@ -10,6 +10,10 @@ const buildScript = await readFile(new URL("android/scripts/build-web-assets.sh"
 assert.ok(!manifest.includes("<uses-permission"), "Android app must not request permissions by default");
 assert.ok(!manifest.includes("android.permission.INTERNET"), "Android app must not request Internet access");
 assert.ok(activity.includes("WebViewAssetLoader"), "local web assets must use WebViewAssetLoader");
+assert.ok(activity.includes("WindowCompat.setDecorFitsSystemWindows(getWindow(), false)"), "modern Android edge-to-edge layout must be enabled explicitly");
+assert.ok(activity.includes("WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout()"), "WebView content must respect system bars and display cutouts");
+assert.ok(activity.includes("view.setPadding(safeInsets.left, safeInsets.top, safeInsets.right, safeInsets.bottom)"), "safe insets must be applied to the WebView viewport");
+assert.ok(gradle.includes('androidx.core:core:1.16.0'), "AndroidX Core is required for compatible window inset handling");
 assert.ok(activity.includes("setAllowFileAccess(false)"), "WebView file access must be disabled");
 assert.ok(activity.includes("setAllowContentAccess(false)"), "WebView content-provider access must be disabled");
 assert.ok(activity.includes("setAllowFileAccessFromFileURLs(false)"), "file URL access must be disabled");
