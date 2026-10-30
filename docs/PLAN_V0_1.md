@@ -5,7 +5,7 @@
 ## Périmètre inclus
 
 - Accueil responsive en français, sans sélecteur de langue, mode sombre par défaut, mode clair, cinq couleurs d’accent au choix et hiérarchie visuelle affinée.
-- Architecture de localisation extensible ; espagnol, allemand et autres langues ajoutés après traduction humaine.
+- Interface publique en français uniquement ; aucune autre langue n'est prévue dans le périmètre actuel.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
 - Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; le corpus Nestlé existe en brouillon et reste bloqué à la publication.
@@ -64,7 +64,7 @@
 5. Vérifier manuellement l'interface sur mobile.
 6. Demander une revue humaine de la sécurité, de la confidentialité et de l'accessibilité.
 7. Préparer un wrapper Android natif et les métadonnées F-Droid, puis construire et tester un APK reproductible.
-8. Seulement ensuite, envisager un premier hébergement public et une soumission F-Droid.
+8. La préversion publique est déjà hébergée sur GitHub Pages ; ne préparer une version stable et une soumission F-Droid qu'après les validations manuelles.
 
 ## Risques à suivre
 
