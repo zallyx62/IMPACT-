@@ -12,5 +12,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Cela ne démontre ni qu'une contamination virale s'est produite ni qu'un dommage sanitaire a été subi. Il s'agit d'une incertitude résiduelle relevée par la commission pour un site et une période précis.",
-  "editorial_note": "À lire conjointement avec la réponse gouvernementale de février 2026, qui indique qu'aucun risque sanitaire n'a été constaté pour les eaux conditionnées concernées."
+  "editorial_note": "À lire conjointement avec la réponse gouvernementale de février 2026, qui indique qu'aucun risque sanitaire n'a été constaté pour les eaux conditionnées concernées.",
+  "requires_human_review": true
 }
