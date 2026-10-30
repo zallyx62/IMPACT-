@@ -28,6 +28,7 @@ const claimIds = [
   "claim-nestle-water-gard-uncertainty",
   "claim-nestle-water-vosges-surveillance",
   "claim-nestle-bms-marketing-atni-2024",
+  "claim-nestle-bms-marketing-company-count-2024",
 ];
 
 const evidenceIds = [
@@ -43,6 +44,7 @@ const evidenceIds = [
   "evidence-nestle-water-vosges-surveillance",
   "evidence-nestle-bms-marketing-atni-2024",
   "evidence-nestle-bms-marketing-company-response",
+  "evidence-nestle-bms-marketing-company-count-2024",
 ];
 
 describe("Nestlé dossier editorial gate", () => {
