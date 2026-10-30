@@ -9,7 +9,7 @@ IMPACT est conçu pour être consulté sans compte, sans profil publicitaire et 
 
 - La recherche filtre uniquement les textes et mots-clés embarqués dans l'application.
 - Le texte recherché n'est pas envoyé à un serveur et n'est pas conservé après fermeture de la page.
-- La langue sélectionnée reste en mémoire pendant la session ; elle n'est pas enregistrée dans un profil.
+- L'interface est actuellement disponible en français uniquement ; aucun choix de langue ni préférence linguistique n'est enregistré.
 - Le thème clair ou sombre et la couleur d’accent choisis sont enregistrés uniquement dans le stockage local du navigateur sous les clés `impact-theme` et `impact-accent` afin de conserver ces préférences sur l’appareil ; ces valeurs ne sont jamais transmises à IMPACT.
 - Aucun outil d'analyse d'audience, tracker publicitaire ou SDK tiers n'est intégré.
 - Aucune API distante n'est nécessaire pour afficher les univers et les outils de démonstration.
