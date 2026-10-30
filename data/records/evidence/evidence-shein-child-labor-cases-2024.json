@@ -1,0 +1,10 @@
+{
+  "id": "evidence-shein-child-labor-cases-2024",
+  "source_id": "source-reuters-shein-child-labor-2025",
+  "locator": "Reuters, 26 février 2025, paragraphes sur les deux cas identifiés en 2024",
+  "summary": "Reuters rapporte que SHEIN a déclaré à une commission parlementaire britannique avoir identifié deux cas de travail d'enfants chez ses fournisseurs en 2024. L'un concernait un enfant de 11 ans et 8 mois ayant effectué des tâches dans une usine pendant les vacances scolaires ; l'autre un adolescent de 15 ans et 3 mois. SHEIN dit avoir appliqué sa politique de tolérance zéro et rompu immédiatement les relations avec les fournisseurs concernés.",
+  "supports_claim_ids": [
+    "claim-shein-child-labor-cases-2024"
+  ],
+  "limitations": "Déclaration de SHEIN relayée par Reuters ; ne permet pas de mesurer les cas non détectés. Les mesures correctives sont rapportées comme la réponse de l'entreprise."
+}
