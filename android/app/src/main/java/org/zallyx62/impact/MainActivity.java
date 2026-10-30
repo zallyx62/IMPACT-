@@ -20,7 +20,8 @@ import androidx.webkit.WebViewAssetLoader;
 
 public final class MainActivity extends Activity {
     private static final String ASSET_HOST = "appassets.androidplatform.net";
-    private static final String APP_URL = "https://" + ASSET_HOST + "/index.html";
+    private static final String APP_PATH = "/impact/";
+    private static final String APP_URL = "https://" + ASSET_HOST + APP_PATH + "index.html";
 
     private WebView webView;
 
@@ -53,7 +54,7 @@ public final class MainActivity extends Activity {
         }
 
         WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
-                .addPathHandler("/", new WebViewAssetLoader.AssetsPathHandler(this, "impact"))
+                .addPathHandler(APP_PATH, new WebViewAssetLoader.AssetsPathHandler(this))
                 .build();
 
         webView.setWebViewClient(new WebViewClient() {
@@ -72,7 +73,8 @@ public final class MainActivity extends Activity {
             ) {
                 Uri uri = request.getUrl();
                 String scheme = uri.getScheme();
-                if ("https".equals(scheme) && ASSET_HOST.equals(uri.getHost())) {
+                if ("https".equals(scheme) && ASSET_HOST.equals(uri.getHost())
+                        && uri.getPath() != null && uri.getPath().startsWith(APP_PATH)) {
                     return false;
                 }
 
