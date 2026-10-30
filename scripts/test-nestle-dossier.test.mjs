@@ -47,6 +47,7 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-bms-marketing-atni-2024",
       "claim-nestle-bms-policy-gaps",
       "claim-nestle-baby-food-added-sugar",
+      "claim-nestle-baby-food-microplastics-2026",
       "claim-nestle-cocoa-cameroon-child-labor",
       "claim-nestle-cocoa-cameroon-forced-labor-risk",
       "claim-nestle-bms-marketing-company-count-2024",
@@ -71,6 +72,7 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-bms-atni-219",
       "evidence-nestle-bms-policy-gaps",
       "evidence-nestle-baby-food-added-sugar",
+      "evidence-nestle-baby-food-microplastics-2026",
       "evidence-nestle-cocoa-cameroon-child-labor",
       "evidence-nestle-cocoa-cameroon-forced-labor-risk",
       "evidence-nestle-bms-marketing-company-count-2024",
@@ -186,4 +188,22 @@ describe("Nestlé dossier editorial gate", () => {
       assert.ok(sourceIds.has(response.source_id));
     }
   });
+  it("keeps the Greenpeace/SINTEF microplastics finding within its actual sample and evidentiary limits", async () => {
+    const source = await readRecord("sources", "source-greenpeace-baby-food-plastic-pouches-2026");
+    const claim = await readRecord("claims", "claim-nestle-baby-food-microplastics-2026");
+    const evidence = await readRecord("evidence", "evidence-nestle-baby-food-microplastics-2026");
+
+    assert.equal(source.review_status, "to_review");
+    assert.match(source.limitations, /three pouches per brand/i);
+    assert.match(source.limitations, /does not prove migration/i);
+    assert.equal(claim.claim_status, "not_reviewed");
+    assert.equal(claim.reviewed_at, null);
+    assert.match(claim.statement, /trois sachets/i);
+    assert.match(claim.uncertainty_note, /ne démontre aucun effet sanitaire/i);
+    assert.ok(claim.source_ids.includes(source.id));
+    assert.ok(claim.evidence_ids.includes(evidence.id));
+    assert.ok(evidence.supports_claim_ids.includes(claim.id));
+    assert.match(evidence.limitations, /does not demonstrate.*health effect/i);
+  });
+
 });
