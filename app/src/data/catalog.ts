@@ -106,8 +106,8 @@ export const tools: CatalogItem[] = [
   },
   {
     id: "history", number: "A4", mark: "04",
-    title: { fr: "Observatoire des engagements", en: "Commitment tracker" },
-    description: { fr: "Promesses, échéances et résultats documentés.", en: "Promises, deadlines and documented results." },
+    title: { fr: "Chronologie et engagements", en: "Timeline and commitments" },
+    description: { fr: "Corrections, constats, réponses et échéances documentés.", en: "Documented corrections, findings, responses and deadlines." },
     detail: {
       fr: "Retrouvez les engagements publiés, leurs échéances, leur état, les résultats observés et les méthodes de mesure lorsqu’elles existent. Une promesse annoncée n’est jamais considérée comme réalisée sans éléments justificatifs.",
       en: "Commitments will be kept separate from measured results. An announced promise will not be treated as achieved without supporting evidence."
