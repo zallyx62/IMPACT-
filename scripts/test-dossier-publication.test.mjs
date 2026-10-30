@@ -208,12 +208,4 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(buildEntityDossier("entity-one", mixed), undefined,
       "a dossier must remain unpublished if its entity cites even one unverified source");
   });
-    assert.deepEqual(dossier.relationships[0].source_ids, ["source-reviewed"]);
-    assert.deepEqual(dossier.campaigns[0].source_ids, ["source-reviewed"]);
-    assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
-    assert.deepEqual(dossier.responses[0].related_claim_ids, ["claim-related"]);
-    assert.deepEqual(dossier.commitments[0].source_ids, ["source-reviewed"]);
-    assert.ok(dossier.evidence.every((item) => item.source_id === "source-reviewed"));
-  });
-
 });
