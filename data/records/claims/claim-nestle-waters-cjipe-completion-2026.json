@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-waters-cjipe-completion-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Le 14 octobre 2026, le procureur d'Épinal a annoncé que Nestlé Waters Supply Est avait exécuté les obligations prévues par la convention judiciaire d'intérêt public environnementale de 2024, entraînant l'extinction de l'action publique dans le périmètre de cette convention.",
+  "topic": "business_consumption",
+  "valid_from": "2026-10-14",
+  "source_ids": [
+    "source-swissinfo-nestle-waters-cjipe-closure-2026",
+    "source-justice-2024-cjipe-nestle"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-waters-cjipe-completion-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Cette extinction ne vaut que pour la procédure couverte par la convention et l'entité Nestlé Waters Supply Est. Elle ne signifie pas que toutes les procédures liées à Nestlé Waters sont closes, notamment le dossier distinct des décharges plastiques.",
+  "editorial_note": "Présenter ce résultat procédural à côté du montant de l'amende et des obligations exécutées. Ne pas confondre extinction de l'action publique au titre de la CJIPE et acquittement après procès."
+}
