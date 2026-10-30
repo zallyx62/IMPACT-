@@ -7,10 +7,12 @@ const dossier = (id, topic, campaigns = []) => ({
 });
 
 test("thematic universes include dossiers with matching published claim topics", () => {
-  const items = [dossier("food", "animals_food"), dossier("climate", "environment"), dossier("rights", "human_rights")];
+  const items = [dossier("food", "animals_food"), dossier("climate", "environment"), dossier("rights", "human_rights"), dossier("business", "business_consumption"), dossier("tech", "technology_privacy")];
   assert.deepEqual(dossiersForUniverse("animals-food", items).map((item) => item.entity.id), ["food"]);
   assert.deepEqual(dossiersForUniverse("environment", items).map((item) => item.entity.id), ["climate"]);
   assert.deepEqual(dossiersForUniverse("people-society", items).map((item) => item.entity.id), ["rights"]);
+  assert.deepEqual(dossiersForUniverse("business-consumption", items).map((item) => item.entity.id), ["business"]);
+  assert.deepEqual(dossiersForUniverse("technology", items).map((item) => item.entity.id), ["tech"]);
 });
 
 test("the action universe includes only dossiers with documented campaigns", () => {
