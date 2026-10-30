@@ -126,7 +126,14 @@ describe("buildEntityDossier publication rules", () => {
       "an entity must not pass by citing one reviewed source alongside an unpublished source");
   });
 
-  it("does not publish campaigns or commitments with mixed source verification", () => {
+  it("does not publish relationships, campaigns or commitments with mixed source verification", () => {
+    const mixedRelationship = structuredClone(data);
+    mixedRelationship.relationships[0].source_ids = ["source-reviewed", "source-pending"];
+    const relationshipDossier = buildEntityDossier("entity-one", mixedRelationship);
+    assert.ok(relationshipDossier);
+    assert.deepEqual(relationshipDossier.relationships, [],
+      "a relationship must not pass with only some of its cited sources verified");
+
     const mixedCampaign = structuredClone(data);
     mixedCampaign.campaigns[0].source_ids = ["source-reviewed", "source-pending"];
     const campaignDossier = buildEntityDossier("entity-one", mixedCampaign);
