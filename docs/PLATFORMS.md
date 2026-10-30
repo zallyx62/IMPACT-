@@ -15,26 +15,23 @@ IMPACT est actuellement un prototype Web accompagné d'un projet Android de test
 
 ## Version Web — tous les systèmes
 
-La version Web est la voie multiplateforme prioritaire. Une fois GitHub Pages activé et le premier déploiement réussi, l'adresse publique prévue est :
+La version Web publique est la voie multiplateforme prioritaire. La version Web est publiée sur GitHub Pages à l'adresse suivante :
 
 https://zallyx62.github.io/IMPACT-/
 
-Cette adresse n'est pas à considérer comme active tant que le déploiement GitHub Pages n'apparaît pas comme réussi dans l'onglet Actions.
+Le déploiement GitHub Pages a été confirmé comme réussi le 30 octobre 2026. Il s'agit d'un prototype public, pas d'une version stable.
 
 La version Web fonctionnera dans les navigateurs modernes sur Android, iOS/iPadOS, Windows, macOS et Linux. Elle partage la même interface et la même direction artistique : thème sombre par défaut, mode clair et cinq couleurs d'accent.
 
-### Activation unique de GitHub Pages
+### Publication GitHub Pages — activée
 
-Le dépôt doit être autorisé à publier avec GitHub Actions :
+GitHub Pages est activé sur le dépôt et le workflow de publication a réussi le 30 octobre 2026. Les mises à jour de l'application, des scripts et de la documentation déclenchent une reconstruction et une publication après les contrôles.
 
-1. Ouvrir [les paramètres Pages du dépôt](https://github.com/zallyx62/IMPACT-/settings/pages).
-2. Dans **Build and deployment** (Construction et déploiement), choisir **GitHub Actions** comme source.
-3. Enregistrer si GitHub le demande.
-4. Vérifier ensuite le workflow **Deploy IMPACT Web to GitHub Pages** dans l'onglet [Actions](https://github.com/zallyx62/IMPACT-/actions).
+Consulter l'exécution [Deploy IMPACT Web to GitHub Pages](https://github.com/zallyx62/IMPACT-/actions/runs/41041891940) pour voir le build et le déploiement réussis.
 
 Le workflow construit l'application, exécute les contrôles essentiels, puis publie uniquement le dossier de production `app/dist`. Il ne publie ni les sources de développement, ni les fichiers Android, ni les données éditoriales non destinées à l'application.
 
-Cette activation dans les paramètres GitHub est nécessaire en plus du fichier de workflow ; le code seul ne peut pas modifier ce réglage du compte.
+Le réglage Pages est déjà activé dans les paramètres du dépôt. Le workflow ne déploie que depuis `main`.
 
 ### Ajouter IMPACT à l'écran d'accueil
 
