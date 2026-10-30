@@ -2,6 +2,8 @@
 
 **Comprendre. Choisir. Agir.**
 
+[![Contrôles Web](https://github.com/zallyx62/IMPACT-/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/zallyx62/IMPACT-/actions/workflows/checks.yml) [![Build Android](https://github.com/zallyx62/IMPACT-/actions/workflows/android.yml/badge.svg?branch=main)](https://github.com/zallyx62/IMPACT-/actions/workflows/android.yml) [![CodeQL](https://github.com/zallyx62/IMPACT-/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/zallyx62/IMPACT-/actions/workflows/codeql.yml)
+
 IMPACT est un projet citoyen, gratuit et open source qui vise à rendre accessibles des informations documentées sur les entreprises, les produits, les technologies et les conséquences de nos choix.
 
 Le projet veut aider chacun à comprendre, vérifier et comparer des informations, sans décider à sa place.
