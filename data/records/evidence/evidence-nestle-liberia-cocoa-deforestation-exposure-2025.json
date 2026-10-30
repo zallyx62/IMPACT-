@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-liberia-cocoa-deforestation-exposure-2025",
+  "source_id": "source-global-witness-liberia-cocoa-deforestation-2025",
+  "locator": "Global Witness, 25 November 2025, sections « Liberian cocoa goes global » and « Blended deforestation », especially paragraphs on Nestlé's response",
+  "summary": "Global Witness maps Liberian cocoa exports through traders and processors supplying major chocolate companies. It states that Nestlé does not source directly from Liberia, but uses mass-balance cocoa systems in which beans from different origins can be mixed. Nestlé told the investigators it was aware of the broader risk; when asked how it could rule out Liberian beans entering its mass-balance supply chain, it declined to provide further information.",
+  "limitations": "The investigation identifies supply-chain exposure and a traceability risk, not direct Nestlé purchases from Liberia or proof that a particular Nestlé product contains cocoa from a deforested farm.",
+  "supports_claim_ids": [
+    "claim-nestle-liberia-cocoa-deforestation-exposure-2025"
+  ]
+}
