@@ -885,3 +885,14 @@ button:active { transform: translateY(0) scale(.99); }
   .summary-reasons { grid-template-columns: 1fr; }
   .dossier-summary-top { align-items: flex-start; }
 }
+
+
+.summary-assessment { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; margin: 1rem 0; }
+.summary-assessment > div { display: grid; gap: .3rem; padding: .75rem; border: 1px solid var(--line); border-radius: 11px; background: var(--paper); }
+.summary-assessment span { color: var(--muted); font-size: .7rem; }
+.summary-assessment strong { font-size: .82rem; line-height: 1.4; }
+.summary-factors { margin-top: .85rem; padding: 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+.summary-factors h4 { margin: 0 0 .5rem; font-size: .94rem; }
+.summary-factors ul { display: grid; gap: .4rem; margin: 0; padding-left: 1.1rem; }
+.summary-factors li { color: var(--muted); font-size: .82rem; line-height: 1.6; }
+@media (max-width: 680px) { .summary-assessment { grid-template-columns: 1fr; } }
