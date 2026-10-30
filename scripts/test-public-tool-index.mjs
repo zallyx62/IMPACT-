@@ -46,6 +46,7 @@ test("alternative index requires two published entities, a confirmed or partial 
   assert.equal(result.length, 1);
   assert.equal(result[0].alternativeName, "Alternative");
   assert.equal(result[0].targetName, "Produit cible");
+  assert.equal(buildAlternativeIndex([dossier("a", "Produit cible"), dossier("b", "Alternative", [{ ...relationship, notes: "" }], [], [{ id: "s1", title: "Comparaison sourcée" }])]).length, 0);
   assert.equal(buildAlternativeIndex([dossier("a", "Produit cible"), dossier("b", "Alternative", [relationship])]).length, 0);
 });
 
