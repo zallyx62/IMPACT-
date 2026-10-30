@@ -10,6 +10,7 @@ export interface EntityRecord {
   website?: string | null;
   status: string;
   reviewed_at: string;
+  source_ids: string[];
 }
 
 export interface SourceRecord {
