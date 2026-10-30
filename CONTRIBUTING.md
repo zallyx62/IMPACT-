@@ -5,8 +5,8 @@ Merci de contribuer à un projet qui privilégie la fiabilité, la transparence 
 ## Principes
 
 - Toutes les contributions doivent respecter la licence du code et les licences propres aux contenus.
-- Aucune donnée factuelle n'est publiée automatiquement.
-- Les changements éditoriaux sont examinés par des humains avant publication.
+- Une validation humaine préalable n'est pas systématiquement exigée : une affirmation peut être publiée lorsque les critères de preuve et les contrôles définis dans la [charte éditoriale](docs/CHARTE_EDITORIALE.md) sont satisfaits.
+- Les accusations graves, sujets sensibles, preuves contradictoires non résolues et contenus à risque restent soumis à un examen humain compétent avant publication.
 - Toute affirmation importante doit renvoyer à des sources consultables et indiquer ses limites.
 - Les conflits d'intérêts pertinents doivent être déclarés.
 - Les informations inconnues doivent rester indiquées comme inconnues, sans supposition.
