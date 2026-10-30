@@ -42,8 +42,11 @@ a { color: inherit; }
 .header-actions { display: flex; align-items: center; gap: 1.25rem; }
 .text-link { text-decoration: none; color: #46584d; font-size: .88rem; font-weight: 650; }
 .text-link:hover { color: var(--green); }
-.language-button { min-width: 46px; padding: .62rem .75rem; background: var(--paper); color: var(--green-deep); border: 1px solid var(--line); border-radius: 12px; font-weight: 800; cursor: pointer; }
-.language-button:hover { border-color: var(--green); }
+.language-control { display: inline-flex; align-items: center; gap: .45rem; }
+.language-label { color: var(--muted); font-size: .75rem; font-weight: 700; }
+.language-select { min-width: 112px; min-height: 42px; padding: .55rem 2rem .55rem .7rem; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--green-deep); font: inherit; font-size: .82rem; font-weight: 750; cursor: pointer; }
+.language-select:hover { border-color: var(--green); }
+.language-select:focus-visible { outline: 3px solid #bc8c35; outline-offset: 3px; }
 .page-content { padding-bottom: 4rem; }
 .hero { padding: clamp(3.2rem, 7vw, 5.8rem) 0 3rem; max-width: 850px; }
 .eyebrow, .section-kicker { color: var(--green); font-size: .7rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
@@ -192,7 +195,7 @@ a { color: inherit; }
   .reality-note { background: #2d291d; border-color: #4b432b; }
   .reality-icon { background: #4c4121; color: #f4d991; }
   .reality-note p { color: #d3c9a7; }
-  .language-button { background: var(--paper); color: var(--green-deep); border-color: var(--line); }
+  .language-select { background: var(--paper); color: var(--green-deep); border-color: var(--line); }
   .dossier-card, .claim-card { background: var(--paper); }
   .dossier-card:hover { border-color: #5d8d70; }
   .claim-uncertainty { background: #342f21; color: #e5d9b8; }
