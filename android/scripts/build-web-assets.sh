@@ -3,7 +3,7 @@ set -eu
 
 ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)"
 APP_DIR="$ROOT_DIR/app"
-ASSET_DIR="$ROOT_DIR/android/app/src/main/assets/impact"
+ASSET_DIR="$ROOT_DIR/android/app/src/main/assets"
 
 (
   cd "$APP_DIR"
