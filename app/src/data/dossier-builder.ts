@@ -23,7 +23,9 @@ export interface DossierCollections {
 
 function reviewedSourceIds(data: DossierCollections): Set<string> {
   return new Set(
-    data.sources.filter((source) => source.review_status === "reviewed").map((source) => source.id),
+    data.sources
+      .filter((source) => source.review_status === "reviewed" || source.review_status === "ai_verified")
+      .map((source) => source.id),
   );
 }
 
