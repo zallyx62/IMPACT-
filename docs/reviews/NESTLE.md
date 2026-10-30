@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 19 sources sont `to_review`, et les 19 affirmations sont `not_reviewed` avec `reviewed_at: null`. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 20 sources sont `to_review`, et les 20 affirmations sont `not_reviewed` avec `reviewed_at: null`. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -88,6 +88,16 @@ Affirmation à examiner :
 
 **Point de vigilance :** il s'agit d'une mesure publiée par l'entreprise, selon une méthodologie qu'elle décrit et indique avoir modifiée au premier semestre 2026. La part inconnue n'est pas une preuve de déforestation ; la part évaluée comme exempte ne doit pas être présentée comme une vérification indépendante de chaque exploitation.
 
+## 7. Cacao au Liberia et risque de déforestation indirecte
+
+Affirmation à examiner :
+
+- `claim-nestle-liberia-cocoa-deforestation-exposure-2025` — enquête Global Witness publiée le 25 novembre 2025 sur l'exposition indirecte de Nestlé au cacao libérien par les circuits de négociants et le bilan massique.
+
+La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne pas s'approvisionner directement au Liberia, reconnaît le risque sectoriel, décrit son programme Mixed Identity Preserved et n'a pas fourni de détail supplémentaire à Global Witness sur la manière d'exclure le cacao libérien des mélanges.
+
+**Point de vigilance :** l'enquête décrit un risque d'exposition et de traçabilité, pas la preuve qu'un lot précis de cacao libérien se trouve dans un produit Nestlé. Ne pas écrire que Nestlé achète directement au Liberia ou que chaque KitKat contient ce cacao.
+
 ## Sources de l'entreprise à examiner en regard des évaluations indépendantes
 
 - `source-nestle-2024-reponse-cjipe` — réponse de Nestlé Waters sur l'affaire des eaux.
@@ -99,8 +109,8 @@ Affirmation à examiner :
 
 Ne publier le dossier qu'après :
 
-1. examen humain des 19 sources ;
-2. examen humain des 19 affirmations et de leurs 21 éléments de preuve ;
+1. examen humain des 20 sources ;
+2. examen humain des 20 affirmations et de leurs 21 éléments de preuve ;
 3. vérification des réponses de Nestlé ;
 4. correction de toute formulation trop large ou ambiguë ;
 5. mise à jour cohérente des statuts, dates de revue et références ;
