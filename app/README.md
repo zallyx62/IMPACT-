@@ -41,6 +41,12 @@ Le contrôle du paquet PWA (`node scripts/check-pwa-build.mjs`) s'exécute aprè
 
 Le build de production est généré dans `dist/`.
 
+## Interface et navigation
+
+Le mode sombre est activé par défaut. Dans Paramètres, l'utilisateur peut choisir le mode clair et l'une des cinq couleurs d'accent : vert, bleu, violet, orange ou rose. Les préférences sont enregistrées uniquement dans le stockage local de l'appareil. Les fiches et univers utilisent l'historique de navigation du navigateur afin que le bouton Retour Android revienne à l'écran précédent.
+
+L'interface Web et l'interface de l'APK utilisent le même code React embarqué dans l'APK ; les ajustements de présentation restent donc cohérents entre les deux versions.
+
 ## Confidentialité du prototype
 
 La recherche se fait dans des tableaux embarqués dans l'application. Elle n'est pas envoyée au serveur et n'est pas enregistrée. L'application n'utilise aucun service analytique, aucune API distante, aucun compte et aucune IA générative.
