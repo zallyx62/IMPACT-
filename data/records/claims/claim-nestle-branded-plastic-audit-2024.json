@@ -1,9 +1,9 @@
 {
   "id": "claim-nestle-branded-plastic-audit-2024",
   "subject_entity_id": "nestle",
-  "statement": "Une étude publiée dans Science Advances en 2024, fondée sur 1 576 audits de déchets plastiques dans 84 pays entre 2018 et 2022, attribue à Nestlé 3 % des objets plastiques de marque recensés dans le jeu de données.",
+  "statement": "Une étude évaluée par les pairs et publiée dans Science Advances en avril 2024, fondée sur 1 576 événements d'audit de déchets plastiques dans 84 pays entre 2018 et 2022, attribue à Nestlé 3 % des objets de marque recensés dans ce jeu de données. La moitié des objets collectés n'étaient pas marqués.",
   "topic": "environment",
-  "claim_status": "not_reviewed",
+  "claim_status": "confirmed",
   "source_ids": [
     "source-science-advances-plastic-brand-audit-2024"
   ],
@@ -11,6 +11,10 @@
     "evidence-nestle-branded-plastic-audit-2024"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "La moitié des objets collectés n'étaient pas marqués. Les 3 % concernent uniquement les objets de marque enregistrés dans ce programme d'audit ; ce chiffre n'est ni la part de tous les déchets plastiques mondiaux ni une mesure exhaustive de la pollution totale ou de la production plastique de Nestlé.",
-  "editorial_note": "Toujours préciser le périmètre du jeu de données, la période, les 84 pays et la part non marquée. Ne pas utiliser « 3 % de la pollution plastique mondiale »."
+  "uncertainty_note": "L'étude repose sur un programme d'audits participatifs menés de 2018 à 2022 dans 84 pays et 1 576 événements. La moitié des objets collectés étaient sans marque. Les 3 % pour Nestlé concernent uniquement le décompte des objets de marque identifiés dans le jeu de données ; ce chiffre n'est ni la part de tous les déchets plastiques mondiaux, ni une mesure de la production plastique de Nestlé, ni un inventaire complet des déchets de l'entreprise. La couverture des audits varie selon les pays. Nestlé critique, dans un document distinct de juin 2024 répondant aux audits de Break Free From Plastic, la méthode de collecte bénévole et évoque un risque de double comptage. Cette position est attribuée à l'entreprise et ne constitue pas une réanalyse indépendante de l'étude publiée dans Science Advances.",
+  "editorial_note": "Toujours préciser le périmètre du jeu de données, la période, les 84 pays et la part non marquée. Ne pas utiliser « 3 % de la pollution plastique mondiale ».",
+  "publication_basis": "evidence_verified",
+  "published_at": "2026-10-30",
+  "requires_human_review": false,
+  "publication_note": "L'affirmation rapporte le résultat précis de l'étude évaluée par les pairs et indique clairement son dénominateur : les objets de marque recensés dans les audits, et non l'ensemble des déchets plastiques mondiaux. La moitié des objets collectés étant sans marque, ce chiffre ne constitue ni une part de marché, ni un tonnage, ni une mesure exhaustive de la pollution attribuable à Nestlé."
 }
