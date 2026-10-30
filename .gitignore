@@ -16,6 +16,7 @@ Thumbs.db
 .idea/
 
 # Generated PWA raster icons (recreated by npm predev/prebuild)
+app/public/icons/impact-180.png
 app/public/icons/impact-192.png
 app/public/icons/impact-512.png
 
