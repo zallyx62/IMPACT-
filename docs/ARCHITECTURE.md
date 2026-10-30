@@ -23,14 +23,14 @@ Les contenus éditoriaux sont conservés dans le dépôt sous forme de fichiers 
 - **GitHub Actions** : vérification automatisée du typage, des tests unitaires, du comportement simulé du service worker, de la compilation et des invariants éditoriaux des schémas.
 - **GitHub Pages ou autre hébergement statique** : cible possible, uniquement après tests.
 
-Les versions directes des dépendances sont fixées dans `app/package.json`. Vite 8 exige une version récente de Node.js (20.19+ ou 22.12+). Le workflow de contrôle utilise Node 22.
+Les versions directes des dépendances sont fixées dans `app/package.json` et le graphe transitif est verrouillé dans `app/package-lock.json`. Le workflow utilise `npm ci` puis `npm audit --audit-level=high`. Vite 8 exige une version récente de Node.js (20.19+ ou 22.12+). Le workflow de contrôle utilise Node 22.
 
 Références techniques :
 - Vite et versions prises en charge : https://vite.dev/releases
 - Exigences de Vite 8 : https://vite.dev/blog/announcing-vite8
 - Versions de React : https://react.dev/versions
 
-Les dépendances devront être réexaminées et un fichier de verrouillage npm devra être ajouté avant une version stable.
+Les dépendances doivent continuer à être réexaminées régulièrement ; l'audit npm est intégré à la CI.
 
 ## 3. Structure du dépôt
 
@@ -43,7 +43,17 @@ Les dépendances devront être réexaminées et un fichier de verrouillage npm d
 │   ├── entity.schema.json
 │   ├── relationship.schema.json
 │   └── evidence.schema.json
+├── data/records/
+│   ├── entities/
+│   ├── sources/
+│   ├── claims/
+│   ├── evidence/
+│   ├── relationships/
+│   ├── campaigns/
+│   ├── responses/
+│   └── commitments/
 ├── docs/
+│   ├── DATA_RIGHTS_POLICY.md
 │   ├── ARCHITECTURE.md
 │   ├── CHARTE_EDITORIALE.md
 │   ├── MODELE_DE_DONNEES.md
@@ -68,7 +78,16 @@ Les dépendances devront être réexaminées et un fichier de verrouillage npm d
 │   └── README.md
 ├── scripts/
 │   ├── check-schemas.mjs
-│   └── test-service-worker.mjs
+│   ├── check-data.mjs
+│   ├── check-contrast.mjs
+│   ├── check-pwa-build.mjs
+│   ├── lib/data-integrity.mjs
+│   ├── lib/schema-validation.mjs
+│   ├── test-service-worker.mjs
+│   ├── test-search.mjs
+│   ├── test-data-integrity.test.mjs
+│   ├── test-schema-validation.test.mjs
+│   └── test-dossier-publication.test.mjs
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -77,8 +96,9 @@ Les dépendances devront être réexaminées et un fichier de verrouillage npm d
 ## 4. Frontières entre interface et données
 
 - `app/src/data/catalog.ts` contient uniquement la navigation et les textes génériques du prototype.
-- `data/schema/` définit les structures prévues pour les affirmations et les sources.
-- Les futures données factuelles seront conservées séparément de l'interface.
+- `data/schema/` définit huit structures : entités, sources, affirmations, preuves, relations, campagnes, réponses et engagements.
+- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Les dossiers sont actuellement vides.
+- `app/src/data/records.ts` charge les enregistrements publiés ; `dossier-builder.ts` applique les règles de publication avant affichage.
 - Aucun dossier réel d'entreprise ne doit être inventé ou publié sans recherche et validation éditoriale.
 - Une source, une affirmation et un élément de preuve restent trois objets distincts.
 
@@ -119,13 +139,16 @@ Exigences :
 
 ## 8. Qualité et sécurité
 
-Les contrôles automatisés de base exécutés dans GitHub Actions sont :
-1. installer les dépendances ;
-2. vérifier TypeScript ;
-3. exécuter les tests unitaires de recherche ;
-4. simuler les principaux scénarios du service worker (installation, activation, mise à jour, repli hors ligne et exclusions) ;
-5. construire les fichiers de production ;
-6. vérifier les schémas JSON et les invariants éditoriaux.
+Les contrôles automatisés exécutés dans GitHub Actions sont :
+1. installer les dépendances avec `npm ci` ;
+2. auditer les dépendances avec `npm audit` ;
+3. vérifier TypeScript ;
+4. exécuter les tests de recherche ;
+5. tester l'intégrité des références et la validation JSON Schema ;
+6. tester les règles de publication des dossiers ;
+7. simuler le service worker et contrôler le contraste des textes ;
+8. construire les fichiers de production ;
+9. vérifier le paquet PWA généré, les schémas et les références de données.
 
 Ces tests simulés ne remplacent pas les essais sur un vrai navigateur ou téléphone.
 
