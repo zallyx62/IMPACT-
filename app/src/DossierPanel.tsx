@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { getPublishedEntities, type EntityDossier, type Language, type SourceRecord } from "./data/records";
 import { safeExternalUrl } from "./data/safe-url";
 
@@ -103,6 +104,11 @@ function dateLabel(value: string, language: Language) {
 }
 
 export default function DossierPanel({ dossier, language, onBack }: Props) {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    titleRef.current?.focus();
+  }, [dossier.entity.id]);
   const t = labels[language];
   const sourceById = new Map(dossier.sources.map((source) => [source.id, source]));
   const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
@@ -154,7 +160,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
       <button className="back-button" type="button" onClick={onBack}>← {t.back}</button>
       <header className="dossier-header">
         <p className="section-kicker">{t.label}</p>
-        <h2 id="dossier-title">{dossier.entity.name}</h2>
+        <h2 id="dossier-title" ref={titleRef} tabIndex={-1}>{dossier.entity.name}</h2>
         <p>{dossier.entity.description || t.noDescription}</p>
         <div className="dossier-meta">
           <span>{t.type} : {displayValue("entityType", dossier.entity.entity_type, language)}</span>
