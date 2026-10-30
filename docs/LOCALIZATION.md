@@ -38,3 +38,8 @@ A language must not be advertised as available until the interface and the conte
 - French: interface available and selectable.
 - Spanish, German and others: planned, not yet available.
 - Nestlé dossiers remain unpublished editorial drafts; English and French translations must be reviewed before publication.
+
+
+## Display theme
+
+The web app offers explicit Light and Dark choices. Light is the default for a first visit; the selected theme is saved only in the browser's local storage on that device so it remains selected on return. The theme preference is never sent to IMPACT servers and is not used for analytics or profiling. The theme selector remains available independently of the system colour-scheme setting.

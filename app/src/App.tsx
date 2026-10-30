@@ -5,6 +5,15 @@ import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./dat
 import DossierPanel from "./DossierPanel";
 
 type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
+type Theme = "light" | "dark";
+
+function getInitialTheme(): Theme {
+  try {
+    return window.localStorage.getItem("impact-theme") === "dark" ? "dark" : "light";
+  } catch {
+    return "light";
+  }
+}
 const entityTypeLabels: Record<Language, Record<string, string>> = {
   fr: {
     organization: "Organisation",
@@ -33,7 +42,7 @@ function entityTypeLabel(value: string, language: Language): string {
 
 const copy: Record<Language, Record<string, string>> = {
   fr: {
-    skip: "Aller au contenu", method: "Notre méthode", switchLanguage: "Passer en anglais",
+    skip: "Aller au contenu", method: "Notre méthode", switchLanguage: "Passer en anglais", themeLabel: "Thème", lightMode: "Clair", darkMode: "Sombre",
     kicker: "PROJET LIBRE · PREMIER PROTOTYPE",
     title: "Comprendre ce qui se cache derrière nos choix.",
     subtitle: "Des informations sourcées, des incertitudes visibles et des pistes d’action — sans décider à votre place.",
@@ -55,7 +64,7 @@ const copy: Record<Language, Record<string, string>> = {
     localSearch: "RECHERCHE LOCALE", dossiers: "Dossiers documentés", dossiersText: "Fiches d’entités publiées après vérification humaine.", noDossiers: "Aucun dossier vérifié n’est encore publié. Les fiches apparaîtront ici après examen des sources et validation éditoriale."
   },
   en: {
-    skip: "Skip to content", method: "Our method", switchLanguage: "Switch to French",
+    skip: "Skip to content", method: "Our method", switchLanguage: "Switch to French", themeLabel: "Theme", lightMode: "Light", darkMode: "Dark",
     kicker: "OPEN PROJECT · FIRST PROTOTYPE",
     title: "Understand what sits behind our choices.",
     subtitle: "Sourced information, visible uncertainty and ways to act — without making decisions for you.",
@@ -80,6 +89,7 @@ const copy: Record<Language, Record<string, string>> = {
 
 function App() {
   const [language, setLanguage] = useState<Language>("en");
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<Selection>(null);
   const t = copy[language];
@@ -97,6 +107,19 @@ function App() {
         : "IMPACT — understand, verify, compare and act with documented information.",
     );
   }, [language]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute(
+      "content",
+      theme === "dark" ? "#111b16" : "#12664f",
+    );
+    try {
+      window.localStorage.setItem("impact-theme", theme);
+    } catch {
+      // The selected theme still applies for this session when storage is unavailable.
+    }
+  }, [theme]);
 
   const foundUniverses = useMemo(
     () => trimmedQuery ? universes.filter((item) => matchesSearch(searchableText(item), trimmedQuery)) : [],
@@ -164,6 +187,15 @@ function App() {
           </button>
           <div className="header-actions">
             <a className="text-link" href="#method">{t.method}</a>
+            <label className="language-control" htmlFor="theme-select">
+              <span className="language-label">{t.themeLabel}</span>
+              <select id="theme-select" className="language-select" value={theme}
+                onChange={(event) => setTheme(event.currentTarget.value as Theme)}
+                aria-label={t.themeLabel}>
+                <option value="light">{t.lightMode}</option>
+                <option value="dark">{t.darkMode}</option>
+              </select>
+            </label>
             <label className="language-control" htmlFor="language-select">
               <span className="language-label">{language === "fr" ? "Langue" : "Language"}</span>
               <select id="language-select" className="language-select" value={language}
