@@ -1,4 +1,4 @@
-# Language and translation strategy — IMPACT
+# Langue et traduction — IMPACT
 
 ## Language order
 
