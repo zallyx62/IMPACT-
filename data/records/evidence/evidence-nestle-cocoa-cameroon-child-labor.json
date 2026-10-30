@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-cocoa-cameroon-child-labor",
+  "source_id": "source-fla-cocoa-cameroon-2022",
+  "locator": "FLA baseline assessment, executive summary and sections on child-labour awareness and practices in visited cooperatives",
+  "summary": "The FLA reports that the supplier was still establishing its child-labour monitoring and remediation system. Interviews found that some producers and cooperative managers considered work acceptable if a child was physically capable of doing it. The FLA explicitly states that its team did not encounter child labour on the farms visited.",
+  "supports_claim_ids": [
+    "claim-nestle-cocoa-cameroon-child-labor"
+  ],
+  "limitations": "The assessment covered three cooperatives and six communities in Cameroon in 2020. The report's finding that no child labour was encountered is limited to the farms visited and does not establish the absence of child labour throughout the supply chain."
+}
