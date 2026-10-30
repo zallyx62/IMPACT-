@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { getDossierSummary } from "../app/src/data/dossier-summary.ts";
+import { BOYCOTT_ASSESSMENT_SCALE, getDossierSummary } from "../app/src/data/dossier-summary.ts";
 
 const published = [
   "claim-nestle-water-treatments",
@@ -13,12 +13,16 @@ const published = [
 const summary = getDossierSummary("nestle", published);
 assert.ok(summary, "Nestlé summary is available when all referenced claims are published");
 assert.equal(summary.level, "high");
+assert.equal(summary.boycottPriority, "consider");
+assert.equal(summary.confidence, "moderate");
 assert.equal(summary.reasons.length, 4);
 assert.ok(summary.reasons.every((reason) => reason.claimIds.length > 0));
+assert.equal(summary.assessmentFactors.fr.length, 5);
 assert.match(summary.reasons[1].text.fr, /ne démontre ni que l'emballage est la source/);
 assert.match(summary.reasons[2].text.fr, /ne représente pas 3 % de la pollution plastique mondiale/);
 assert.match(summary.reasons[3].text.fr, /ne prouve pas une déforestation/);
 assert.match(summary.methodology.fr, /pas une note scientifique/);
+assert.deepEqual(BOYCOTT_ASSESSMENT_SCALE.priority, ["strong_case", "consider", "watch", "not_established"]);
 assert.equal(getDossierSummary("unknown", published), undefined);
 assert.equal(
   getDossierSummary("nestle", published.filter((claim) => claim.id !== "claim-nestle-water-cjipe")),
@@ -31,4 +35,4 @@ assert.equal(
   "unpublished claims cannot support a summary",
 );
 
-console.log("PASS dossier summary scope and publication safeguards");
+console.log("PASS dossier summary scope, assessment dimensions and publication safeguards");
