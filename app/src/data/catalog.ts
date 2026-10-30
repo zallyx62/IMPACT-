@@ -89,7 +89,7 @@ export const tools: CatalogItem[] = [
     title: { fr: "Carte des acteurs", en: "Actor map" },
     description: { fr: "Liens entre groupes, marques et fournisseurs.", en: "Links between corporate groups, brands and suppliers." },
     detail: {
-      fr: "Les liens seront typés, datés et reliés à des sources. Une relation de fourniture ne sera jamais présentée comme une relation de propriété.",
+      fr: "Explorez les relations publiées entre entités, avec leur type, leur état de connaissance, leur période éventuelle et leurs sources. Une relation de fourniture n’est jamais présentée comme une relation de propriété.",
       en: "Relationships will be typed, dated and linked to sources. A supplier relationship will never be presented as an ownership relationship."
     },
     keywords: ["carte", "groupe", "marque", "filiale", "fournisseur", "map", "group", "brand", "subsidiary", "supplier"]
@@ -109,7 +109,7 @@ export const tools: CatalogItem[] = [
     title: { fr: "Observatoire des engagements", en: "Commitment tracker" },
     description: { fr: "Promesses, échéances et résultats documentés.", en: "Promises, deadlines and documented results." },
     detail: {
-      fr: "Les engagements seront séparés des résultats effectivement mesurés. Une promesse annoncée ne sera pas considérée comme réalisée sans éléments justificatifs.",
+      fr: "Retrouvez les engagements publiés, leurs échéances, leur état, les résultats observés et les méthodes de mesure lorsqu’elles existent. Une promesse annoncée n’est jamais considérée comme réalisée sans éléments justificatifs.",
       en: "Commitments will be kept separate from measured results. An announced promise will not be treated as achieved without supporting evidence."
     },
     keywords: ["historique", "engagement", "promesse", "résultat", "history", "commitment", "promise", "outcome"]
