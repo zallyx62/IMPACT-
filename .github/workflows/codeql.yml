@@ -20,7 +20,7 @@ jobs:
   analyze:
     name: Analyze Java, JavaScript, TypeScript and GitHub Actions
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     permissions:
       actions: read
       contents: read
@@ -29,12 +29,33 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v7
 
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd # v4
+        with:
+          packages: "platform-tools platforms;android-36 build-tools;36.0.0"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: "9.6.0"
+          cache-provider: basic
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:
           languages: java-kotlin, javascript-typescript, actions
-          build-mode: none
+          build-mode: manual
           queries: security-extended
+
+      - name: Build Android Java sources for CodeQL
+        working-directory: android
+        run: gradle --no-daemon :app:compileDebugJavaWithJavac
 
       - name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@v4
