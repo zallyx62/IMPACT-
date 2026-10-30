@@ -3,7 +3,7 @@
   "subject_entity_id": "nestle",
   "statement": "Le rapport de la commission d'enquête du Sénat décrit des sollicitations insistantes de Nestlé Waters auprès de cabinets ministériels afin d'obtenir un cadre favorable à la microfiltration à 0,2 micromètre.",
   "topic": "business_consumption",
-  "claim_status": "confirmed",
+  "claim_status": "not_reviewed",
   "source_ids": [
     "source-senat-2025-enquete-eaux-minerales"
   ],
