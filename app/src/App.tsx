@@ -3,8 +3,7 @@ import { tools, universes, type CatalogItem, type Language } from "./data/catalo
 import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } from "./data/search";
 import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import DossierPanel from "./DossierPanel";
-
-type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
+import { parseSelectionHash, type Selection } from "./data/hash-route";
 type Theme = "light" | "dark";
 type Accent = "green" | "blue" | "violet" | "orange" | "rose";
 const accentColors: Record<Accent, string> = {
@@ -106,7 +105,7 @@ function App() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [accent, setAccent] = useState<Accent>(getInitialAccent);
   const [query, setQuery] = useState("");
-  const [selection, setSelection] = useState<Selection>(null);
+  const [selection, setSelection] = useState<Selection>(() => parseSelectionHash(window.location.hash));
   const t = copy[language];
   const trimmedQuery = normalizeSearch(query);
 
@@ -125,12 +124,7 @@ function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      const match = /^#(universe|tool|entity)\/(.+)$/.exec(window.location.hash);
-      if (match) {
-        setSelection({ type: match[1] as "universe" | "tool" | "entity", id: decodeURIComponent(match[2]) });
-      } else {
-        setSelection(null);
-      }
+      setSelection(parseSelectionHash(window.location.hash));
       setQuery("");
     };
     window.addEventListener("popstate", handlePopState);
@@ -179,7 +173,13 @@ function App() {
 
   function reset() {
     if (selection && window.location.hash) {
-      window.history.back();
+      const state = window.history.state as { impactSelection?: unknown } | null;
+      if (state?.impactSelection) {
+        window.history.back();
+      } else {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+        setSelection(null);
+      }
       setQuery("");
       return;
     }
