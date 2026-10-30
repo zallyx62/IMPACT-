@@ -1,5 +1,5 @@
 import type {
-  CampaignRecord, ClaimRecord, CommitmentRecord, EntityDossier, EntityRecord,
+  CampaignRecord, ChangeRecord, ClaimRecord, CommitmentRecord, EntityDossier, EntityRecord,
   EvidenceRecord, RelationshipRecord, ResponseRecord, SourceRecord,
 } from "./records";
 
@@ -12,6 +12,7 @@ export interface DossierCollections {
   campaigns: CampaignRecord[];
   responses: ResponseRecord[];
   commitments: CommitmentRecord[];
+  changes?: ChangeRecord[];
 }
 
 function publishableSourceIds(data: DossierCollections): Set<string> {
@@ -120,12 +121,18 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     item.source_ids.every((id) => publishableSources.has(id)),
   );
 
+  const changes = (data.changes ?? []).filter((item) =>
+    item.entity_id === entityId && Boolean(item.reviewed_at) &&
+    item.source_ids.length > 0 && item.source_ids.every((id) => publishableSources.has(id)),
+  ).map((item) => ({ ...item, claim_ids: (item.claim_ids ?? []).filter((id) => publishedClaimIds.has(id)) }));
+
   const sourceIds = new Set(originalEntity.source_ids.filter((id) => publishableSources.has(id)));
   claims.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   entityRelationships.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   entityCampaigns.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   responses.forEach((item) => { if (item.source_id) sourceIds.add(item.source_id); });
   commitments.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
+  changes.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   evidence.forEach((item) => sourceIds.add(item.source_id));
 
   const sources = data.sources.filter((item) => sourceIds.has(item.id) && publishableSources.has(item.id));
@@ -163,5 +170,6 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     commitments: commitments.map((item) => ({
       ...item, source_ids: item.source_ids.filter((id) => publishedSourceIds.has(id)),
     })),
+    changes: changes.map((item) => ({ ...item, source_ids: item.source_ids.filter((id) => publishedSourceIds.has(id)) })),
   };
 }
