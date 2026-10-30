@@ -1,0 +1,22 @@
+{
+  "id": "shein",
+  "name": "SHEIN",
+  "entity_type": "organization",
+  "description": "Plateforme internationale de mode ultra-rapide. Ce dossier documente des éléments relatifs aux conditions de travail chez certains fournisseurs, à la diligence raisonnable et à la transparence, ainsi qu'aux impacts climatiques du modèle de production et de distribution. Chaque constat est limité à sa source, sa période, son échantillon et son périmètre.",
+  "website": "https://www.sheingroup.com/",
+  "country_codes": [
+    "SG",
+    "CN"
+  ],
+  "status": "review_needed",
+  "created_at": "2026-10-30",
+  "updated_at": "2026-10-30",
+  "reviewed_at": null,
+  "source_ids": [
+    "source-france-pcn-shein-2025",
+    "source-public-eye-shein-china-2024",
+    "source-newclimate-shein-climate-2025",
+    "source-shein-sustainability-2024",
+    "source-reuters-shein-child-labor-2025"
+  ]
+}
