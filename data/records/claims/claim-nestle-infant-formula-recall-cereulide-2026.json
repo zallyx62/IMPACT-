@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-infant-formula-recall-cereulide-2026",
+  "subject_entity_id": "nestle",
+  "statement": "En janvier 2026, Nestlé a élargi en France le rappel préventif de certains lots de laits infantiles Guigoz et Nidal après l'identification de céréulide potentiellement liée à une huile riche en acide arachidonique fournie par une entreprise chinoise et utilisée dans certains produits.",
+  "topic": "animals_food",
+  "claim_status": "not_reviewed",
+  "valid_from": "2026-01-05",
+  "source_ids": [
+    "source-fr-health-ministry-infant-formula-recall-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-infant-formula-recall-cereulide-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le rappel concerne des lots identifiés et non l'ensemble des produits Nestlé. Au 22 janvier 2026, les autorités indiquaient qu'aucun lien causal n'avait été établi entre la consommation des produits rappelés et les symptômes rapportés. Ne pas affirmer que les produits ont causé des maladies ou des décès.",
+  "editorial_note": "Afficher les lots et dates exacts depuis RappelConso avant toute information pratique au public. Conserver la distinction entre contamination identifiée, rappel préventif et absence de lien causal établi à la date du communiqué."
+}
