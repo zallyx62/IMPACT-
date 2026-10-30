@@ -107,7 +107,7 @@ Les dépendances sont surveillées chaque semaine par Dependabot et auditées av
 - `scripts/generate-public-records.mjs` lit les enregistrements source, applique `dossier-builder.ts` et génère avant les commandes Web un module filtré `app/src/data/public-records.generated.ts`.
 - `app/src/data/records.ts` charge uniquement ce module généré ; les sources, affirmations et preuves non examinées ne sont donc pas intégrées au bundle Web distribué.
 - Le module généré est ignoré par Git et recréé avant le développement, le typage, les tests et le build. Le test `scripts/test-public-data.test.mjs` vérifie les statuts et les références ; `scripts/check-pwa-build.mjs` compare les enregistrements source au jeu public et vérifie que l'identifiant de chaque enregistrement exclu est absent des fichiers JavaScript produits.
-- Aucun dossier réel d'entreprise ne doit être publié sans recherche, examen des preuves et validation éditoriale humaine.
+- Un dossier réel peut être publié sans validation humaine préalable lorsque les critères de preuve, de corroboration, de transparence et les contrôles définis dans la charte sont satisfaits. Les cas sensibles ou à risque élevé restent bloqués pour examen humain.
 - Une source, une affirmation et un élément de preuve restent trois objets distincts.
 
 La première version contient un corpus de travail non publié ; aucun dossier Nestlé n'est visible tant que les statuts éditoriaux ne sont pas validés. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
