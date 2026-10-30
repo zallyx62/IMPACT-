@@ -86,7 +86,7 @@
       "default": []
     },
     "reviewed_at": {
-      "type": "string",
+      "type": ["string", "null"],
       "format": "date"
     },
     "uncertainty_note": {
