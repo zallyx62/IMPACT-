@@ -70,9 +70,9 @@ assert.ok(publicRecords.sources.some((item) => item.id === "source-fda-microplas
 assert.ok(publicRecords.sources.some((item) => item.id === "source-efsa-food-contact-microplastics-review-2025"));
 assert.ok(publicRecords.sources.some((item) => item.id === "source-efsa-microplastics-food-risk-status-2026"));
 assert.ok(publicRecords.sources.some((item) => item.id === "source-nestle-baby-food-plastic-packaging-response-2026"));
+assert.ok(publicRecords.sources.some((item) => item.id === "source-consumer-reports-baby-food-testing-2026"));
 assert.ok(!publicRecords.sources.some((item) =>
-  (item.id.startsWith("source-nestle-") && !allowedContextSources.has(item.id)) ||
-  item.id === "source-consumer-reports-baby-food-testing-2026"),
+  item.id.startsWith("source-nestle-") && !allowedContextSources.has(item.id)),
   "unverified Nestlé and Consumer Reports source drafts must remain excluded");
 assert.ok(JSON.stringify(publicRecords).includes("claim-nestle-gerber-microplastics-consumer-reports-2026"),
   "the independently documented Consumer Reports claim must be included");
