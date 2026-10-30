@@ -29,8 +29,7 @@ describe("Nestlé dossier editorial gate", () => {
       "source-greenpeace-baby-food-plastic-pouches-2026",
       "source-nestle-baby-food-plastic-packaging-response-2026",
       "source-fda-microplastics-food-guidance-2026",
-      "source-nestle-baby-food-plastic-packaging-response-2026",
-      "source-fda-microplastics-food-guidance-2026",
+      "source-consumer-reports-baby-food-testing-2026",
       "source-science-advances-plastic-brand-audit-2024",
       "source-bffp-asian-plastic-sachet-audit-2024",
       "source-nestle-packaging-progress-2025",
@@ -52,6 +51,7 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-bms-policy-gaps",
       "claim-nestle-baby-food-added-sugar",
       "claim-nestle-baby-food-microplastics-2026",
+      "claim-nestle-gerber-microplastics-consumer-reports-2026",
       "claim-nestle-cocoa-cameroon-child-labor",
       "claim-nestle-cocoa-cameroon-forced-labor-risk",
       "claim-nestle-bms-marketing-company-count-2024",
@@ -78,6 +78,7 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-baby-food-added-sugar",
       "evidence-nestle-baby-food-microplastics-2026",
       "evidence-fda-microplastics-health-uncertainty-2026",
+      "evidence-consumer-reports-gerber-microplastics-2026",
       "evidence-nestle-cocoa-cameroon-child-labor",
       "evidence-nestle-cocoa-cameroon-forced-labor-risk",
       "evidence-nestle-bms-marketing-company-count-2024",
@@ -97,6 +98,7 @@ describe("Nestlé dossier editorial gate", () => {
       "response-nestle-plastic-pollution-2024",
       "response-nestle-liberia-cocoa-deforestation-2025",
       "response-nestle-baby-food-microplastics-2026",
+      "response-gerber-consumer-reports-baby-food-testing-2026",
     ].map((id) => readRecord("responses", id)));
     const data = { entities: [entity], sources, claims, evidence, relationships: [], campaigns: [], responses, commitments: [] };
 
@@ -134,6 +136,7 @@ describe("Nestlé dossier editorial gate", () => {
       "source-global-witness-liberia-cocoa-deforestation-2025",
       "source-nestle-baby-food-plastic-packaging-response-2026",
       "source-fda-microplastics-food-guidance-2026",
+      "source-consumer-reports-baby-food-testing-2026",
     ]);
     const claimIds = [
       "claim-nestle-water-treatments",
@@ -175,6 +178,7 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-baby-food-added-sugar",
       "evidence-nestle-baby-food-microplastics-2026",
       "evidence-fda-microplastics-health-uncertainty-2026",
+      "evidence-consumer-reports-gerber-microplastics-2026",
       "evidence-nestle-cocoa-cameroon-child-labor",
       "evidence-nestle-cocoa-cameroon-forced-labor-risk",
       "evidence-nestle-bms-marketing-company-count-2024",
@@ -192,7 +196,7 @@ describe("Nestlé dossier editorial gate", () => {
       assert.ok(claim.evidence_ids.length > 0);
       assert.ok(claim.evidence_ids.every((id) => evidenceIds.has(id)));
     }
-    const responseIds = ["response-nestle-water-cjipe", "response-nestle-bms-policy", "response-nestle-baby-food-sugar", "response-nestle-cocoa-plan", "response-nestle-bms-marketing-2024", "response-nestle-plastic-pollution-2024", "response-nestle-liberia-cocoa-deforestation-2025", "response-nestle-baby-food-microplastics-2026"];
+    const responseIds = ["response-nestle-water-cjipe", "response-nestle-bms-policy", "response-nestle-baby-food-sugar", "response-nestle-cocoa-plan", "response-nestle-bms-marketing-2024", "response-nestle-plastic-pollution-2024", "response-nestle-liberia-cocoa-deforestation-2025", "response-nestle-baby-food-microplastics-2026", "response-gerber-consumer-reports-baby-food-testing-2026"];
     const responses = await Promise.all(responseIds.map((id) => readRecord("responses", id)));
     for (const response of responses) {
       assert.ok(response.related_claim_ids.every((id) => claimIds.includes(id)));
@@ -225,6 +229,20 @@ describe("Nestlé dossier editorial gate", () => {
     assert.equal(nestleResponse.publication_status, "published");
     assert.ok(nestleResponse.related_claim_ids.includes(claim.id));
     assert.equal(nestleResponse.source_id, "source-nestle-baby-food-plastic-packaging-response-2026");
+
+    const crSource = await readRecord("sources", "source-consumer-reports-baby-food-testing-2026");
+    const crClaim = await readRecord("claims", "claim-nestle-gerber-microplastics-consumer-reports-2026");
+    const crEvidence = await readRecord("evidence", "evidence-consumer-reports-gerber-microplastics-2026");
+    const gerberResponse = await readRecord("responses", "response-gerber-consumer-reports-baby-food-testing-2026");
+    assert.equal(crSource.review_status, "to_review");
+    assert.match(crEvidence.summary, /728 294 particules/i);
+    assert.equal(crClaim.claim_status, "not_reviewed");
+    assert.equal(crClaim.reviewed_at, null);
+    assert.match(crClaim.uncertainty_note, /La FDA a déclaré ne pas avoir examiné/i);
+    assert.ok(crClaim.evidence_ids.includes(crEvidence.id));
+    assert.equal(gerberResponse.publication_status, "published");
+    assert.ok(gerberResponse.related_claim_ids.includes(crClaim.id));
+
   });
 
 });
