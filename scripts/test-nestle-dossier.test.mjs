@@ -92,6 +92,7 @@ describe("Nestlé dossier editorial gate", () => {
       "source-nestle-sugar-response-2025",
       "source-fla-cocoa-cameroon-2022",
       "source-nestle-cocoa-plan",
+      "source-nestle-non-financial-statement-2024-bms",
     ]);
     const claimIds = [
       "claim-nestle-water-treatments",
