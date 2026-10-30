@@ -32,13 +32,14 @@ const data = {
     { id: "relationship-draft-target", from_entity_id: "entity-one", to_entity_id: "entity-draft", relationship_type: "controls", knowledge_status: "confirmed", source_ids: ["source-reviewed"] },
   ],
   campaigns: [
-    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft", "entity-unreviewed"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"], response_ids: ["response-published", "response-withheld", "response-public-other", "response-pending-source", "response-unknown"] },
+    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft", "entity-unreviewed"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"], response_ids: ["response-published", "response-withheld", "response-public-other", "response-no-published-claim", "response-pending-source", "response-unknown"] },
     { id: "campaign-pending", title: "Pending campaign", target_entity_ids: ["entity-one"], demands: ["Publish data"], campaign_status: "active", source_ids: ["source-pending"] },
   ],
   responses: [
     { id: "response-published", entity_id: "entity-one", related_claim_ids: ["claim-related"], summary: "A published response backed by a reviewed source.", source_id: "source-reviewed", publication_status: "published" },
     { id: "response-withheld", entity_id: "entity-one", related_claim_ids: ["claim-reviewed"], summary: "A response that must not be displayed.", source_id: "source-reviewed", publication_status: "withheld" },
-    { id: "response-public-other", entity_id: "entity-two", related_claim_ids: [], summary: "A public response for a related entity.", source_id: "source-reviewed", publication_status: "published" },
+    { id: "response-public-other", entity_id: "entity-two", related_claim_ids: ["claim-related"], summary: "A public response for a related entity.", source_id: "source-reviewed", publication_status: "published" },
+    { id: "response-no-published-claim", entity_id: "entity-two", related_claim_ids: ["claim-pending"], summary: "A response whose related claim is not publishable.", source_id: "source-reviewed", publication_status: "published" },
     { id: "response-pending-source", entity_id: "entity-two", related_claim_ids: [], summary: "A response backed by a source awaiting review.", source_id: "source-pending", publication_status: "published" },
   ],
   commitments: [
@@ -69,6 +70,7 @@ describe("buildEntityDossier publication rules", () => {
     assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.deepEqual(dossier.responses.map((item) => item.id), ["response-published", "response-public-other"]);
+    assert.ok(!dossier.responses.some((item) => item.id === "response-no-published-claim"), "responses without a published related claim must remain hidden");
     assert.equal(dossier.responses.find((item) => item.id === "response-public-other")?.entity_id, "entity-two",
       "published responses linked from a related campaign must retain their responding entity");
     assert.deepEqual(dossier.commitments.map((item) => item.id), ["commitment-reviewed"]);
