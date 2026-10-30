@@ -58,11 +58,21 @@ assert.deepEqual(publicRecords.claims.filter((item) => item.subject_entity_id ==
   "only the narrowly scoped evidence-verified Nestlé claim may be public");
 assert.ok(publicRecords.sources.some((item) => item.id === "source-greenpeace-baby-food-plastic-pouches-2026"),
   "the evidence-verified primary report must be included");
+const allowedContextSources = new Set([
+  "source-greenpeace-baby-food-plastic-pouches-2026",
+  "source-fda-microplastics-food-guidance-2026",
+  "source-efsa-food-contact-microplastics-review-2025",
+  "source-efsa-microplastics-food-risk-status-2026",
+  "source-nestle-baby-food-plastic-packaging-response-2026",
+]);
+assert.ok(publicRecords.sources.some((item) => item.id === "source-fda-microplastics-food-guidance-2026"));
+assert.ok(publicRecords.sources.some((item) => item.id === "source-efsa-food-contact-microplastics-review-2025"));
+assert.ok(publicRecords.sources.some((item) => item.id === "source-efsa-microplastics-food-risk-status-2026"));
+assert.ok(publicRecords.sources.some((item) => item.id === "source-nestle-baby-food-plastic-packaging-response-2026"));
 assert.ok(!publicRecords.sources.some((item) =>
-  item.id.startsWith("source-nestle-") ||
-  ["source-consumer-reports-baby-food-testing-2026", "source-fda-microplastics-food-guidance-2026",
-    "source-efsa-food-contact-microplastics-review-2025", "source-efsa-microplastics-food-risk-status-2026"].includes(item.id)),
-  "other Nestlé and contextual source drafts must remain excluded");
+  (item.id.startsWith("source-nestle-") && !allowedContextSources.has(item.id)) ||
+  item.id === "source-consumer-reports-baby-food-testing-2026"),
+  "unverified Nestlé and Consumer Reports source drafts must remain excluded");
 assert.ok(!JSON.stringify(publicRecords).includes("claim-nestle-gerber-microplastics-consumer-reports-2026"),
   "the Consumer Reports claim remains unpublished until its own evidence gate is completed");
 
