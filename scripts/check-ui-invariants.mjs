@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 
 const css = await readFile(new URL("../app/src/styles.css", import.meta.url), "utf8");
 const dossierPanel = await readFile(new URL("../app/src/DossierPanel.tsx", import.meta.url), "utf8");
+const app = await readFile(new URL("../app/src/App.tsx", import.meta.url), "utf8");
 
 assert.match(css, /button:focus-visible, a:focus-visible, input:focus-visible/);
 assert.match(css, /@media \(max-width: 760px\)/);
@@ -20,6 +21,11 @@ assert.ok(finalDarkMode.includes(".claim-uncertainty { background: #342f21; colo
   "uncertainty notes must retain their dark-mode colors after their base styles");
 assert.ok(darkMode.includes(".claim-uncertainty { background: #342f21; color: #e5d9b8; }"),
   "uncertainty notes need a dark-mode surface and readable foreground");
+
+for (const marker of ["selected-mark", "tool-mark", "result-mark", "universe-mark", "footer-mark"]) {
+  assert.match(app, new RegExp(`<span className="${marker}" aria-hidden="true">`),
+    `${marker} is decorative and must be hidden from assistive technology`);
+}
 
 assert.match(dossierPanel, /claim\.subject_entity_id !== dossier\.entity\.id/,
   "claims about another entity must be explicitly attributed in the dossier");
