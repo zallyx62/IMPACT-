@@ -102,7 +102,7 @@ const copy: Record<Language, Record<string, string>> = {
 };
 
 function App() {
-  const [language, setLanguage] = useState<Language>("en");
+  const language: Language = "fr";
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [accent, setAccent] = useState<Accent>(getInitialAccent);
   const [query, setQuery] = useState("");
@@ -252,15 +252,6 @@ function App() {
                 </label>
               </div>
             </details>
-            <label className="language-control" htmlFor="language-select">
-              <span className="language-label">{language === "fr" ? "Langue" : "Language"}</span>
-              <select id="language-select" className="language-select" value={language}
-                onChange={(event) => setLanguage(event.currentTarget.value as Language)}
-                aria-label={language === "fr" ? "Choisir la langue" : "Choose language"}>
-                <option value="fr">Français</option>
-                <option value="en">English</option>
-              </select>
-            </label>
           </div>
         </div>
       </header>
