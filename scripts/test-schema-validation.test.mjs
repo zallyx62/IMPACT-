@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { compileRecordValidators, validateSchemaRecords } from "./lib/schema-validation.mjs";
 
 const valid = {
-  entities: [{ id: "entity-one", name: "Example organization", entity_type: "organization", status: "published", reviewed_at: "2026-10-30" }],
+  entities: [{ id: "entity-one", name: "Example organization", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-one"] }],
   sources: [{ id: "source-one", title: "Official report", publisher: "Example publisher", source_type: "official_statement", accessed_at: "2026-10-30", review_status: "reviewed", url: "https://example.org/report" }],
   claims: [{ id: "claim-one", subject_entity_id: "entity-one", statement: "A sufficiently detailed example claim for schema validation.", topic: "other", claim_status: "confirmed", source_ids: ["source-one"], evidence_ids: ["evidence-one"], reviewed_at: "2026-10-30", uncertainty_note: "The example is fictional and used only in tests." }],
   evidence: [{ id: "evidence-one", source_id: "source-one", locator: "Section 2", summary: "A sufficiently detailed summary of the example evidence.", supports_claim_ids: ["claim-one"] }],
