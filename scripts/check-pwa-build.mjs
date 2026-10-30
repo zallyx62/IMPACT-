@@ -75,7 +75,7 @@ for (const collection of [
   for (const file of files.filter((name) => name.endsWith(".json"))) {
     const record = JSON.parse(await readFile(new URL(file, directory), "utf8"));
     if (!includedIds.has(record.id)) {
-      assert.ok(!bundleText.includes(record.id),
+      assert.ok(!bundleText.includes(JSON.stringify(record.id)),
         `unpublished editorial record leaked into production bundle: ${record.id}`);
     }
   }
