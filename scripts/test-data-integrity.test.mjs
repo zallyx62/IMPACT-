@@ -56,6 +56,16 @@ describe("validateCollections", () => {
     assert.ok(errors.some((error) => error.includes('"started_at" must not be later than "ended_at"')));
   });
 
+  it("rejects a source accessed before its publication date", () => {
+    const broken = structuredClone(valid);
+    broken.sources[0].published_at = "2026-12-01";
+    broken.sources[0].accessed_at = "2026-11-01";
+
+    const errors = validateCollections(broken);
+    assert.equal(errors.length, 1);
+    assert.ok(errors[0].includes('"published_at" must not be later than "accessed_at"'));
+  });
+
   it("rejects responses published before receipt and commitments targeted before announcement", () => {
     const broken = structuredClone(valid);
     broken.responses[0].received_at = "2026-12-01";
