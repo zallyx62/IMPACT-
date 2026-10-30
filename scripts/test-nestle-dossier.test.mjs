@@ -245,6 +245,8 @@ describe("Nestlé dossier editorial gate", () => {
     const evidence = await readRecord("evidence", "evidence-nestle-branded-plastic-audit-2024");
     assert.equal(source.review_status, "evidence_verified");
     assert.equal(source.verification_method, "peer_reviewed_research");
+    assert.match(source.potential_conflicts, /financement de l'étude/);
+    assert.match(source.verification_note, /Break Free From Plastic/);
     assert.equal(claim.claim_status, "confirmed");
     assert.equal(claim.publication_basis, "evidence_verified");
     assert.equal(claim.requires_human_review, false);
