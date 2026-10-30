@@ -64,6 +64,31 @@ const labels = {
   },
 };
 
+const valueLabels: Record<Language, Record<string, Record<string, string>>> = {
+  fr: {
+    entityType: { organization: "Organisation", brand: "Marque", product: "Produit", service: "Service", association: "Association", institution: "Institution", public_body: "Organisme public" },
+    topic: { animals_food: "Animaux et alimentation", environment: "Environnement", human_rights: "Droits humains", business_consumption: "Entreprises et consommation", technology_privacy: "Technologie et vie privée", other: "Autre" },
+    relationshipType: { owns: "détient", operates: "exploite", manufactures: "fabrique", distributes: "distribue", supplies: "fournit", certifies: "certifie", funds: "finance", partners_with: "est partenaire de", other: "autre" },
+    knowledgeStatus: { confirmed: "Confirmée", partial: "Partielle", disputed: "Contestée", unknown: "Inconnue" },
+    campaignStatus: { active: "Active", completed: "Terminée", suspended: "Suspendue", withdrawn: "Retirée", unknown: "Inconnue" },
+    publicationStatus: { published: "Publiée", not_published: "Non publiée", withheld: "Non communiquée", unavailable: "Indisponible" },
+    commitmentStatus: { announced: "Annoncé", in_progress: "En cours", achieved: "Atteint", not_achieved: "Non atteint", abandoned: "Abandonné", unable_to_assess: "Impossible à évaluer" },
+  },
+  en: {
+    entityType: { organization: "Organization", brand: "Brand", product: "Product", service: "Service", association: "Association", institution: "Institution", public_body: "Public body" },
+    topic: { animals_food: "Animals and food", environment: "Environment", human_rights: "Human rights", business_consumption: "Business and consumption", technology_privacy: "Technology and privacy", other: "Other" },
+    relationshipType: { owns: "owns", operates: "operates", manufactures: "manufactures", distributes: "distributes", supplies: "supplies", certifies: "certifies", funds: "funds", partners_with: "partners with", other: "other" },
+    knowledgeStatus: { confirmed: "Confirmed", partial: "Partial", disputed: "Disputed", unknown: "Unknown" },
+    campaignStatus: { active: "Active", completed: "Completed", suspended: "Suspended", withdrawn: "Withdrawn", unknown: "Unknown" },
+    publicationStatus: { published: "Published", not_published: "Not published", withheld: "Withheld", unavailable: "Unavailable" },
+    commitmentStatus: { announced: "Announced", in_progress: "In progress", achieved: "Achieved", not_achieved: "Not achieved", abandoned: "Abandoned", unable_to_assess: "Unable to assess" },
+  },
+};
+
+function displayValue(group: string, value: string, language: Language): string {
+  return valueLabels[language][group]?.[value] ?? value.replaceAll("_", " ");
+}
+
 function dateLabel(value: string, language: Language) {
   const date = new Date(`${value}T00:00:00`);
   return Number.isNaN(date.getTime())
@@ -95,7 +120,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         <h2 id="dossier-title">{dossier.entity.name}</h2>
         <p>{dossier.entity.description || t.noDescription}</p>
         <div className="dossier-meta">
-          <span>{t.type} : {dossier.entity.entity_type}</span>
+          <span>{t.type} : {displayValue("entityType", dossier.entity.entity_type, language)}</span>
           <span>{t.reviewed} : {dateLabel(dossier.entity.reviewed_at, language)}</span>
         </div>
         {entityWebsite && (
@@ -132,7 +157,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
             {dossier.claims.map((claim) => (
               <article className="claim-card" key={claim.id}>
                 <div className="claim-card-heading">
-                  <span className="claim-topic">{claim.topic.replaceAll("_", " ")}</span>
+                  <span className="claim-topic">{displayValue("topic", claim.topic, language)}</span>
                   <span className="claim-status">{t.statuses[claim.claim_status] ?? claim.claim_status}</span>
                 </div>
                 <p className="claim-statement">{claim.statement}</p>
@@ -176,26 +201,26 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         <section className="dossier-section">
           <h3>{t.relationships}</h3>
           <ul>{dossier.relationships.map((item) => (
-            <li key={item.id}><strong>{entityName(item.from_entity_id)} → {item.relationship_type.replaceAll("_", " ")} → {entityName(item.to_entity_id)}</strong><span>{t.relationshipStatus} : {item.knowledge_status}</span><div className="extra-sources">{item.source_ids.map(sourceReference)}</div></li>
+            <li key={item.id}><strong>{entityName(item.from_entity_id)} → {displayValue("relationshipType", item.relationship_type, language)} → {entityName(item.to_entity_id)}</strong><span>{t.relationshipStatus} : {displayValue("knowledgeStatus", item.knowledge_status, language)}</span><div className="extra-sources">{item.source_ids.map(sourceReference)}</div></li>
           ))}</ul>
         </section>
       )}
       {dossier.campaigns.length > 0 && (
         <section className="dossier-section">
           <h3>{t.campaigns}</h3>
-          <div className="dossier-list">{dossier.campaigns.map((item) => <article className="claim-card" key={item.id}><strong>{item.title}</strong><p>{item.campaign_status}</p><strong>{t.demands}</strong><ul>{item.demands.map((demand) => <li key={demand}>{demand}</li>)}</ul>{item.outcome_summary && <p>{t.outcome} : {item.outcome_summary}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
+          <div className="dossier-list">{dossier.campaigns.map((item) => <article className="claim-card" key={item.id}><strong>{item.title}</strong><p>{displayValue("campaignStatus", item.campaign_status, language)}</p><strong>{t.demands}</strong><ul>{item.demands.map((demand) => <li key={demand}>{demand}</li>)}</ul>{item.outcome_summary && <p>{t.outcome} : {item.outcome_summary}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
         </section>
       )}
       {dossier.responses.length > 0 && (
         <section className="dossier-section">
           <h3>{t.responses}</h3>
-          <div className="dossier-list">{dossier.responses.map((item) => <article className="claim-card" key={item.id}><p>{item.summary}</p><p>{t.publication} : {item.publication_status}</p>{item.source_id && <div className="extra-sources">{sourceReference(item.source_id)}</div>}</article>)}</div>
+          <div className="dossier-list">{dossier.responses.map((item) => <article className="claim-card" key={item.id}><p>{item.summary}</p><p>{t.publication} : {displayValue("publicationStatus", item.publication_status, language)}</p>{item.source_id && <div className="extra-sources">{sourceReference(item.source_id)}</div>}</article>)}</div>
         </section>
       )}
       {dossier.commitments.length > 0 && (
         <section className="dossier-section">
           <h3>{t.commitments}</h3>
-          <div className="dossier-list">{dossier.commitments.map((item) => <article className="claim-card" key={item.id}><p className="claim-statement">{item.statement}</p><p>{item.status}{item.target_date ? ` · ${t.targetDate} : ${dateLabel(item.target_date, language)}` : ""}</p>{item.measurement_method && <p><strong>{t.measurement} :</strong> {item.measurement_method}</p>}{item.observed_result && <p><strong>{t.observed} :</strong> {item.observed_result}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
+          <div className="dossier-list">{dossier.commitments.map((item) => <article className="claim-card" key={item.id}><p className="claim-statement">{item.statement}</p><p>{displayValue("commitmentStatus", item.status, language)}{item.target_date ? ` · ${t.targetDate} : ${dateLabel(item.target_date, language)}` : ""}</p>{item.measurement_method && <p><strong>{t.measurement} :</strong> {item.measurement_method}</p>}{item.observed_result && <p><strong>{t.observed} :</strong> {item.observed_result}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
         </section>
       )}
     </section>
