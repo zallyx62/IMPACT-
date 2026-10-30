@@ -30,6 +30,7 @@ assert.match(app, /document\.title = language === "fr"/);
 assert.match(app, /meta\[name="description"\]/);
 assert.match(css, /@media \(max-width: 760px\)/);
 assert.match(css, /@media \(max-width: 390px\)/);
+assert.match(css, /\.method-grid \{ grid-template-columns: 1fr;/, "editorial method cards must stack on mobile");
 assert.equal((css.match(/prefers-reduced-motion:\s*reduce/g) ?? []).length, 1,
   "reduced-motion rules should be centralized to avoid conflicting duplicates");
 
