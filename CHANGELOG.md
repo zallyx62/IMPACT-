@@ -6,7 +6,7 @@ Ce fichier décrit les changements destinés aux utilisateurs. Les versions publ
 
 ### Application Web
 - Publication documentaire sans validation humaine systématique : traçabilité de la méthode, date et justification de vérification des sources, ainsi que date et justification de publication des affirmations.
-- Deux constats Gerber publiés avec un périmètre précis : rapport Greenpeace/SINTEF sur trois sachets d'un produit et enquête Consumer Reports sur une purée identifiée, avec limites, contexte FDA/EFSA et réponse de Nestlé/Gerber.
+- Cinq constats publiés avec un périmètre précis : rapport Greenpeace/SINTEF sur trois sachets d'un produit Gerber ; enquête Consumer Reports sur une purée Gerber identifiée ; traitements UV et au charbon actif interdits utilisés par Nestlé Waters en France ; convention judiciaire d'intérêt public environnementale conclue par Nestlé Waters Supply Est ; conclusion gouvernementale de février 2026 indiquant qu'aucun risque sanitaire n'avait été constaté pour les eaux concernées. Les limites, contextes FDA/EFSA et réponses des entreprises sont affichés.
 - Interface modernisée et mentions visibles distinguant validation humaine et publication fondée sur les preuves.
 - Recherche locale étendue aux notes de vérification documentaire.
 - Icônes PWA PNG 192 × 192 et 512 × 512 pour Chromium, icône Apple Touch 180 × 180 ; génération automatique depuis la même identité SVG.
