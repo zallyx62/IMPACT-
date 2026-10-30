@@ -13,5 +13,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Cette formulation résume l'analyse d'ATNi sur la portée des engagements de Nestlé en référence au Code OMS et à ses recommandations. Nestlé publie une politique et affirme interdire la promotion des préparations pour nourrissons de 0 à 6 mois dans tous les pays.",
-  "editorial_note": "Présenter côte à côte l'évaluation indépendante d'ATNi et la politique officielle de Nestlé ; ne pas assimiler automatiquement une lacune de politique à une infraction légale."
+  "editorial_note": "Présenter côte à côte l'évaluation indépendante d'ATNi et la politique officielle de Nestlé ; ne pas assimiler automatiquement une lacune de politique à une infraction légale.",
+  "requires_human_review": true
 }
