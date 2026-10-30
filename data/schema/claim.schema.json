@@ -48,7 +48,8 @@
         "alleged",
         "disputed",
         "refuted",
-        "insufficient_information"
+        "insufficient_information",
+        "not_reviewed"
       ]
     },
     "valid_from": {
