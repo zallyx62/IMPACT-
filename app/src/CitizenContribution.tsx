@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { buildContributionDraft } from "./data/contribution-draft";
 
 export default function CitizenContribution() {
@@ -10,7 +10,7 @@ export default function CitizenContribution() {
   const [draft, setDraft] = useState("");
   const [status, setStatus] = useState("");
 
-  function prepare(event: React.FormEvent<HTMLFormElement>) {
+  function prepare(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
       setDraft(buildContributionDraft({ subject, detail, sourceTitle, sourceUrl, contact }));
