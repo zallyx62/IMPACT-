@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { getPublishedEntities, type EntityDossier, type Language, type SourceRecord } from "./data/records";
 import { safeExternalUrl } from "./data/safe-url";
 import { buildDossierShareUrl } from "./data/share-url";
+import { getDossierSummary } from "./data/dossier-summary";
 
 interface Props {
   dossier: EntityDossier;
@@ -118,6 +119,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
   const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
   const entityWebsite = safeExternalUrl(dossier.entity.website);
+  const summary = getDossierSummary(dossier.entity.id, dossier.claims);
 
   async function shareDossier() {
     const shareUrl = buildDossierShareUrl(window.location.href, dossier.entity.id);
@@ -217,12 +219,55 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         </section>
       )}
 
+      {summary && (
+        <section className="dossier-summary" aria-labelledby="dossier-summary-title">
+          <div className="dossier-summary-top">
+            <div>
+              <p className="section-kicker">{language === "fr" ? "LECTURE RAPIDE" : "QUICK READ"}</p>
+              <h3 id="dossier-summary-title">{summary.title[language]}</h3>
+            </div>
+            <span className={`summary-level summary-level--${summary.boycottPriority}`}>{summary.boycottPriorityLabel[language]}</span>
+          </div>
+          <p className="summary-assessed-at">{language === "fr" ? "Évaluation éditoriale datée du" : "Editorial assessment dated"} : {dateLabel(summary.assessedAt, language)}</p>
+          <div className="summary-assessment" aria-label={language === "fr" ? "Évaluation éditoriale" : "Editorial assessment"}>
+            <div><span>{language === "fr" ? "Gravité documentée" : "Documented severity"}</span><strong>{summary.levelLabel[language]}</strong></div>
+            <div><span>{language === "fr" ? "Priorité du boycott" : "Boycott priority"}</span><strong>{summary.boycottPriorityLabel[language]}</strong></div>
+            <div><span>{language === "fr" ? "Solidité des éléments" : "Evidence confidence"}</span><strong>{summary.confidenceLabel[language]}</strong></div>
+          </div>
+          <p className="dossier-summary-intro">{summary.introduction[language]}</p>
+          <div className="summary-reasons">
+            {summary.reasons.map((reason) => (
+              <article className="summary-reason" key={reason.title.fr}>
+                <h4>{reason.title[language]}</h4>
+                <p>{reason.text[language]}</p>
+                <div className="summary-links">
+                  {reason.claimIds.map((claimId) => {
+                    const claim = dossier.claims.find((item) => item.id === claimId);
+                    return claim ? <a key={claimId} href={`#claim-${claimId}`}>{language === "fr" ? "Voir le constat détaillé" : "Read detailed finding"}</a> : null;
+                  })}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="summary-factors">
+            <h4>{language === "fr" ? "Pourquoi cette évaluation ?" : "Why this assessment?"}</h4>
+            <ul>{summary.assessmentFactors[language].map((factor) => <li key={factor}>{factor}</li>)}</ul>
+          </div>
+          <div className="summary-balance">
+            <h4>{summary.balanceTitle[language]}</h4>
+            <ul>{summary.balancePoints[language].map((point) => <li key={point}>{point}</li>)}</ul>
+          </div>
+          <p className="summary-conclusion">{summary.conclusion[language]}</p>
+          <p className="summary-methodology">{summary.methodology[language]}</p>
+        </section>
+      )}
+
       <section className="dossier-section" aria-labelledby="claims-heading">
         <h3 id="claims-heading">{t.claims}</h3>
         {dossier.claims.length === 0 ? <p className="empty-state">{t.noClaims}</p> : (
           <div className="dossier-list">
             {dossier.claims.map((claim) => (
-              <article className="claim-card" key={claim.id}>
+              <article className="claim-card" id={`claim-${claim.id}`} key={claim.id}>
                 <div className="claim-card-heading">
                   <span className="claim-topic">{displayValue("topic", claim.topic, language)}</span>
                   <span className="claim-status">{t.statuses[claim.claim_status] ?? claim.claim_status}</span>
