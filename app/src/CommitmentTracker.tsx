@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { getEntityDossier, type EntityRecord } from "./data/records";
-import { buildCommitmentIndex } from "./data/public-tool-index";
+import { buildCommitmentIndex, buildDossierTimeline, getCommitmentDisplayStatus } from "./data/public-tool-index";
 
 const statusLabels: Record<string, string> = {
   announced: "Annoncé", in_progress: "En cours", achieved: "Atteint",
@@ -21,12 +21,15 @@ export default function CommitmentTracker({ entities }: { entities: EntityRecord
     return dossier ? [dossier] : [];
   }), [entities]);
   const commitments = useMemo(() => buildCommitmentIndex(dossiers), [dossiers]);
+  const timeline = useMemo(() => buildDossierTimeline(dossiers), [dossiers]);
   const normalized = query.trim().toLocaleLowerCase("fr");
   const filtered = commitments.filter(({ entityName, commitment, sourceTitles }) =>
-    (status === "all" || commitment.status === status) &&
+    (status === "all" || getCommitmentDisplayStatus(commitment) === status) &&
     [entityName, commitment.statement, commitment.observed_result, commitment.measurement_method, ...sourceTitles]
       .filter(Boolean).join(" ").toLocaleLowerCase("fr").includes(normalized));
-  const statuses = [...new Set(commitments.map(({ commitment }) => commitment.status))].sort();
+  const statuses = [...new Set(commitments.map(({ commitment }) => getCommitmentDisplayStatus(commitment)))].sort();
+  const filteredTimeline = timeline.filter((event) =>
+    [event.entityName, event.title, event.detail, ...event.sourceTitles].join(" ").toLocaleLowerCase("fr").includes(normalized));
   return (
     <section className="public-tool-panel" aria-labelledby="commitment-tracker-title">
       <div className="public-tool-heading">
@@ -34,6 +37,21 @@ export default function CommitmentTracker({ entities }: { entities: EntityRecord
           <p>Les annonces, échéances et résultats observés sont séparés. Un engagement annoncé n’est pas considéré comme réalisé sans preuve.</p></div>
         <span className="public-tool-count">{filtered.length} / {commitments.length}</span>
       </div>
+      <section className="dossier-timeline" aria-labelledby="dossier-timeline-title">
+        <div className="timeline-heading"><h4 id="dossier-timeline-title">Chronologie des éléments datés</h4><span>{filteredTimeline.length} événement(s)</span></div>
+        <p className="comparison-caveat">Cette chronologie rassemble les dates présentes dans les dossiers publiés. Elle ne constitue pas un historique exhaustif de toutes les modifications ni une preuve d’absence d’événements lorsqu’une date manque.</p>
+        {filteredTimeline.length === 0 ? <p className="empty-state">Aucun événement daté ne correspond à cette recherche.</p> : (
+          <ol className="timeline-list">{filteredTimeline.map((event) => (
+            <li className="timeline-item" key={event.id}>
+              <time dateTime={event.date}>{dateLabel(event.date)}</time>
+              <div><strong>{event.title}</strong><span className="timeline-entity">{event.entityName}</span>
+                <p>{event.detail}</p>
+                {event.sourceTitles.length > 0 && <small>Sources : {event.sourceTitles.join(" · ")}</small>}
+              </div>
+            </li>
+          ))}</ol>
+        )}
+      </section>
       <div className="public-tool-controls">
         <label className="public-tool-search-label" htmlFor="commitment-search">Rechercher un engagement</label>
         <input id="commitment-search" className="public-tool-search" type="search" value={query}
@@ -50,7 +68,7 @@ export default function CommitmentTracker({ entities }: { entities: EntityRecord
         <div className="commitment-list">
           {filtered.map(({ id, entityName, commitment, sourceTitles }) => (
             <article className="commitment-card" key={id}>
-              <div className="commitment-meta"><strong>{entityName}</strong><span>{statusLabels[commitment.status] ?? commitment.status}</span></div>
+              <div className="commitment-meta"><strong>{entityName}</strong><span>{statusLabels[getCommitmentDisplayStatus(commitment)] ?? commitment.status}</span></div>
               <h4>{commitment.statement}</h4>
               <dl>
                 <div><dt>Annoncé</dt><dd>{dateLabel(commitment.announced_at)}</dd></div>
