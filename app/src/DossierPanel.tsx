@@ -189,7 +189,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                   <p className="claim-reviewed"><strong>{t.claimAbout} :</strong> {entityName(claim.subject_entity_id)}</p>
                 )}
                 <p className="claim-statement">{claim.statement}</p>
-                <p className="claim-reviewed">{t.reviewed} : {dateLabel(claim.reviewed_at, language)}</p>
+                <p className="claim-reviewed">{t.reviewed} : {claim.reviewed_at ? dateLabel(claim.reviewed_at, language) : t.notReviewed}</p>
                 {(claim.valid_from || claim.valid_until) && <p className="claim-reviewed">{t.period} : {claim.valid_from ? dateLabel(claim.valid_from, language) : "…"} – {claim.valid_until ? dateLabel(claim.valid_until, language) : "…"}</p>}
                 {claim.editorial_note && <p className="claim-reviewed"><strong>{t.editorialNote} :</strong> {claim.editorial_note}</p>}
                 {claim.uncertainty_note && (
