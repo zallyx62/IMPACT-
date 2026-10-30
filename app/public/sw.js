@@ -17,7 +17,7 @@ self.addEventListener("install", (event) => {
       const html = await shellResponse.clone().text();
       const assetReferences = html.match(/(?:src|href)="([^"]+)"/g) ?? [];
       const assetUrls = assetReferences
-        .map((reference) => reference.slice(reference.indexOf("\\\"") + 1, -1))
+        .map((reference) => reference.slice(reference.indexOf(String.fromCharCode(34)) + 1, -1))
         .filter((path) => path.includes("/assets/"))
         .map((path) => new URL(path, self.location.href))
         .filter((url) => url.origin === self.location.origin && url.pathname.startsWith(`${BASE_PATH}assets/`))
