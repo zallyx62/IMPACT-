@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 24 sources sont `to_review`, les 23 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 25 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 27 sources sont `to_review`, les 25 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 28 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -37,6 +37,7 @@ Affirmations à examiner :
 - `claim-nestle-water-vosges-surveillance` — résultats de surveillance virologique rapportés pour les Vosges.
 - `claim-nestle-waters-cjipe-completion-2026` — exécution des obligations de la CJIPE et extinction de l'action publique annoncées le 14 octobre 2026.
 - `claim-nestle-vosges-plastic-dumps-retrial-2026` — nouveau procès ordonné le 17 septembre 2026 concernant les décharges plastiques, sans décision sur le fond.
+- `claim-nestle-waters-perrier-raids-2026` — perquisitions du 19 mai 2026 à Vergèze et dans un laboratoire des Vosges dans le cadre d'une enquête distincte pour tromperie ; il s'agit d'actes d'enquête, pas d'une décision au fond.
 
 **Point de vigilance :** conserver ensemble les conclusions différentes selon les sites et les périodes. L'incertitude relevée dans le Gard ne prouve pas qu'une contamination ou un dommage sanitaire s'est produit ; les résultats rassurants des Vosges ne doivent pas être généralisés au Gard. La réponse gouvernementale de 2026 doit rester distincte des conclusions du rapport sénatorial de 2025.
 
@@ -57,8 +58,11 @@ Affirmations à examiner :
 Affirmation à examiner :
 
 - `claim-nestle-infant-formula-recall-cereulide-2026` — rappel préventif de certains lots Guigoz et Nidal après identification de céréulide potentiellement liée à un ingrédient fournisseur.
+- `claim-nestle-infant-formula-notification-timeline-dispute-2026` — allégations de retards de notification formulées par Radio France, RTS et RTBF, et réponse de Nestlé sur la chronologie des rappels.
 
 Sources à lire ensemble : le communiqué des ministères du 22 janvier 2026 et le communiqué de Nestlé du 5 janvier 2026. Le communiqué gouvernemental indique qu'aucun lien causal n'était établi à cette date entre les produits rappelés et les symptômes rapportés. Ne pas suggérer qu'un décès ou une maladie a été causé par les produits. Le dossier de rappel doit être mis à jour à partir de RappelConso avant toute information pratique.
+
+La chronologie des notifications est contestée : des médias d'investigation ont allégué des retards et des retraits discrets dans certains pays ; Nestlé nie ces allégations et affirme avoir notifié les autorités le 10 décembre 2025 et lancé un rappel volontaire de 25 lots dans 16 pays européens. Lire les deux versions côte à côte et ne pas présenter le différend comme tranché par un tribunal.
 
 ## 4. Sucre dans les aliments pour bébés
 
@@ -115,14 +119,17 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `source-nestle-sugar-response-2025` — réponse de Nestlé sur l'enquête relative au sucre.
 - `source-nestle-cocoa-plan` — programme cacao et système CLMRS présenté par Nestlé.
 - `source-nestle-infant-formula-recall-2026` — communiqué de Nestlé sur le rappel de certains lots Guigoz et Nidal.
+- `source-nestle-infant-formula-timeline-2026` — chronologie publiée par Nestlé le 29 janvier 2026, à confronter aux enquêtes journalistiques.
+- `source-reuters-nestle-cereulide-notification-2026` — compte rendu des allégations de Radio France, RTS et RTBF sur les délais de notification.
+- `source-reuters-nestle-perrier-raids-2026` — compte rendu des perquisitions à Vergèze et dans les Vosges en mai 2026.
 - `source-fr-health-ministry-infant-formula-recall-2026` — point de situation des autorités françaises.
 
 ## Conditions de publication
 
 Ne publier le dossier qu'après :
 
-1. examen humain des 24 sources ;
-2. examen humain des 23 affirmations et de leurs 25 éléments de preuve ;
+1. examen humain des 27 sources ;
+2. examen humain des 25 affirmations et de leurs 28 éléments de preuve ;
 3. vérification des réponses de Nestlé ;
 4. correction de toute formulation trop large ou ambiguë ;
 5. mise à jour cohérente des statuts, dates de revue et références ;
