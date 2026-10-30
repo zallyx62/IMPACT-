@@ -6,9 +6,32 @@ export interface DossierSummaryReason {
   claimIds: string[];
 }
 
+export type EvidenceSeverity = "critical" | "high" | "moderate" | "low" | "insufficient";
+export type BoycottPriority = "strong_case" | "consider" | "watch" | "not_established";
+export type EvidenceConfidence = "high" | "moderate" | "limited";
+
+export const BOYCOTT_ASSESSMENT_SCALE = {
+  severity: ["critical", "high", "moderate", "low", "insufficient"] as const,
+  priority: ["strong_case", "consider", "watch", "not_established"] as const,
+  confidence: ["high", "moderate", "limited"] as const,
+  criteria: [
+    "gravité et nature des impacts documentés",
+    "qualité, indépendance et convergence des preuves",
+    "ampleur et périmètre réellement concernés",
+    "actualité et durée des faits",
+    "réponses, corrections et réparations vérifiables",
+    "lien démontré entre l'entité, l'activité et le problème",
+  ],
+} as const;
+
 export interface DossierSummary {
-  level: "high" | "moderate" | "limited";
+  level: EvidenceSeverity;
   levelLabel: Record<Language, string>;
+  boycottPriority: BoycottPriority;
+  boycottPriorityLabel: Record<Language, string>;
+  confidence: EvidenceConfidence;
+  confidenceLabel: Record<Language, string>;
+  assessmentFactors: Record<Language, string[]>;
   title: Record<Language, string>;
   introduction: Record<Language, string>;
   reasons: DossierSummaryReason[];
@@ -22,8 +45,34 @@ const summaries: Record<string, DossierSummary> = {
   nestle: {
     level: "high",
     levelLabel: {
-      fr: "Vigilance élevée",
-      en: "High level of concern",
+      fr: "Gravité documentée : élevée",
+      en: "Documented severity: high",
+    },
+    boycottPriority: "consider",
+    boycottPriorityLabel: {
+      fr: "Boycott à envisager",
+      en: "Boycott worth considering",
+    },
+    confidence: "moderate",
+    confidenceLabel: {
+      fr: "Confiance : modérée",
+      en: "Confidence: moderate",
+    },
+    assessmentFactors: {
+      fr: [
+        "Gravité : plusieurs sujets environnementaux et de conformité, dont un accord judiciaire environnemental.",
+        "Preuves : documents publics, étude scientifique et données déclarées par l'entreprise ; toutes les sources n'ont pas le même niveau d'indépendance.",
+        "Périmètre : constats portant sur certaines activités, produits, audits et chaînes d'approvisionnement, pas sur chaque produit.",
+        "Actualité : les constats couvrent plusieurs périodes ; leur situation doit être réévaluée lors des mises à jour.",
+        "Réponses et réparations : à examiner avec les réponses et engagements détaillés du dossier.",
+      ],
+      en: [
+        "Severity: several environmental and compliance issues, including an environmental judicial agreement.",
+        "Evidence: public documents, a scientific study and company-reported data; sources do not all have the same level of independence.",
+        "Scope: findings concern specific activities, products, audits and supply chains, not every product.",
+        "Recency: findings cover several periods and should be reassessed when updated.",
+        "Responses and remedies: examine these alongside the dossier's detailed responses and commitments.",
+      ],
     },
     title: {
       fr: "Pourquoi certaines personnes envisagent un boycott",
