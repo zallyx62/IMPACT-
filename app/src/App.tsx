@@ -119,8 +119,9 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
   const right = getEntityDossier(rightId);
   const leftMetrics = left ? getComparisonMetrics(left) : null;
   const rightMetrics = right ? getComparisonMetrics(right) : null;
+  const topics = [...new Set([...Object.keys(leftMetrics?.claimsByTopic ?? {}), ...Object.keys(rightMetrics?.claimsByTopic ?? {})])].sort();
   const metrics = [
-    ["claims", "Affirmations documentées"],
+    ["claims", "Constats publiés"],
     ["verifiedSources", "Sources vérifiées selon la charte"],
     ["evidence", "Éléments de preuve"],
     ["commitments", "Engagements suivis"],
@@ -162,7 +163,14 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
                 <thead><tr><th scope="col">Critère documentaire</th><th scope="col">{left?.entity.name ?? "Premier dossier"}</th><th scope="col">{right?.entity.name ?? "Second dossier"}</th></tr></thead>
                 <tbody>{metrics.map(([key, label]) => (
                   <tr key={key}><th scope="row">{label}</th><td>{leftMetrics?.[key] ?? "Non disponible"}</td><td>{rightMetrics[key] ?? "Non disponible"}</td></tr>
-                ))}</tbody>
+                ))}
+                {topics.map((topic) => (
+                  <tr key={`topic-${topic}`}><th scope="row">Constats publiés · {topic.replaceAll("_", " ")}</th>
+                    <td>{leftMetrics?.claimsByTopic[topic] ?? 0}</td><td>{rightMetrics.claimsByTopic[topic] ?? 0}</td></tr>
+                ))}
+                <tr><th scope="row">Dernier examen documenté</th>
+                  <td>{leftMetrics?.lastReviewedAt ?? "Non daté"}</td><td>{rightMetrics.lastReviewedAt ?? "Non daté"}</td></tr>
+                </tbody>
               </table>
             </div>
           )}
