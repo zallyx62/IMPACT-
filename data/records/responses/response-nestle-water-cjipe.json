@@ -1,0 +1,16 @@
+{
+  "id": "response-nestle-water-cjipe",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-water-treatments",
+    "claim-nestle-water-microfiltration",
+    "claim-nestle-water-health-finding",
+    "claim-nestle-water-cjipe"
+  ],
+  "received_at": "2024-09-10",
+  "published_at": "2024-09-10",
+  "source_id": "source-nestle-2024-reponse-cjipe",
+  "summary": "Nestlé Waters indique avoir retiré les traitements UV et au charbon non conformes, avoir mis ses pratiques en conformité en 2023 et affirme que les traitements passés n'ont pas altéré la composition minérale des eaux commercialisées. L'entreprise reprend également la conclusion selon laquelle aucune atteinte à la santé publique n'a été constatée. Il s'agit de la position de l'entreprise, à confronter aux documents du Sénat et des autorités.",
+  "full_response_url": "https://www.nestle.fr/media/pressreleases/nestle-waters-parquet-epinal",
+  "publication_status": "published"
+}
