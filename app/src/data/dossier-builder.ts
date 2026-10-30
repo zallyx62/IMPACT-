@@ -21,6 +21,10 @@ export interface DossierCollections {
   commitments: CommitmentRecord[];
 }
 
+export function getPublishedEntities(data: DossierCollections): EntityRecord[] {
+  return data.entities.filter((entity) => buildEntityDossier(entity.id, data) !== undefined);
+}
+
 export function buildEntityDossier(entityId: string, data: DossierCollections): EntityDossier | undefined {
   const entity = data.entities.find((item) => item.id === entityId && item.status === "published");
   if (!entity) return undefined;
