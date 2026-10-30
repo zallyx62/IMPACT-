@@ -203,4 +203,63 @@ describe("Nestlé dossier editorial gate", () => {
     assert.equal(ministrySource.review_status, "to_review");
   });
 
+
+  it("validates cross-references for the 2025–2026 Nestlé additions", async () => {
+    const entity = await readRecord("entities", "nestle");
+    const claimIds = [
+      "claim-nestle-guigoz-bacillus-cereus-recall-2025",
+      "claim-nestle-infant-deaths-no-causal-link-2026",
+      "claim-nestle-infant-formula-notification-timeline-dispute-2026",
+      "claim-nestle-infant-formula-recall-cereulide-2026",
+      "claim-nestle-vosges-plastic-dumps-retrial-2026",
+      "claim-nestle-waters-cjipe-completion-2026",
+      "claim-nestle-waters-perrier-raids-2026",
+    ];
+    const evidenceIds = [
+      "evidence-nestle-cereulide-notification-allegation-2026",
+      "evidence-nestle-cereulide-notification-company-response-may-2026",
+      "evidence-nestle-cereulide-notification-response-2026",
+      "evidence-nestle-cereulide-parliamentary-timeline-2026",
+      "evidence-nestle-infant-death-angers-2026",
+      "evidence-nestle-infant-death-bordeaux-2026",
+      "evidence-nestle-infant-death-investigations-ecdc-2026",
+      "evidence-nestle-infant-deaths-ministry-update-2026",
+      "evidence-nestle-infant-deaths-parliamentary-status-2026",
+      "evidence-nestle-infant-formula-recall-cereulide-2026",
+      "evidence-nestle-vosges-cassation-2026",
+      "evidence-nestle-vosges-plastic-dumps-retrial-2026",
+      "evidence-nestle-waters-cjipe-completion-2026",
+      "evidence-nestle-waters-perrier-raids-2026",
+      "evidence-rappelconso-guigoz-bacillus-cereus-2025",
+      "evidence-rappelconso-guigoz-liquid-2026",
+      "evidence-rappelconso-guigoz-optipro-relai-2026-02",
+      "evidence-rappelconso-guigoz-powder-2026",
+      "evidence-rappelconso-nidal-powder-2026",
+    ];
+    const claims = await Promise.all(claimIds.map((id) => readRecord("claims", id)));
+    const evidence = await Promise.all(evidenceIds.map((id) => readRecord("evidence", id)));
+    const entitySourceIds = new Set(entity.source_ids);
+    const evidenceById = new Map(evidence.map((item) => [item.id, item]));
+    const claimsById = new Map(claims.map((item) => [item.id, item]));
+
+    for (const claim of claims) {
+      assert.equal(claim.subject_entity_id, "nestle");
+      assert.ok(claim.source_ids.length > 0);
+      assert.ok(claim.source_ids.every((id) => entitySourceIds.has(id)), `${claim.id} references a source absent from the Nestlé entity`);
+      assert.ok(claim.evidence_ids.length > 0);
+      assert.ok(claim.evidence_ids.every((id) => evidenceById.has(id)), `${claim.id} references missing evidence`);
+      assert.equal(claim.claim_status, "not_reviewed");
+      assert.equal(claim.reviewed_at, null);
+    }
+
+    for (const item of evidence) {
+      assert.ok(entitySourceIds.has(item.source_id), `${item.id} references a source absent from the Nestlé entity`);
+      assert.ok(item.supports_claim_ids.length > 0);
+      assert.ok(item.supports_claim_ids.every((id) => claimsById.has(id)), `${item.id} references a missing new claim`);
+      for (const claimId of item.supports_claim_ids) {
+        assert.ok(claimsById.get(claimId).evidence_ids.includes(item.id), `${item.id} is not linked back from ${claimId}`);
+      }
+    }
+  });
+
 });
