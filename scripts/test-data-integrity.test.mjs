@@ -56,6 +56,19 @@ describe("validateCollections", () => {
     assert.ok(errors.some((error) => error.includes('"started_at" must not be later than "ended_at"')));
   });
 
+  it("rejects responses published before receipt and commitments targeted before announcement", () => {
+    const broken = structuredClone(valid);
+    broken.responses[0].received_at = "2026-12-01";
+    broken.responses[0].published_at = "2026-11-01";
+    broken.commitments[0].announced_at = "2026-12-01";
+    broken.commitments[0].target_date = "2026-11-01";
+
+    const errors = validateCollections(broken);
+    assert.equal(errors.length, 2);
+    assert.ok(errors.some((error) => error.includes("responses/response-one") && error.includes('"received_at" must not be later than "published_at"')));
+    assert.ok(errors.some((error) => error.includes("commitments/commitment-one") && error.includes('"announced_at" must not be later than "target_date"')));
+  });
+
   it("checks references for evidence, relationships, campaigns, responses and commitments", () => {
     const broken = structuredClone(valid);
     broken.evidence[0].source_id = "missing-evidence-source";
