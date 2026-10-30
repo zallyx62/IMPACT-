@@ -29,6 +29,8 @@ Le ruleset impose :
 
 Le nombre d'approbations humaines obligatoires est actuellement de zéro, afin de ne pas bloquer le propriétaire seul. Cela ne dispense pas de la relecture humaine des affirmations éditoriales avant toute publication.
 
+Le workflow `Android debug and release builds` est également déclenché pour les Pull Requests qui modifient l'application, le wrapper Android, les données éditoriales ou le générateur public. Il n'est pas encore un contrôle obligatoire du ruleset ; il est recommandé de l'ajouter aux contrôles requis lorsque son contexte apparaît dans la liste GitHub.
+
 Dans **Settings → Advanced Security**, vérifier et activer si disponibles :
 - Dependabot alerts et Dependabot security updates ;
 - Secret scanning et Push protection ;
