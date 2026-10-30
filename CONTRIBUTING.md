@@ -50,6 +50,19 @@ node scripts/check-data.mjs
 
 Avant une version stable, des essais manuels d'accessibilité, de navigation, d'installation PWA, de fonctionnement hors ligne et de confidentialité restent nécessaires.
 
+## Analyse de sécurité CodeQL
+
+CodeQL est exécuté automatiquement par GitHub Actions :
+
+- à chaque pull request ciblant `main` ;
+- à chaque push sur `main` ;
+- chaque lundi à 04:23 UTC ;
+- à la demande depuis l'onglet **Actions**, en sélectionnant **CodeQL security analysis**, puis **Run workflow** si cette action est disponible.
+
+Aucune installation locale de CodeQL n'est nécessaire pour le contrôle automatique du dépôt. Pour consulter une exécution, ouvrez **Actions → CodeQL security analysis**, puis sélectionnez l'exécution et le travail **Analyze Java, JavaScript, TypeScript and GitHub Actions**. Attendez que toutes les étapes soient terminées : un travail encore en cours n'est ni un succès ni un échec.
+
+Si l'analyse échoue, consultez l'étape en erreur et ses journaux avant de modifier le workflow. Si elle réussit mais signale des résultats, examinez chaque alerte dans **Security → Code scanning** : vérifiez le chemin, la ligne, le scénario exploitable et le correctif proposé. Une alerte ne doit être ni ignorée ni déclarée faussement positive sans justification documentée. Une analyse réussie signifie que l'exécution s'est terminée ; elle ne prouve pas l'absence de toute vulnérabilité.
+
 ## Sources et droits d'auteur
 
 - Préférez les documents originaux, les études publiées, les décisions officielles et les données méthodologiquement décrites.
