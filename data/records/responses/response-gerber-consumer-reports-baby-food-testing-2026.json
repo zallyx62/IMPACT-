@@ -1,0 +1,12 @@
+{
+  "id": "response-gerber-consumer-reports-baby-food-testing-2026",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-gerber-microplastics-consumer-reports-2026"
+  ],
+  "published_at": "2026-09-17",
+  "source_id": "source-consumer-reports-baby-food-testing-2026",
+  "summary": "En réponse à Consumer Reports, un porte-parole de Gerber affirme que les produits sont sûrs et nutritifs, qu'ils respectent les limites FDA applicables aux métaux lourds et les normes internes de l'entreprise, et que Gerber teste plus de 500 contaminants. Il indique que l'entreprise teste les cultures, l'eau, les ingrédients et les produits finis, ainsi que les bisphénols, phtalates et PFAS dans les matières premières et emballages. À propos des microplastiques, Gerber souligne que la recherche évolue et qu'il n'existe pas aujourd'hui de méthode standardisée de mesure dans les aliments. Il s'agit de la réponse de l'entreprise rapportée par Consumer Reports, et non d'une vérification indépendante des résultats.",
+  "full_response_url": "https://www.consumerreports.org/babies-kids/baby-food/baby-foods-heavy-metals-microplastics-testing-a5925463846/",
+  "publication_status": "published"
+}
