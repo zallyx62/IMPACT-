@@ -5,8 +5,7 @@
   "topic": "business_consumption",
   "claim_status": "confirmed",
   "source_ids": [
-    "source-assemblee-nationale-2026-eaux-nestle",
-    "source-justice-2024-cjipe-nestle"
+    "source-assemblee-nationale-2026-eaux-nestle"
   ],
   "evidence_ids": [
     "evidence-nestle-water-health-finding"
