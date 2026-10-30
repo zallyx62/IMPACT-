@@ -3,7 +3,7 @@ import { getEntityDossier, type EntityRecord } from "./data/records";
 import { buildActorIndex } from "./data/public-tool-index";
 
 const labels: Record<string, string> = {
-  owns: "Détient", operates: "Exploite", manufactures: "Fabrique", distributes: "Distribue",
+  owns: "Détient", operates: "Exploite", manufactures: "Fabrique", distributes: "Distribue", alternative_to: "Est une alternative à",
   supplies: "Fournit", certifies: "Certifie", funds: "Finance", partners_with: "Partenaire de", other: "Autre relation",
   confirmed: "Confirmée", partial: "Partielle", disputed: "Contestée", unknown: "Inconnue",
 };
