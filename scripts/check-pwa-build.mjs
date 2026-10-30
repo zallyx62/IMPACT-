@@ -59,14 +59,26 @@ assert.ok(assets.some((file) => file.endsWith(".css")), "production CSS bundle i
 const javascriptBundles = await Promise.all(
   assets.filter((file) => file.endsWith(".js")).map((file) => readFile(new URL(`assets/${file}`, dist), "utf8")),
 );
-const bundleText = javascriptBundles.join("\\n");
-for (const draftMarker of [
-  "claim-nestle-baby-food-added-sugar",
-  "claim-nestle-baby-food-plastic-pouches-2025",
-  "source-greenpeace-baby-food-plastic-pouches-2026",
-  "source-assemblee-nationale-2026-eaux-nestle",
+const bundleText = javascriptBundles.join("\n");
+
+const generatedSource = await readFile(new URL("../app/src/data/public-records.generated.ts", import.meta.url), "utf8");
+const generatedMatch = /export const publicRecords = (\\{[\\s\\S]*\\});\\s*$/.exec(generatedSource);
+assert.ok(generatedMatch, "filtered public editorial data module is missing or malformed");
+const publicRecords = JSON.parse(generatedMatch[1]);
+for (const collection of [
+  "entities", "sources", "claims", "evidence",
+  "relationships", "campaigns", "responses", "commitments",
 ]) {
-  assert.ok(!bundleText.includes(draftMarker), `unpublished editorial record leaked into production bundle: ${draftMarker}`);
+  const directory = new URL(`../data/records/${collection}/`, import.meta.url);
+  const files = await readdir(directory);
+  const includedIds = new Set(publicRecords[collection].map((record) => record.id));
+  for (const file of files.filter((name) => name.endsWith(".json"))) {
+    const record = JSON.parse(await readFile(new URL(file, directory), "utf8"));
+    if (!includedIds.has(record.id)) {
+      assert.ok(!bundleText.includes(record.id),
+        `unpublished editorial record leaked into production bundle: ${record.id}`);
+    }
+  }
 }
 
 const serviceWorker = await readFile(new URL("sw.js", dist), "utf8");
