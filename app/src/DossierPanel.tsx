@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { getPublishedEntities, type EntityDossier, type Language, type SourceRecord } from "./data/records";
+import { getEvidenceRelation } from "./data/dossier-builder";
 import { safeExternalUrl } from "./data/safe-url";
 
 interface Props {
@@ -20,7 +21,7 @@ const labels = {
     uncertainty: "Limites et incertitudes",
     sources: "Sources", sourceLabel: "Source", entitySources: "Sources de l’entité",
     noSource: "Aucune source associée.",
-    evidence: "Éléments de preuve",
+    evidence: "Éléments de preuve", evidenceRelation: { supports: "Élément allant dans le sens de l’affirmation", contradicts: "Élément contradictoire ou nuançant", mixed: "Élément à la fois favorable et contradictoire", context: "Élément associé — portée non déterminée" },
     relationships: "Relations documentées",
     campaigns: "Campagnes associées", organizer: "Organisateur", targets: "Entités ciblées",
     responses: "Réponses publiées liées au dossier", respondingEntity: "Entité répondante",
@@ -49,7 +50,7 @@ const labels = {
     uncertainty: "Limitations and uncertainty",
     sources: "Sources", sourceLabel: "Source", entitySources: "Entity sources",
     noSource: "No sources are associated.",
-    evidence: "Evidence",
+    evidence: "Evidence", evidenceRelation: { supports: "Evidence supporting this claim", contradicts: "Evidence contradicting or qualifying it", mixed: "Evidence both supporting and contradicting it", context: "Related evidence — its bearing is not determined" },
     relationships: "Documented relationships",
     campaigns: "Related campaigns", organizer: "Organizer", targets: "Target entities",
     responses: "Published responses linked to this dossier", respondingEntity: "Responding entity",
@@ -213,6 +214,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                 {dossier.evidence.filter((item) => claim.evidence_ids?.includes(item.id) || item.supports_claim_ids?.includes(claim.id) || item.contradicts_claim_ids?.includes(claim.id)).map((item) => (
                   <div className="evidence-reference" key={item.id}>
                     <strong>{t.evidence} · {item.locator}</strong>
+                    <p className="claim-reviewed">{t.evidenceRelation[getEvidenceRelation(item, claim.id)]}</p>
                     <p>{item.summary}</p>
                     <div className="extra-sources"><strong>{t.sourceLabel} :</strong> {sourceReference(item.source_id)}</div>
                     {item.limitations && <small>{item.limitations}</small>}
