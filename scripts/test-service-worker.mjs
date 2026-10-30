@@ -80,8 +80,8 @@ function fetchEvent(request) {
 
 await dispatch("install", lifecycleEvent());
 assert.equal(skipWaitingCalled, true, "install activates the new worker");
-assert.ok(stores.get("impact-shell-v0.2").has("/app/"), "install precaches the app shell");
-assert.ok(stores.get("impact-shell-v0.2").has("/app/manifest.webmanifest"), "install precaches the manifest");
+assert.ok(stores.get("impact-shell-v0.3").has("/app/"), "install precaches the app shell");
+assert.ok(stores.get("impact-shell-v0.3").has("/app/manifest.webmanifest"), "install precaches the manifest");
 console.log("PASS install precaches the application shell");
 
 stores.set("impact-shell-v0.1", new Map());
@@ -117,9 +117,12 @@ console.log("PASS static assets remain available offline");
 const postRequest = fetchEvent({ method: "POST", url: "https://example.test/app/submit", mode: "cors" });
 handlers.get("fetch")(postRequest);
 assert.equal(postRequest.response, undefined, "POST requests are not intercepted");
-const externalRequest = fetchEvent({ method: "GET", url: "https://other.test/file.js", mode: "cors" });
+const externalRequest = fetchEvent({ method: "GET", url: "https://other.test/file.js", mode: "cors", destination: "script" });
 handlers.get("fetch")(externalRequest);
 assert.equal(externalRequest.response, undefined, "cross-origin requests are not intercepted");
-console.log("PASS non-GET and cross-origin requests are left untouched");
+const apiRequest = fetchEvent({ method: "GET", url: "https://example.test/app/api/private", mode: "cors", destination: "" });
+handlers.get("fetch")(apiRequest);
+assert.equal(apiRequest.response, undefined, "same-origin API requests are not cached or intercepted");
+console.log("PASS non-GET, cross-origin and dynamic API requests are left untouched");
 
 console.log("All service-worker tests passed (6 groups).");
