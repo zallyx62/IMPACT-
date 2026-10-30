@@ -83,7 +83,7 @@ const copy: Record<Language, Record<string, string>> = {
     title: "Understand what sits behind our choices.",
     subtitle: "Sourced information, visible uncertainty and ways to act — without making decisions for you.",
     searchLabel: "Search IMPACT", placeholder: "Company, brand, topic, alternative…",
-    searchHint: "Search covers areas, tools and dossiers published after human review.",
+    searchHint: "Search covers areas, tools and dossiers published against documented evidence criteria.",
     explore: "Explore the six areas", exploreText: "Six entry points to understand the consequences of our choices.",
     tools: "IMPACT tools", toolsText: "Tools designed to verify, compare and track change.",
     results: "Results in IMPACT", noResults: "No results in the dossiers, areas or tools currently presented.",
@@ -94,10 +94,10 @@ const copy: Record<Language, Record<string, string>> = {
     privacyOne: "No account or profile", privacyTwo: "No trackers or audience analytics",
     privacyThree: "Local search, never sent to a server",
     honest: "This prototype does not claim to know more than it does.",
-    honestText: "The areas and tools above are navigation structures. Factual information will only be published with sources and human editorial review. Offline behaviour still needs testing.",
+    honestText: "The areas and tools above are navigation structures. Factual information is published when sources and evidence meet the editorial charter; sensitive topics require enhanced review. Offline behaviour still needs testing.",
     footer: "Open-source project · AGPL-3.0-only licence · No generative AI in the public app",
     discover: "Explore", exploreLabel: "EXPLORE", crossTools: "CROSS-CUTTING TOOLS",
-    localSearch: "LOCAL SEARCH", dossiers: "Documented dossiers", dossiersText: "Entity records published after human review.", noDossiers: "No verified dossiers have been published yet. Records will appear here after source review and editorial approval."
+    localSearch: "LOCAL SEARCH", dossiers: "Documented dossiers", dossiersText: "Entity records published under the charter's evidence criteria.", noDossiers: "No dossiers currently meet the publication criteria. Published facts link to their sources and limitations."
   }
 };
 
