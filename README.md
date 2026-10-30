@@ -54,8 +54,8 @@ La version Web est la première cible. Elle est conçue pour fonctionner dans un
 |---|---|
 | Web (tous appareils) | **En ligne** via [GitHub Pages](https://zallyx62.github.io/IMPACT-/) ; prototype public, non version stable |
 | Android | APK debug de test via GitHub Actions ; aucune APK stable signée publiée |
-| iPhone/iPad | Utilisation Web prévue via Safari ; aucune application native iOS ni fichier IPA |
-| Windows / macOS / Linux | Utilisation Web prévue ; aucun installateur natif (.exe, .msi, .dmg, .deb, .rpm ou AppImage) |
+| iPhone/iPad | Utilisation de la préversion Web publique dans Safari ; aucune application native iOS ni fichier IPA |
+| Windows / macOS / Linux | Utilisation de la préversion Web publique ; aucun installateur natif (.exe, .msi, .dmg, .deb, .rpm ou AppImage) |
 | GitHub | Code source et artefacts de test ; GitHub ne lance pas directement l'application depuis l'onglet Code |
 
 **Version Web publique :** [Ouvrir IMPACT](https://zallyx62.github.io/IMPACT-/).
