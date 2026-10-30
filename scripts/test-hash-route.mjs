@@ -20,6 +20,9 @@ describe("parseSelectionHash", () => {
     assert.equal(parseSelectionHash("#unknown/nestle"), null);
     assert.equal(parseSelectionHash("#entity/"), null);
     assert.equal(parseSelectionHash("#entity/%20%20"), null);
+    assert.equal(parseSelectionHash("#entity/one/two"), null);
+    assert.equal(parseSelectionHash("#entity/one%2Ftwo"), null);
+    assert.equal(parseSelectionHash("#entity/one%5Ctwo"), null);
     assert.equal(parseSelectionHash("#entity/%E0%A4%A"), null);
   });
 });
