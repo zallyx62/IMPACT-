@@ -7,6 +7,7 @@ import EvidenceCentre from "./EvidenceCentre";
 import ActorMap from "./ActorMap";
 import CommitmentTracker from "./CommitmentTracker";
 import CitizenContribution from "./CitizenContribution";
+import SolutionWorkshop from "./SolutionWorkshop";
 import UniverseExplorer from "./UniverseExplorer";
 import { getComparisonMetrics } from "./data/comparison-metrics";
 import { parseSelectionHash, type Selection } from "./data/hash-route";
@@ -391,6 +392,8 @@ function App() {
               <CommitmentTracker entities={publishedEntities} />
             ) : chosen.type === "tool" && chosen.id === "participate" ? (
               <CitizenContribution />
+            ) : chosen.type === "tool" && chosen.id === "solutions" ? (
+              <SolutionWorkshop />
             ) : (
               <div className="preparation-note">
                 <span className="note-dot" aria-hidden="true" />
