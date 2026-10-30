@@ -65,4 +65,24 @@ for (const check of darkChecks) {
   console.log(`PASS ${check.label}: ${ratio.toFixed(2)}:1`);
 }
 
-console.log("All checked light and dark text contrast ratios meet WCAG AA (4.5:1).");
+
+const accentChecks = [
+  { label: "light green", foreground: "#176b52", background: "#e7f2eb" },
+  { label: "light blue", foreground: "#2866b2", background: "#e5effb" },
+  { label: "light violet", foreground: "#7651b5", background: "#eee8f8" },
+  { label: "light orange", foreground: "#9f4f16", background: "#f9ecdf" },
+  { label: "light rose", foreground: "#9a3d5a", background: "#f8e8ee" },
+  { label: "dark green", foreground: "#75c7a3", background: "#28493a" },
+  { label: "dark blue", foreground: "#82b8fa", background: "#263d5b" },
+  { label: "dark violet", foreground: "#c0a0fa", background: "#3b2d55" },
+  { label: "dark orange", foreground: "#f2ad72", background: "#503622" },
+  { label: "dark rose", foreground: "#f09ab5", background: "#512d3c" },
+];
+
+for (const check of accentChecks) {
+  const ratio = contrast(check.foreground, check.background);
+  assert.ok(ratio >= 4.5, `${check.label} accent contrast is ${ratio.toFixed(2)}:1; expected at least 4.5:1`);
+  console.log(`PASS ${check.label} accent: ${ratio.toFixed(2)}:1`);
+}
+
+console.log("All checked light, dark and five accent text contrast ratios meet WCAG AA (4.5:1).");
