@@ -87,7 +87,10 @@
       "default": []
     },
     "reviewed_at": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "date"
     },
     "uncertainty_note": {
@@ -97,6 +100,41 @@
     "editorial_note": {
       "type": "string",
       "maxLength": 3000
+    },
+    "publication_basis": {
+      "type": "string",
+      "enum": [
+        "evidence_verified"
+      ]
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "publication_note": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 2000
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "publication_basis": {
+            "const": "evidence_verified"
+          }
+        },
+        "required": [
+          "publication_basis"
+        ]
+      },
+      "then": {
+        "required": [
+          "published_at",
+          "publication_note"
+        ]
+      }
+    }
+  ]
 }
