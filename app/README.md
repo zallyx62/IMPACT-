@@ -55,4 +55,4 @@ Une fois déployée, l'infrastructure d'hébergement peut néanmoins traiter des
 
 ## État
 
-Les univers et outils restent des structures de navigation. Le lecteur de dossiers et les validateurs sont en place, mais aucun dossier réel d'entreprise ni aucune évaluation factuelle n'est inclus. Les tests automatisés simulent le cache hors ligne et vérifient que les identifiants de brouillons ne se retrouvent pas dans le bundle de production ; une installation et des essais réels sur téléphone et navigateur restent nécessaires avant toute publication stable.
+Les univers et outils restent des structures de navigation. Le lecteur de dossiers comprend actuellement deux constats Gerber publiés selon les critères documentaires de la charte, avec leurs sources, limites et réponses d'entreprise. Les autres sujets du corpus Nestlé restent exclus du bundle public jusqu'à vérification de leurs propres preuves. Les tests automatisés simulent le cache hors ligne et vérifient que les identifiants de brouillons ne se retrouvent pas dans le bundle de production ; une installation et des essais réels sur téléphone et navigateur restent nécessaires avant toute publication stable.
