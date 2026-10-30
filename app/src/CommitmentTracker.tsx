@@ -4,7 +4,7 @@ import { buildCommitmentIndex, buildDossierTimeline, getCommitmentDisplayStatus 
 
 const statusLabels: Record<string, string> = {
   announced: "Annoncé", in_progress: "En cours", achieved: "Atteint",
-  not_achieved: "Non atteint", abandoned: "Abandonné", unable_to_assess: "Impossible à évaluer",
+  not_achieved: "Non atteint", abandoned: "Abandonné", unable_to_assess: "Impossible à évaluer", overdue: "Échéance dépassée",
 };
 
 function dateLabel(value?: string | null): string {
