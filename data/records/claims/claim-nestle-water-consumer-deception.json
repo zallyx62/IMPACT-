@@ -12,5 +12,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Il s'agit de la qualification exprimée par le Gouvernement dans sa réponse parlementaire, à propos des traitements illicites et de l'étiquetage. Ne pas l'étendre à toutes les activités du groupe.",
-  "editorial_note": "Présenter cette qualification gouvernementale à côté des précisions sur l'absence de risque sanitaire constaté et sur les mesures correctrices."
+  "editorial_note": "Présenter cette qualification gouvernementale à côté des précisions sur l'absence de risque sanitaire constaté et sur les mesures correctrices.",
+  "requires_human_review": true
 }
