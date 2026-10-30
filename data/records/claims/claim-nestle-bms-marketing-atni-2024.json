@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-bms-marketing-atni-2024",
+  "subject_entity_id": "nestle",
+  "statement": "Dans son BMS Index 2024, l'Access to Nutrition initiative (ATNi) a recensé 219 occurrences de pratiques de commercialisation de substituts du lait maternel non conformes aux dispositions du Code international de l'OMS dans cinq marchés étudiés pour Nestlé : Chine, Allemagne, Indonésie, États-Unis et Vietnam.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-atni-bms-index-2024"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-bms-atni-219"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Les 219 occurrences sont des observations relevées par ATNi au regard du Code et de ses recommandations ; elles ne sont ni 219 condamnations judiciaires ni nécessairement 219 incidents distincts. L'étude porte sur cinq pays et sur les canaux et produits échantillonnés.",
+  "editorial_note": "Toujours préciser les cinq pays, la période d'étude et le fait qu'ATNi évalue l'alignement sur le Code de l'OMS, pas la conformité aux lois nationales."
+}
