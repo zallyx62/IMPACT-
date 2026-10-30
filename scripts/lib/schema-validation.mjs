@@ -23,6 +23,7 @@ export async function compileRecordValidators() {
       campaigns: "campaign",
       responses: "response",
       commitments: "commitment",
+      changes: "change",
     }[collection];
     const schema = JSON.parse(await readFile(new URL(`../../data/schema/${schemaName}.schema.json`, import.meta.url), "utf8"));
     validators.set(collection, ajv.compile(schema));
