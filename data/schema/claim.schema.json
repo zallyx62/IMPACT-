@@ -115,6 +115,9 @@
       "type": "string",
       "minLength": 20,
       "maxLength": 2000
+    },
+    "requires_human_review": {
+      "type": "boolean"
     }
   },
   "allOf": [
