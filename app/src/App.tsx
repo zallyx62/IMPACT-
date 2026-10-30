@@ -4,6 +4,8 @@ import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } 
 import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import DossierPanel from "./DossierPanel";
 import EvidenceCentre from "./EvidenceCentre";
+import ActorMap from "./ActorMap";
+import CommitmentTracker from "./CommitmentTracker";
 import { getComparisonMetrics } from "./data/comparison-metrics";
 import { parseSelectionHash, type Selection } from "./data/hash-route";
 type Theme = "light" | "dark";
@@ -379,6 +381,10 @@ function App() {
             ) : chosen.type === "tool" && chosen.id === "compare" ? (
               <ComparisonTool entities={publishedEntities} leftId={comparisonLeftId} rightId={comparisonRightId}
                 onLeftChange={setComparisonLeftId} onRightChange={setComparisonRightId} />
+            ) : chosen.type === "tool" && chosen.id === "network" ? (
+              <ActorMap entities={publishedEntities} />
+            ) : chosen.type === "tool" && chosen.id === "history" ? (
+              <CommitmentTracker entities={publishedEntities} />
             ) : (
               <div className="preparation-note">
                 <span className="note-dot" aria-hidden="true" />
