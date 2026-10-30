@@ -64,7 +64,9 @@ describe("buildEntityDossier publication rules", () => {
     assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
     assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
-    assert.deepEqual(dossier.responses.map((item) => item.id), ["response-published"]);
+    assert.deepEqual(dossier.responses.map((item) => item.id), ["response-published", "response-public-other"]);
+    assert.equal(dossier.responses.find((item) => item.id === "response-public-other")?.entity_id, "entity-two",
+      "published responses linked from a related campaign must retain their responding entity");
     assert.deepEqual(dossier.commitments.map((item) => item.id), ["commitment-reviewed"]);
   });
 
