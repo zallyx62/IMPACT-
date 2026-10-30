@@ -89,6 +89,42 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(dossier?.campaigns[0].organizer_entity_id, "entity-two");
   });
 
+  it("publishes a fully documented evidence-verified entity and claim without human review", () => {
+    const verified = structuredClone(data);
+    verified.entities[0].reviewed_at = null;
+    verified.entities[0].publication_basis = "evidence_verified";
+    verified.entities[0].published_at = "2026-10-30";
+    verified.entities[0].publication_note = "Scope is restricted to the primary report listed in this record.";
+    verified.sources[0].review_status = "evidence_verified";
+    verified.sources[0].verification_method = "primary_document_review";
+    verified.sources[0].verified_at = "2026-10-30";
+    verified.sources[0].verification_note = "Original report inspected; methodology, sample and limitations recorded.";
+    verified.claims[0].reviewed_at = null;
+    verified.claims[0].publication_basis = "evidence_verified";
+    verified.claims[0].published_at = "2026-10-30";
+    verified.claims[0].publication_note = "The wording reports only the observation made in the cited primary report.";
+    const published = getPublishedEntities(verified);
+    assert.deepEqual(published.map((item) => item.id), ["entity-one"]);
+    const dossier = buildEntityDossier("entity-one", verified);
+    assert.ok(dossier);
+    assert.ok(dossier.claims.some((item) => item.id === "claim-reviewed"));
+    assert.equal(dossier.entity.reviewed_at, null);
+  });
+
+  it("rejects evidence-verified records missing their audit trail", () => {
+    const invalid = structuredClone(data);
+    invalid.entities[0].reviewed_at = null;
+    invalid.entities[0].publication_basis = "evidence_verified";
+    invalid.entities[0].published_at = "2026-10-30";
+    invalid.entities[0].publication_note = "A sufficiently long documented publication rationale.";
+    invalid.sources[0].review_status = "evidence_verified";
+    invalid.sources[0].verification_method = "primary_document_review";
+    invalid.sources[0].verified_at = "2026-10-30";
+    invalid.sources[0].verification_note = "";
+    assert.deepEqual(getPublishedEntities(invalid), []);
+    assert.equal(buildEntityDossier("entity-one", invalid), undefined);
+  });
+
   it("does not expose draft entities", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
   });
