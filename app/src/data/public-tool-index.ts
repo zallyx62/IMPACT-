@@ -99,7 +99,7 @@ export function buildDossierTimeline(dossiers: EntityDossier[]): DossierTimeline
   for (const dossier of dossiers) {
     const sourceTitles = new Map(dossier.sources.map((source) => [source.id, source.title] as const));
     const add = (event: DossierTimelineEvent) => {
-      if (/^\\d{4}-\\d{2}-\\d{2}$/.test(event.date)) events.push(event);
+      if (/^\d{4}-\d{2}-\d{2}$/.test(event.date)) events.push(event);
     };
     if (dossier.entity.published_at) add({
       id: `${dossier.entity.id}:published`, entityName: dossier.entity.name, date: dossier.entity.published_at,
