@@ -17,7 +17,6 @@ const data = {
     { id: "claim-pending", subject_entity_id: "entity-one", statement: "A claim that must remain unpublished.", topic: "other", claim_status: "alleged", source_ids: ["source-pending"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
     { id: "claim-related", subject_entity_id: "entity-two", statement: "A related claim included through a campaign.", topic: "other", claim_status: "corroborated", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
     { id: "claim-draft-subject", subject_entity_id: "entity-draft", statement: "A claim belonging to an unpublished entity.", topic: "other", claim_status: "confirmed", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
-    { id: "claim-draft-subject", subject_entity_id: "entity-draft", statement: "A claim belonging to an unpublished entity.", topic: "other", claim_status: "confirmed", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
   ],
   evidence: [
     { id: "evidence-reviewed", source_id: "source-reviewed", locator: "Section 1", summary: "A reviewed evidence summary for this test.", supports_claim_ids: ["claim-reviewed"] },
@@ -29,7 +28,7 @@ const data = {
     { id: "relationship-draft-target", from_entity_id: "entity-one", to_entity_id: "entity-draft", relationship_type: "controls", knowledge_status: "confirmed", source_ids: ["source-reviewed"] },
   ],
   campaigns: [
-    { id: "campaign-reviewed", title: "Reviewed campaign", target_entity_ids: ["entity-one", "entity-draft"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"] },
+    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"] },
     { id: "campaign-pending", title: "Pending campaign", target_entity_ids: ["entity-one"], demands: ["Publish data"], campaign_status: "active", source_ids: ["source-pending"] },
   ],
   responses: [
@@ -53,6 +52,7 @@ describe("buildEntityDossier publication rules", () => {
     assert.ok(dossier.relationships.every((item) => item.to_entity_id !== "entity-draft"));
     assert.deepEqual(dossier.campaigns.map((item) => item.id), ["campaign-reviewed"]);
     assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
+    assert.equal(dossier.campaigns[0].organizer_entity_id, null, "unpublished campaign organizers are not exposed");
     assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
