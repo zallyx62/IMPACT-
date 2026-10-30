@@ -97,7 +97,7 @@ const copy: Record<Language, Record<string, string>> = {
     honestText: "The areas and tools above are navigation structures. Factual information is published when sources and evidence meet the editorial charter; sensitive topics require enhanced review. Offline behaviour still needs testing.",
     footer: "Open-source project · AGPL-3.0-only licence · No generative AI in the public app",
     discover: "Explore", exploreLabel: "EXPLORE", crossTools: "CROSS-CUTTING TOOLS",
-    localSearch: "LOCAL SEARCH", dossiers: "Documented dossiers", dossiersText: "Entity records published under the charter's evidence criteria.", noDossiers: "No dossiers currently meet the publication criteria. Published facts link to their sources and limitations."
+    localSearch: "LOCAL SEARCH", dossiers: "Documented dossiers", dossiersText: "Entity records published under the charter's evidence criteria.", noDossiers: "No dossier matches this search. Published facts link to their sources and limitations."
   }
 };
 
