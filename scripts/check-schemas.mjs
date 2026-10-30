@@ -30,7 +30,8 @@ function requireSourcedArray(schema, field, label) {
 requireFields(claim, ["id", "subject_entity_id", "statement", "claim_status", "source_ids", "reviewed_at", "uncertainty_note"], "claim");
 requireSourcedArray(claim, "source_ids", "claim");
 requireFields(source, ["id", "title", "publisher", "source_type", "accessed_at", "review_status"], "source");
-requireFields(entity, ["id", "name", "entity_type", "status", "reviewed_at"], "entity");
+requireFields(entity, ["id", "name", "entity_type", "status", "reviewed_at", "source_ids"], "entity");
+requireSourcedArray(entity, "source_ids", "entity");
 requireFields(relationship, ["id", "from_entity_id", "to_entity_id", "relationship_type", "knowledge_status", "source_ids"], "relationship");
 requireSourcedArray(relationship, "source_ids", "relationship");
 requireFields(evidence, ["id", "source_id", "locator", "summary"], "evidence");

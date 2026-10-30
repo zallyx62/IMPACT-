@@ -29,6 +29,8 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     data.sources.filter((item) => item.review_status === "reviewed").map((item) => item.id),
   );
 
+  if (!entity.source_ids.some((sourceId) => reviewedSourceIds.has(sourceId))) return undefined;
+
   const entityRelationships = data.relationships.filter(
     (item) =>
       (item.from_entity_id === entityId || item.to_entity_id === entityId) &&
@@ -65,7 +67,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
   const relatedClaims = data.claims.filter(
     (item) => claimIds.has(item.id) && item.source_ids.some((sourceId) => reviewedSourceIds.has(sourceId)),
   );
-  const sourceIds = new Set<string>();
+  const sourceIds = new Set(entity.source_ids.filter((sourceId) => reviewedSourceIds.has(sourceId)));
   const evidenceIds = new Set(relatedClaims.flatMap((item) => item.evidence_ids ?? []));
 
   relatedClaims.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
