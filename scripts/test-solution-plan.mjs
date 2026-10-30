@@ -12,7 +12,7 @@ test("creates a transparent project plan from local input", () => {
   });
   assert.match(plan, /Réduire le gaspillage alimentaire local/);
   assert.match(plan, /Kilogrammes redistribués/);
-  assert.match(plan, /n’a pas été envoyé, vérifié ni publié/);
+  assert.match(plan, /n’a pas été envoyée, vérifiée ni publiée/);
   assert.match(plan, /Ne pas présenter une hypothèse comme un fait établi/);
 });
 
