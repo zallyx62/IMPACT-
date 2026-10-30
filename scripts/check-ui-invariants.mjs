@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const css = await readFile(new URL("../app/src/styles.css", import.meta.url), "utf8");
+const dossierPanel = await readFile(new URL("../app/src/DossierPanel.tsx", import.meta.url), "utf8");
 
 assert.match(css, /button:focus-visible, a:focus-visible, input:focus-visible/);
 assert.match(css, /@media \(max-width: 760px\)/);
@@ -20,4 +21,9 @@ assert.ok(finalDarkMode.includes(".claim-uncertainty { background: #342f21; colo
 assert.ok(darkMode.includes(".claim-uncertainty { background: #342f21; color: #e5d9b8; }"),
   "uncertainty notes need a dark-mode surface and readable foreground");
 
-console.log("UI invariant checks passed: keyboard focus, mobile breakpoints, reduced motion and dossier dark mode.");
+assert.match(dossierPanel, /claim\.subject_entity_id !== dossier\.entity\.id/,
+  "claims about another entity must be explicitly attributed in the dossier");
+assert.match(dossierPanel, /claimAbout: "Concerne"/);
+assert.match(dossierPanel, /claimAbout: "About"/);
+
+console.log("UI invariant checks passed: keyboard focus, mobile breakpoints, reduced motion, dossier dark mode and cross-entity claim attribution.");
