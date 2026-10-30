@@ -112,7 +112,7 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
   const leftMetrics = left ? getComparisonMetrics(left) : null;
   const rightMetrics = right ? getComparisonMetrics(right) : null;
   const metrics = [
-    ["claims", "Affirmations documentées"], ["verifiedSources", "Sources vérifiées"],
+    ["claims", "Affirmations documentées"], ["verifiedSources", "Sources avec preuves vérifiées"],
     ["evidence", "Éléments de preuve"], ["commitments", "Engagements suivis"],
     ["responses", "Réponses publiées"], ["relationships", "Relations documentées"],
   ] as const;
