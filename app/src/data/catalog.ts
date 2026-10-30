@@ -123,5 +123,15 @@ export const tools: CatalogItem[] = [
       en: "Contributions will not be published automatically. An editorial process must review sources, context, risks and conflicts of interest before acceptance."
     },
     keywords: ["contribution", "citoyen", "correction", "communauté", "contribution", "citizen", "correction", "community"]
+  },
+  {
+    id: "solutions", number: "A6", mark: "06",
+    title: { fr: "Atelier de solutions", en: "Solution workshop" },
+    description: { fr: "Transformer un problème en projet structuré et mesurable.", en: "Turn a problem into a structured, measurable project." },
+    detail: {
+      fr: "Préparez localement une fiche de projet avec son objectif, son contexte, ses ressources, ses risques et ses indicateurs. La fiche reste un brouillon : elle n’est ni vérifiée ni publiée automatiquement.",
+      en: "Prepare a project brief locally with its objective, context, resources, risks and indicators. The brief remains a draft: it is not automatically verified or published."
+    },
+    keywords: ["solution", "projet", "action", "coopération", "entraide", "mesure", "solutions", "project", "action", "cooperation"]
   }
 ];
