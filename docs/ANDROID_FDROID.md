@@ -30,8 +30,8 @@ La documentation Android recommande `WebViewAssetLoader` plutôt que les URL `fi
 ## Vérifications encore obligatoires
 
 Le code source et la compilation automatisée ne remplacent pas :
-- l'installation du debug APK sur au moins un téléphone Android réel ;
-- les tests de retour Android, liens externes, clavier, rotation et reprise après fermeture ;
+- un premier test manuel d'installation et d'utilisation de base du debug APK sur un téléphone Android réel a été rapporté comme réussi par le propriétaire du projet le 30 octobre 2026 ; ce test unique ne garantit pas la compatibilité générale ;
+- des tests complémentaires sur plusieurs appareils et versions Android, notamment retour Android, liens externes, clavier, rotation et reprise après fermeture ;
 - la vérification du thème clair/sombre après relancement ;
 - le contrôle TalkBack, contraste, tailles d'écran et mode avion ;
 - une revue indépendante du comportement de la WebView et des permissions ;
