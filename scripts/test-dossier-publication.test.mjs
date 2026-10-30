@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { buildEntityDossier } from "../app/src/data/dossier-builder.ts";
+import { buildEntityDossier, getPublishedEntities } from "../app/src/data/dossier-builder.ts";
 
 const data = {
   entities: [
@@ -54,6 +54,10 @@ describe("buildEntityDossier publication rules", () => {
 
   it("does not expose draft entities", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
+  });
+
+  it("lists only entities with at least one reviewed source", () => {
+    assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["entity-one"]);
   });
 
   it("does not expose an entity without a reviewed source", () => {
