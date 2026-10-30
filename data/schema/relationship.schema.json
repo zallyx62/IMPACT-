@@ -11,7 +11,7 @@
     "to_entity_id": { "type": "string", "minLength": 3, "maxLength": 80 },
     "relationship_type": {
       "type": "string",
-      "enum": ["owns", "operates", "manufactures", "distributes", "supplies", "certifies", "funds", "partners_with", "other"]
+      "enum": ["owns", "operates", "manufactures", "distributes", "supplies", "certifies", "funds", "partners_with", "alternative_to", "other"]
     },
     "knowledge_status": { "type": "string", "enum": ["confirmed", "partial", "disputed", "unknown"] },
     "valid_from": { "type": ["string", "null"], "format": "date" },
