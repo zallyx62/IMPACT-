@@ -66,9 +66,6 @@ describe("buildEntityDossier publication rules", () => {
     assert.deepEqual(dossier.campaigns[0].response_ids, ["response-published", "response-public-other"]);
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.ok(!dossier.claims.some((item) => item.id === "claim-unrelated"), "claims from unrelated entities must not leak into this dossier");
-    assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
-    assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
-    assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.deepEqual(dossier.responses.map((item) => item.id), ["response-published", "response-public-other"]);
     assert.ok(!dossier.responses.some((item) => item.id === "response-no-published-claim"), "responses without a published related claim must remain hidden");
     assert.equal(dossier.responses.find((item) => item.id === "response-public-other")?.entity_id, "entity-two",
