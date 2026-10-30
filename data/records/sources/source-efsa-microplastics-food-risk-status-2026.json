@@ -10,5 +10,8 @@
   "methodology": "Page institutionnelle de synthèse, indiquée comme révisée le 21 octobre 2026, présentant l'état des connaissances et le calendrier de l'avis scientifique demandé à l'EFSA sur les risques potentiels des microplastiques dans les aliments, l'eau et l'air.",
   "potential_conflicts": "Communication institutionnelle de l'EFSA sur ses propres travaux et son mandat scientifique.",
   "limitations": "Cette page de synthèse ne constitue pas encore l'avis scientifique final sur les risques sanitaires. L'EFSA indique ne pas avoir terminé une évaluation complète des risques liés aux microplastiques et nanoplastiques dans les aliments et ne pas pouvoir conclure à ce stade sur les effets potentiels pour la santé.",
-  "review_status": "to_review"
+  "review_status": "evidence_verified",
+  "verification_method": "official_record_check",
+  "verified_at": "2026-10-30",
+  "verification_note": "Page officielle EFSA consultée, révisée le 21 octobre 2026. Elle indique que l'évaluation complète des risques n'est pas achevée et que l'EFSA ne peut pas encore conclure sur les effets potentiels pour la santé. Cette page de statut n'est pas présentée comme un avis scientifique final."
 }
