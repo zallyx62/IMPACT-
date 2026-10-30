@@ -42,7 +42,7 @@ export interface ClaimRecord {
   claim_status: string;
   source_ids: string[];
   evidence_ids?: string[];
-  reviewed_at: string;
+  reviewed_at: string | null;
   uncertainty_note: string;
   valid_from?: string | null;
   valid_until?: string | null;
@@ -107,7 +107,7 @@ export interface CommitmentRecord {
   target_date?: string | null;
   status: string;
   source_ids: string[];
-  reviewed_at: string;
+  reviewed_at: string | null;
   measurement_method?: string;
   observed_result?: string;
   baseline?: string;
