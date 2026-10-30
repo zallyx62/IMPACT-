@@ -26,7 +26,7 @@ export default function SolutionWorkshop() {
       <div className="solution-workshop-heading">
         <div>
           <h3 id="solution-workshop-title">Transformer une idée en projet vérifiable</h3>
-          <p>Préparez un plan structuré, sans compte, sans transmission et sans publication automatique. Les champs restent dans cette page : exportez le résultat avant de la fermer.</p>
+          <p>Préparez un plan structuré, sans compte, sans transmission et sans publication automatique. Les champs restent dans cette page : copiez le résultat avant de la fermer.</p>
         </div>
         <span className="solution-local-label">Local uniquement</span>
       </div>
