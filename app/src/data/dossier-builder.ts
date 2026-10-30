@@ -165,3 +165,17 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     })),
   };
 }
+
+export type EvidenceRelation = "supports" | "contradicts" | "mixed" | "context";
+
+export function getEvidenceRelation(
+  evidence: Pick<EvidenceRecord, "supports_claim_ids" | "contradicts_claim_ids">,
+  claimId: string,
+): EvidenceRelation {
+  const supports = evidence.supports_claim_ids?.includes(claimId) ?? false;
+  const contradicts = evidence.contradicts_claim_ids?.includes(claimId) ?? false;
+  if (supports && contradicts) return "mixed";
+  if (supports) return "supports";
+  if (contradicts) return "contradicts";
+  return "context";
+}
