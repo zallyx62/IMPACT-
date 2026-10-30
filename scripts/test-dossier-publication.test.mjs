@@ -5,7 +5,7 @@ import { buildEntityDossier, getPublishedEntities } from "../app/src/data/dossie
 const data = {
   entities: [
     { id: "entity-one", name: "Published entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
-    { id: "entity-two", name: "Related entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30" },
+    { id: "entity-two", name: "Related entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
     { id: "entity-draft", name: "Draft entity", entity_type: "organization", status: "draft", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
   ],
   sources: [
@@ -24,6 +24,7 @@ const data = {
   relationships: [
     { id: "relationship-reviewed", from_entity_id: "entity-one", to_entity_id: "entity-two", relationship_type: "owns", knowledge_status: "confirmed", source_ids: ["source-reviewed"] },
     { id: "relationship-pending", from_entity_id: "entity-one", to_entity_id: "entity-two", relationship_type: "supplies", knowledge_status: "partial", source_ids: ["source-pending"] },
+    { id: "relationship-draft-target", from_entity_id: "entity-one", to_entity_id: "entity-draft", relationship_type: "controls", knowledge_status: "confirmed", source_ids: ["source-reviewed"] },
   ],
   campaigns: [
     { id: "campaign-reviewed", title: "Reviewed campaign", target_entity_ids: ["entity-one"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related"] },
@@ -47,6 +48,7 @@ describe("buildEntityDossier publication rules", () => {
     assert.deepEqual(dossier.sources.map((item) => item.id), ["source-reviewed"]);
     assert.deepEqual(dossier.evidence.map((item) => item.id), ["evidence-reviewed"]);
     assert.deepEqual(dossier.relationships.map((item) => item.id), ["relationship-reviewed"]);
+    assert.ok(dossier.relationships.every((item) => item.to_entity_id !== "entity-draft"));
     assert.deepEqual(dossier.campaigns.map((item) => item.id), ["campaign-reviewed"]);
     assert.deepEqual(dossier.responses.map((item) => item.id), ["response-published"]);
     assert.deepEqual(dossier.commitments.map((item) => item.id), ["commitment-reviewed"]);
@@ -57,7 +59,7 @@ describe("buildEntityDossier publication rules", () => {
   });
 
   it("lists only entities with at least one reviewed source", () => {
-    assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["entity-one"]);
+    assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["entity-one", "entity-two"]);
   });
 
   it("does not expose an entity without a reviewed source", () => {
