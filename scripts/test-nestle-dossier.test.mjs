@@ -227,10 +227,13 @@ describe("Nestlé dossier editorial gate", () => {
     const claim = await readRecord("claims", "claim-nestle-baby-food-plastic-pouches-2025");
     const evidence = await readRecord("evidence", "evidence-nestle-baby-food-plastic-pouches-2025");
 
-    assert.equal(source.review_status, "to_review");
+    assert.equal(source.review_status, "evidence_verified");
+    assert.equal(source.verification_method, "primary_document_review");
+    assert.ok(source.verified_at && source.verification_note);
     assert.match(source.limitations, /three pouches per brand/i);
     assert.match(source.limitations, /does not prove migration/i);
-    assert.equal(claim.claim_status, "not_reviewed");
+    assert.equal(claim.claim_status, "confirmed");
+    assert.equal(claim.publication_basis, "evidence_verified");
     assert.equal(claim.reviewed_at, null);
     assert.match(claim.statement, /trois sachets/i);
     assert.match(claim.uncertainty_note, /n'établit pas d'effet sanitaire/i);
