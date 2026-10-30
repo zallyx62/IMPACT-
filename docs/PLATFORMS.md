@@ -7,10 +7,10 @@ IMPACT est actuellement un prototype Web accompagné d'un projet Android de test
 | Appareil | Ce qui est disponible | Ce qui n'est pas encore disponible |
 |---|---|---|
 | Android | APK debug de test produite par GitHub Actions lorsque la compilation réussit ; projet Android compilable depuis les sources | APK stable signée, publication F-Droid et mises à jour officielles |
-| iPhone et iPad (iOS/iPadOS) | Utilisation dans Safari lorsque le site Web est publié | Application native iOS, fichier IPA et publication App Store |
-| Windows | Utilisation dans un navigateur compatible ; lancement local depuis les sources | Installateur natif .exe ou .msi |
-| macOS | Utilisation dans un navigateur compatible ; lancement local depuis les sources | Application .app ou installateur .dmg officiel |
-| Linux | Utilisation dans un navigateur compatible ; lancement local depuis les sources | Paquet .deb, .rpm, AppImage ou Flatpak officiel |
+| iPhone et iPad (iOS/iPadOS) | Utilisation de la préversion Web publique dans Safari | Application native iOS, fichier IPA et publication App Store |
+| Windows | Utilisation de la préversion Web publique dans un navigateur compatible ; lancement local depuis les sources | Installateur natif .exe ou .msi |
+| macOS | Utilisation de la préversion Web publique dans un navigateur compatible ; lancement local depuis les sources | Application .app ou installateur .dmg officiel |
+| Linux | Utilisation de la préversion Web publique dans un navigateur compatible ; lancement local depuis les sources | Paquet .deb, .rpm, AppImage ou Flatpak officiel |
 | GitHub | Code source, historique, documentation, contrôles automatisés et artefacts temporaires de CI | L'onglet Code de GitHub n'exécute pas directement l'application |
 
 ## Version Web — tous les systèmes
@@ -21,7 +21,7 @@ https://zallyx62.github.io/IMPACT-/
 
 Le déploiement GitHub Pages a été confirmé comme réussi le 30 octobre 2026. Il s'agit d'un prototype public, pas d'une version stable.
 
-La version Web fonctionnera dans les navigateurs modernes sur Android, iOS/iPadOS, Windows, macOS et Linux. Elle partage la même interface et la même direction artistique : thème sombre par défaut, mode clair et cinq couleurs d'accent.
+La version Web fonctionne dans les navigateurs modernes sur Android, iOS/iPadOS, Windows, macOS et Linux. Elle partage la même interface et la même direction artistique : thème sombre par défaut, mode clair et cinq couleurs d'accent.
 
 ### Publication GitHub Pages — activée
 
@@ -43,7 +43,7 @@ L'ajout à l'écran d'accueil ne transforme pas la version Web en application na
 
 ## Android — APK
 
-Le workflow [IMPACT Android build](https://github.com/zallyx62/IMPACT-/actions/workflows/android.yml) construit les APK debug et release. L'APK debug peut être conservé temporairement comme artefact de test dans une exécution réussie du workflow ; les artefacts de CI ne sont pas des versions officielles et peuvent expirer.
+Le workflow [IMPACT Android build](https://github.com/zallyx62/IMPACT-/actions/workflows/android.yml) construit les APK debug et release. Une compilation debug/release a réussi le 30 octobre 2026 ; [récupérer l'APK debug de test dans l'exécution](https://github.com/zallyx62/IMPACT-/actions/runs/41042218215). L'APK debug peut être conservé temporairement comme artefact de test dans une exécution réussie du workflow ; les artefacts de CI ne sont pas des versions officielles et peuvent expirer.
 
 La release actuelle est non signée. Elle ne doit pas être présentée comme un téléchargement prêt à installer.
 
