@@ -257,6 +257,10 @@ describe("Nestlé dossier editorial gate", () => {
     }
     assert.match(treatments.statement, /31 août 2021/);
     assert.match(treatments.statement, /traitements UV et au charbon actif étaient interdits/);
+    assert.doesNotMatch(treatments.statement, /Vergèze|Vittel|Contrexéville|0,2 micromètre/,
+      "the published claim must not assign every treatment to named sites or include the separate microfiltration issue");
+    assert.match(treatments.uncertainty_note, /ne faut pas en déduire que chaque traitement était utilisé sur chacun des sites/);
+    assert.deepEqual(health.source_ids, ["source-assemblee-nationale-2026-eaux-nestle"]);
     assert.ok(treatments.evidence_ids.includes("evidence-nestle-water-admission"));
     assert.ok(treatments.evidence_ids.includes("evidence-nestle-water-2026-regulatory-response"));
     assert.match(cjipe.statement, /deux millions d'euros/);
