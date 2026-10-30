@@ -1,0 +1,10 @@
+{
+  "id": "evidence-rappelconso-guigoz-optipro-relai-2026-02",
+  "source_id": "source-rappelconso-guigoz-optipro-relai-2026-02",
+  "locator": "Fiche 2026-02-0043 version 1, publiée le 4 février 2026 ; sections identification des produits, motif et informations complémentaires",
+  "summary": "RappelConso publie un rappel volontaire supplémentaire pour Guigoz Optipro Relais 1 (0-6 mois), GTIN 7613038317922, lot 53470346AA, DDM 31 décembre 2027, boîte métal de 800 g. La commercialisation indiquée va du 12 janvier au 3 février 2026. Le rappel est motivé par la céréulide ; la fiche précise qu'il intervient après l'évolution des méthodes d'analyse et en complément des lots déjà rappelés.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-formula-recall-cereulide-2026"
+  ],
+  "limitations": "Ce rappel concerne un lot supplémentaire et ne doit pas être confondu avec le rappel de décembre 2025 pour risque de Bacillus cereus."
+}

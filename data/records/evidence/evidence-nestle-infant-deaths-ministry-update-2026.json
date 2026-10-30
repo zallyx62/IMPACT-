@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-infant-deaths-ministry-update-2026",
+  "source_id": "source-fr-health-ministry-infant-formula-update-2026",
+  "locator": "Page officielle mise à jour le 16 avril 2026, section « Point de situation », bilan arrêté au 11 mars 2026",
+  "summary": "Le ministère décompte trois décès de nourrissons survenus entre le 16 janvier et le 10 février 2026 chez des enfants pour lesquels la consommation de laits concernés par les retraits-rappels avait été rapportée. Il précise qu'aucune imputabilité scientifique n'a été établie. Le décès de Bordeaux du 8 janvier est explicitement exclu de ces trois décès.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-deaths-no-causal-link-2026"
+  ],
+  "limitations": "Bilan multi-marques arrêté au 11 mars 2026 et publié sur une page mise à jour le 16 avril. La consommation rapportée ne démontre pas une causalité ; les chiffres ne sont pas attribuables à Nestlé seul."
+}

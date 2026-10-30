@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-infant-death-bordeaux-2026",
+  "source_id": "source-reuters-bordeaux-infant-death-cereulide-2026",
+  "locator": "Dépêche Reuters du 6 mars 2026, déclaration du parquet de Bordeaux et résultats des analyses",
+  "summary": "Le parquet de Bordeaux a indiqué que le décès du nourrisson survenu le 8 janvier en Gironde n'apparaissait pas lié au lait rappelé : les analyses d'un laboratoire spécialisé n'avaient pas mis en évidence de céréulide dans les échantillons examinés. L'enquête médico-légale se poursuivait pour déterminer l'origine du décès.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-deaths-no-causal-link-2026"
+  ],
+  "limitations": "Conclusion relative au décès en Gironde uniquement ; l'enquête médico-légale se poursuivait."
+}

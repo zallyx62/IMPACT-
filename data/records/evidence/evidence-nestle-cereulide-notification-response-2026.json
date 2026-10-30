@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-cereulide-notification-response-2026",
+  "source_id": "source-nestle-infant-formula-timeline-2026",
+  "locator": "Document chronologique de Nestlé du 29 janvier 2026, sections sur le 10 décembre 2025 et les rappels dans 16 pays",
+  "summary": "Nestlé affirme avoir détecté de faibles niveaux de céréulide fin novembre 2025, arrêté la production, puis informé le 10 décembre les autorités néerlandaises, les autorités des pays potentiellement concernés et la Commission européenne. L'entreprise dit avoir lancé le même jour un rappel volontaire de 25 lots dans 16 pays européens.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-formula-notification-timeline-dispute-2026"
+  ],
+  "limitations": "Chronologie fournie par Nestlé ; elle doit être présentée comme la version de l'entreprise et confrontée aux enquêtes médiatiques et aux documents des autorités."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-infant-deaths-parliamentary-status-2026",
+  "source_id": "source-assemblee-nationale-2026-cereulide-mission-flash",
+  "locator": "Compte rendu n° 75 du 19 mai 2026, intervention de Christine Loir sur le dernier point de situation sanitaire, puis réponse du rapporteur Michel Lauzzana plus loin dans les échanges",
+  "summary": "Une députée indique que le dernier point ministériel faisait état de trois décès de nourrissons ayant consommé des laits concernés par les rappels, sans lien formel de causalité établi, et évoque un quatrième décès faisant l'objet d'une enquête distincte sur un produit hors lots rappelés. Plus loin dans la même séance, le rapporteur répond qu'il n'y a pas eu quatre décès et que deux des décès recensés ne sont pas dus aux laits infantiles. Le compte rendu documente donc une affirmation parlementaire suivie d'une correction contradictoire ; il ne permet pas de présenter le quatrième cas comme confirmé.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-deaths-no-causal-link-2026"
+  ],
+  "limitations": "Compte rendu d'échanges oraux parlementaires, non bilan épidémiologique autonome. Pour le décompte sanitaire, privilégier la page officielle du ministère mise à jour le 16 avril 2026, qui précise que trois décès étaient recensés au 11 mars sans imputabilité scientifique établie et que le décès de Bordeaux n'était pas inclus. Attribuer les propos contradictoires à leurs intervenants et ne pas compter un quatrième cas comme établi."
+}
