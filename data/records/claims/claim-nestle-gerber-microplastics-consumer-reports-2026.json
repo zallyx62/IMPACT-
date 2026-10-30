@@ -18,5 +18,6 @@
   "editorial_note": "Toujours attribuer le chiffre à Consumer Reports et à son enquête de septembre 2026. Afficher le produit exact, la portion de 99 g, le sous-échantillon et les limites. Ne pas présenter le chiffre comme une moyenne sans preuve explicite. Ne pas conclure que l'emballage est la source certaine ni qu'un effet sanitaire a été démontré.",
   "publication_basis": "evidence_verified",
   "published_at": "2026-10-30",
-  "publication_note": "L'affirmation rapporte exclusivement le résultat publié par Consumer Reports pour un produit Gerber identifié et une portion de 99 g. Elle précise le sous-échantillon, les lots et les limites de l'enquête ; elle n'attribue pas la contamination à l'emballage et ne conclut à aucun dommage sanitaire."
+  "publication_note": "L'affirmation rapporte exclusivement le résultat publié par Consumer Reports pour un produit Gerber identifié et une portion de 99 g. Elle précise le sous-échantillon, les lots et les limites de l'enquête ; elle n'attribue pas la contamination à l'emballage et ne conclut à aucun dommage sanitaire.",
+  "requires_human_review": false
 }
