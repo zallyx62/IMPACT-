@@ -226,7 +226,12 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
               <p className="section-kicker">{language === "fr" ? "LECTURE RAPIDE" : "QUICK READ"}</p>
               <h3 id="dossier-summary-title">{summary.title[language]}</h3>
             </div>
-            <span className={`summary-level summary-level--${summary.level}`}>{summary.levelLabel[language]}</span>
+            <span className={`summary-level summary-level--${summary.boycottPriority}`}>{summary.boycottPriorityLabel[language]}</span>
+          </div>
+          <div className="summary-assessment" aria-label={language === "fr" ? "Évaluation éditoriale" : "Editorial assessment"}>
+            <div><span>{language === "fr" ? "Gravité documentée" : "Documented severity"}</span><strong>{summary.levelLabel[language]}</strong></div>
+            <div><span>{language === "fr" ? "Priorité du boycott" : "Boycott priority"}</span><strong>{summary.boycottPriorityLabel[language]}</strong></div>
+            <div><span>{language === "fr" ? "Solidité des éléments" : "Evidence confidence"}</span><strong>{summary.confidenceLabel[language]}</strong></div>
           </div>
           <p className="dossier-summary-intro">{summary.introduction[language]}</p>
           <div className="summary-reasons">
@@ -242,6 +247,10 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="summary-factors">
+            <h4>{language === "fr" ? "Pourquoi cette évaluation ?" : "Why this assessment?"}</h4>
+            <ul>{summary.assessmentFactors[language].map((factor) => <li key={factor}>{factor}</li>)}</ul>
           </div>
           <div className="summary-balance">
             <h4>{summary.balanceTitle[language]}</h4>
