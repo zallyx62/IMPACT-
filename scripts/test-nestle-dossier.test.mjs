@@ -17,6 +17,10 @@ describe("Nestlé dossier editorial gate", () => {
       "source-senat-2025-enquete-eaux-minerales",
       "source-justice-2024-cjipe-nestle",
       "source-nestle-2024-reponse-cjipe",
+      "source-atni-bms-index-2024-nestle",
+      "source-nestle-non-financial-statement-2024-bms",
+      "source-atni-bms-index-2024-nestle",
+      "source-nestle-non-financial-statement-2024-bms",
     ];
     const sources = await Promise.all(sourceNames.map((id) => readRecord("sources", id)));
     const claims = await Promise.all([
@@ -28,6 +32,8 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-water-consumer-deception",
       "claim-nestle-water-gard-uncertainty",
       "claim-nestle-water-vosges-surveillance",
+      "claim-nestle-bms-marketing-atni-2024",
+      "claim-nestle-bms-marketing-atni-2024",
     ].map((id) => readRecord("claims", id)));
     const evidence = await Promise.all([
       "evidence-nestle-water-admission",
@@ -40,8 +46,15 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-water-consumer-deception",
       "evidence-nestle-water-gard-uncertainty",
       "evidence-nestle-water-vosges-surveillance",
+      "evidence-nestle-bms-marketing-atni-2024",
+      "evidence-nestle-bms-marketing-company-response",
+      "evidence-nestle-bms-marketing-atni-2024",
+      "evidence-nestle-bms-marketing-company-response",
     ].map((id) => readRecord("evidence", id)));
-    const responses = [await readRecord("responses", "response-nestle-water-cjipe")];
+    const responses = await Promise.all([
+      "response-nestle-water-cjipe",
+      "response-nestle-bms-marketing-2024",
+    ].map((id) => readRecord("responses", id)));
     const data = { entities: [entity], sources, claims, evidence, relationships: [], campaigns: [], responses, commitments: [] };
 
     assert.equal(entity.status, "review_needed");
@@ -90,8 +103,11 @@ describe("Nestlé dossier editorial gate", () => {
       assert.ok(claim.evidence_ids.length > 0);
       assert.ok(claim.evidence_ids.every((id) => evidenceIds.has(id)));
     }
-    const response = await readRecord("responses", "response-nestle-water-cjipe");
-    assert.ok(response.related_claim_ids.every((id) => claimIds.includes(id)));
-    assert.equal(response.source_id, "source-nestle-2024-reponse-cjipe");
+    const waterResponse = await readRecord("responses", "response-nestle-water-cjipe");
+    const bmsResponse = await readRecord("responses", "response-nestle-bms-marketing-2024");
+    assert.ok(waterResponse.related_claim_ids.every((id) => claimIds.includes(id)));
+    assert.equal(waterResponse.source_id, "source-nestle-2024-reponse-cjipe");
+    assert.ok(bmsResponse.related_claim_ids.every((id) => claimIds.includes(id)));
+    assert.equal(bmsResponse.source_id, "source-nestle-non-financial-statement-2024-bms");
   });
 });
