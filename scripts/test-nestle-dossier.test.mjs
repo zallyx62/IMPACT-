@@ -64,6 +64,9 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-water-pressure",
       "claim-nestle-water-health-finding",
       "claim-nestle-water-cjipe",
+      "claim-nestle-water-consumer-deception",
+      "claim-nestle-water-gard-uncertainty",
+      "claim-nestle-water-vosges-surveillance",
     ];
     const claims = await Promise.all(claimIds.map((id) => readRecord("claims", id)));
     const evidence = await Promise.all([
