@@ -10,6 +10,7 @@ export interface EntityRecord {
   website?: string | null;
   status: string;
   reviewed_at: string | null;
+  review_method?: "human" | "ai_assisted";
   source_ids: string[];
   country_codes?: string[];
   created_at?: string;
@@ -32,6 +33,7 @@ export interface SourceRecord {
   source_license?: string;
   rights_note?: string;
   review_status: string;
+  review_method?: "human" | "ai_assisted";
 }
 
 export interface ClaimRecord {
@@ -43,6 +45,7 @@ export interface ClaimRecord {
   source_ids: string[];
   evidence_ids?: string[];
   reviewed_at: string | null;
+  review_method?: "human" | "ai_assisted";
   uncertainty_note: string;
   valid_from?: string | null;
   valid_until?: string | null;
