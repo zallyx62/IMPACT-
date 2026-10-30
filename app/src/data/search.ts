@@ -18,6 +18,36 @@ export function searchableText(item: CatalogItem): string {
   ].join(" "));
 }
 
+export interface SearchableDossier {
+  claims: Array<{ statement: string; topic: string; uncertainty_note?: string }>;
+  sources: Array<{ title: string; publisher: string }>;
+  evidence: Array<{ summary: string; locator: string }>;
+  campaigns: Array<{ title: string; demands: string[]; outcome_summary?: string }>;
+  responses: Array<{ summary: string }>;
+  commitments: Array<{ statement: string; measurement_method?: string; observed_result?: string }>;
+  relationships: Array<{ relationship_type: string }>;
+}
+
+export function searchableEntityText(
+  entity: { name: string; entity_type: string; description?: string },
+  dossier?: SearchableDossier,
+): string {
+  if (!dossier) return normalizeSearch([entity.name, entity.description ?? "", entity.entity_type].join(" "));
+
+  return normalizeSearch([
+    entity.name,
+    entity.description ?? "",
+    entity.entity_type,
+    ...dossier.claims.flatMap((item) => [item.statement, item.topic, item.uncertainty_note ?? ""]),
+    ...dossier.sources.flatMap((item) => [item.title, item.publisher]),
+    ...dossier.evidence.flatMap((item) => [item.summary, item.locator]),
+    ...dossier.campaigns.flatMap((item) => [item.title, ...item.demands, item.outcome_summary ?? ""]),
+    ...dossier.responses.map((item) => item.summary),
+    ...dossier.commitments.flatMap((item) => [item.statement, item.measurement_method ?? "", item.observed_result ?? ""]),
+    ...dossier.relationships.map((item) => item.relationship_type),
+  ].join(" "));
+}
+
 export function matchesSearch(value: string, query: string): boolean {
   const terms = normalizeSearch(query).split(/\s+/u).filter(Boolean);
   if (terms.length === 0) return false;
