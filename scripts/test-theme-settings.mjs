@@ -10,6 +10,13 @@ const [app, styles, html, manifest] = await Promise.all([
 ]);
 
 describe("IMPACT appearance settings", () => {
+  it("uses French as the only public interface language", () => {
+    assert.match(app, /const language: Language = "fr"/);
+    assert.doesNotMatch(app, /id="language-select"/);
+    assert.match(html, /<html lang="fr"/);
+    assert.match(html, /IMPACT — Comprendre\. Choisir\. Agir\./);
+  });
+
   it("defaults to dark mode and restores the user's saved mode", () => {
     assert.match(app, /getItem\("impact-theme"\) === "light" \? "light" : "dark"/);
     assert.match(html, /data-theme="dark"/);
