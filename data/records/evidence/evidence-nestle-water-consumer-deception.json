@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-consumer-deception",
+  "source_id": "source-assemblee-nationale-2026-eaux-nestle",
+  "locator": "Réponse du Gouvernement publiée le 3 février 2026, paragraphe final",
+  "summary": "Le Gouvernement indique que l'affaire a révélé l'usage de traitements illicites et relève d'une tromperie du consommateur au regard de l'étiquetage du produit vendu.",
+  "supports_claim_ids": [
+    "claim-nestle-water-consumer-deception"
+  ],
+  "limitations": "La formulation est celle de la réponse gouvernementale ; elle ne constitue pas une condamnation pénale générale de l'ensemble du groupe."
+}
