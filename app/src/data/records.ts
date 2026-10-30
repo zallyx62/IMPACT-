@@ -53,6 +53,7 @@ export interface ClaimRecord {
   publication_basis?: string;
   published_at?: string;
   publication_note?: string;
+  requires_human_review?: boolean;
   uncertainty_note: string;
   valid_from?: string | null;
   valid_until?: string | null;
