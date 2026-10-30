@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-health-finding",
+  "source_id": "source-assemblee-nationale-2026-eaux-nestle",
+  "locator": "Réponse du Gouvernement publiée le 3 février 2026, dernier paragraphe de la réponse",
+  "summary": "Le Gouvernement écrit qu'aucun risque sanitaire n'a été constaté pour le consommateur des eaux conditionnées par Nestlé Waters, tout en rappelant que l'affaire a révélé l'usage de traitements illicites et une tromperie du consommateur relative à l'étiquetage.",
+  "supports_claim_ids": [
+    "claim-nestle-water-health-finding"
+  ],
+  "limitations": "Il s'agit de la conclusion administrative rapportée dans cette réponse parlementaire, à la date de publication."
+}

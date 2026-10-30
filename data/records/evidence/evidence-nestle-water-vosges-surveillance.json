@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-vosges-surveillance",
+  "source_id": "source-senat-2025-enquete-eaux-minerales",
+  "locator": "Rapport, partie III, chapitre I, section C.1, paragraphes relatifs aux analyses virologiques et à la surveillance renforcée dans les Vosges",
+  "summary": "Le rapport rapporte que les analyses virologiques effectuées dans les Vosges n'ont révélé aucune contamination virale et que la surveillance renforcée préconisée par l'Anses n'a pas relevé de risque sanitaire avéré depuis octobre 2023.",
+  "supports_claim_ids": [
+    "claim-nestle-water-vosges-surveillance"
+  ],
+  "limitations": "Constat limité aux analyses, aux sites vosgiens et à la période décrite dans le rapport."
+}

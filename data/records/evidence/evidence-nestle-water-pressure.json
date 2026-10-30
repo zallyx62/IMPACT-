@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-pressure",
+  "source_id": "source-senat-2025-enquete-eaux-minerales",
+  "locator": "Rapport, partie II, chapitre I, section B, paragraphes sur les sollicitations auprès des cabinets ministériels",
+  "summary": "Le rapport décrit les démarches de Nestlé Waters visant à faire accepter la microfiltration à 0,2 micromètre et qualifie ces sollicitations d'insistantes. Il expose les auditions et échanges administratifs sur lesquels repose cette appréciation.",
+  "supports_claim_ids": [
+    "claim-nestle-water-pressure"
+  ],
+  "limitations": "Il s'agit d'une appréciation attribuée à la commission d'enquête, pas d'une décision de justice sur les intentions."
+}

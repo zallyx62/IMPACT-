@@ -9,7 +9,7 @@ export interface EntityRecord {
   description?: string;
   website?: string | null;
   status: string;
-  reviewed_at: string;
+  reviewed_at: string | null;
   source_ids: string[];
   country_codes?: string[];
   created_at?: string;

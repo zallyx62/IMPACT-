@@ -1,0 +1,11 @@
+{
+  "id": "evidence-nestle-water-2026-regulatory-response",
+  "source_id": "source-assemblee-nationale-2026-eaux-nestle",
+  "locator": "Réponse du Gouvernement publiée le 3 février 2026, paragraphe relatif aux mesures correctrices et à la microfiltration",
+  "summary": "Le Gouvernement indique que les traitements UV et au charbon actif ont été retirés, que les forages ne répondant plus aux critères de pureté originelle ont été fermés et que les dispositifs de microfiltration à 0,2 micromètre ne sont pas tolérés dans le cadre français décrit dans sa réponse.",
+  "supports_claim_ids": [
+    "claim-nestle-water-treatments",
+    "claim-nestle-water-microfiltration"
+  ],
+  "limitations": "Résumé de la réponse ministérielle à une question parlementaire ; la question initiale contient des affirmations distinctes qui ne doivent pas être attribuées au Gouvernement."
+}

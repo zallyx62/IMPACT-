@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-microfiltration",
+  "source_id": "source-senat-2025-enquete-eaux-minerales",
+  "locator": "Rapport, partie II, chapitre I, section B, notamment les paragraphes sur la microfiltration à 0,2 micromètre",
+  "summary": "Le rapport de la commission explique que la microfiltration à 0,2 micromètre était utilisée pour décontaminer les eaux et que la procédure spécifique prévue pour autoriser un nouveau traitement n'avait pas été mise en œuvre.",
+  "supports_claim_ids": [
+    "claim-nestle-water-microfiltration"
+  ],
+  "limitations": "Il s'agit de l'analyse du rapport parlementaire ; ne pas généraliser cette conclusion à d'autres seuils ou procédés de filtration."
+}

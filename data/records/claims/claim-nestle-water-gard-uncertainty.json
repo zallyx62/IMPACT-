@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-water-gard-uncertainty",
+  "subject_entity_id": "nestle",
+  "statement": "Le rapport sénatorial de 2025 indique que les auditions n'ont pas permis d'écarter avec certitude l'absence de risque sanitaire d'origine virologique dans le Gard entre le retrait des traitements de désinfection en août 2023 et la mise en œuvre de la surveillance renforcée en mai 2024.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-senat-2025-enquete-eaux-minerales"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-water-gard-uncertainty"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Cela ne démontre ni qu'une contamination virale s'est produite ni qu'un dommage sanitaire a été subi. Il s'agit d'une incertitude résiduelle relevée par la commission pour un site et une période précis.",
+  "editorial_note": "À lire conjointement avec la réponse gouvernementale de février 2026, qui indique qu'aucun risque sanitaire n'a été constaté pour les eaux conditionnées concernées."
+}

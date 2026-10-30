@@ -60,6 +60,11 @@ describe("searchableEntityText", () => {
     assert.ok(matchesSearch(text, "supplies"));
   });
 
+  it("indexes the explicit pending-review status in French", () => {
+    const pending = searchableEntityText(entity, { ...dossier, claims: [{ ...dossier.claims[0], claim_status: "not_reviewed" }] });
+    assert.ok(matchesSearch(pending, "non examinee"));
+  });
+
   it("keeps the entity searchable when no dossier is supplied", () => {
     assert.ok(matchesSearch(searchableEntityText(entity), "example group"));
     assert.ok(matchesSearch(searchableEntityText({ ...entity, entity_type: "organization" }), "organisation"));

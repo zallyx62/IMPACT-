@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-water-health-finding",
+  "subject_entity_id": "nestle",
+  "statement": "Dans sa réponse publiée le 3 février 2026, le Gouvernement indique qu'aucun risque sanitaire n'a été constaté pour les consommateurs des eaux conditionnées concernées par cette affaire.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-assemblee-nationale-2026-eaux-nestle",
+    "source-justice-2024-cjipe-nestle"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-water-health-finding"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Cette formulation restitue la conclusion rapportée par le Gouvernement à cette date. Elle ne signifie pas qu'aucun problème de conformité n'a existé : la même réponse confirme l'usage de traitements illicites et qualifie l'affaire de tromperie du consommateur concernant l'étiquetage.",
+  "editorial_note": "Ce point doit être présenté à proximité des faits de non-conformité afin de ne pas laisser croire qu'une infraction de conformité équivaut automatiquement à un dommage sanitaire démontré."
+}

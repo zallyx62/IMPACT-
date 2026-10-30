@@ -1,0 +1,21 @@
+{
+  "id": "nestle",
+  "name": "Nestlé",
+  "entity_type": "organization",
+  "description": "Groupe agroalimentaire international. Ce premier dossier porte sur des pratiques documentées de Nestlé Waters en France et ne prétend pas couvrir l'ensemble des activités du groupe.",
+  "website": "https://www.nestle.com/",
+  "country_codes": [
+    "CH",
+    "FR"
+  ],
+  "status": "review_needed",
+  "created_at": "2026-10-30",
+  "updated_at": "2026-10-30",
+  "reviewed_at": null,
+  "source_ids": [
+    "source-assemblee-nationale-2026-eaux-nestle",
+    "source-senat-2025-enquete-eaux-minerales",
+    "source-justice-2024-cjipe-nestle",
+    "source-nestle-2024-reponse-cjipe"
+  ]
+}

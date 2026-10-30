@@ -33,6 +33,7 @@ export function getPublishedEntities(data: DossierCollections): EntityRecord[] {
     .filter(
       (entity) =>
         entity.status === "published" &&
+        entity.reviewed_at !== null &&
         Array.isArray(entity.source_ids) &&
         entity.source_ids.some((sourceId) => reviewed.has(sourceId)),
     )
@@ -43,7 +44,7 @@ export function getPublishedEntities(data: DossierCollections): EntityRecord[] {
 }
 
 export function buildEntityDossier(entityId: string, data: DossierCollections): EntityDossier | undefined {
-  const originalEntity = data.entities.find((item) => item.id === entityId && item.status === "published");
+  const originalEntity = data.entities.find((item) => item.id === entityId && item.status === "published" && item.reviewed_at !== null);
   if (!originalEntity || !Array.isArray(originalEntity.source_ids)) return undefined;
 
   const reviewed = reviewedSourceIds(data);
@@ -54,6 +55,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
       .filter(
         (item) =>
           item.status === "published" &&
+          item.reviewed_at !== null &&
           Array.isArray(item.source_ids) &&
           item.source_ids.some((sourceId) => reviewed.has(sourceId)),
       )
@@ -85,19 +87,20 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
   const entityCommitments = data.commitments.filter(
     (item) =>
       item.entity_id === entityId &&
+      item.reviewed_at !== null &&
       item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
 
   const claimIds = new Set(
     data.claims
-      .filter((item) => item.subject_entity_id === entityId && item.source_ids.some((sourceId) => reviewed.has(sourceId)))
+      .filter((item) => item.subject_entity_id === entityId && item.reviewed_at !== null && item.claim_status !== "not_reviewed" && item.source_ids.some((sourceId) => reviewed.has(sourceId)))
       .map((item) => item.id),
   );
   entityCampaigns.forEach((item) => (item.claim_ids ?? []).forEach((id) => claimIds.add(id)));
   dossierResponses.forEach((item) => item.related_claim_ids.forEach((id) => claimIds.add(id)));
 
   const claims = data.claims.filter(
-    (item) => claimIds.has(item.id) && publishableEntityIds.has(item.subject_entity_id) && item.source_ids.some((sourceId) => reviewed.has(sourceId)),
+    (item) => claimIds.has(item.id) && publishableEntityIds.has(item.subject_entity_id) && item.reviewed_at !== null && item.claim_status !== "not_reviewed" && item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
   const publishedClaimIds = new Set(claims.map((item) => item.id));
   const publishedResponseIds = new Set(

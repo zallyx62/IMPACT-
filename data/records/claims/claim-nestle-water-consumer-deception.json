@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-water-consumer-deception",
+  "subject_entity_id": "nestle",
+  "statement": "Dans sa réponse parlementaire du 3 février 2026, le Gouvernement indique que l'affaire relève d'une tromperie du consommateur au regard de l'étiquetage des produits vendus.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-assemblee-nationale-2026-eaux-nestle"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-water-consumer-deception"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Il s'agit de la qualification exprimée par le Gouvernement dans sa réponse parlementaire, à propos des traitements illicites et de l'étiquetage. Ne pas l'étendre à toutes les activités du groupe.",
+  "editorial_note": "Présenter cette qualification gouvernementale à côté des précisions sur l'absence de risque sanitaire constaté et sur les mesures correctrices."
+}

@@ -11,7 +11,7 @@ const labels = {
   fr: {
     back: "Retour à l’accueil",
     label: "DOSSIER DOCUMENTÉ",
-    reviewed: "Dernière vérification",
+    reviewed: "Dernière vérification", notReviewed: "À examiner",
     claims: "Affirmations examinées",
     claimAbout: "Concerne",
     noClaims: "Aucune affirmation publiée dans ce dossier.",
@@ -34,12 +34,13 @@ const labels = {
       disputed: "Contestée",
       refuted: "Réfutée",
       insufficient_information: "Informations insuffisantes",
+      not_reviewed: "Non examinée",
     } as Record<string, string>,
   },
   en: {
     back: "Back to home",
     label: "DOCUMENTED DOSSIER",
-    reviewed: "Last reviewed",
+    reviewed: "Last reviewed", notReviewed: "Not yet reviewed",
     claims: "Reviewed claims",
     claimAbout: "About",
     noClaims: "No claims have been published in this dossier.",
@@ -62,6 +63,7 @@ const labels = {
       disputed: "Disputed",
       refuted: "Refuted",
       insufficient_information: "Insufficient information",
+      not_reviewed: "Not reviewed",
     } as Record<string, string>,
   },
 };
@@ -156,7 +158,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         <div className="dossier-meta">
           <span>{t.type} : {displayValue("entityType", dossier.entity.entity_type, language)}</span>
           {dossier.entity.country_codes && dossier.entity.country_codes.length > 0 && <span>{t.countries} : {dossier.entity.country_codes.join(", ")}</span>}
-          <span>{t.reviewed} : {dateLabel(dossier.entity.reviewed_at, language)}</span>
+          <span>{t.reviewed} : {dossier.entity.reviewed_at ? dateLabel(dossier.entity.reviewed_at, language) : t.notReviewed}</span>
           {dossier.entity.updated_at && <span>{t.updated} : {dateLabel(dossier.entity.updated_at, language)}</span>}
         </div>
         {entityWebsite && (

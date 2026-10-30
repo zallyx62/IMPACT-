@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-admission",
+  "source_id": "source-senat-2025-enquete-eaux-minerales",
+  "locator": "Rapport, partie I, chapitre I, section C, réunion du 31 août 2021 ; paragraphes consacrés à la reconnaissance des traitements",
+  "summary": "Le rapport indique que Nestlé Waters a évoqué devant le cabinet de la ministre l'utilisation de filtres au charbon actif et de traitements ultraviolets dans des usines des Vosges et du Gard. Il rapporte que l'entreprise a reconnu la non-conformité de ces traitements au cadre européen.",
+  "supports_claim_ids": [
+    "claim-nestle-water-treatments"
+  ],
+  "limitations": "Compte rendu et analyse de la commission d'enquête parlementaire ; les déclarations sont attribuées aux personnes auditionnées et aux documents examinés."
+}

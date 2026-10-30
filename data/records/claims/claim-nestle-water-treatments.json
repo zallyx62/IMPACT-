@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-water-treatments",
+  "subject_entity_id": "nestle",
+  "statement": "En 2021, Nestlé Waters a indiqué au cabinet de la ministre chargée de l'industrie avoir utilisé, dans des usines des Vosges et du Gard, des filtres au charbon actif et des traitements ultraviolets non conformes au cadre européen applicable aux eaux minérales naturelles.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-senat-2025-enquete-eaux-minerales",
+    "source-assemblee-nationale-2026-eaux-nestle"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-water-admission"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le périmètre concerne les installations et pratiques de Nestlé Waters évoquées dans les Vosges et le Gard, et non chaque produit ou chaque activité du groupe. Le Gouvernement indique que les traitements non autorisés ont ensuite été retirés.",
+  "editorial_note": "Le rapport du Sénat rapporte la reconnaissance de ces pratiques lors de la réunion du 31 août 2021 et leur non-conformité au cadre européen. La réponse gouvernementale de 2026 confirme l'usage de traitements UV et au charbon actif interdits."
+}

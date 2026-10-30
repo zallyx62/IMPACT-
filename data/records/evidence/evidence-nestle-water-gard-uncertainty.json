@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-gard-uncertainty",
+  "source_id": "source-senat-2025-enquete-eaux-minerales",
+  "locator": "Rapport, partie III, chapitre I, section C.2, paragraphes relatifs au retrait des traitements et au suivi virologique en Occitanie",
+  "summary": "Le rapporteur indique que les auditions n'ont pas permis d'écarter avec certitude l'absence de risque sanitaire d'origine virologique entre le retrait des traitements de désinfection en août 2023 et le lancement de la surveillance virologique renforcée en mai 2024 dans le Gard.",
+  "supports_claim_ids": [
+    "claim-nestle-water-gard-uncertainty"
+  ],
+  "limitations": "Une incertitude non écartée ne prouve pas qu'une contamination ou un dommage sanitaire s'est produit."
+}
