@@ -186,4 +186,21 @@ describe("Nestlé dossier editorial gate", () => {
       assert.ok(sourceIds.has(response.source_id));
     }
   });
+  it("keeps the infant-death count attributed and the disputed fourth case unconfirmed", async () => {
+    const claim = await readRecord("claims", "claim-nestle-infant-deaths-no-causal-link-2026");
+    const ministryEvidence = await readRecord("evidence", "evidence-nestle-infant-deaths-ministry-update-2026");
+    const parliamentaryEvidence = await readRecord("evidence", "evidence-nestle-infant-deaths-parliamentary-status-2026");
+    const ministrySource = await readRecord("sources", "source-fr-health-ministry-infant-formula-update-2026");
+
+    assert.equal(claim.claim_status, "not_reviewed");
+    assert.equal(claim.reviewed_at, null);
+    assert.ok(claim.source_ids.includes(ministrySource.id));
+    assert.ok(claim.evidence_ids.includes(ministryEvidence.id));
+    assert.ok(claim.evidence_ids.includes(parliamentaryEvidence.id));
+    assert.match(ministryEvidence.summary, /aucune imputabilité scientifique n'a été établie/u);
+    assert.match(parliamentaryEvidence.summary, /il n'y a pas eu quatre décès/u);
+    assert.match(parliamentaryEvidence.summary, /ne permet pas de présenter le quatrième cas comme confirmé/u);
+    assert.equal(ministrySource.review_status, "to_review");
+  });
+
 });
