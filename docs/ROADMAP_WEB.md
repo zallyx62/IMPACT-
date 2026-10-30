@@ -19,6 +19,7 @@ Cette feuille de route décrit la cible à long terme et distingue les fonctions
 - Recherche locale et dossiers publiés filtrés par les règles documentaires.
 - Centre de preuves et navigation directe vers les dossiers.
 - Comparateur de documentation, sans note morale ni mesure artificielle de l'impact réel.
+- Résumé éditorial réutilisable des dossiers : gravité documentée, priorité du boycott et solidité des preuves, avec motifs sourcés, limites et liens vers les constats complets.
 - Explorateur des relations publiées entre acteurs.
 - Observatoire des engagements documentés.
 - Formulaire local de proposition de source ou de correction.
