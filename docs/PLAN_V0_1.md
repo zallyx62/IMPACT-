@@ -4,7 +4,7 @@
 
 ## Périmètre inclus
 
-- Accueil responsive en anglais par défaut et en français, avec sélecteur de langue explicite et modes d’affichage clair et sombre.
+- Accueil responsive bilingue français/anglais, avec sélecteur de langue explicite, modes clair/sombre et hiérarchie visuelle affinée.
 - Architecture de localisation extensible ; espagnol, allemand et autres langues ajoutés après traduction humaine.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
