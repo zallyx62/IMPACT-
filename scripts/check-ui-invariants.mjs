@@ -27,6 +27,8 @@ for (const marker of ["selected-mark", "tool-mark", "result-mark", "universe-mar
     `${marker} is decorative and must be hidden from assistive technology`);
 }
 
+assert.ok(dossierPanel.includes("sourceReference(item.source_id)"), "every evidence item must link to its own source");
+
 for (const field of ["source.source_type", "source.published_at", "source.language", "source.methodology", "source.potential_conflicts"]) {
   assert.ok(dossierPanel.includes(field), `source provenance field ${field} must be displayed`);
 }
