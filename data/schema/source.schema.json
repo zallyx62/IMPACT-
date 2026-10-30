@@ -78,6 +78,14 @@
       "format": "uri",
       "maxLength": 2000
     },
+    "source_license": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "rights_note": {
+      "type": "string",
+      "maxLength": 1000
+    },
     "review_status": {
       "type": "string",
       "enum": [
