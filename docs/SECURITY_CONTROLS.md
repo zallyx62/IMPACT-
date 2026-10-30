@@ -14,16 +14,11 @@
 - `npm audit` couvre les vulnérabilités connues des dépendances publiées dans les avis npm ; il ne remplace pas une analyse de code ni une revue manuelle.
 - Les contrôles actuels ne testent pas l'application sur des appareils physiques.
 - Aucun test d'intrusion indépendant n'a été réalisé.
-- **État du dépôt vérifié le 30 octobre 2026 :** la branche `main` est actuellement signalée comme non protégée par l'API GitHub (`protected: false`) et aucun ruleset n'est listé. La connexion utilisée pour cet audit ne permet pas de modifier les paramètres d'administration ; cette protection doit donc être activée manuellement par le propriétaire.
-- L'état de Secret Scanning, de Push Protection, des alertes Dependabot et du signalement privé n'a pas pu être confirmé par cette connexion. Une recherche du code indexé sur la branche `main` n'a trouvé aucune occurrence des motifs courants `BEGIN PRIVATE KEY`, `ghp_`, `AKIA`, `password =` et `secret =` ; cela ne remplace pas Secret Scanning et ne couvre pas l'historique complet.
+- **État du dépôt vérifié le 30 octobre 2026 :** le ruleset de dépôt `Protection de main` (ID `26202059`) est actif sur `~DEFAULT_BRANCH` (actuellement `main`). Les règles d'interdiction de suppression et de force push sont actives. Le passage par Pull Request est obligatoire, sans approbation humaine imposée (seuil de zéro). Les deux contrôles de statut obligatoires sont enregistrés avec leurs noms exacts : `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions`. Aucun acteur de contournement n'est configuré.
+- La règle classique de protection de branche peut afficher un état différent : les rulesets sont un mécanisme distinct. L'état de Secret Scanning, de Push Protection, des alertes Dependabot et du signalement privé n'a pas été confirmé par cette vérification.
+- Une recherche du code indexé sur `main` n'a pas trouvé les motifs courants `BEGIN PRIVATE KEY`, `ghp_`, `AKIA`, `password =` et `secret =` ; cela ne remplace pas Secret Scanning et ne couvre pas l'historique complet.
 
-## Réglages GitHub à activer manuellement
-
-La branche `main` est actuellement non protégée. Ouvrir directement [Settings → Branches](https://github.com/zallyx62/IMPACT-/settings/branches) dans GitHub (au besoin, activer l'affichage « version pour ordinateur » sur mobile), puis protéger `main` avec les règles suivantes :
-- interdire la suppression de la branche et les force-push ;
-- demander une Pull Request pour intégrer les changements ;
-- exiger les contrôles `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions` (CodeQL). Le workflow `IMPACT checks` a été ajusté pour s'exécuter sur toutes les Pull Requests vers `main`, y compris les modifications de documentation ;
-- ne pas exiger d'approbation humaine obligatoire tant qu'il n'existe pas de second mainteneur disponible, afin de ne pas bloquer le propriétaire seul.
+## Vérifications de sécurité complémentaires
 
 Dans **Settings → Advanced Security**, vérifier et activer si disponibles :
 - Dependabot alerts et Dependabot security updates ;
