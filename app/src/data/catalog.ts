@@ -99,7 +99,7 @@ export const tools: CatalogItem[] = [
     title: { fr: "Comparateur multicritère", en: "Multi-criteria comparison" },
     description: { fr: "Comparer des choix sans note morale simplificatrice.", en: "Compare choices without a simplistic moral score." },
     detail: {
-      fr: "Les comparaisons expliqueront leurs critères, leur unité, leur période et leurs hypothèses. Les données manquantes resteront visibles au lieu d'être remplacées par des estimations non vérifiées.",
+      fr: "Comparez les volumes de documentation disponibles dans les dossiers publiés : affirmations, sources vérifiées, preuves, engagements, réponses et relations. Ces chiffres ne mesurent ni la valeur morale d’une organisation ni son impact réel.",
       en: "Comparisons will explain their criteria, units, time period and assumptions. Missing data will stay visible instead of being replaced with unverified estimates."
     },
     keywords: ["comparateur", "coût", "impact", "alternative", "compare", "cost", "impact", "alternative"]
