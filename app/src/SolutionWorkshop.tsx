@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { buildSolutionPlan } from "./data/solution-plan";
 
 export default function SolutionWorkshop() {
@@ -10,7 +10,7 @@ export default function SolutionWorkshop() {
   const [plan, setPlan] = useState("");
   const [error, setError] = useState("");
 
-  function prepare(event: React.FormEvent<HTMLFormElement>) {
+  function prepare(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
       setPlan(buildSolutionPlan({ objective, context, resources, constraints, indicator }));
