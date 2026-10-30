@@ -1,0 +1,13 @@
+{
+  "id": "response-nestle-plastic-pollution-2024",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-branded-plastic-audit-2024",
+    "claim-nestle-plastic-sachets-asia-2024"
+  ],
+  "summary": "Dans sa réponse de juin 2024 aux critiques liées aux audits de Break Free From Plastic, Nestlé reconnaît l'importance de la pollution plastique et le rôle de la collecte citoyenne pour sensibiliser le public, mais critique la méthodologie des audits, qu'elle juge non vérifiée par un tiers et exposée au double comptage. L'entreprise met en avant la baisse déclarée de son utilisation de plastique depuis 2018 et ses efforts sur la conception des emballages, les infrastructures de collecte et le recyclage. Il s'agit de la position de Nestlé, non d'une réanalyse indépendante des audits.",
+  "source_id": "source-nestle-plastic-pollution-response-2024",
+  "publication_status": "published",
+  "published_at": null,
+  "full_response_url": "https://www.nestle.com/sites/default/files/2024-07/nestle-position-alleged-contribution-pollution.pdf"
+}

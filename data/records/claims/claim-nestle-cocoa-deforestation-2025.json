@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-cocoa-deforestation-2025",
+  "subject_entity_id": "nestle",
+  "statement": "Nestlé déclare que 91,7 % de sa chaîne d'approvisionnement primaire en cacao a été évaluée comme exempte de déforestation pour 2025 ; la même page indique que 8,3 % du volume de cacao reste classé comme inconnu.",
+  "topic": "environment",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-nestle-deforestation-supply-chains-2025"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-cocoa-deforestation-2025"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Ce sont des chiffres publiés par Nestlé selon sa propre méthode d'évaluation. La catégorie « inconnu » signifie que les volumes ne sont pas encore tracés ou évalués comme exempts de déforestation. La page indique une modification de méthodologie au premier semestre 2026 ; la notion évaluée ne prouve pas une vérification indépendante de chaque exploitation en amont.",
+  "editorial_note": "Ne pas présenter 91,7 % comme une certification indépendante universelle ni le solde de 8,3 % comme une preuve de déforestation. Décrire la méthodologie et son changement en 2026."
+}

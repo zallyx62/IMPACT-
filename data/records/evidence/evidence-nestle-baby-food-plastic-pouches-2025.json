@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-baby-food-plastic-pouches-2025",
+  "source_id": "source-greenpeace-baby-food-plastic-pouches-2026",
+  "locator": "Greenpeace International report, pp. 9–11, sections « Methodology » and « Results — Microplastics »",
+  "summary": "SINTEF Ocean analysed three Nestlé Gerber yoghurt pouches and three Danone fruit-puree pouches purchased online. The report states that microplastics were detected in all food subsamples; for Nestlé yoghurt it reports up to 54 particles per gram on average and estimates more than 5,000 particles per pouch.",
+  "limitations": "Only three pouches of one Nestlé product were tested. The report says tentative identification of polyethylene does not prove migration from the pouch; other contamination sources cannot be ruled out. The method detected particles above 20 μm. No clinical health outcome was measured.",
+  "supports_claim_ids": [
+    "claim-nestle-baby-food-plastic-pouches-2025"
+  ]
+}

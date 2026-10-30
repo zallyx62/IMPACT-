@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-branded-plastic-audit-2024",
+  "subject_entity_id": "nestle",
+  "statement": "Une étude publiée dans Science Advances en 2024, fondée sur 1 576 audits de déchets plastiques dans 84 pays entre 2018 et 2022, attribue à Nestlé 3 % des objets plastiques de marque recensés dans le jeu de données.",
+  "topic": "environment",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-science-advances-plastic-brand-audit-2024"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-branded-plastic-audit-2024"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "La moitié des objets collectés n'étaient pas marqués. Les 3 % concernent uniquement les objets de marque enregistrés dans ce programme d'audit ; ce chiffre n'est ni la part de tous les déchets plastiques mondiaux ni une mesure exhaustive de la pollution totale ou de la production plastique de Nestlé.",
+  "editorial_note": "Toujours préciser le périmètre du jeu de données, la période, les 84 pays et la part non marquée. Ne pas utiliser « 3 % de la pollution plastique mondiale »."
+}

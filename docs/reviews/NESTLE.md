@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 12 sources sont `to_review`, et les 14 affirmations sont `not_reviewed` avec `reviewed_at: null`. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 19 sources sont `to_review`, et les 19 affirmations sont `not_reviewed` avec `reviewed_at: null`. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -67,6 +67,27 @@ Affirmations à examiner :
 
 **Point de vigilance :** l'évaluation porte sur trois coopératives et six communautés au Cameroun en 2020. La FLA indique n'avoir rencontré aucun cas de travail d'enfant dans les exploitations visitées. Le cas de risque de travail forcé ne prouve pas que Nestlé employait directement le travailleur ni que le phénomène caractérise toute la chaîne. Ne pas présenter ce rapport historique comme un état des lieux actuel.
 
+## 5. Emballages plastiques et pollution
+
+Affirmations à examiner :
+
+- `claim-nestle-baby-food-plastic-pouches-2025` — étude commandée par Greenpeace et réalisée par SINTEF sur trois sachets Gerber de yaourt.
+- `claim-nestle-branded-plastic-audit-2024` — part de Nestlé dans les objets plastiques de marque recensés par une étude scientifique fondée sur des audits citoyens.
+- `claim-nestle-plastic-sachets-asia-2024` — audit de sachets à usage unique dans quatre pays asiatiques.
+- `claim-nestle-packaging-progress-2025` — indicateurs de progrès déclarés par Nestlé.
+
+**Points de vigilance :** les trois sachets Gerber constituent un échantillon très réduit ; l'identification du polyéthylène dans les aliments est tentative et ne prouve pas la migration depuis l'emballage ni un effet sanitaire. Les audits de déchets ne mesurent pas toute la production ou tous les déchets de Nestlé. Les chiffres de performance de l'entreprise sont des déclarations internes ; « conçu pour être recyclé » ne signifie pas effectivement recyclé.
+
+La réponse de Nestlé aux audits de Break Free From Plastic doit être présentée à proximité, avec ses critiques méthodologiques et les limites des audits citoyens.
+
+## 6. Environnement et déforestation liée au cacao
+
+Affirmation à examiner :
+
+- `claim-nestle-cocoa-deforestation-2025` — Nestlé déclare 91,7 % de sa chaîne d'approvisionnement primaire en cacao évaluée comme exempte de déforestation en 2025, et 8,3 % classée comme inconnue.
+
+**Point de vigilance :** il s'agit d'une mesure publiée par l'entreprise, selon une méthodologie qu'elle décrit et indique avoir modifiée au premier semestre 2026. La part inconnue n'est pas une preuve de déforestation ; la part évaluée comme exempte ne doit pas être présentée comme une vérification indépendante de chaque exploitation.
+
 ## Sources de l'entreprise à examiner en regard des évaluations indépendantes
 
 - `source-nestle-2024-reponse-cjipe` — réponse de Nestlé Waters sur l'affaire des eaux.
@@ -78,8 +99,8 @@ Affirmations à examiner :
 
 Ne publier le dossier qu'après :
 
-1. examen humain des 12 sources ;
-2. examen humain des 14 affirmations et de leurs 16 éléments de preuve ;
+1. examen humain des 19 sources ;
+2. examen humain des 19 affirmations et de leurs 21 éléments de preuve ;
 3. vérification des réponses de Nestlé ;
 4. correction de toute formulation trop large ou ambiguë ;
 5. mise à jour cohérente des statuts, dates de revue et références ;

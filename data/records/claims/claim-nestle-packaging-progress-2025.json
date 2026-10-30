@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-packaging-progress-2025",
+  "subject_entity_id": "nestle",
+  "statement": "Dans ses indicateurs publiés pour la fin de 2025, Nestlé déclare que 89,5 % de ses emballages répondent à ses critères réutilisable, recyclable ou compostable, que 87,5 % de ses emballages plastiques sont conçus pour être recyclés, et que son utilisation de plastique vierge a diminué de 28 % par rapport à 2018.",
+  "topic": "environment",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-nestle-packaging-progress-2025"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-packaging-progress-2025"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Il s'agit d'indicateurs déclarés par Nestlé. « Conçu pour être recyclé » ne signifie pas que l'emballage est effectivement collecté et recyclé dans chaque pays. Le taux de 89,5 % agrège trois catégories différentes. Nestlé indique aussi que la circularité dépend des systèmes locaux de collecte, tri et recyclage.",
+  "editorial_note": "Afficher la date de référence (fin 2025) et l'origine entreprise des chiffres. Ne pas confondre conception recyclable et recyclage réel."
+}

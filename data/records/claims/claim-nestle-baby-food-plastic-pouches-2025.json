@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-baby-food-plastic-pouches-2025",
+  "subject_entity_id": "nestle",
+  "statement": "Une étude commandée par Greenpeace International et réalisée par SINTEF Ocean en 2025 a détecté des microplastiques dans les échantillons alimentaires de trois sachets de yaourt Gerber de Nestlé ; le rapport indique jusqu'à 54 particules par gramme en moyenne pour les échantillons Nestlé et estime à plus de 5 000 le nombre de particules par sachet.",
+  "topic": "environment",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-greenpeace-baby-food-plastic-pouches-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-baby-food-plastic-pouches-2025"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "L'étude porte sur trois sachets d'un seul produit Nestlé, et non sur l'ensemble des produits Gerber ou Nestlé. L'identification du polyéthylène dans les aliments est qualifiée de tentative et ne prouve pas à elle seule une migration depuis l'emballage. La méthode détectait les particules de plus de 20 μm. L'étude n'établit pas d'effet sanitaire chez les enfants.",
+  "editorial_note": "Conserver la taille très réduite de l'échantillon, le caractère commandité de l'étude et les limites analytiques dans tout résumé. Ne pas transformer un risque d'exposition potentiel en dommage sanitaire démontré."
+}

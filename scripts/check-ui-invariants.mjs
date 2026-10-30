@@ -6,6 +6,10 @@ const dossierPanel = await readFile(new URL("../app/src/DossierPanel.tsx", impor
 const app = await readFile(new URL("../app/src/App.tsx", import.meta.url), "utf8");
 
 assert.match(css, /button:focus-visible, a:focus-visible, input:focus-visible/);
+assert.match(css, /\.language-select:focus-visible/);
+assert.match(app, /id="language-select"/);
+assert.match(app, /<option value="fr">Français<\/option>/);
+assert.match(app, /<option value="en">English<\/option>/);
 assert.match(css, /@media \(max-width: 760px\)/);
 assert.match(css, /@media \(max-width: 390px\)/);
 assert.equal((css.match(/prefers-reduced-motion:\s*reduce/g) ?? []).length, 1,
@@ -47,4 +51,4 @@ assert.match(dossierPanel, /claim\.subject_entity_id !== dossier\.entity\.id/,
 assert.match(dossierPanel, /claimAbout: "Concerne"/);
 assert.match(dossierPanel, /claimAbout: "About"/);
 
-console.log("UI invariant checks passed: keyboard focus, mobile breakpoints, reduced motion, dossier dark mode and cross-entity claim attribution.");
+console.log("UI invariant checks passed: keyboard focus, language selection, mobile breakpoints, reduced motion, dossier dark mode and cross-entity claim attribution.");

@@ -100,12 +100,12 @@ Les dépendances doivent continuer à être réexaminées régulièrement ; l'au
 
 - `app/src/data/catalog.ts` contient uniquement la navigation et les textes génériques du prototype.
 - `data/schema/` définit huit structures : entités, sources, affirmations, preuves, relations, campagnes, réponses et engagements.
-- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Les dossiers sont actuellement vides.
+- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Le dépôt contient des brouillons documentaires Nestlé (eaux, substituts du lait maternel, sucre, cacao, travail, emballages et déforestation), qui restent invisibles jusqu'à validation éditoriale humaine.
 - `app/src/data/records.ts` charge les enregistrements publiés ; `dossier-builder.ts` applique les règles de publication avant affichage.
-- Aucun dossier réel d'entreprise ne doit être inventé ou publié sans recherche et validation éditoriale.
+- Aucun dossier réel d'entreprise ne doit être publié sans recherche, examen des preuves et validation éditoriale humaine.
 - Une source, une affirmation et un élément de preuve restent trois objets distincts.
 
-La première version ne contient pas encore de base de données factuelle vérifiée. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
+La première version contient un corpus de travail non publié ; aucun dossier Nestlé n'est visible tant que les statuts éditoriaux ne sont pas validés. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
 
 ## 5. Confidentialité
 
@@ -119,7 +119,7 @@ Pour le prototype :
 - aucune police, image ou bibliothèque chargée depuis un CDN ;
 - aucun service d'IA générative intégré.
 
-Les préférences temporaires d'interface restent en mémoire pendant la session. Une future persistance locale sera ajoutée uniquement si elle répond à un besoin précis et documenté.
+Le choix de langue est proposé explicitement en français et en anglais et reste en mémoire pendant la session. Les langues futures seront ajoutées via le type `Language` et les dictionnaires de textes ; aucune traduction automatique ne sera intégrée. Une future persistance locale sera ajoutée uniquement si elle répond à un besoin précis et documenté.
 
 ## 6. Fonctionnement hors ligne
 

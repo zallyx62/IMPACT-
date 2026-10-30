@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-packaging-progress-2025",
+  "source_id": "source-nestle-packaging-progress-2025",
+  "locator": "Nestlé packaging sustainability progress page, section « What progress has Nestlé made on packaging sustainability by 2025? »",
+  "summary": "Nestlé reports for the end of 2025: 89.5% of packaging met reusable, recyclable or compostable criteria; 87.5% of plastic packaging was designed for recycling; virgin plastic use was 28% lower than the 2018 baseline; recycled content represented 20.6% of plastic packaging.",
+  "limitations": "Company-reported performance. Design criteria do not measure actual collection or recycling rates in each market. The combined 89.5% indicator includes reusable, recyclable and compostable packaging.",
+  "supports_claim_ids": [
+    "claim-nestle-packaging-progress-2025"
+  ]
+}
