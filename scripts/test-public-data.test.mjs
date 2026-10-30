@@ -51,10 +51,15 @@ for (const item of publicRecords.commitments) {
 }
 
 const nestle = publicRecords.entities.find((item) => item.id === "nestle");
-if (!nestle) {
-  const serialized = JSON.stringify(publicRecords);
-  assert.doesNotMatch(serialized, /claim-nestle-|source-nestle-|evidence-nestle-/,
-    "Nestlé draft records must not be shipped while the entity remains unpublished");
-}
+assert.ok(nestle, "the evidence-verified Nestlé dossier should be public");
+assert.deepEqual(nestle.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026"]);
+assert.deepEqual(publicRecords.claims.filter((item) => item.subject_entity_id === "nestle").map((item) => item.id),
+  ["claim-nestle-baby-food-plastic-pouches-2025"],
+  "only the narrowly scoped evidence-verified Nestlé claim may be public");
+assert.deepEqual(publicRecords.sources.map((item) => item.id),
+  ["source-greenpeace-baby-food-plastic-pouches-2026"],
+  "unverified Nestlé source drafts must not enter the public bundle");
+assert.ok(!JSON.stringify(publicRecords).includes("claim-nestle-gerber-microplastics-consumer-reports-2026"),
+  "the Consumer Reports claim remains unpublished until its own evidence gate is completed");
 
 console.log(`Public editorial bundle checks passed (${publicRecords.entities.length} entities, ${publicRecords.claims.length} claims, ${publicRecords.sources.length} sources).`);
