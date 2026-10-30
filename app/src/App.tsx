@@ -4,6 +4,7 @@ import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } 
 import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import DossierPanel from "./DossierPanel";
 import EvidenceCentre from "./EvidenceCentre";
+import { getComparisonMetrics } from "./data/comparison-metrics";
 import { parseSelectionHash, type Selection } from "./data/hash-route";
 type Theme = "light" | "dark";
 type Accent = "green" | "blue" | "violet" | "orange" | "rose";
@@ -101,11 +102,78 @@ const copy: Record<Language, Record<string, string>> = {
   }
 };
 
+function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftChange, onRightChange }: {
+  entities: EntityRecord[];
+  leftId: string;
+  rightId: string;
+  onLeftChange: (id: string) => void;
+  onRightChange: (id: string) => void;
+}) {
+  const left = getEntityDossier(leftId);
+  const right = getEntityDossier(rightId);
+  const leftMetrics = left ? getComparisonMetrics(left) : null;
+  const rightMetrics = right ? getComparisonMetrics(right) : null;
+  const metrics = [
+    ["claims", "Affirmations documentées"],
+    ["verifiedSources", "Sources vérifiées selon la charte"],
+    ["evidence", "Éléments de preuve"],
+    ["commitments", "Engagements suivis"],
+    ["responses", "Réponses publiées"],
+    ["relationships", "Relations documentées"],
+  ] as const;
+
+  function changeLeft(id: string) {
+    if (id === rightId) onRightChange("");
+    onLeftChange(id);
+  }
+
+  return (
+    <section className="comparison-tool" aria-labelledby="comparison-title">
+      <div className="comparison-intro">
+        <h3 id="comparison-title">Comparer les dossiers publiés</h3>
+        <p>Cette comparaison mesure uniquement la documentation disponible dans IMPACT. Elle ne classe pas les organisations et ne mesure pas directement leurs impacts réels.</p>
+      </div>
+      {availableEntities.length < 2 ? (
+        <p className="comparison-empty">La comparaison sera activée dès qu’au moins deux dossiers distincts seront publiés. Un seul dossier est actuellement disponible.</p>
+      ) : (
+        <>
+          <div className="comparison-selectors">
+            <label>Premier dossier
+              <select value={leftId} onChange={(event) => changeLeft(event.currentTarget.value)}>
+                {availableEntities.map((entity) => <option key={entity.id} value={entity.id}>{entity.name}</option>)}
+              </select>
+            </label>
+            <label>Second dossier
+              <select value={rightId} onChange={(event) => onRightChange(event.currentTarget.value)}>
+                <option value="">Choisir un dossier</option>
+                {availableEntities.filter((entity) => entity.id !== leftId).map((entity) => <option key={entity.id} value={entity.id}>{entity.name}</option>)}
+              </select>
+            </label>
+          </div>
+          {rightMetrics && (
+            <div className="comparison-table-wrap">
+              <table className="comparison-table">
+                <thead><tr><th scope="col">Critère documentaire</th><th scope="col">{left?.entity.name ?? "Premier dossier"}</th><th scope="col">{right?.entity.name ?? "Second dossier"}</th></tr></thead>
+                <tbody>{metrics.map(([key, label]) => (
+                  <tr key={key}><th scope="row">{label}</th><td>{leftMetrics?.[key] ?? "Non disponible"}</td><td>{rightMetrics[key] ?? "Non disponible"}</td></tr>
+                ))}</tbody>
+              </table>
+            </div>
+          )}
+        </>
+      )}
+      <p className="comparison-caveat">Un nombre plus élevé de documents ne signifie pas automatiquement un meilleur ou un moins bon comportement. Les données manquantes ne sont pas assimilées à zéro impact.</p>
+    </section>
+  );
+}
+
 function App() {
   const language: Language = "fr";
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [accent, setAccent] = useState<Accent>(getInitialAccent);
   const [query, setQuery] = useState("");
+  const [comparisonLeftId, setComparisonLeftId] = useState(() => getPublishedEntities()[0]?.id ?? "");
+  const [comparisonRightId, setComparisonRightId] = useState(() => getPublishedEntities()[1]?.id ?? "");
   const [selection, setSelection] = useState<Selection>(() => parseSelectionHash(window.location.hash));
   const t = copy[language];
   const trimmedQuery = normalizeSearch(query);
@@ -308,6 +376,9 @@ function App() {
             <p className="selected-description">{chosen.detail[language]}</p>
             {chosen.type === "tool" && chosen.id === "evidence" ? (
               <EvidenceCentre entities={publishedEntities} />
+            ) : chosen.type === "tool" && chosen.id === "compare" ? (
+              <ComparisonTool entities={publishedEntities} leftId={comparisonLeftId} rightId={comparisonRightId}
+                onLeftChange={setComparisonLeftId} onRightChange={setComparisonRightId} />
             ) : (
               <div className="preparation-note">
                 <span className="note-dot" aria-hidden="true" />
