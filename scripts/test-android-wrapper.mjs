@@ -27,5 +27,6 @@ assert.ok(gradle.includes('applicationId = "org.zallyx62.impact"'));
 assert.ok(gradle.includes('androidx.webkit:webkit:1.18.0'));
 assert.ok(buildScript.includes("npm ci") && buildScript.includes("npm run build"));
 assert.ok(buildScript.includes("app/dist") && buildScript.includes("src/main/assets"));
+assert.ok((await readFile(new URL("android/README.md", root), "utf8")).includes("sh android/scripts/build-web-assets.sh"), "the documented asset build command must invoke the non-executable script through sh");
 
 console.log("Android wrapper invariants passed: local assets, minimal permissions, restricted WebView and local-only theme storage.");
