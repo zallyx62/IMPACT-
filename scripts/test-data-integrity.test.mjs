@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { validateCollections } from "./lib/data-integrity.mjs";
 
 const valid = {
-  entities: [{ id: "entity-one" }, { id: "entity-two" }],
+  entities: [{ id: "entity-one", source_ids: ["source-one"] }, { id: "entity-two", source_ids: ["source-one"] }],
   sources: [{ id: "source-one" }],
   claims: [{ id: "claim-one", subject_entity_id: "entity-one", source_ids: ["source-one"], evidence_ids: ["evidence-one"] }],
   evidence: [{ id: "evidence-one", source_id: "source-one", supports_claim_ids: ["claim-one"] }],
