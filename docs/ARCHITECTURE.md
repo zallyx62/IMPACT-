@@ -42,7 +42,10 @@ Les dépendances doivent continuer à être réexaminées régulièrement ; l'au
 │   ├── source.schema.json
 │   ├── entity.schema.json
 │   ├── relationship.schema.json
-│   └── evidence.schema.json
+│   ├── evidence.schema.json
+│   ├── campaign.schema.json
+│   ├── response.schema.json
+│   └── commitment.schema.json
 ├── data/records/
 │   ├── entities/
 │   ├── sources/
