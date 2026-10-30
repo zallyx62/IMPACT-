@@ -115,7 +115,7 @@ export const tools: CatalogItem[] = [
     keywords: ["historique", "engagement", "promesse", "résultat", "history", "commitment", "promise", "outcome"]
   },
   {
-    id: "alternatives", number: "A7", mark: "07",
+    id: "alternatives", number: "A5", mark: "07",
     title: { fr: "Alternatives documentées", en: "Documented alternatives" },
     description: { fr: "Trouver des options reliées à des preuves et à un usage précis.", en: "Find options linked to evidence and a specific use." },
     detail: {
@@ -125,7 +125,7 @@ export const tools: CatalogItem[] = [
     keywords: ["alternative", "remplacement", "substitut", "produit", "alternative", "replacement", "substitute", "product"]
   },
   {
-    id: "participate", number: "A5", mark: "05",
+    id: "participate", number: "A6", mark: "05",
     title: { fr: "Contribution citoyenne", en: "Citizen contributions" },
     description: { fr: "Proposer une source ou une correction, examinée par un humain.", en: "Suggest a source or correction for human review." },
     detail: {
@@ -135,7 +135,7 @@ export const tools: CatalogItem[] = [
     keywords: ["contribution", "citoyen", "correction", "communauté", "contribution", "citizen", "correction", "community"]
   },
   {
-    id: "solutions", number: "A6", mark: "06",
+    id: "solutions", number: "A7", mark: "06",
     title: { fr: "Atelier de solutions", en: "Solution workshop" },
     description: { fr: "Transformer un problème en projet structuré et mesurable.", en: "Turn a problem into a structured, measurable project." },
     detail: {
