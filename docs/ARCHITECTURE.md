@@ -21,7 +21,7 @@ Les contenus éditoriaux sont conservés dans le dépôt sous forme de fichiers 
 - **IndexedDB** : stockage local futur lorsque le besoin sera établi.
 - **Service worker** : cache des ressources de l'application pour un usage hors ligne progressif.
 - **GitHub Actions** : vérification automatisée du typage, des tests unitaires, du comportement simulé du service worker, de la compilation et des invariants éditoriaux des schémas.
-- **GitHub Pages ou autre hébergement statique** : cible possible, uniquement après tests.
+- **GitHub Pages** : hébergement de la préversion publique ; toute publication stable exige des validations supplémentaires.
 
 Les versions directes des dépendances sont fixées dans `app/package.json` et le graphe transitif est verrouillé dans `app/package-lock.json`. Le workflow utilise `npm ci` puis `npm audit --audit-level=high`. Vite 8 exige une version récente de Node.js (20.19+ ou 22.12+). Le workflow de contrôle utilise Node 22.
 
