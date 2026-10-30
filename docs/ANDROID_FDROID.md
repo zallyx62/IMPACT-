@@ -11,7 +11,7 @@ Un premier projet Android source est présent dans `android/`. Il embarque le bu
 - Gradle CI : 9.6.0.
 - Android SDK : compile / target 36, minimum 24.
 - AndroidX WebKit : 1.18.0.
-- Build Web embarqué : `android/scripts/build-web-assets.sh`.
+- Build Web embarqué : `android/scripts/build-web-assets.sh`, copié dans les assets de l’APK et servi à l’origine locale `/impact/`.
 - CI : `.github/workflows/android.yml`, qui prépare les ressources puis tente les APK debug et release.
 
 Le projet ne contient pas encore de Gradle Wrapper ; la CI installe explicitement Gradle 9.6.0. La release générée par Gradle est non signée. Aucun APK signé ni paquet de distribution n'est livré.
