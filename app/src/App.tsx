@@ -8,7 +8,7 @@ type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
 type Theme = "light" | "dark";
 type Accent = "green" | "blue" | "violet" | "orange" | "rose";
 const accentColors: Record<Accent, string> = {
-  green: "#176b52", blue: "#2866b2", violet: "#7651b5", orange: "#b76525", rose: "#b34f70",
+  green: "#176b52", blue: "#2866b2", violet: "#7651b5", orange: "#9f4f16", rose: "#9a3d5a",
 };
 
 function getInitialTheme(): Theme {
