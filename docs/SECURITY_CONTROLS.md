@@ -19,7 +19,7 @@
 
 ## Réglages GitHub à activer manuellement
 
-Dans **Settings → Branches**, protéger `main` avec les règles suivantes :
+La branche `main` est actuellement non protégée. Ouvrir directement [Settings → Branches](https://github.com/zallyx62/IMPACT-/settings/branches) dans GitHub (au besoin, activer l'affichage « version pour ordinateur » sur mobile), puis protéger `main` avec les règles suivantes :
 - interdire la suppression de la branche et les force-push ;
 - demander une Pull Request pour intégrer les changements ;
 - exiger les contrôles `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions` (CodeQL). Le workflow `IMPACT checks` a été ajusté pour s'exécuter sur toutes les Pull Requests vers `main`, y compris les modifications de documentation ;
