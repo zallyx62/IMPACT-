@@ -5,6 +5,31 @@ import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./dat
 import DossierPanel from "./DossierPanel";
 
 type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
+const entityTypeLabels: Record<Language, Record<string, string>> = {
+  fr: {
+    organization: "Organisation",
+    brand: "Marque",
+    product: "Produit",
+    service: "Service",
+    association: "Association",
+    institution: "Institution",
+    public_body: "Organisme public",
+  },
+  en: {
+    organization: "Organization",
+    brand: "Brand",
+    product: "Product",
+    service: "Service",
+    association: "Association",
+    institution: "Institution",
+    public_body: "Public body",
+  },
+};
+
+function entityTypeLabel(value: string, language: Language): string {
+  return entityTypeLabels[language][value] ?? value.replaceAll("_", " ");
+}
+
 
 const copy: Record<Language, Record<string, string>> = {
   fr: {
@@ -99,7 +124,7 @@ function App() {
         <span className="result-mark" aria-hidden="true">D</span>
         <span className="result-copy">
           <strong>{item.name}</strong>
-          <span>{item.description || item.entity_type}</span>
+          <span>{item.description || entityTypeLabel(item.entity_type, language)}</span>
         </span>
         <span className="result-arrow" aria-hidden="true">↗</span>
       </button>
@@ -206,7 +231,7 @@ function App() {
                 <div className="dossier-grid">
                   {publishedEntities.map((item) => (
                     <button className="dossier-card" key={item.id} type="button" onClick={() => open("entity", item.id)}>
-                      <span className="dossier-card-type">{item.entity_type}</span>
+                      <span className="dossier-card-type">{entityTypeLabel(item.entity_type, language)}</span>
                       <strong>{item.name}</strong>
                       <span>{item.description}</span>
                       <span className="card-footer">{t.discover}<span aria-hidden="true">↗</span></span>
