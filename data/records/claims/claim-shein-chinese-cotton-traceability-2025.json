@@ -1,0 +1,19 @@
+{
+  "id": "claim-shein-chinese-cotton-traceability-2025",
+  "subject_entity_id": "shein",
+  "statement": "Lors d'une audition parlementaire britannique le 7 janvier 2025, la représentante juridique de SHEIN n'a pas confirmé si les produits vendus au Royaume-Uni contenaient du coton chinois ou du Xinjiang. Une lettre du comité datée du 27 janvier rapporte ensuite que SHEIN avait indiqué ne pas interdire le coton chinois lorsque son utilisation ne contrevient pas aux lois des marchés concernés.",
+  "topic": "human_rights",
+  "claim_status": "not_reviewed",
+  "valid_from": "2025-01-07",
+  "source_ids": [
+    "source-uk-parliament-shein-cotton-hearing-2025",
+    "source-uk-parliament-shein-cotton-letter-2025"
+  ],
+  "evidence_ids": [
+    "evidence-shein-cotton-hearing-2025",
+    "evidence-shein-cotton-letter-2025"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Ces documents ne prouvent pas que du coton du Xinjiang ou du travail forcé se trouve dans des produits SHEIN. Ils documentent des réponses non concluantes en audition et la position écrite de l'entreprise sur le coton chinois, ainsi qu'une question de transparence et de traçabilité. SHEIN affirme interdire le travail forcé dans son code fournisseurs.",
+  "editorial_note": "Ne jamais présenter l'absence de réponse comme une preuve d'approvisionnement au Xinjiang. Afficher les deux documents parlementaires ensemble et distinguer coton chinois, coton du Xinjiang et travail forcé."
+}
