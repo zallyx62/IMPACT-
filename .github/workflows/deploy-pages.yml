@@ -21,6 +21,8 @@ jobs:
     name: Build and verify Web app
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      pages_enabled: ${{ github.event.repository.has_pages }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -56,9 +58,6 @@ jobs:
       - name: Add GitHub Pages marker
         run: touch app/dist/.nojekyll
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
       - name: Upload production site
         uses: actions/upload-pages-artifact@v4
         with:
@@ -67,14 +66,19 @@ jobs:
   deploy:
     name: Publish Web app
     needs: build
+    if: needs.build.outputs.pages_enabled == 'true'
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
