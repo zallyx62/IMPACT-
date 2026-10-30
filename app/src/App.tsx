@@ -35,6 +35,11 @@ function getInitialAccent(): Accent {
   }
 }
 
+const topicLabels: Record<string, string> = {
+  animals_food: "Animaux et alimentation", environment: "Environnement", human_rights: "Droits humains",
+  business_consumption: "Entreprises et consommation", technology_privacy: "Technologie et numérique", other: "Autre",
+};
+
 const entityTypeLabels: Record<Language, Record<string, string>> = {
   fr: {
     organization: "Organisation",
@@ -165,18 +170,18 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
                   <tr key={key}><th scope="row">{label}</th><td>{leftMetrics?.[key] ?? "Non disponible"}</td><td>{rightMetrics[key] ?? "Non disponible"}</td></tr>
                 ))}
                 {topics.map((topic) => (
-                  <tr key={`topic-${topic}`}><th scope="row">Constats publiés · {topic.replaceAll("_", " ")}</th>
+                  <tr key={`topic-${topic}`}><th scope="row">Constats publiés · {(topicLabels[topic] ?? topic.replaceAll("_", " "))}</th>
                     <td>{leftMetrics?.claimsByTopic[topic] ?? 0}</td><td>{rightMetrics.claimsByTopic[topic] ?? 0}</td></tr>
                 ))}
                 <tr><th scope="row">Dernier examen documenté</th>
-                  <td>{leftMetrics?.lastReviewedAt ?? "Non daté"}</td><td>{rightMetrics.lastReviewedAt ?? "Non daté"}</td></tr>
+                  <td>{leftMetrics?.lastReviewedAt ? new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" }).format(new Date(leftMetrics.lastReviewedAt)) : "Non daté"}</td><td>{rightMetrics.lastReviewedAt ? new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" }).format(new Date(rightMetrics.lastReviewedAt)) : "Non daté"}</td></tr>
                 </tbody>
               </table>
             </div>
           )}
         </>
       )}
-      <p className="comparison-caveat">Un nombre plus élevé de documents ne signifie pas automatiquement un meilleur ou un moins bon comportement. Les données manquantes ne sont pas assimilées à zéro impact.</p>
+      <p className="comparison-caveat">Un nombre plus élevé de documents ne signifie pas automatiquement un meilleur ou un moins bon comportement. Zéro signifie qu’aucun constat n’est publié dans cette catégorie, pas qu’aucun impact n’existe. Les données manquantes ne sont pas assimilées à zéro impact.</p>
     </section>
   );
 }
