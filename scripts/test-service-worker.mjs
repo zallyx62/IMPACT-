@@ -109,7 +109,7 @@ console.log("PASS navigation refreshes and updates the offline shell");
 networkFetch = async () => { throw new Error("offline"); };
 const firstVisitOfflineAsset = fetchEvent({ method: "GET", url: "https://example.test/app/assets/app.js", mode: "no-cors" });
 handlers.get("fetch")(firstVisitOfflineAsset);
-assert.equal(await (await firstVisitOfflineAsset.response).text(), "precache: https://example.test/app/assets/app.js");
+assert.equal(await (await firstVisitOfflineAsset.response).text(), "precache:https://example.test/app/assets/app.js");
 console.log("PASS first-visit JavaScript bundle works immediately offline");
 
 const offlineNavigation = fetchEvent({ method: "GET", url: "https://example.test/app/deep-link", mode: "navigate" });
