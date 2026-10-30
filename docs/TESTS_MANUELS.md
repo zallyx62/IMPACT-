@@ -20,16 +20,19 @@ Pour chaque session, noter :
 
 - [ ] L'accueil s'affiche sans erreur.
 - [ ] Les six univers s'ouvrent et le bouton de retour fonctionne.
-- [ ] Les outils s'ouvrent et leur statut « en préparation » est compréhensible.
+- [ ] Chaque outil annoncé comme disponible s’ouvre et fonctionne ; les rubriques encore en préparation sont explicitement signalées.
 - [ ] La recherche trouve les univers et les outils.
 - [ ] La recherche vide ou sans résultat reste compréhensible.
-- [ ] Le bouton de changement de langue modifie l'interface et la langue du document.
-- [ ] L’anglais est la langue affichée lors d’une première visite.
+- [ ] L’interface est entièrement en français et la langue du document est déclarée `fr`.
 - [ ] Le sélecteur de thème permet de passer du mode clair au mode sombre et inversement.
 - [ ] Le fond de page, les cartes, les panneaux, les champs et les fiches changent réellement de thème.
 - [ ] Le choix du thème reste appliqué après rechargement et n’est stocké que localement sur l’appareil.
 - [ ] Le mode sombre reste lisible avec le contraste, le focus clavier et les lecteurs d’écran.
 - [ ] Les liens externes s'ouvrent correctement.
+- [ ] Le formulaire de contribution prépare un brouillon sans l’envoyer.
+- [ ] L’Atelier permet de rechercher les trois canevas et de préparer une fiche projet.
+- [ ] Le bouton de téléchargement produit un fichier `.md` lisible, avec un nom de fichier sûr.
+- [ ] Le fichier téléchargé contient les champs saisis et peut être rouvert dans un éditeur de texte.
 - [ ] Aucun texte n'est coupé à 320 px, 360 px, 390 px et sur tablette.
 - [ ] Le défilement horizontal involontaire est absent.
 
@@ -77,6 +80,7 @@ Avec les outils réseau du navigateur, si disponibles :
 
 - [ ] Aucun compte, cookie de suivi ou identifiant publicitaire n'est créé par l'application.
 - [ ] Une recherche saisie n'est envoyée à aucun serveur.
+- [ ] La préparation d’une contribution et d’une fiche projet ne déclenche aucune requête réseau.
 - [ ] Aucun appel vers un service d'analyse d'audience ou de télémétrie n'est émis.
 - [ ] Aucun contenu distant non nécessaire n'est chargé.
 - [ ] Les liens externes ne transmettent pas l'URL de la page IMPACT comme référent.
