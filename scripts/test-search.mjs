@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { tools, universes } from "../app/src/data/catalog.ts";
-import { normalizeSearch, searchableText } from "../app/src/data/search.ts";
+import { matchesSearch, normalizeSearch, searchableText } from "../app/src/data/search.ts";
 
 describe("normalizeSearch", () => {
   it("ignores accents and letter case", () => {
@@ -28,5 +28,19 @@ describe("searchableText", () => {
 
   it("includes cross-cutting tool keywords", () => {
     assert.ok(searchableText(tools[0]).includes("reliability"));
+  });
+});
+
+describe("matchesSearch", () => {
+  it("matches every query term regardless of order or adjacency", () => {
+    assert.equal(matchesSearch("Climate impacts and biodiversity loss", "biodiversité climat"), true);
+  });
+
+  it("rejects a query when one term is missing", () => {
+    assert.equal(matchesSearch("Climate impacts and biodiversity loss", "climate oceans"), false);
+  });
+
+  it("does not match an empty query", () => {
+    assert.equal(matchesSearch("Climate impacts", "   "), false);
   });
 });
