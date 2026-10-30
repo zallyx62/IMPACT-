@@ -3,6 +3,10 @@ import { getPublishedEntities, type EntityDossier, type Language, type SourceRec
 import { safeExternalUrl } from "./data/safe-url";
 import { buildDossierShareUrl } from "./data/share-url";
 import { getDossierSummary } from "./data/dossier-summary";
+import {
+  followDossier, getLatestDossierActivityDate, hasNewDossierActivity, isWatchlistStorageAvailable,
+  markDossierSeen, readWatchlist, unfollowDossier, writeWatchlist,
+} from "./data/watchlist";
 
 interface Props {
   dossier: EntityDossier;
@@ -13,7 +17,7 @@ interface Props {
 const labels = {
   fr: {
     back: "Retour à l’accueil",
-    share: "Partager le dossier", copied: "Lien copié", copyFailed: "Copie impossible : utilisez la barre d’adresse.", shareUnavailable: "Partage indisponible sur cet appareil.",
+    share: "Partager le dossier", follow: "Suivre ce dossier", unfollow: "Ne plus suivre", newActivity: "De nouveaux éléments documentés sont disponibles depuis votre dernière consultation.", markSeen: "Marquer comme consulté", watchUnavailable: "Le stockage local est indisponible sur cet appareil : le suivi ne peut pas être enregistré.", noActivityDate: "Aucune date d’activité exploitable pour le moment.", actionGuide: "Comment utiliser ce dossier", actionOne: "Lire chaque constat et ouvrir ses sources : vérifier la période, le lieu, l’échantillon et la méthode.", actionTwo: "Examiner les limites, les incertitudes et les éventuelles réponses de l’organisation.", actionThree: "Consulter les engagements et les alternatives documentées, lorsqu’ils existent.", actionFour: "Choisir une action proportionnée à ce qui est établi, puis réévaluer lorsque de nouveaux éléments sont publiés.", copied: "Lien copié", copyFailed: "Copie impossible : utilisez la barre d’adresse.", shareUnavailable: "Partage indisponible sur cet appareil.",
     label: "DOSSIER DOCUMENTÉ",
     reviewed: "Dernière vérification humaine", notReviewed: "Sans validation humaine", evidenceBasis: "Publication fondée sur les preuves", publicationNote: "Périmètre de publication", sourceVerification: "Contrôle documentaire", verifiedOn: "Vérifié le",
     claims: "Affirmations publiées",
@@ -43,7 +47,7 @@ const labels = {
   },
   en: {
     back: "Back to home",
-    share: "Share dossier", copied: "Link copied", copyFailed: "Could not copy: use the address bar.", shareUnavailable: "Sharing is unavailable on this device.",
+    share: "Share dossier", follow: "Follow this dossier", unfollow: "Unfollow", newActivity: "New documented material is available since your last visit.", markSeen: "Mark as seen", watchUnavailable: "Local storage is unavailable on this device; the watchlist cannot be saved.", noActivityDate: "No usable activity date is available yet.", actionGuide: "How to use this dossier", actionOne: "Read each finding and open its sources: check the period, location, sample and method.", actionTwo: "Examine limitations, uncertainty and any response from the organisation.", actionThree: "Review commitments and documented alternatives where available.", actionFour: "Choose an action proportionate to what is established, then reassess when new material is published.", copied: "Link copied", copyFailed: "Could not copy: use the address bar.", shareUnavailable: "Sharing is unavailable on this device.",
     label: "DOCUMENTED DOSSIER",
     reviewed: "Last human review", notReviewed: "No human approval", evidenceBasis: "Published under evidence criteria", publicationNote: "Publication scope", sourceVerification: "Documentary check", verifiedOn: "Verified on",
     claims: "Published claims",
@@ -110,6 +114,9 @@ function dateLabel(value: string, language: Language) {
 export default function DossierPanel({ dossier, language, onBack }: Props) {
   const t = labels[language];
   const [shareMessage, setShareMessage] = useState("");
+  const [watchlist, setWatchlist] = useState(() => readWatchlist());
+  const [watchlistMessage, setWatchlistMessage] = useState("");
+  const [watchlistAvailable] = useState(() => isWatchlistStorageAvailable());
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -120,6 +127,28 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
   const entityName = (id: string) => entityById.get(id) ?? id;
   const entityWebsite = safeExternalUrl(dossier.entity.website);
   const summary = getDossierSummary(dossier.entity.id, dossier.claims);
+  const latestActivityDate = getLatestDossierActivityDate(dossier);
+  const isWatched = Boolean(watchlist[dossier.entity.id]);
+  const hasNewActivity = hasNewDossierActivity(watchlist, dossier.entity.id, latestActivityDate);
+
+  function saveWatchlist(next: ReturnType<typeof readWatchlist>) {
+    if (writeWatchlist(next)) {
+      setWatchlist(next);
+      setWatchlistMessage("");
+    } else {
+      setWatchlistMessage(t.watchUnavailable);
+    }
+  }
+
+  function toggleWatchlist() {
+    saveWatchlist(isWatched
+      ? unfollowDossier(watchlist, dossier.entity.id)
+      : followDossier(watchlist, dossier.entity.id, latestActivityDate));
+  }
+
+  function markActivitySeen() {
+    saveWatchlist(markDossierSeen(watchlist, dossier.entity.id, latestActivityDate));
+  }
 
   async function shareDossier() {
     const shareUrl = buildDossierShareUrl(window.location.href, dossier.entity.id);
