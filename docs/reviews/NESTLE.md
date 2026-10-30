@@ -1,6 +1,6 @@
 # Registre de vérification des preuves — dossier Nestlé
 
-**État actuel : publication partielle.** Cinq constats précisément circonscrits sont publiés sous `evidence_verified`, sans validation humaine préalable : trois sur les pratiques de Nestlé Waters en France et deux sur des produits Gerber testés. Dix sources associées sont publiées selon les mêmes critères ; les 15 autres sources et les 16 autres affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
+**État actuel : publication partielle.** Six constats précisément circonscrits sont publiés sous `evidence_verified`, sans validation humaine préalable : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés et un sur les objets plastiques de marque recensés dans un audit scientifique mondial. Douze sources associées sont publiées selon les mêmes critères ; les 13 autres sources et les 15 autres affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
 
 Le corpus de travail comprend 25 sources et l'examen des 21 affirmations et de leurs 26 éléments de preuve ; seuls les éléments ayant satisfait à leur propre seuil de publication sont inclus dans le bundle public.
 
@@ -75,16 +75,16 @@ Affirmations à examiner :
 
 Affirmations publiées selon les critères documentaires :
 
+- `claim-nestle-branded-plastic-audit-2024` — étude évaluée par les pairs publiée dans Science Advances : Nestlé représente 3 % des objets de marque recensés parmi les objets collectés dans 1 576 audits de 84 pays (2018–2022) ; la moitié des objets collectés n'étaient pas marqués.
 - `claim-nestle-baby-food-plastic-pouches-2025` — étude commandée par Greenpeace et réalisée par SINTEF sur trois sachets d'un produit de yaourt Gerber ; les éléments FDA et EFSA sont associés comme contexte scientifique général.
 - `claim-nestle-gerber-microplastics-consumer-reports-2026` — résultat rapporté par Consumer Reports pour une purée Gerber précisément identifiée.
 
 Affirmations encore à examiner :
 
-- `claim-nestle-branded-plastic-audit-2024` — part de Nestlé dans les objets plastiques de marque recensés par une étude scientifique fondée sur des audits citoyens.
 - `claim-nestle-plastic-sachets-asia-2024` — audit de sachets à usage unique dans quatre pays asiatiques.
 - `claim-nestle-packaging-progress-2025` — indicateurs de progrès déclarés par Nestlé.
 
-**Points de vigilance :** les trois sachets Gerber de l'étude Greenpeace constituent un échantillon très réduit ; l'identification du polyéthylène dans les aliments est tentative et ne prouve pas la migration depuis l'emballage ni un effet sanitaire. Pour le résultat Consumer Reports déjà publié, conserver le produit exact, le dénominateur de 99 g, le nombre de lots et le sous-échantillon ; l'enquête n'a pas analysé la composition des emballages et la FDA n'a pas examiné ses méthodes ni ses données brutes. Consumer Reports précise ne pas recommander d'éviter les produits testés. Ne pas présenter la présence de particules comme une preuve de risque sanitaire. Les positions générales de la FDA et de l'EFSA ne tranchent pas le cas précis des sachets ou purées étudiés. Les audits de déchets ne mesurent pas toute la production ou tous les déchets de Nestlé. Les chiffres de performance de l'entreprise sont des déclarations internes ; « conçu pour être recyclé » ne signifie pas effectivement recyclé.
+**Points de vigilance :** les trois sachets Gerber de l'étude Greenpeace constituent un échantillon très réduit ; l'identification du polyéthylène dans les aliments est tentative et ne prouve pas la migration depuis l'emballage ni un effet sanitaire. Pour le résultat Consumer Reports déjà publié, conserver le produit exact, le dénominateur de 99 g, le nombre de lots et le sous-échantillon ; l'enquête n'a pas analysé la composition des emballages et la FDA n'a pas examiné ses méthodes ni ses données brutes. Consumer Reports précise ne pas recommander d'éviter les produits testés. Ne pas présenter la présence de particules comme une preuve de risque sanitaire. Les positions générales de la FDA et de l'EFSA ne tranchent pas le cas précis des sachets ou purées étudiés. Pour l'étude Science Advances, les 3 % correspondent uniquement aux objets de marque recensés dans le jeu de données, pas à la part de tous les déchets plastiques mondiaux ni à la production de Nestlé ; la moitié des objets collectés n'étaient pas marqués. La réponse de Nestlé de juin 2024 critique les audits bénévoles de Break Free From Plastic, mais ne constitue pas une réanalyse indépendante ni une réponse spécifique à l'article Science Advances. Les audits de déchets ne mesurent pas toute la production ou tous les déchets de Nestlé. Les chiffres de performance de l'entreprise sont des déclarations internes ; « conçu pour être recyclé » ne signifie pas effectivement recyclé.
 
 La réponse de Nestlé aux audits de Break Free From Plastic doit être présentée à proximité, avec ses critiques méthodologiques et les limites des audits citoyens.
 
@@ -108,6 +108,8 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 ## Sources déjà vérifiées et publiées en contexte
 
+- `source-science-advances-plastic-brand-audit-2024` — étude évaluée par les pairs, fondée sur 1 576 événements d'audit dans 84 pays entre 2018 et 2022 ; les 3 % pour Nestlé concernent les objets de marque recensés.
+- `source-nestle-plastic-pollution-response-2024` — position officielle de Nestlé de juin 2024 sur les audits de Break Free From Plastic ; présentée comme une critique de l'entreprise, non comme une réfutation indépendante de l'étude scientifique.
 - `source-senat-2025-enquete-eaux-minerales` — rapport de la commission d'enquête du Sénat sur les traitements utilisés par Nestlé Waters, la microfiltration et les limites de l'enquête.
 - `source-assemblee-nationale-2026-eaux-nestle` — réponse du Gouvernement confirmant l'usage de traitements UV et au charbon actif interdits, les mesures correctrices et l'absence de risque sanitaire constaté à la date de la réponse.
 - `source-justice-2024-cjipe-nestle` — convention judiciaire d'intérêt public environnementale signée par Nestlé Waters Supply Est ; périmètre limité aux faits concernés dans les Vosges.
@@ -133,12 +135,13 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `claim-nestle-water-treatments` — rapport du Sénat et réponse gouvernementale confirmant l'utilisation par Nestlé Waters de traitements UV et au charbon actif interdits dans les installations citées. La publication distingue ces traitements de la microfiltration et n'affirme pas qu'un dommage sanitaire a été subi.
 - `claim-nestle-water-cjipe` — convention judiciaire d'intérêt public environnementale signée le 2 septembre 2024 par Nestlé Waters Supply Est, assortie d'une amende d'intérêt public de deux millions d'euros. La CJIPE n'est pas présentée comme une condamnation pénale générale du groupe.
 - `claim-nestle-water-health-finding` — réponse du Gouvernement indiquant qu'aucun risque sanitaire n'avait été constaté pour les eaux concernées à la date de sa réponse du 3 février 2026. Cette conclusion est strictement datée et limitée au périmètre indiqué.
+- `claim-nestle-branded-plastic-audit-2024` — étude évaluée par les pairs : 3 % des objets de marque recensés dans le jeu de données d'audits sont attribués à Nestlé ; la formulation ne présente pas ce chiffre comme une part de la pollution mondiale.
 
-Les cinq affirmations publiées portent `publication_basis: evidence_verified`, une date et une note de publication. Les dix sources associées ont une méthode, une date et une justification de vérification. Aucun de ces enregistrements ne porte de date de validation humaine.
+Les six affirmations publiées portent `publication_basis: evidence_verified`, une date et une note de publication. Les douze sources associées ont une méthode, une date et une justification de vérification. Aucun de ces enregistrements ne porte de date de validation humaine.
 
 ### Toujours non publiés
 
-Les 15 autres sources, les 16 autres affirmations et les éléments de preuve associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain requis n'a pas été effectué. Les réponses de Nestlé et Gerber sont affichées uniquement lorsqu'elles sont reliées à une source admissible et sont clairement attribuées à l'entreprise.
+Les 13 autres sources, les 15 autres affirmations et les éléments de preuve associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain requis n'a pas été effectué. Les réponses de Nestlé et Gerber sont affichées uniquement lorsqu'elles sont reliées à une source admissible et sont clairement attribuées à l'entreprise.
 
 Avant d'élargir le dossier :
 
