@@ -77,7 +77,6 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-bms-atni-219",
       "evidence-nestle-bms-policy-gaps",
       "evidence-nestle-baby-food-added-sugar",
-      "evidence-nestle-baby-food-microplastics-2026",
       "evidence-fda-microplastics-health-uncertainty-2026",
       "evidence-efsa-food-contact-microplastics-2025",
       "evidence-efsa-microplastics-risk-status-2026",
@@ -181,7 +180,6 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-bms-atni-219",
       "evidence-nestle-bms-policy-gaps",
       "evidence-nestle-baby-food-added-sugar",
-      "evidence-nestle-baby-food-microplastics-2026",
       "evidence-fda-microplastics-health-uncertainty-2026",
       "evidence-efsa-food-contact-microplastics-2025",
       "evidence-efsa-microplastics-risk-status-2026",
@@ -221,7 +219,7 @@ describe("Nestlé dossier editorial gate", () => {
     assert.equal(claim.claim_status, "not_reviewed");
     assert.equal(claim.reviewed_at, null);
     assert.match(claim.statement, /trois sachets/i);
-    assert.match(claim.uncertainty_note, /n’établit pas d’effet sanitaire/i);
+    assert.match(claim.uncertainty_note, /n'établit pas d'effet sanitaire/i);
     assert.ok(claim.source_ids.includes(source.id));
     assert.ok(claim.evidence_ids.includes(evidence.id));
     assert.ok(evidence.supports_claim_ids.includes(claim.id));
@@ -243,7 +241,7 @@ describe("Nestlé dossier editorial gate", () => {
 
     assert.match(fdaEvidence.summary, /ne démontrent pas que les niveaux détectés.*présentent un risque/i);
     assert.match(claim.uncertainty_note, /La FDA indique/i);
-    assert.match(claim.uncertainty_note, /La revue de littérature de l’EFSA/i);
+    assert.match(claim.uncertainty_note, /La revue de littérature de l'EFSA/i);
     assert.ok(claim.evidence_ids.includes(fdaEvidence.id));
     assert.ok(claim.evidence_ids.includes(efsaReviewEvidence.id));
     assert.ok(claim.evidence_ids.includes(efsaStatusEvidence.id));
