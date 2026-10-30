@@ -33,11 +33,21 @@ function requireSourcedArray(schema, field, label) {
 }
 
 requireFields(claim, ["id", "subject_entity_id", "statement", "claim_status", "source_ids", "reviewed_at", "uncertainty_note"], "claim");
+assert.ok(claim.allOf.some((rule) => rule.if?.properties?.publication_basis?.const === "evidence_verified" &&
+  ["published_at", "publication_note"].every((field) => rule.then?.required?.includes(field))),
+  "evidence-published claims must record publication date and rationale");
 requireSourcedArray(claim, "source_ids", "claim");
 requireFields(source, ["id", "title", "publisher", "source_type", "accessed_at", "review_status"], "source");
+assert.ok(source.properties.review_status.enum.includes("evidence_verified"));
+assert.ok(source.allOf.some((rule) => rule.if?.properties?.review_status?.const === "evidence_verified" &&
+  ["verification_method", "verified_at", "verification_note"].every((field) => rule.then?.required?.includes(field))),
+  "evidence-verified sources must record method, date and rationale");
 requireWebUrl(source, "url", "source");
 requireWebUrl(source, "archived_url", "source");
 requireFields(entity, ["id", "name", "entity_type", "status", "reviewed_at", "source_ids"], "entity");
+assert.ok(entity.allOf.some((rule) => rule.if?.properties?.publication_basis?.const === "evidence_verified" &&
+  ["published_at", "publication_note"].every((field) => rule.then?.required?.includes(field))),
+  "evidence-published entities must record publication date and rationale");
 requireSourcedArray(entity, "source_ids", "entity");
 requireWebUrl(entity, "website", "entity");
 requireFields(relationship, ["id", "from_entity_id", "to_entity_id", "relationship_type", "knowledge_status", "source_ids"], "relationship");
