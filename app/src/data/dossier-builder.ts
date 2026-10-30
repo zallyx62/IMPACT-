@@ -22,7 +22,15 @@ export interface DossierCollections {
 }
 
 export function getPublishedEntities(data: DossierCollections): EntityRecord[] {
-  return data.entities.filter((entity) => entity.status === "published" && Array.isArray(entity.source_ids) && buildEntityDossier(entity.id, data) !== undefined);
+  const reviewedSourceIds = new Set(
+    data.sources.filter((source) => source.review_status === "reviewed").map((source) => source.id),
+  );
+  return data.entities.filter(
+    (entity) =>
+      entity.status === "published" &&
+      Array.isArray(entity.source_ids) &&
+      entity.source_ids.some((sourceId) => reviewedSourceIds.has(sourceId)),
+  );
 }
 
 export function buildEntityDossier(entityId: string, data: DossierCollections): EntityDossier | undefined {
