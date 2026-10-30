@@ -6,7 +6,8 @@
   "claim_status": "not_reviewed",
   "valid_from": "2026-01-05",
   "source_ids": [
-    "source-fr-health-ministry-infant-formula-recall-2026"
+    "source-fr-health-ministry-infant-formula-recall-2026",
+    "source-nestle-infant-formula-recall-2026"
   ],
   "evidence_ids": [
     "evidence-nestle-infant-formula-recall-cereulide-2026"
