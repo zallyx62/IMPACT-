@@ -21,9 +21,13 @@ export interface DossierCollections {
   commitments: CommitmentRecord[];
 }
 
+export function getPublishedEntities(data: DossierCollections): EntityRecord[] {
+  return data.entities.filter((entity) => entity.status === "published" && Array.isArray(entity.source_ids) && buildEntityDossier(entity.id, data) !== undefined);
+}
+
 export function buildEntityDossier(entityId: string, data: DossierCollections): EntityDossier | undefined {
   const entity = data.entities.find((item) => item.id === entityId && item.status === "published");
-  if (!entity) return undefined;
+  if (!entity || !Array.isArray(entity.source_ids)) return undefined;
 
   const reviewedSourceIds = new Set(
     data.sources.filter((item) => item.review_status === "reviewed").map((item) => item.id),

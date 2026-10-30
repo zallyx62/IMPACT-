@@ -1,4 +1,4 @@
-import { entities, type EntityDossier, type Language } from "./data/records";
+import { getPublishedEntities, type EntityDossier, type Language } from "./data/records";
 
 interface Props {
   dossier: EntityDossier;
@@ -73,7 +73,7 @@ function dateLabel(value: string, language: Language) {
 export default function DossierPanel({ dossier, language, onBack }: Props) {
   const t = labels[language];
   const sourceById = new Map(dossier.sources.map((source) => [source.id, source]));
-  const entityById = new Map(entities.map((entity) => [entity.id, entity.name]));
+  const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
   const sourceReference = (sourceId: string) => {
     const source = sourceById.get(sourceId);

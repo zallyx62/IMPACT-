@@ -1,4 +1,4 @@
-import { buildEntityDossier } from "./dossier-builder";
+import { buildEntityDossier, getPublishedEntities as filterPublishedEntities } from "./dossier-builder";
 
 export type Language = "fr" | "en";
 
@@ -132,6 +132,10 @@ export interface EntityDossier {
   campaigns: CampaignRecord[];
   responses: ResponseRecord[];
   commitments: CommitmentRecord[];
+}
+
+export function getPublishedEntities(): EntityRecord[] {
+  return filterPublishedEntities({ entities, sources, claims, evidence, relationships, campaigns, responses, commitments });
 }
 
 export function getEntityDossier(entityId: string): EntityDossier | undefined {
