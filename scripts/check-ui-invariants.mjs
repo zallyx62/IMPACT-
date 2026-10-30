@@ -27,6 +27,10 @@ for (const marker of ["selected-mark", "tool-mark", "result-mark", "universe-mar
     `${marker} is decorative and must be hidden from assistive technology`);
 }
 
+for (const field of ["source.source_type", "source.published_at", "source.language", "source.methodology", "source.potential_conflicts"]) {
+  assert.ok(dossierPanel.includes(field), `source provenance field ${field} must be displayed`);
+}
+
 assert.match(dossierPanel, /claim\.subject_entity_id !== dossier\.entity\.id/,
   "claims about another entity must be explicitly attributed in the dossier");
 assert.match(dossierPanel, /claimAbout: "Concerne"/);
