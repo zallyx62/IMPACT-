@@ -33,7 +33,7 @@ export default function CommitmentTracker({ entities }: { entities: EntityRecord
   return (
     <section className="public-tool-panel" aria-labelledby="commitment-tracker-title">
       <div className="public-tool-heading">
-        <div><h3 id="commitment-tracker-title">Engagements et échéances documentés</h3>
+        <div><h3 id="commitment-tracker-title">Historique des dossiers, engagements et échéances</h3>
           <p>Les annonces, échéances et résultats observés sont séparés. Un engagement annoncé n’est pas considéré comme réalisé sans preuve.</p></div>
         <span className="public-tool-count">{filtered.length} / {commitments.length}</span>
       </div>
