@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { tools, universes, type CatalogItem, type Language } from "./data/catalog";
-import { normalizeSearch, searchableText } from "./data/search";
+import { matchesSearch, normalizeSearch, searchableText } from "./data/search";
 import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import DossierPanel from "./DossierPanel";
 
@@ -90,16 +90,16 @@ function App() {
   }, [language]);
 
   const foundUniverses = useMemo(
-    () => trimmedQuery ? universes.filter((item) => searchableText(item).includes(trimmedQuery)) : [],
+    () => trimmedQuery ? universes.filter((item) => matchesSearch(searchableText(item), trimmedQuery)) : [],
     [trimmedQuery],
   );
   const foundTools = useMemo(
-    () => trimmedQuery ? tools.filter((item) => searchableText(item).includes(trimmedQuery)) : [],
+    () => trimmedQuery ? tools.filter((item) => matchesSearch(searchableText(item), trimmedQuery)) : [],
     [trimmedQuery],
   );
   const publishedEntities = useMemo(() => getPublishedEntities(), []);
   const foundEntities = useMemo(
-    () => trimmedQuery ? publishedEntities.filter((item) => normalizeSearch([item.name, item.description ?? "", item.entity_type].join(" ")).includes(trimmedQuery)) : [],
+    () => trimmedQuery ? publishedEntities.filter((item) => matchesSearch([item.name, item.description ?? "", item.entity_type].join(" "), trimmedQuery)) : [],
     [trimmedQuery, publishedEntities],
   );
   const chosen = selection && selection.type !== "entity"
