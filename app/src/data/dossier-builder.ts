@@ -86,7 +86,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
 
   const claimIds = new Set(
     data.claims
-      .filter((item) => publishableEntityIds.has(item.subject_entity_id) && item.source_ids.some((sourceId) => reviewed.has(sourceId)))
+      .filter((item) => item.subject_entity_id === entityId && item.source_ids.some((sourceId) => reviewed.has(sourceId)))
       .map((item) => item.id),
   );
   entityCampaigns.forEach((item) => (item.claim_ids ?? []).forEach((id) => claimIds.add(id)));
