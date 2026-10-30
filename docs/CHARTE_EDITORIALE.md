@@ -164,6 +164,7 @@ L'absence de validation humaine ne signifie jamais publication automatique de to
 - Une source publiée selon les critères documentaires porte `review_status: evidence_verified`, `verification_method`, `verified_at` et `verification_note`.
 - Une entité ou une affirmation publiée sans validation humaine porte `publication_basis: evidence_verified`, `published_at` et `publication_note`.
 - `reviewed_at` reste nul lorsqu'aucune personne n'a effectué la validation humaine ; il ne doit jamais être renseigné artificiellement.
+- Une affirmation publiée sans validation humaine doit porter explicitement `requires_human_review: false` ; l'absence de ce champ ne vaut pas autorisation. Les affirmations marquées `true` exigent une date de revue humaine et ne peuvent pas passer par le seul parcours documentaire.
 - Le générateur de données publiques exclut les enregistrements qui ne passent aucun des deux parcours. Les sources non admissibles ne peuvent pas être affichées comme preuves d'une affirmation publiée.
 
 
