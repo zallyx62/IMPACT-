@@ -20,7 +20,7 @@ const labels = {
     noSource: "Aucune source associée.",
     evidence: "Éléments de preuve",
     relationships: "Relations documentées",
-    campaigns: "Campagnes associées",
+    campaigns: "Campagnes associées", organizer: "Organisateur", targets: "Entités ciblées",
     responses: "Réponses de l’entité",
     commitments: "Engagements suivis",
     sourceAccessed: "Consultée le", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
@@ -47,7 +47,7 @@ const labels = {
     noSource: "No sources are associated.",
     evidence: "Evidence",
     relationships: "Documented relationships",
-    campaigns: "Related campaigns",
+    campaigns: "Related campaigns", organizer: "Organizer", targets: "Target entities",
     responses: "Entity responses",
     commitments: "Tracked commitments",
     sourceAccessed: "Accessed on", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
@@ -208,7 +208,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
       {dossier.campaigns.length > 0 && (
         <section className="dossier-section">
           <h3>{t.campaigns}</h3>
-          <div className="dossier-list">{dossier.campaigns.map((item) => <article className="claim-card" key={item.id}><strong>{item.title}</strong><p>{displayValue("campaignStatus", item.campaign_status, language)}</p><strong>{t.demands}</strong><ul>{item.demands.map((demand) => <li key={demand}>{demand}</li>)}</ul>{item.outcome_summary && <p>{t.outcome} : {item.outcome_summary}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
+          <div className="dossier-list">{dossier.campaigns.map((item) => <article className="claim-card" key={item.id}><strong>{item.title}</strong><p>{displayValue("campaignStatus", item.campaign_status, language)}</p>{item.organizer_entity_id && <p><strong>{t.organizer} :</strong> {entityName(item.organizer_entity_id)}</p>}<p><strong>{t.targets} :</strong> {item.target_entity_ids.map(entityName).join(", ")}</p><strong>{t.demands}</strong><ul>{item.demands.map((demand) => <li key={demand}>{demand}</li>)}</ul>{item.outcome_summary && <p>{t.outcome} : {item.outcome_summary}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
         </section>
       )}
       {dossier.responses.length > 0 && (
