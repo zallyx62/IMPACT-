@@ -76,12 +76,11 @@ Affirmations à examiner :
 Affirmations à examiner :
 
 - `claim-nestle-baby-food-plastic-pouches-2025` — étude commandée par Greenpeace et réalisée par SINTEF sur trois sachets d'un produit de yaourt Gerber ; les éléments FDA et EFSA sont associés comme contexte scientifique général.
-- `claim-nestle-gerber-microplastics-consumer-reports-2026` — enquête Consumer Reports publiée en septembre 2026, qui rapporte 728 294 particules par portion de 99 g pour une purée Gerber précise ; le sous-échantillon microplastiques porte sur 15 purées et un jus, testés en deux à quatre lots par produit.
 - `claim-nestle-branded-plastic-audit-2024` — part de Nestlé dans les objets plastiques de marque recensés par une étude scientifique fondée sur des audits citoyens.
 - `claim-nestle-plastic-sachets-asia-2024` — audit de sachets à usage unique dans quatre pays asiatiques.
 - `claim-nestle-packaging-progress-2025` — indicateurs de progrès déclarés par Nestlé.
 
-**Points de vigilance :** les trois sachets Gerber de l'étude Greenpeace constituent un échantillon très réduit ; l'identification du polyéthylène dans les aliments est tentative et ne prouve pas la migration depuis l'emballage ni un effet sanitaire. Pour Consumer Reports, vérifier le produit exact, le dénominateur de 99 g, le nombre de lots et le sous-échantillon ; l'enquête n'a pas analysé la composition des emballages et la FDA n'a pas examiné ses méthodes ni ses données brutes. Consumer Reports précise ne pas recommander d'éviter les produits testés. Ne pas présenter la présence de particules comme une preuve de risque sanitaire. Les positions générales de la FDA et de l'EFSA ne tranchent pas le cas précis des sachets ou purées étudiés. Les audits de déchets ne mesurent pas toute la production ou tous les déchets de Nestlé. Les chiffres de performance de l'entreprise sont des déclarations internes ; « conçu pour être recyclé » ne signifie pas effectivement recyclé.
+**Points de vigilance :** les trois sachets Gerber de l'étude Greenpeace constituent un échantillon très réduit ; l'identification du polyéthylène dans les aliments est tentative et ne prouve pas la migration depuis l'emballage ni un effet sanitaire. Pour le résultat Consumer Reports déjà publié, conserver le produit exact, le dénominateur de 99 g, le nombre de lots et le sous-échantillon ; l'enquête n'a pas analysé la composition des emballages et la FDA n'a pas examiné ses méthodes ni ses données brutes. Consumer Reports précise ne pas recommander d'éviter les produits testés. Ne pas présenter la présence de particules comme une preuve de risque sanitaire. Les positions générales de la FDA et de l'EFSA ne tranchent pas le cas précis des sachets ou purées étudiés. Les audits de déchets ne mesurent pas toute la production ou tous les déchets de Nestlé. Les chiffres de performance de l'entreprise sont des déclarations internes ; « conçu pour être recyclé » ne signifie pas effectivement recyclé.
 
 La réponse de Nestlé aux audits de Break Free From Plastic doit être présentée à proximité, avec ses critiques méthodologiques et les limites des audits citoyens.
 
@@ -111,7 +110,6 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `source-nestle-baby-food-plastic-packaging-response-2026` — position officielle de Nestlé sur les emballages plastiques des aliments pour bébés ; elle ne fournit pas de résultats analytiques propres aux sachets étudiés.
 - `source-fda-microplastics-food-guidance-2026` — contexte général de la FDA sur les microplastiques alimentaires, les preuves de migration et les limites des connaissances.
 - `source-efsa-food-contact-microplastics-review-2025` et `source-efsa-microplastics-food-risk-status-2026` — revue technique sur la libération par les matériaux au contact des aliments et état de l'évaluation des risques par l'EFSA.
-- `source-consumer-reports-baby-food-testing-2026` — enquête de tests de produits de Consumer Reports, avec limites de méthode, financement et réponse de Gerber.
 - `source-nestle-cocoa-plan` — programme cacao et système CLMRS présenté par Nestlé.
 
 ## Conditions de publication
