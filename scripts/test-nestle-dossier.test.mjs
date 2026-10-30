@@ -25,6 +25,9 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-water-pressure",
       "claim-nestle-water-health-finding",
       "claim-nestle-water-cjipe",
+      "claim-nestle-water-consumer-deception",
+      "claim-nestle-water-gard-uncertainty",
+      "claim-nestle-water-vosges-surveillance",
     ].map((id) => readRecord("claims", id)));
     const evidence = await Promise.all([
       "evidence-nestle-water-admission",
@@ -33,6 +36,9 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-water-health-finding",
       "evidence-nestle-water-cjipe",
       "evidence-nestle-water-2026-regulatory-response",
+      "evidence-nestle-water-consumer-deception",
+      "evidence-nestle-water-gard-uncertainty",
+      "evidence-nestle-water-vosges-surveillance",
     ].map((id) => readRecord("evidence", id)));
     const responses = [await readRecord("responses", "response-nestle-water-cjipe")];
     const data = { entities: [entity], sources, claims, evidence, relationships: [], campaigns: [], responses, commitments: [] };
@@ -60,6 +66,17 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-water-cjipe",
     ];
     const claims = await Promise.all(claimIds.map((id) => readRecord("claims", id)));
+    const evidence = await Promise.all([
+      "evidence-nestle-water-admission",
+      "evidence-nestle-water-microfiltration",
+      "evidence-nestle-water-pressure",
+      "evidence-nestle-water-health-finding",
+      "evidence-nestle-water-cjipe",
+      "evidence-nestle-water-2026-regulatory-response",
+      "evidence-nestle-water-consumer-deception",
+      "evidence-nestle-water-gard-uncertainty",
+      "evidence-nestle-water-vosges-surveillance",
+    ].map((id) => readRecord("evidence", id)));
     const evidenceIds = new Set(evidence.map((item) => item.id));
     for (const claim of claims) {
       assert.ok(claim.source_ids.length > 0);
