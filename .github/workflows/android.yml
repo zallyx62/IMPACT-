@@ -47,7 +47,7 @@ jobs:
           java-version: "17"
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
         with:
           packages: "platform-tools platforms;android-36 build-tools;36.0.0"
 
@@ -73,7 +73,7 @@ jobs:
           test -s android/app/build/outputs/apk/release/app-release-unsigned.apk
 
       - name: Upload Android debug APK for device testing
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: impact-android-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
