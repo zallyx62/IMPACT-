@@ -49,6 +49,7 @@ describe("searchableEntityText", () => {
     assert.ok(matchesSearch(text, "supplier audits"));
     assert.ok(matchesSearch(text, "transparency campaign"));
     assert.ok(matchesSearch(text, "supplier information"));
+    assert.ok(matchesSearch(text, "droits humains"), "French topic names must match internal topic identifiers");
   });
 
   it("indexes published responses, commitments and relationships", () => {
@@ -60,6 +61,7 @@ describe("searchableEntityText", () => {
 
   it("keeps the entity searchable when no dossier is supplied", () => {
     assert.ok(matchesSearch(searchableEntityText(entity), "example group"));
+    assert.ok(matchesSearch(searchableEntityText({ ...entity, entity_type: "organization" }), "organisation"));
   });
 });
 
