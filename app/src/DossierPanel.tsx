@@ -24,7 +24,7 @@ const labels = {
     campaigns: "Campagnes associées", organizer: "Organisateur", targets: "Entités ciblées",
     responses: "Réponses de l’entité",
     commitments: "Engagements suivis",
-    sourceAccessed: "Consultée le", sourcePublished: "Publiée le", sourceType: "Nature de la source", sourceLanguage: "Langue", sourceMethodology: "Méthode", sourceConflicts: "Intérêts ou liens pertinents", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
+    sourceArchive: "Copie d’archive", sourceAccessed: "Consultée le", sourcePublished: "Publiée le", sourceType: "Nature de la source", sourceLanguage: "Langue", sourceMethodology: "Méthode", sourceConflicts: "Intérêts ou liens pertinents", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
     noDescription: "Aucune description éditoriale n’a encore été publiée.",
     type: "Type d’entité", demands: "Demandes", outcome: "Résultat rapporté", measurement: "Méthode de mesure", observed: "Résultat observé", publication: "Statut de publication", relationshipStatus: "État de la relation", targetDate: "Échéance",
     statuses: {
@@ -52,7 +52,7 @@ const labels = {
     campaigns: "Related campaigns", organizer: "Organizer", targets: "Target entities",
     responses: "Entity responses",
     commitments: "Tracked commitments",
-    sourceAccessed: "Accessed on", sourcePublished: "Published on", sourceType: "Source type", sourceLanguage: "Language", sourceMethodology: "Methodology", sourceConflicts: "Relevant interests or affiliations", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
+    sourceArchive: "Archived copy", sourceAccessed: "Accessed on", sourcePublished: "Published on", sourceType: "Source type", sourceLanguage: "Language", sourceMethodology: "Methodology", sourceConflicts: "Relevant interests or affiliations", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
     noDescription: "No editorial description has been published yet.",
     type: "Entity type", demands: "Demands", outcome: "Reported outcome", measurement: "Measurement method", observed: "Observed result", publication: "Publication status", relationshipStatus: "Relationship status", targetDate: "Target date",
     statuses: {
@@ -111,18 +111,29 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
     const source = sourceById.get(sourceId);
     if (!source) return null;
     const href = safeExternalUrl(source.url);
-    return href
-      ? <a key={source.id} href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
-      : <span key={source.id}>{source.title}</span>;
+    const archivedHref = safeExternalUrl(source.archived_url);
+    if (!href && !archivedHref) return <span key={source.id}>{source.title}</span>;
+    return (
+      <span key={source.id}>
+        {href
+          ? <a href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
+          : <a href={archivedHref} target="_blank" rel="noopener noreferrer">{source.title} ({t.sourceArchive.toLowerCase()})</a>}
+        {href && archivedHref && <> · <a href={archivedHref} target="_blank" rel="noopener noreferrer">{t.sourceArchive}</a></>}
+      </span>
+    );
   };
 
   const sourceDetails = (source: SourceRecord) => {
     const href = safeExternalUrl(source.url);
+    const archivedHref = safeExternalUrl(source.archived_url);
     return (
       <div className="source-reference" key={source.id}>
         {href
           ? <a href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
-          : <strong>{source.title}</strong>}
+          : archivedHref
+            ? <a href={archivedHref} target="_blank" rel="noopener noreferrer">{source.title} ({t.sourceArchive.toLowerCase()})</a>
+            : <strong>{source.title}</strong>}
+        {href && archivedHref && <small><a href={archivedHref} target="_blank" rel="noopener noreferrer">{t.sourceArchive}</a></small>}
         <span>{source.publisher} · {t.sourceType} : {displayValue("sourceType", source.source_type, language)} · {t.sourceAccessed} {dateLabel(source.accessed_at, language)}</span>
         {source.published_at && <small>{t.sourcePublished} : {dateLabel(source.published_at, language)}</small>}
         {source.language && <small>{t.sourceLanguage} : {source.language.toUpperCase()}</small>}
