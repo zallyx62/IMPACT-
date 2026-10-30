@@ -274,3 +274,174 @@ a { color: inherit; }
   .language-control { flex: 1 1 0; min-width: 0; flex-direction: column; align-items: flex-start; gap: .25rem; }
   .language-select { width: 100%; min-width: 0; }
 }
+
+
+/* IMPACT interface refinement: calmer hierarchy, clearer surfaces and stronger focus. */
+:root {
+  --green: #176b52;
+  --green-deep: #104c3b;
+  --green-soft: #e7f2eb;
+  --paper: #ffffff;
+  --paper-soft: #f4f7f3;
+  --ink: #17251d;
+  --muted: #647268;
+  --muted-strong: #45564b;
+  --line: #dfe7df;
+  --amber: #b78324;
+  --shadow: 0 16px 44px rgba(27, 55, 37, .075);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: #f6f8f5;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+button, input, select { font: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid #d39a37;
+  outline-offset: 3px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250, 252, 249, .92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(218, 229, 218, .9);
+}
+.header-inner { min-height: 78px; }
+.brand-mark {
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--green);
+  box-shadow: 0 5px 12px rgba(16, 76, 59, .18);
+}
+.brand-copy strong { letter-spacing: .14em; }
+.brand-copy span { color: var(--muted); }
+.page-content { padding-bottom: 4rem; }
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+  align-items: end;
+  gap: 2rem 3rem;
+  padding-top: clamp(3.5rem, 8vw, 6.5rem);
+}
+.hero-copy { max-width: 720px; }
+.eyebrow { color: var(--green-deep); }
+.eyebrow-dot { box-shadow: 0 0 0 5px var(--green-soft); }
+.hero h1 {
+  max-width: 720px;
+  margin-top: 1.2rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5.4vw, 5.2rem);
+  font-weight: 500;
+  letter-spacing: -.055em;
+  line-height: 1.04;
+}
+.hero-description { max-width: 600px; font-size: 1.04rem; line-height: 1.8; }
+.search-panel {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.search-panel label { display: block; margin-bottom: .7rem; color: var(--ink); font-size: .86rem; font-weight: 750; }
+.search-field { min-height: 58px; border-radius: 13px; background: #f6f8f5; }
+.search-field:focus-within { border-color: #7ca88e; box-shadow: 0 0 0 4px rgba(23,107,82,.1); }
+.search-field input { min-width: 0; font-size: .9rem; }
+.search-hint { margin: .7rem 0 0; font-size: .72rem; line-height: 1.55; }
+.trust-chips { grid-column: 1 / -1; margin-top: -.5rem; }
+.trust-chips > span { border: 1px solid #dce9df; background: #edf5ef; color: #315b42; }
+.content-section { margin-top: clamp(3.5rem, 7vw, 5.5rem); }
+.section-heading { margin-bottom: 1.35rem; }
+.section-heading h2, .method-copy h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+.section-heading > div > p:not(.section-kicker) { max-width: 620px; line-height: 1.7; }
+.universe-grid { gap: 1rem; }
+.universe-card, .tool-card, .dossier-card, .result-item {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(27,55,37,.035);
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.universe-card { min-height: 225px; padding: 1.25rem; }
+.universe-card:hover, .tool-card:hover, .dossier-card:hover, .result-item:hover {
+  transform: translateY(-2px);
+  border-color: #9bbca5;
+  box-shadow: 0 14px 30px rgba(27,55,37,.09);
+}
+.universe-mark, .tool-mark, .result-mark {
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--green-soft);
+  color: var(--green-deep);
+}
+.universe-number { color: #8b9a8e; }
+.universe-card > strong { font-size: 1.08rem; line-height: 1.35; }
+.universe-description { max-width: 34ch; line-height: 1.6; }
+.card-footer { color: var(--green-deep); font-weight: 750; }
+.tool-grid { gap: .8rem; }
+.tool-card { min-height: 100px; padding: 1rem 1.1rem; }
+.method-section {
+  margin-top: 5rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid #dce8dd;
+  border-radius: 24px;
+  background: #edf4ee;
+}
+.method-copy > p:not(.section-kicker), .privacy-list li { color: #53665a; }
+.method-visual { min-height: 270px; }
+.privacy-ring-inner { border-radius: 50%; border-width: 7px; }
+.reality-note { border-radius: 16px; }
+.site-footer { margin-top: 2rem; }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 3rem; }
+  .hero h1 { max-width: 14ch; font-size: clamp(2.65rem, 11vw, 4rem); }
+  .search-panel { padding: 1rem; }
+  .trust-chips { margin-top: 0; }
+  .universe-grid { gap: .7rem; }
+  .universe-card { min-height: 195px; }
+  .method-section { margin-top: 3.5rem; }
+}
+@media (max-width: 390px) {
+  .hero h1 { font-size: 2.55rem; }
+  .trust-chips { flex-wrap: wrap; }
+  .universe-grid { grid-template-columns: 1fr; }
+  .universe-card { min-height: 165px; }
+}
+:root[data-theme="dark"] {
+  --green: #75c7a3;
+  --green-deep: #b3efd0;
+  --green-soft: #28493a;
+  --paper: #18251d;
+  --paper-soft: #1d2b22;
+  --ink: #e1ebe2;
+  --muted: #a5b4a9;
+  --muted-strong: #bdcabe;
+  --line: #31453a;
+  --shadow: 0 16px 44px rgba(0,0,0,.22);
+}
+:root[data-theme="dark"] .site-header { background: rgba(17,27,22,.92); }
+:root[data-theme="dark"] .search-panel,
+:root[data-theme="dark"] .universe-card,
+:root[data-theme="dark"] .tool-card,
+:root[data-theme="dark"] .dossier-card,
+:root[data-theme="dark"] .result-item { background: #18251d; }
+:root[data-theme="dark"] .search-field { background: #152119; }
+:root[data-theme="dark"] .trust-chips > span { background: #1b3024; border-color: #2c4836; color: #c3d9c8; }
+:root[data-theme="dark"] .method-section { background: #1b2a20; border-color: #334d39; }
+:root[data-theme="dark"] .method-copy > p:not(.section-kicker),
+:root[data-theme="dark"] .privacy-list li { color: #b5cbb9; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .universe-card, .tool-card, .dossier-card, .result-item { transition: none; }
+}
