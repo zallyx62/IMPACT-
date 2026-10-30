@@ -5,6 +5,7 @@ on:
     paths:
       - "app/**"
       - "data/schema/**"
+      - "data/records/**"
       - "scripts/**"
       - ".github/workflows/checks.yml"
   pull_request:
@@ -56,6 +57,9 @@ jobs:
 
       - name: Test JSON Schema validation
         run: node --test scripts/test-schema-validation.test.mjs
+
+      - name: Test dossier publication rules
+        run: node --test scripts/test-dossier-publication.test.mjs
 
       - name: Check secondary text contrast
         run: node scripts/check-contrast.mjs

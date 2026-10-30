@@ -40,5 +40,5 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   const count = Object.values(collections).reduce((total, records) => total + records.length, 0);
-  console.log(`Data references are valid (${count} records checked).`);
+  console.log(`Records pass JSON Schema and reference checks (${count} records checked).`);
 }

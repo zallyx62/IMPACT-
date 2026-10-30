@@ -24,7 +24,7 @@ const labels = {
     commitments: "Engagements suivis",
     sourceAccessed: "Consultée le",
     noDescription: "Aucune description éditoriale n’a encore été publiée.",
-    type: "Type d’entité",
+    type: "Type d’entité", demands: "Demandes", outcome: "Résultat rapporté", measurement: "Méthode de mesure", observed: "Résultat observé", publication: "Statut de publication", relationshipStatus: "État de la relation", targetDate: "Échéance",
     statuses: {
       confirmed: "Confirmée",
       corroborated: "Corroborée",
@@ -51,7 +51,7 @@ const labels = {
     commitments: "Tracked commitments",
     sourceAccessed: "Accessed on",
     noDescription: "No editorial description has been published yet.",
-    type: "Entity type",
+    type: "Entity type", demands: "Demands", outcome: "Reported outcome", measurement: "Measurement method", observed: "Observed result", publication: "Publication status", relationshipStatus: "Relationship status", targetDate: "Target date",
     statuses: {
       confirmed: "Confirmed",
       corroborated: "Corroborated",
@@ -75,6 +75,13 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
   const sourceById = new Map(dossier.sources.map((source) => [source.id, source]));
   const entityById = new Map(entities.map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
+  const sourceReference = (sourceId: string) => {
+    const source = sourceById.get(sourceId);
+    if (!source) return <span key={sourceId}>{sourceId}</span>;
+    return source.url
+      ? <a key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+      : <span key={source.id}>{source.title}</span>;
+  };
 
   return (
     <section className="dossier-panel" aria-labelledby="dossier-title">
@@ -140,26 +147,26 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         <section className="dossier-section">
           <h3>{t.relationships}</h3>
           <ul>{dossier.relationships.map((item) => (
-            <li key={item.id}>{entityName(item.from_entity_id)} → {item.relationship_type.replaceAll("_", " ")} → {entityName(item.to_entity_id)}</li>
+            <li key={item.id}><strong>{entityName(item.from_entity_id)} → {item.relationship_type.replaceAll("_", " ")} → {entityName(item.to_entity_id)}</strong><span>{t.relationshipStatus} : {item.knowledge_status}</span><div className="extra-sources">{item.source_ids.map(sourceReference)}</div></li>
           ))}</ul>
         </section>
       )}
       {dossier.campaigns.length > 0 && (
         <section className="dossier-section">
           <h3>{t.campaigns}</h3>
-          <ul>{dossier.campaigns.map((item) => <li key={item.id}>{item.title} — {item.campaign_status}</li>)}</ul>
+          <div className="dossier-list">{dossier.campaigns.map((item) => <article className="claim-card" key={item.id}><strong>{item.title}</strong><p>{item.campaign_status}</p><strong>{t.demands}</strong><ul>{item.demands.map((demand) => <li key={demand}>{demand}</li>)}</ul>{item.outcome_summary && <p>{t.outcome} : {item.outcome_summary}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
         </section>
       )}
       {dossier.responses.length > 0 && (
         <section className="dossier-section">
           <h3>{t.responses}</h3>
-          <ul>{dossier.responses.map((item) => <li key={item.id}>{item.summary}</li>)}</ul>
+          <div className="dossier-list">{dossier.responses.map((item) => <article className="claim-card" key={item.id}><p>{item.summary}</p><p>{t.publication} : {item.publication_status}</p>{item.source_id && <div className="extra-sources">{sourceReference(item.source_id)}</div>}</article>)}</div>
         </section>
       )}
       {dossier.commitments.length > 0 && (
         <section className="dossier-section">
           <h3>{t.commitments}</h3>
-          <ul>{dossier.commitments.map((item) => <li key={item.id}>{item.statement} — {item.status}</li>)}</ul>
+          <div className="dossier-list">{dossier.commitments.map((item) => <article className="claim-card" key={item.id}><p className="claim-statement">{item.statement}</p><p>{item.status}{item.target_date ? ` · ${t.targetDate} : ${dateLabel(item.target_date, language)}` : ""}</p>{item.measurement_method && <p><strong>{t.measurement} :</strong> {item.measurement_method}</p>}{item.observed_result && <p><strong>{t.observed} :</strong> {item.observed_result}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
         </section>
       )}
     </section>
