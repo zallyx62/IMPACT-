@@ -115,7 +115,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     item.entity_id === entityId &&
     item.reviewed_at !== null &&
     item.source_ids.length > 0 &&
-    item.source_ids.every((id) => publishableSources.has(id)),
+    item.source_ids.some((id) => publishableSources.has(id)),
   );
 
   const sourceIds = new Set(originalEntity.source_ids.filter((id) => publishableSources.has(id)));
