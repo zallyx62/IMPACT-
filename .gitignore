@@ -14,3 +14,15 @@ coverage/
 Thumbs.db
 .vscode/
 .idea/
+
+# Android / Gradle build output and local machine configuration
+.gradle/
+**/build/
+local.properties
+*.apk
+*.aab
+*.keystore
+*.jks
+*.p12
+key.properties
+*.iml
