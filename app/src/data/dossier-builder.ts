@@ -96,7 +96,15 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     (item) => claimIds.has(item.id) && publishableEntityIds.has(item.subject_entity_id) && item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
   const publishedClaimIds = new Set(claims.map((item) => item.id));
-  const publishedResponseIds = new Set(entityResponses.map((item) => item.id));
+  const publishedResponseIds = new Set(
+    data.responses
+      .filter((item) =>
+        item.publication_status === "published" &&
+        publishableEntityIds.has(item.entity_id) &&
+        Boolean(item.source_id && reviewed.has(item.source_id)),
+      )
+      .map((item) => item.id),
+  );
   const evidenceIds = new Set(claims.flatMap((item) => item.evidence_ids ?? []));
   const evidence = data.evidence.filter(
     (item) =>
