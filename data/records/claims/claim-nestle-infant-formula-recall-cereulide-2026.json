@@ -1,0 +1,27 @@
+{
+  "id": "claim-nestle-infant-formula-recall-cereulide-2026",
+  "subject_entity_id": "nestle",
+  "statement": "RappelConso publie en janvier 2026 des rappels volontaires visant des lots précis de lait Guigoz en poudre, Nidal en poudre et Guigoz liquide, en raison d'une présence potentielle de céréulide liée à une huile riche en acide arachidonique provenant d'un fournisseur. Le 4 février 2026, un rappel volontaire supplémentaire a concerné un lot de Guigoz Optipro Relais 1 après l'évolution des méthodes d'analyse. Ces fiches identifient les références et lots concernés ; elles ne visent pas l'ensemble des produits Guigoz ou Nidal.",
+  "topic": "animals_food",
+  "claim_status": "not_reviewed",
+  "valid_from": "2026-01-05",
+  "source_ids": [
+    "source-fr-health-ministry-infant-formula-recall-2026",
+    "source-nestle-infant-formula-recall-2026",
+    "source-fr-health-ministry-infant-formula-update-2026",
+    "source-rappelconso-guigoz-powder-2026",
+    "source-rappelconso-nidal-powder-2026",
+    "source-rappelconso-guigoz-liquid-2026",
+    "source-rappelconso-guigoz-optipro-relai-2026-02"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-infant-formula-recall-cereulide-2026",
+    "evidence-rappelconso-guigoz-powder-2026",
+    "evidence-rappelconso-nidal-powder-2026",
+    "evidence-rappelconso-guigoz-liquid-2026",
+    "evidence-rappelconso-guigoz-optipro-relai-2026-02"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Les rappels sont volontaires et concernent uniquement les lots détaillés dans les fiches RappelConso. Les fiches signalent un risque potentiel de céréulide lié à un ingrédient fournisseur ; elles ne démontrent pas que chaque unité de chaque lot est contaminée. Elles ne permettent pas de généraliser à tous les produits des marques. Les signalements sanitaires et les décès de l'alerte multi-marques ne sont pas attribuables à Nestlé seul et ne démontrent pas une causalité.",
+  "editorial_note": "Afficher les fiches RappelConso originales avec leurs GTIN, numéros de lots, DDM, dates de commercialisation, distributeurs et consignes. Préciser que le rappel du 4 février porte sur un lot supplémentaire à la suite d'une évolution des méthodes d'analyse. Ne jamais généraliser à tous les produits Guigoz ou Nidal. Vérifier l'état actuel des fiches avant toute information pratique au public."
+}

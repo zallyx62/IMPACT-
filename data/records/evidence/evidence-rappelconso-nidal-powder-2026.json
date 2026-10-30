@@ -1,0 +1,10 @@
+{
+  "id": "evidence-rappelconso-nidal-powder-2026",
+  "source_id": "source-rappelconso-nidal-powder-2026",
+  "locator": "Fiche 2026-01-0042 version 2, publiée le 7 janvier 2026 ; sections identification des produits, lots et consignes de rappel",
+  "summary": "RappelConso répertorie six lots de lait Nidal en poudre sous les GTIN 7613032405687, 8445290629685 et 7613033112867, avec des DDM du 31 mai 2027 au 30 novembre 2026. La commercialisation indiquée s'étend du 16 mai 2025 au 6 janvier 2026, en France entière. Le motif est la présence potentielle de céréulide liée à une huile ARA provenant d'un fournisseur. La fiche demande de ne plus consommer ni utiliser les lots listés, de contacter le service consommateur et de détruire le produit.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-formula-recall-cereulide-2026"
+  ],
+  "limitations": "Le rappel concerne uniquement les six lots détaillés sur la fiche, pas tous les produits Nidal."
+}

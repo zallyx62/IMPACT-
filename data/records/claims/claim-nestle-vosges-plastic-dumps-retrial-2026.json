@@ -1,0 +1,19 @@
+{
+  "id": "claim-nestle-vosges-plastic-dumps-retrial-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Le 17 septembre 2026, la cour d'appel de Nancy a ordonné un nouvel examen de l'affaire des décharges de déchets plastiques près des sites vosgiens de Nestlé Waters, en réintégrant des analyses et expertises écartées lors du premier procès. Le 8 octobre, Nestlé a formé un pourvoi en cassation contre cet arrêt ; la dépêche publiée ce jour-là indique que le tribunal correctionnel a reporté sa décision au 9 décembre dans l'attente de la suite de cette procédure.",
+  "topic": "environment",
+  "valid_from": "2026-09-17",
+  "source_ids": [
+    "source-afp-nestle-vosges-dumps-retrial-2026",
+    "source-swissinfo-nestle-vosges-cassation-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-vosges-plastic-dumps-retrial-2026",
+    "evidence-nestle-vosges-cassation-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "L'arrêt du 17 septembre est contesté par un pourvoi en cassation déposé le 8 octobre. La suite de la procédure dépend de l'issue de ce pourvoi. Aucun jugement au fond ni déclaration de culpabilité ne doit être déduit de ces décisions procédurales. Les expertises réintégrées et les accusations restent à examiner contradictoirement.",
+  "editorial_note": "Actualiser le dossier après la décision attendue le 9 décembre 2026 et toute décision de la Cour de cassation. Distinguer l'arrêt de renvoi, le pourvoi de Nestlé et le jugement au fond qui n'a pas encore été rendu.",
+  "claim_status": "not_reviewed"
+}

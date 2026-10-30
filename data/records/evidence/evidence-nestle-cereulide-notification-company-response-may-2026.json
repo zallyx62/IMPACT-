@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-cereulide-notification-company-response-may-2026",
+  "source_id": "source-nestle-response-radiofrance-2026",
+  "locator": "Communiqué du 19 mai 2026, paragraphes sur le premier rappel du 10 décembre, les notifications pays par pays à compter du 2 janvier et les rappels publics à partir du 5 janvier",
+  "summary": "Nestlé affirme avoir lancé un premier rappel volontaire le 10 décembre 2025 avant d'avoir identifié l'origine de la contamination. L'entreprise indique avoir averti l'ensemble du secteur le 30 décembre, commencé à notifier les autorités pays par pays à compter du 2 janvier 2026 et déployé les rappels publics à partir du 5 janvier. Elle conteste les allégations de retraits discrets et de retard.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-formula-notification-timeline-dispute-2026"
+  ],
+  "limitations": "Déclaration de l'entreprise concernée. Cette chronologie du 19 mai doit être comparée à son document du 29 janvier, qui indique une information des autorités néerlandaises, des pays potentiellement concernés et de la Commission européenne dès le 10 décembre, ainsi qu'au compte rendu parlementaire du 19 mai."
+}

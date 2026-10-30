@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-waters-perrier-raids-2026",
+  "source_id": "source-reuters-nestle-perrier-raids-2026",
+  "locator": "Reuters, 19 mai 2026, paragraphes sur les perquisitions à Vergèze et dans les Vosges",
+  "summary": "Reuters rapporte que les agents de la répression des fraudes ont perquisitionné l'usine Perrier de Vergèze et un laboratoire des Vosges dans le cadre d'une enquête ouverte après une plainte pour tromperie. Nestlé a confirmé les perquisitions et déclaré continuer à coopérer pleinement avec les autorités.",
+  "supports_claim_ids": [
+    "claim-nestle-waters-perrier-raids-2026"
+  ],
+  "limitations": "La perquisition n'est pas une décision au fond et ne démontre pas à elle seule une infraction."
+}

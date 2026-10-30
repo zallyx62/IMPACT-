@@ -1,0 +1,12 @@
+{
+  "id": "response-nestle-infant-formula-recall-2026",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-infant-formula-recall-cereulide-2026"
+  ],
+  "published_at": "2026-01-05",
+  "source_id": "source-nestle-infant-formula-recall-2026",
+  "summary": "Nestlé France indique avoir procédé à un rappel préventif et volontaire de certains lots de Guigoz et Nidal après des investigations ayant révélé une présence potentielle de céréulide liée à une huile riche en acide arachidonique fabriquée par un fournisseur. L'entreprise présente cette mesure comme préventive et explique avoir élargi le rappel au fil des investigations.",
+  "full_response_url": "https://www.nestle.fr/media/pressreleases/rappel-nidal-guigoz-janvier-2026",
+  "publication_status": "published"
+}

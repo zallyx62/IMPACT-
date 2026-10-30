@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-waters-perrier-raids-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Le 19 mai 2026, des agents français de la répression des fraudes ont perquisitionné le site d'embouteillage Perrier à Vergèze et un laboratoire situé dans les Vosges dans le cadre d'une enquête pour tromperie ouverte après une plainte déposée à Paris. Nestlé a confirmé les opérations et déclaré coopérer avec les autorités.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "valid_from": "2026-05-19",
+  "source_ids": [
+    "source-reuters-nestle-perrier-raids-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-waters-perrier-raids-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Les perquisitions sont des actes d'enquête et ne constituent pas une conclusion sur la culpabilité de Nestlé. Cette procédure à Paris est distincte de la CJIPE de 2024 conclue par Nestlé Waters Supply Est et du dossier de décharges plastiques dans les Vosges.",
+  "editorial_note": "Conserver les distinctions entre les procédures et actualiser le statut de l'enquête uniquement à partir de communications officielles ou de décisions judiciaires."
+}

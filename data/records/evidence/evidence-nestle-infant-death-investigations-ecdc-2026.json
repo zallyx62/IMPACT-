@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-infant-death-investigations-ecdc-2026",
+  "source_id": "source-ecdc-efsa-cereulide-assessment-2026",
+  "locator": "Joint outbreak assessment du 19 février 2026, section France, décès inexpliqués signalés",
+  "summary": "L'évaluation conjointe rapporte que deux décès inexpliqués de nourrissons avaient été signalés en France et faisaient l'objet d'investigations médico-légales ; les deux nourrissons avaient consommé des préparations pour nourrissons rappelées, mais aucun lien n'avait été identifié à la date de l'évaluation.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-deaths-no-causal-link-2026"
+  ],
+  "limitations": "Constat arrêté au 13 février 2026 ; les enquêtes nationales se poursuivaient."
+}

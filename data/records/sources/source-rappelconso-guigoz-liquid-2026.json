@@ -1,0 +1,14 @@
+{
+  "id": "source-rappelconso-guigoz-liquid-2026",
+  "title": "RappelConso — GUIGOZ Lait infantile liquide, fiche 2026-01-0041 version 1",
+  "publisher": "RappelConso — DGAL / DGCCRF",
+  "url": "https://rappel.conso.gouv.fr/fiche-rappel/20940/Interne",
+  "source_type": "database",
+  "published_at": "2026-01-06",
+  "accessed_at": "2026-10-30",
+  "language": "fr",
+  "methodology": "Fiche officielle de rappel publiée le 6 janvier 2026. Elle identifie le produit liquide GUIGOZ 1 ESNWLP209-1, son GTIN, le lot concerné, la date de durabilité minimale, les régions de distribution et les consignes transmises par le professionnel.",
+  "potential_conflicts": "Les informations d'identification et le motif sont transmis par Nestlé France, entreprise à l'origine du rappel ; la fiche est hébergée par le service public RappelConso.",
+  "limitations": "Le rappel est volontaire et concerne le lot explicitement indiqué. La fiche décrit une présence potentielle de céréulide associée à un ingrédient fournisseur, pas une contamination démontrée de chaque unité. Ne pas extrapoler à tous les laits liquides Guigoz.",
+  "review_status": "to_review"
+}

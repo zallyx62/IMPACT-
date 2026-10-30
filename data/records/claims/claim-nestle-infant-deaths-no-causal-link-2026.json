@@ -1,0 +1,26 @@
+{
+  "id": "claim-nestle-infant-deaths-no-causal-link-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Dans le dossier de Bordeaux, le parquet a indiqué le 6 mars 2026 que le décès du 8 janvier n'apparaissait pas lié au lait rappelé au vu des analyses disponibles, tandis que l'enquête médico-légale se poursuivait. À Angers, le parquet a déclaré le 6 mai que le lien avec le lait rappelé était écarté, les dernières analyses orientant l'enquête vers une asphyxie. Pour l'alerte multi-marques, le ministère de la Santé décomptait, au 11 mars 2026, trois décès de nourrissons survenus entre le 16 janvier et le 10 février chez des enfants pour lesquels la consommation de laits concernés par les rappels avait été rapportée, sans imputabilité scientifique établie ; le décès de Bordeaux n'était pas inclus dans ce décompte. Lors de la séance de l'Assemblée nationale du 19 mai, une députée a évoqué un quatrième décès distinct, mais le rapporteur a ensuite déclaré qu'il n'y avait pas eu quatre décès et que deux des décès recensés n'étaient pas dus aux laits infantiles. Le compte rendu contient donc des interventions orales contradictoires et ne permet pas de présenter ce quatrième cas comme confirmé. Les chiffres multi-marques ne sont pas imputables à Nestlé seul.",
+  "topic": "animals_food",
+  "claim_status": "not_reviewed",
+  "valid_from": "2026-02-19",
+  "source_ids": [
+    "source-ecdc-efsa-cereulide-assessment-2026",
+    "source-reuters-bordeaux-infant-death-cereulide-2026",
+    "source-afp-angers-infant-death-cereulide-2026",
+    "source-nestle-recall-faq-2026",
+    "source-assemblee-nationale-2026-cereulide-mission-flash",
+    "source-fr-health-ministry-infant-formula-update-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-infant-death-investigations-ecdc-2026",
+    "evidence-nestle-infant-death-bordeaux-2026",
+    "evidence-nestle-infant-death-angers-2026",
+    "evidence-nestle-infant-deaths-parliamentary-status-2026",
+    "evidence-nestle-infant-deaths-ministry-update-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le ministère décomptait au 11 mars 2026 trois décès chez des nourrissons pour lesquels la consommation de laits concernés par les rappels avait été rapportée, sans imputabilité scientifique établie ; le cas de Bordeaux était explicitement exclu de ce décompte. Le parquet d'Angers a ensuite écarté le lien dans le dossier local. Au cours de la séance parlementaire du 19 mai, une députée a mentionné un quatrième décès distinct, mais un rapporteur a déclaré plus loin qu'il n'y avait pas eu quatre décès et que deux des décès recensés n'étaient pas dus aux laits. Ne pas présenter le quatrième cas comme confirmé. Les chiffres multi-marques ne sont pas attribuables à Nestlé seul et ne démontrent ni causalité ni absence de troubles dans d'autres cas.",
+  "editorial_note": "Présenter séparément le point de situation du ministère au 11 mars, les conclusions locales des parquets de Bordeaux et d'Angers, puis les échanges parlementaires du 19 mai. Attribuer la mention d'un quatrième décès à la députée qui l'a formulée et faire apparaître la correction du rapporteur ; ne pas compter ce quatrième cas comme établi. Ne jamais écrire que les produits Nestlé ont causé ces décès."
+}

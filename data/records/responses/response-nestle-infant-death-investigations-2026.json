@@ -1,0 +1,12 @@
+{
+  "id": "response-nestle-infant-death-investigations-2026",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-infant-deaths-no-causal-link-2026"
+  ],
+  "published_at": "2026-05-29",
+  "source_id": "source-nestle-recall-faq-2026",
+  "summary": "Nestlé indique dans sa FAQ mise à jour le 29 mai 2026 que les parquets de Bordeaux (6 mars) et d'Angers (6 mai) ont écarté tout lien entre le lait infantile Guigoz et les décès des deux nourrissons. Cette position est cohérente avec les déclarations publiques rapportées des parquets ; les résultats doivent être lus avec les sources indépendantes correspondantes.",
+  "full_response_url": "https://www.nestle.fr/ask-nestle/answers/rappel-guigoz-nidal",
+  "publication_status": "published"
+}
