@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-bms-policy-gaps",
+  "source_id": "source-atni-bms-index-2024",
+  "locator": "Nestlé BMS Index 2024 scorecard, sections « Infant formula », « Follow-up formula » and « Growing-up milk »",
+  "summary": "ATNi states that Nestlé's commitments applied to 85% of its infant-formula sales, 69% of follow-up formula sales and 0% of growing-up milk sales under its assessment of policy coverage across markets. ATNi notes that Nestlé did not apply its BMS marketing commitments to growing-up milks and applied them to follow-up formulas only in higher-risk markets.",
+  "supports_claim_ids": [
+    "claim-nestle-bms-policy-gaps"
+  ],
+  "limitations": "These figures measure the coverage of company policy commitments as assessed by ATNi, not the percentage of products found legally non-compliant."
+}
