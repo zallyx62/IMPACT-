@@ -1,19 +1,21 @@
 {
   "id": "claim-nestle-infant-formula-notification-timeline-dispute-2026",
   "subject_entity_id": "nestle",
-  "statement": "En mai 2026, une enquête conjointe de Radio France, RTS et RTBF, rapportée par Reuters, a allégué que Nestlé avait tardé à alerter les autorités européennes au sujet de la céréulide et avait procédé à des retraits discrets dans certains pays. Nestlé conteste ces allégations et affirme avoir informé les autorités le 10 décembre 2025 et lancé ce jour-là un rappel volontaire de 25 lots dans 16 pays européens.",
+  "statement": "Le compte rendu officiel de la commission des affaires sociales de l'Assemblée nationale du 19 mai 2026 présente, par les rapporteurs de la mission flash, une chronologie selon laquelle Nestlé a rappelé un premier lot le 10 décembre 2025, identifié vers le 24 décembre l'huile ARA comme source de contamination, averti les autres fabricants le 30 décembre, puis les autorités de contrôle le 5 janvier 2026. Cette chronologie diffère de celle publiée par Nestlé, qui affirme avoir informé les autorités dès le 10 décembre 2025. En mai 2026, une enquête conjointe de Radio France, RTS et RTBF rapportée par Reuters a également allégué des retards et des retraits discrets dans certains pays ; Nestlé conteste ces allégations.",
   "topic": "animals_food",
   "claim_status": "not_reviewed",
   "source_ids": [
     "source-reuters-nestle-cereulide-notification-2026",
     "source-nestle-infant-formula-timeline-2026",
-    "source-fr-health-ministry-infant-formula-recall-2026"
+    "source-fr-health-ministry-infant-formula-recall-2026",
+    "source-assemblee-nationale-2026-cereulide-mission-flash"
   ],
   "evidence_ids": [
     "evidence-nestle-cereulide-notification-allegation-2026",
-    "evidence-nestle-cereulide-notification-response-2026"
+    "evidence-nestle-cereulide-notification-response-2026",
+    "evidence-nestle-cereulide-parliamentary-timeline-2026"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "Il s'agit d'une controverse sur la chronologie et les notifications, non d'une conclusion judiciaire définitive. Nestlé nie avoir procédé à des rappels discrets et soutient avoir suivi les procédures réglementaires. Le communiqué gouvernemental du 22 janvier 2026 confirme le rappel et la source fournisseur, mais ne tranche pas à lui seul le différend sur les délais de notification.",
-  "editorial_note": "Toujours afficher côte à côte l'enquête journalistique, la chronologie publiée par Nestlé et les informations des autorités. Ne pas affirmer qu'un dommage sanitaire ou une violation réglementaire a été judiciairement établi."
+  "uncertainty_note": "Les chronologies de Nestlé, des rapporteurs parlementaires et des médias d'investigation ne décrivent pas les mêmes dates de notification. Le compte rendu parlementaire rapporte une communication de rapporteurs et des doutes exprimés par la DGAL ; il ne constitue pas une décision judiciaire. La controverse porte sur les notifications et les délais, pas sur une conclusion définitive de culpabilité. Le communiqué gouvernemental du 22 janvier 2026 confirme le rappel et la source fournisseur, mais ne tranche pas à lui seul le différend.",
+  "editorial_note": "Afficher côte à côte le compte rendu parlementaire, l'enquête journalistique, la chronologie et la réponse de Nestlé, ainsi que les communiqués des autorités. Distinguer le premier rappel du 10 décembre, le rappel élargi du 5 janvier et les notifications aux autorités de chaque pays. Attribuer toute appréciation aux rapporteurs, aux médias ou à l'entreprise. Ne pas affirmer qu'un dommage sanitaire ou une violation réglementaire a été judiciairement établi."
 }
