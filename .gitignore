@@ -15,6 +15,9 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Generated public data module and PWA raster icons (recreated before app commands)
+app/src/data/public-records.generated.ts
+
 # Generated PWA raster icons (recreated by npm predev/prebuild)
 app/public/icons/impact-180.png
 app/public/icons/impact-192.png

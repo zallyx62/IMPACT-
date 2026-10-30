@@ -2,36 +2,28 @@
   "id": "nestle",
   "name": "Nestlé",
   "entity_type": "organization",
-  "description": "Groupe agroalimentaire international. Ce dossier rassemble des éléments documentés concernant Nestlé Waters en France, la commercialisation de substituts du lait maternel et d'aliments pour bébés, certains risques sociaux de la chaîne d'approvisionnement en cacao, ainsi que les emballages plastiques et les risques de déforestation liés au cacao. Chaque sujet est limité aux produits, pays, périodes et échantillons cités.",
+  "description": "Groupe agroalimentaire international. Cette fiche publie sept constats précisément délimités : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés, un sur les objets plastiques de marque recensés dans un audit scientifique mondial et un sur les chiffres de déforestation du cacao déclarés par Nestlé. Les résultats ne sont pas généralisés à l'ensemble du groupe, de ses produits ou de ses périodes d'activité. Les autres sujets restent en préparation.",
   "website": "https://www.nestle.com/",
   "country_codes": [
     "CH",
     "FR"
   ],
-  "status": "review_needed",
+  "status": "published",
   "created_at": "2026-10-30",
   "updated_at": "2026-10-30",
   "reviewed_at": null,
   "source_ids": [
-    "source-assemblee-nationale-2026-eaux-nestle",
+    "source-greenpeace-baby-food-plastic-pouches-2026",
+    "source-consumer-reports-baby-food-testing-2026",
     "source-senat-2025-enquete-eaux-minerales",
+    "source-assemblee-nationale-2026-eaux-nestle",
     "source-justice-2024-cjipe-nestle",
     "source-nestle-2024-reponse-cjipe",
-    "source-atni-bms-index-2024",
-    "source-nestle-bms-policy-2024",
-    "source-public-eye-baby-food-2024",
-    "source-bmj-nestle-sugar-2024",
-    "source-nestle-sugar-response-2025",
-    "source-fla-cocoa-cameroon-2022",
-    "source-nestle-cocoa-plan",
-    "source-nestle-non-financial-statement-2024-bms",
-    "source-fla-cocoa-cameroon-iem-2021",
-    "source-greenpeace-baby-food-plastic-pouches-2026",
     "source-science-advances-plastic-brand-audit-2024",
-    "source-bffp-asian-plastic-sachet-audit-2024",
-    "source-nestle-packaging-progress-2025",
     "source-nestle-plastic-pollution-response-2024",
-    "source-nestle-deforestation-supply-chains-2025",
-    "source-global-witness-liberia-cocoa-deforestation-2025"
-  ]
+    "source-nestle-deforestation-supply-chains-2025"
+  ],
+  "publication_basis": "evidence_verified",
+  "published_at": "2026-10-30",
+  "publication_note": "Publication partielle limitée à sept affirmations documentées : trois concernant les pratiques de Nestlé Waters en France, deux concernant des échantillons de produits Gerber, une concernant les résultats d'un audit scientifique mondial de déchets plastiques de marque et une concernant les chiffres de déforestation du cacao publiés par Nestlé elle-même. Chaque affirmation conserve ses sources, son périmètre et ses limites. Les autres affirmations du corpus ne sont pas publiées tant qu'elles ne satisfont pas leur propre seuil de preuve ou l'examen humain renforcé requis."
 }

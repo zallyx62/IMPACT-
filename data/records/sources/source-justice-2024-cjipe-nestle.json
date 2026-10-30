@@ -9,5 +9,8 @@
   "language": "fr",
   "methodology": "Convention judiciaire d'intérêt public en matière environnementale publiée par le ministère de la Justice.",
   "limitations": "La convention concerne Nestlé Waters Supply Est et les faits relevant de son périmètre dans les Vosges. Ne pas extrapoler ses dispositions à toutes les filiales, marques ou activités du groupe.",
-  "review_status": "to_review"
+  "review_status": "evidence_verified",
+  "verification_method": "official_record_check",
+  "verified_at": "2026-10-30",
+  "verification_note": "Convention judiciaire d'intérêt public environnementale du 2 septembre 2024, document PDF hébergé par le ministère de la Justice et consultable en ligne. Le document identifie Nestlé Waters Supply Est et le périmètre des faits dans les Vosges. La publication distingue strictement cette convention d'une condamnation pénale de l'ensemble du groupe Nestlé."
 }

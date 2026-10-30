@@ -9,5 +9,8 @@
   "language": "fr",
   "potential_conflicts": "Déclaration publiée par l'entreprise concernée ; source primaire pour connaître sa propre position, mais non indépendante pour évaluer ses pratiques.",
   "limitations": "La communication présente la position de l'entreprise sur la convention, les mesures correctrices et l'absence d'atteinte à la santé publique. Elle doit être confrontée aux documents officiels et aux conclusions de la commission d'enquête.",
-  "review_status": "to_review"
+  "review_status": "evidence_verified",
+  "verification_method": "official_record_check",
+  "verified_at": "2026-10-30",
+  "verification_note": "Communiqué publié par Nestlé Waters Supply Est le 10 septembre 2024, consulté sur le site de l'entreprise. Vérifié uniquement comme déclaration officielle de la société concernant la convention, son montant et les mesures qu'elle affirme avoir prises. Ces déclarations sont attribuées à l'entreprise et ne sont pas traitées comme une validation indépendante."
 }

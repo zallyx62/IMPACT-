@@ -47,11 +47,12 @@ const searchAliases: Record<string, string> = {
   refuted: "refutee refuted",
   insufficient_information: "informations insuffisantes insufficient information",
   not_reviewed: "non examinee a verifier not reviewed",
+  evidence_verified: "preuves verifiees verification documentaire evidence verified",
 };
 
 export interface SearchableDossier {
   claims: Array<{ statement: string; topic: string; claim_status: string; uncertainty_note?: string }>;
-  sources: Array<{ title: string; publisher: string }>;
+  sources: Array<{ title: string; publisher: string; review_status?: string; verification_note?: string }>;
   evidence: Array<{ summary: string; locator: string }>;
   campaigns: Array<{ title: string; demands: string[]; outcome_summary?: string }>;
   responses: Array<{ summary: string }>;
@@ -71,7 +72,7 @@ export function searchableEntityText(
     entity.entity_type,
     searchAliases[entity.entity_type] ?? "",
     ...dossier.claims.flatMap((item) => [item.statement, item.topic, searchAliases[item.topic] ?? "", item.claim_status, searchAliases[item.claim_status] ?? "", item.uncertainty_note ?? ""]),
-    ...dossier.sources.flatMap((item) => [item.title, item.publisher]),
+    ...dossier.sources.flatMap((item) => [item.title, item.publisher, item.review_status ?? "", searchAliases[item.review_status ?? ""] ?? "", item.verification_note ?? ""]),
     ...dossier.evidence.flatMap((item) => [item.summary, item.locator]),
     ...dossier.campaigns.flatMap((item) => [item.title, ...item.demands, item.outcome_summary ?? ""]),
     ...dossier.responses.map((item) => item.summary),

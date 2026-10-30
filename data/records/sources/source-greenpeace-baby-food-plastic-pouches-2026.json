@@ -10,5 +10,8 @@
   "methodology": "Greenpeace International commissioned SINTEF Ocean to analyse three pouches of one Danone product and three pouches of one Nestlé Gerber yoghurt product in 2025. Products were analysed as sold, using digestion, filtration and μ-Raman spectroscopy for particles, and GCxGC-MS for chemicals.",
   "potential_conflicts": "Report commissioned and published by Greenpeace International, an environmental campaigning organisation.",
   "limitations": "Very small sample: three pouches per brand, one product per brand, manufactured in the United States and purchased via an online retailer. Polyethylene identification in food is tentative; the report explicitly says this does not prove migration from packaging. Detection method covered particles larger than 20 μm. It does not establish a health outcome or quantify exposure across all products.",
-  "review_status": "to_review"
+  "review_status": "evidence_verified",
+  "verification_method": "primary_document_review",
+  "verified_at": "2026-10-30",
+  "verification_note": "Rapport original consulté. La méthode, le commanditaire, les trois sachets testés, le produit concerné, les résultats et les limites sont explicitement décrits. La publication porte uniquement sur ce que le rapport rapporte, sans conclure à une migration depuis l'emballage ni à un effet sanitaire."
 }

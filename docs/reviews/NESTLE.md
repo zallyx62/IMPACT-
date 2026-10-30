@@ -1,8 +1,10 @@
-# Revue éditoriale humaine — dossier Nestlé
+# Registre de vérification des preuves — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 20 sources sont `to_review`, les 20 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 22 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : publication partielle.** Sept constats précisément circonscrits sont publiés sous `evidence_verified`, sans validation humaine préalable : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés, un sur les objets plastiques de marque recensés dans un audit scientifique mondial et un sur les chiffres de déforestation du cacao déclarés par Nestlé. Treize sources associées sont publiées selon les mêmes critères ; les 12 autres sources et les 14 autres affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
 
-Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
+Le corpus de travail comprend 25 sources et l'examen des 21 affirmations et de leurs 26 éléments de preuve ; seuls les éléments ayant satisfait à leur propre seuil de publication sont inclus dans le bundle public.
+
+Ce document sert de registre de contrôle des preuves et des limites. Il distingue les éléments déjà publiés selon les critères documentaires de la charte des éléments encore en attente d'examen.
 
 ## Règles de validation
 
@@ -21,7 +23,9 @@ Pour chaque affirmation :
 - [ ] Vérifier que les sources contradictoires ou les réponses de l'entreprise sont visibles.
 - [ ] Réduire ou préciser la formulation si la preuve ne couvre qu'un pays, un site, un échantillon ou une période.
 - [ ] Ne renseigner `reviewed_at` qu'après examen humain effectif.
-- [ ] Remplacer `not_reviewed` par le statut éditorial approprié seulement après validation.
+- [ ] Pour une publication sans validation humaine, renseigner `publication_basis: evidence_verified`, `published_at` et une `publication_note` qui délimite exactement le fait publié.
+- [ ] Pour chaque source publiée sans validation humaine, renseigner `review_status: evidence_verified`, `verification_method`, `verified_at` et `verification_note`.
+- [ ] Ne jamais transformer une source simplement consultée en source vérifiée sans consigner sa méthode et ses limites.
 
 ## 1. Eaux minérales en France
 
@@ -69,22 +73,26 @@ Affirmations à examiner :
 
 ## 5. Emballages plastiques et pollution
 
-Affirmations à examiner :
+Affirmations publiées selon les critères documentaires :
 
-- `claim-nestle-baby-food-plastic-pouches-2025` — étude commandée par Greenpeace et réalisée par SINTEF sur trois sachets Gerber de yaourt.
-- `claim-nestle-branded-plastic-audit-2024` — part de Nestlé dans les objets plastiques de marque recensés par une étude scientifique fondée sur des audits citoyens.
+- `claim-nestle-branded-plastic-audit-2024` — étude évaluée par les pairs publiée dans Science Advances : Nestlé représente 3 % des objets de marque recensés parmi les objets collectés dans 1 576 audits de 84 pays (2018–2022) ; la moitié des objets collectés n'étaient pas marqués.
+- `claim-nestle-baby-food-plastic-pouches-2025` — étude commandée par Greenpeace et réalisée par SINTEF sur trois sachets d'un produit de yaourt Gerber ; les éléments FDA et EFSA sont associés comme contexte scientifique général.
+- `claim-nestle-gerber-microplastics-consumer-reports-2026` — résultat rapporté par Consumer Reports pour une purée Gerber précisément identifiée.
+
+Affirmations encore à examiner :
+
 - `claim-nestle-plastic-sachets-asia-2024` — audit de sachets à usage unique dans quatre pays asiatiques.
 - `claim-nestle-packaging-progress-2025` — indicateurs de progrès déclarés par Nestlé.
 
-**Points de vigilance :** les trois sachets Gerber constituent un échantillon très réduit ; l'identification du polyéthylène dans les aliments est tentative et ne prouve pas la migration depuis l'emballage ni un effet sanitaire. Les audits de déchets ne mesurent pas toute la production ou tous les déchets de Nestlé. Les chiffres de performance de l'entreprise sont des déclarations internes ; « conçu pour être recyclé » ne signifie pas effectivement recyclé.
+**Points de vigilance :** les trois sachets Gerber de l'étude Greenpeace constituent un échantillon très réduit ; l'identification du polyéthylène dans les aliments est tentative et ne prouve pas la migration depuis l'emballage ni un effet sanitaire. Pour le résultat Consumer Reports déjà publié, conserver le produit exact, le dénominateur de 99 g, le nombre de lots et le sous-échantillon ; l'enquête n'a pas analysé la composition des emballages et la FDA n'a pas examiné ses méthodes ni ses données brutes. Consumer Reports précise ne pas recommander d'éviter les produits testés. Ne pas présenter la présence de particules comme une preuve de risque sanitaire. Les positions générales de la FDA et de l'EFSA ne tranchent pas le cas précis des sachets ou purées étudiés. Pour l'étude Science Advances, les 3 % correspondent uniquement aux objets de marque recensés dans le jeu de données, pas à la part de tous les déchets plastiques mondiaux ni à la production de Nestlé ; la moitié des objets collectés n'étaient pas marqués. La réponse de Nestlé de juin 2024 critique les audits bénévoles de Break Free From Plastic, mais ne constitue pas une réanalyse indépendante ni une réponse spécifique à l'article Science Advances. Les audits de déchets ne mesurent pas toute la production ou tous les déchets de Nestlé. Les chiffres de performance de l'entreprise sont des déclarations internes ; « conçu pour être recyclé » ne signifie pas effectivement recyclé.
 
 La réponse de Nestlé aux audits de Break Free From Plastic doit être présentée à proximité, avec ses critiques méthodologiques et les limites des audits citoyens.
 
 ## 6. Environnement et déforestation liée au cacao
 
-Affirmation à examiner :
+Affirmation publiée selon les critères documentaires :
 
-- `claim-nestle-cocoa-deforestation-2025` — Nestlé déclare 91,7 % de sa chaîne d'approvisionnement primaire en cacao évaluée comme exempte de déforestation en 2025, et 8,3 % classée comme inconnue.
+- `claim-nestle-cocoa-deforestation-2025` — Nestlé déclare 91,7 % de sa chaîne d'approvisionnement primaire en cacao évaluée comme exempte de déforestation en 2025, et 8,3 % classée comme inconnue. La publication porte sur les chiffres de l'entreprise, pas sur une certification indépendante.
 
 **Point de vigilance :** il s'agit d'une mesure publiée par l'entreprise, selon une méthodologie qu'elle décrit et indique avoir modifiée au premier semestre 2026. La part inconnue n'est pas une preuve de déforestation ; la part évaluée comme exempte ne doit pas être présentée comme une vérification indépendante de chaque exploitation.
 
@@ -98,22 +106,53 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 **Point de vigilance :** l'enquête décrit un risque d'exposition et de traçabilité, pas la preuve qu'un lot précis de cacao libérien se trouve dans un produit Nestlé. Ne pas écrire que Nestlé achète directement au Liberia ou que chaque KitKat contient ce cacao.
 
-## Sources de l'entreprise à examiner en regard des évaluations indépendantes
+## Sources déjà vérifiées et publiées en contexte
 
-- `source-nestle-2024-reponse-cjipe` — réponse de Nestlé Waters sur l'affaire des eaux.
+- `source-nestle-deforestation-supply-chains-2025` — déclaration officielle de Nestlé indiquant 91,7 % de la chaîne primaire de cacao évaluée comme exempte de déforestation et 8,3 % inconnue en 2025 ; la méthode a changé en 2026 et n'est pas une vérification indépendante de chaque exploitation.
+- `source-science-advances-plastic-brand-audit-2024` — étude évaluée par les pairs, fondée sur 1 576 événements d'audit dans 84 pays entre 2018 et 2022 ; les 3 % pour Nestlé concernent les objets de marque recensés.
+- `source-nestle-plastic-pollution-response-2024` — position officielle de Nestlé de juin 2024 sur les audits de Break Free From Plastic ; présentée comme une critique de l'entreprise, non comme une réfutation indépendante de l'étude scientifique.
+- `source-senat-2025-enquete-eaux-minerales` — rapport de la commission d'enquête du Sénat sur les traitements utilisés par Nestlé Waters, la microfiltration et les limites de l'enquête.
+- `source-assemblee-nationale-2026-eaux-nestle` — réponse du Gouvernement confirmant l'usage de traitements UV et au charbon actif interdits, les mesures correctrices et l'absence de risque sanitaire constaté à la date de la réponse.
+- `source-justice-2024-cjipe-nestle` — convention judiciaire d'intérêt public environnementale signée par Nestlé Waters Supply Est ; périmètre limité aux faits concernés dans les Vosges.
+- `source-nestle-2024-reponse-cjipe` — position officielle de Nestlé Waters, vérifiée comme déclaration de l'entreprise et non comme validation indépendante.
+- `source-nestle-baby-food-plastic-packaging-response-2026` — position officielle de Nestlé sur les emballages plastiques des aliments pour bébés ; elle ne fournit pas de résultats analytiques propres aux sachets étudiés.
+- `source-fda-microplastics-food-guidance-2026` — contexte général de la FDA sur les microplastiques alimentaires, les preuves de migration et les limites des connaissances.
+- `source-efsa-food-contact-microplastics-review-2025` et `source-efsa-microplastics-food-risk-status-2026` — revue technique sur la libération par les matériaux au contact des aliments et état de l'évaluation des risques par l'EFSA.
+
+## Autres sources de l'entreprise à examiner en regard des évaluations indépendantes
+
 - `source-nestle-bms-policy-2024` et `source-nestle-non-financial-statement-2024-bms` — politique et chiffres déclarés par Nestlé sur le marketing des substituts du lait maternel.
 - `source-nestle-sugar-response-2025` — réponse de Nestlé sur l'enquête relative au sucre.
 - `source-nestle-cocoa-plan` — programme cacao et système CLMRS présenté par Nestlé.
 
 ## Conditions de publication
 
-Ne publier le dossier qu'après :
+### Déjà publié selon les critères documentaires
 
-1. examen humain des 20 sources ;
-2. examen humain des 20 affirmations et de leurs 22 éléments de preuve ;
-3. vérification des réponses de Nestlé ;
-4. correction de toute formulation trop large ou ambiguë ;
-5. mise à jour cohérente des statuts, dates de revue et références ;
-6. nouvelle exécution complète des contrôles automatisés.
+- `source-greenpeace-baby-food-plastic-pouches-2026` — rapport primaire consulté ; méthode, commanditaire, taille d'échantillon et limites consignés. Publication fondée sur l'examen du document primaire, sans prétendre à une réplication indépendante.
+- `claim-nestle-baby-food-plastic-pouches-2025` — formulation limitée à ce que le rapport rapporte sur trois sachets d'un seul produit Gerber. La publication ne démontre ni migration depuis l'emballage, ni risque ou dommage sanitaire, ni représentativité pour toute la gamme.
+- `source-consumer-reports-baby-food-testing-2026` — enquête originale consultée ; 48 produits de 11 marques, deux à quatre lots par produit et laboratoire externe accrédité. Le sous-échantillon microplastiques comprend 15 purées et un jus, choisis selon les contraintes du laboratoire ; la FDA précise ne pas avoir examiné les méthodes ni les données brutes.
+- `claim-nestle-gerber-microplastics-consumer-reports-2026` — résultat de 728 294 particules rapporté pour une portion de 99 g d'une purée Gerber précisément identifiée. La formulation reste attribuée à Consumer Reports et ne conclut ni à une origine certaine dans l'emballage ni à un effet sanitaire.
+- `claim-nestle-water-treatments` — rapport du Sénat et réponse gouvernementale confirmant l'utilisation par Nestlé Waters de traitements UV et au charbon actif interdits dans les installations citées. La publication distingue ces traitements de la microfiltration et n'affirme pas qu'un dommage sanitaire a été subi.
+- `claim-nestle-water-cjipe` — convention judiciaire d'intérêt public environnementale signée le 2 septembre 2024 par Nestlé Waters Supply Est, assortie d'une amende d'intérêt public de deux millions d'euros. La CJIPE n'est pas présentée comme une condamnation pénale générale du groupe.
+- `claim-nestle-water-health-finding` — réponse du Gouvernement indiquant qu'aucun risque sanitaire n'avait été constaté pour les eaux concernées à la date de sa réponse du 3 février 2026. Cette conclusion est strictement datée et limitée au périmètre indiqué.
+- `claim-nestle-branded-plastic-audit-2024` — étude évaluée par les pairs : 3 % des objets de marque recensés dans le jeu de données d'audits sont attribués à Nestlé ; la formulation ne présente pas ce chiffre comme une part de la pollution mondiale.
+- `claim-nestle-cocoa-deforestation-2025` — déclaration de Nestlé pour 2025 : 91,7 % du cacao primaire évalué comme exempt de déforestation et 8,3 % inconnu. La catégorie inconnue n'est pas présentée comme une preuve de déforestation ; la méthode a changé en 2026.
+
+Les sept affirmations publiées portent `publication_basis: evidence_verified`, une date et une note de publication. Les treize sources associées ont une méthode, une date et une justification de vérification. Aucun de ces enregistrements ne porte de date de validation humaine.
+
+### Toujours non publiés
+
+Les 12 autres sources, les 14 autres affirmations et les éléments de preuve associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain requis n'a pas été effectué. Les réponses de Nestlé et Gerber sont affichées uniquement lorsqu'elles sont reliées à une source admissible et sont clairement attribuées à l'entreprise.
+
+Avant d'élargir le dossier :
+
+1. ouvrir les documents primaires et vérifier les passages cités ;
+2. confirmer le pays, le produit, les dates, les méthodes et les échantillons ;
+3. confronter les sources indépendantes lorsque la nature de l'affirmation l'exige ;
+4. consigner les limites, conflits d'intérêts et réponses des entreprises ;
+5. utiliser `evidence_verified` uniquement avec une méthode, une date et une note explicites ;
+6. réserver l'examen humain aux cas sensibles, aux accusations graves, aux preuves contradictoires non résolues ou aux risques de préjudice important ;
+7. relancer les contrôles automatisés après chaque modification.
 
 Le dossier doit informer et permettre au lecteur de se faire sa propre opinion ; il ne doit pas présenter un appel au boycott comme un fait.

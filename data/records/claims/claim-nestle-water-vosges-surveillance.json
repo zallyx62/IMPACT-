@@ -12,5 +12,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Ce constat porte sur les analyses et la période décrites dans le rapport pour les sites des Vosges ; il ne doit pas être généralisé à d'autres sites, périodes ou produits.",
-  "editorial_note": "Présenter ce résultat positif en regard des incertitudes relevées séparément dans le Gard."
+  "editorial_note": "Présenter ce résultat positif en regard des incertitudes relevées séparément dans le Gard.",
+  "requires_human_review": true
 }

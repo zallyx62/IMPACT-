@@ -56,48 +56,48 @@ function entityTypeLabel(value: string, language: Language): string {
 
 const copy: Record<Language, Record<string, string>> = {
   fr: {
-    skip: "Aller au contenu", method: "Notre méthode", switchLanguage: "Passer en anglais", themeLabel: "Apparence", lightMode: "Clair", darkMode: "Sombre", accentLabel: "Couleur", accentGreen: "Vert", accentBlue: "Bleu", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Paramètres",
+    skip: "Aller au contenu", method: "Notre méthode", methodTitle: "Des faits vérifiables, pas des affirmations sans preuves.", methodIntro: "Chaque dossier distingue ce qui est établi, ce qui est rapporté par une source, ce qui reste incertain et ce qui est contesté.", methodSources: "Sources traçables", methodSourcesText: "Documents originaux, études, enquêtes et déclarations clairement attribuées, avec dates et liens consultables.", methodScope: "Périmètre précis", methodScopeText: "Produit, pays, période, échantillon et méthode sont indiqués. Aucun résultat n’est généralisé au-delà de ce qu’il mesure.", methodPublication: "Publication proportionnée", methodPublicationText: "Une affirmation peut être publiée sans validation humaine si les preuves et leur contrôle sont documentés. Les sujets à risque élevé exigent un examen humain.", methodResponse: "Contradictions et corrections", methodResponseText: "Les réponses des organisations, les limites et les corrections sont présentées sans transformer une réponse en preuve ni une allégation en fait.", switchLanguage: "Passer en anglais", themeLabel: "Apparence", lightMode: "Clair", darkMode: "Sombre", accentLabel: "Couleur", accentGreen: "Vert", accentBlue: "Bleu", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Paramètres",
     kicker: "PROJET LIBRE · PREMIER PROTOTYPE",
     title: "Comprendre ce qui se cache derrière nos choix.",
     subtitle: "Des informations sourcées, des incertitudes visibles et des pistes d’action — sans décider à votre place.",
     searchLabel: "Rechercher dans IMPACT", placeholder: "Entreprise, marque, sujet, alternative…",
-    searchHint: "La recherche couvre les univers, les outils et les dossiers publiés après vérification humaine.",
+    searchHint: "La recherche couvre les univers, les outils et les dossiers publiés après vérification des sources.",
     explore: "Explorer les six univers", exploreText: "Six portes d’entrée pour comprendre les conséquences de nos choix.",
     tools: "Les outils IMPACT", toolsText: "Des outils conçus pour vérifier, comparer et suivre les changements.",
     results: "Résultats dans IMPACT", noResults: "Aucun résultat dans les dossiers, univers ou outils actuellement présentés.",
     clear: "Effacer", selected: "EXPLORER CET ESPACE", inPrep: "Espace en préparation",
-    prepText: "Cette version pose la structure de navigation. Elle ne contient pas encore de dossier factuel validé sur des entreprises, produits ou campagnes.",
+    prepText: "Cette rubrique est encore en préparation. Les dossiers documentés déjà publiés sont accessibles depuis la recherche.",
     back: "Retour à l’accueil", privacy: "La confidentialité dès la conception",
     privacyText: "Le prototype n’a pas besoin de votre identité pour être consulté.",
     privacyOne: "Aucun compte ni profil", privacyTwo: "Aucun tracker ni outil d’audience",
     privacyThree: "Recherche locale, sans envoi au serveur",
     honest: "Ce prototype ne prétend pas en savoir plus qu’il ne sait.",
-    honestText: "Les univers et outils ci-dessus sont des structures de navigation. Les informations factuelles ne seront publiées qu’avec des sources et une validation éditoriale humaine. Le fonctionnement hors ligne doit encore être testé.",
+    honestText: "Les univers et outils ci-dessus sont des structures de navigation. Les informations factuelles sont publiées lorsque les sources et les preuves satisfont aux critères de la charte éditoriale. Les sujets sensibles nécessitent un examen renforcé. Le fonctionnement hors ligne doit encore être testé.",
     footer: "Projet open source · Licence AGPL-3.0-only · Aucune IA générative dans l’application publique",
     discover: "Découvrir", exploreLabel: "EXPLORER", crossTools: "OUTILS TRANSVERSAUX",
-    localSearch: "RECHERCHE LOCALE", dossiers: "Dossiers documentés", dossiersText: "Fiches d’entités publiées après vérification humaine.", noDossiers: "Aucun dossier vérifié n’est encore publié. Les fiches apparaîtront ici après examen des sources et validation éditoriale."
+    localSearch: "RECHERCHE LOCALE", dossiers: "Dossiers documentés", dossiersText: "Fiches d’entités publiées selon les critères de preuve de la charte.", noDossiers: "Aucun dossier ne correspond à cette recherche. Les faits publiés renvoient à leurs sources et à leurs limites."
   },
   en: {
-    skip: "Skip to content", method: "Our method", switchLanguage: "Switch to French", themeLabel: "Appearance", lightMode: "Light", darkMode: "Dark", accentLabel: "Accent colour", accentGreen: "Green", accentBlue: "Blue", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Settings",
+    skip: "Skip to content", method: "Our method", methodTitle: "Verifiable facts, not unsupported claims.", methodIntro: "Each dossier distinguishes established facts, what a source reports, what remains uncertain and what is disputed.", methodSources: "Traceable sources", methodSourcesText: "Original documents, studies, investigations and clearly attributed statements, with dates and accessible links.", methodScope: "Precise scope", methodScopeText: "Product, country, period, sample and method are stated. No result is generalized beyond what it measures.", methodPublication: "Evidence-based publication", methodPublicationText: "A claim may be published without human approval when its evidence and checks are documented. High-risk topics require human review.", methodResponse: "Disputes and corrections", methodResponseText: "Organization responses, limitations and corrections are shown without treating a response as proof or an allegation as fact.", switchLanguage: "Switch to French", themeLabel: "Appearance", lightMode: "Light", darkMode: "Dark", accentLabel: "Accent colour", accentGreen: "Green", accentBlue: "Blue", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Settings",
     kicker: "OPEN PROJECT · FIRST PROTOTYPE",
     title: "Understand what sits behind our choices.",
     subtitle: "Sourced information, visible uncertainty and ways to act — without making decisions for you.",
     searchLabel: "Search IMPACT", placeholder: "Company, brand, topic, alternative…",
-    searchHint: "Search covers areas, tools and dossiers published after human review.",
+    searchHint: "Search covers areas, tools and dossiers published against documented evidence criteria.",
     explore: "Explore the six areas", exploreText: "Six entry points to understand the consequences of our choices.",
     tools: "IMPACT tools", toolsText: "Tools designed to verify, compare and track change.",
     results: "Results in IMPACT", noResults: "No results in the dossiers, areas or tools currently presented.",
     clear: "Clear", selected: "EXPLORE THIS SPACE", inPrep: "Area in preparation",
-    prepText: "This version establishes the navigation structure. It does not yet contain fact-checked dossiers about companies, products or campaigns.",
+    prepText: "This area is still in preparation. Published documented dossiers are available through search.",
     back: "Back to home", privacy: "Privacy by design",
     privacyText: "This prototype does not need your identity to be browsed.",
     privacyOne: "No account or profile", privacyTwo: "No trackers or audience analytics",
     privacyThree: "Local search, never sent to a server",
     honest: "This prototype does not claim to know more than it does.",
-    honestText: "The areas and tools above are navigation structures. Factual information will only be published with sources and human editorial review. Offline behaviour still needs testing.",
+    honestText: "The areas and tools above are navigation structures. Factual information is published when sources and evidence meet the editorial charter; sensitive topics require enhanced review. Offline behaviour still needs testing.",
     footer: "Open-source project · AGPL-3.0-only licence · No generative AI in the public app",
     discover: "Explore", exploreLabel: "EXPLORE", crossTools: "CROSS-CUTTING TOOLS",
-    localSearch: "LOCAL SEARCH", dossiers: "Documented dossiers", dossiersText: "Entity records published after human review.", noDossiers: "No verified dossiers have been published yet. Records will appear here after source review and editorial approval."
+    localSearch: "LOCAL SEARCH", dossiers: "Documented dossiers", dossiersText: "Entity records published under the charter's evidence criteria.", noDossiers: "No dossier matches this search. Published facts link to their sources and limitations."
   }
 };
 
@@ -223,7 +223,7 @@ function App() {
             <span className="brand-copy"><strong>IMPACT</strong><span>{language === "fr" ? "Comprendre. Choisir. Agir." : "Understand. Choose. Act."}</span></span>
           </button>
           <div className="header-actions">
-            <a className="text-link" href="#method">{t.method}</a>
+            <a className="text-link" href="#method" onClick={() => { setSelection(null); setQuery(""); }}>{t.method}</a>
             <details className="settings-menu">
               <summary className="settings-trigger" aria-label={t.settings}>
                 <span className="settings-icon" aria-hidden="true">⚙</span><span>{t.settings}</span>
@@ -368,7 +368,19 @@ function App() {
           </>
         )}
 
-        <section id="method" className="method-section" aria-labelledby="privacy-title">
+        <section id="method" className="content-section editorial-method" aria-labelledby="method-title">
+          <div className="section-heading">
+            <div><p className="section-kicker">{language === "fr" ? "MÉTHODE ÉDITORIALE" : "EDITORIAL METHOD"}</p><h2 id="method-title">{t.methodTitle}</h2><p>{t.methodIntro}</p></div>
+          </div>
+          <div className="method-grid">
+            <article className="method-card"><span>01</span><h3>{t.methodSources}</h3><p>{t.methodSourcesText}</p></article>
+            <article className="method-card"><span>02</span><h3>{t.methodScope}</h3><p>{t.methodScopeText}</p></article>
+            <article className="method-card"><span>03</span><h3>{t.methodPublication}</h3><p>{t.methodPublicationText}</p></article>
+            <article className="method-card"><span>04</span><h3>{t.methodResponse}</h3><p>{t.methodResponseText}</p></article>
+          </div>
+        </section>
+
+        <section id="privacy" className="method-section" aria-labelledby="privacy-title">
           <div className="method-copy">
             <p className="section-kicker">{language === "fr" ? "ENGAGEMENT FONDATEUR" : "FOUNDING PRINCIPLE"}</p>
             <h2 id="privacy-title">{t.privacy}</h2>

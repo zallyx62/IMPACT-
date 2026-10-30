@@ -29,7 +29,7 @@ La documentation Android recommande `WebViewAssetLoader` plutôt que les URL `fi
 
 ## Vérifications encore obligatoires
 
-Le code source et la compilation automatisée ne remplacent pas :
+Le protocole détaillé à cocher est disponible dans [la liste d'essais Android sur appareil réel](ANDROID_DEVICE_TEST_CHECKLIST.md). Le code source et la compilation automatisée ne remplacent pas :
 - un premier test manuel d'installation et d'utilisation de base du debug APK sur un téléphone Android réel a été rapporté comme réussi par le propriétaire le 30 octobre 2026 ; ce test unique ne garantit pas la compatibilité générale ;
 - des tests complémentaires sur plusieurs appareils et versions Android, notamment retour Android, liens externes, clavier, rotation et reprise après fermeture ;
 - la vérification du thème clair/sombre après relancement ;

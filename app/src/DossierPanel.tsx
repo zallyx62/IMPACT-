@@ -11,8 +11,8 @@ const labels = {
   fr: {
     back: "Retour à l’accueil",
     label: "DOSSIER DOCUMENTÉ",
-    reviewed: "Dernière vérification", notReviewed: "À examiner",
-    claims: "Affirmations examinées",
+    reviewed: "Dernière vérification humaine", notReviewed: "Sans validation humaine", evidenceBasis: "Publication fondée sur les preuves", publicationNote: "Périmètre de publication", sourceVerification: "Contrôle documentaire", verifiedOn: "Vérifié le",
+    claims: "Affirmations publiées",
     claimAbout: "Concerne",
     noClaims: "Aucune affirmation publiée dans ce dossier.",
     status: "État de l’examen",
@@ -40,8 +40,8 @@ const labels = {
   en: {
     back: "Back to home",
     label: "DOCUMENTED DOSSIER",
-    reviewed: "Last reviewed", notReviewed: "Not yet reviewed",
-    claims: "Reviewed claims",
+    reviewed: "Last human review", notReviewed: "No human approval", evidenceBasis: "Published under evidence criteria", publicationNote: "Publication scope", sourceVerification: "Documentary check", verifiedOn: "Verified on",
+    claims: "Published claims",
     claimAbout: "About",
     noClaims: "No claims have been published in this dossier.",
     status: "Review status",
@@ -138,6 +138,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         {href && archivedHref && <small><a href={archivedHref} target="_blank" rel="noopener noreferrer">{t.sourceArchive}</a></small>}
         <span>{source.publisher} · {t.sourceType} : {displayValue("sourceType", source.source_type, language)} · {t.sourceAccessed} {dateLabel(source.accessed_at, language)}</span>
         {source.published_at && <small>{t.sourcePublished} : {dateLabel(source.published_at, language)}</small>}
+        {source.review_status === "evidence_verified" && <small><strong>{t.sourceVerification} :</strong> {source.verification_note} {source.verified_at && `(${t.verifiedOn} ${dateLabel(source.verified_at, language)})`}</small>}
         {source.language && <small>{t.sourceLanguage} : {source.language.toUpperCase()}</small>}
         {source.methodology && <small><strong>{t.sourceMethodology} :</strong> {source.methodology}</small>}
         {source.potential_conflicts && <small><strong>{t.sourceConflicts} :</strong> {source.potential_conflicts}</small>}
@@ -158,8 +159,8 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         <div className="dossier-meta">
           <span>{t.type} : {displayValue("entityType", dossier.entity.entity_type, language)}</span>
           {dossier.entity.country_codes && dossier.entity.country_codes.length > 0 && <span>{t.countries} : {dossier.entity.country_codes.join(", ")}</span>}
-          <span>{t.reviewed} : {dossier.entity.reviewed_at ? dateLabel(dossier.entity.reviewed_at, language) : t.notReviewed}</span>
-          {dossier.entity.updated_at && <span>{t.updated} : {dateLabel(dossier.entity.updated_at, language)}</span>}
+          <span>{t.reviewed} : {dossier.entity.reviewed_at ? dateLabel(dossier.entity.reviewed_at, language) : (dossier.entity.publication_basis === "evidence_verified" ? t.evidenceBasis : t.notReviewed)}</span>
+          {dossier.entity.publication_basis === "evidence_verified" && dossier.entity.publication_note && <span>{t.publicationNote} : {dossier.entity.publication_note}</span>}{dossier.entity.published_at && <span>{t.published} : {dateLabel(dossier.entity.published_at, language)}</span>}{dossier.entity.updated_at && <span>{t.updated} : {dateLabel(dossier.entity.updated_at, language)}</span>}
         </div>
         {entityWebsite && (
           <a href={entityWebsite} target="_blank" rel="noopener noreferrer">{entityWebsite}</a>
@@ -189,7 +190,8 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                   <p className="claim-reviewed"><strong>{t.claimAbout} :</strong> {entityName(claim.subject_entity_id)}</p>
                 )}
                 <p className="claim-statement">{claim.statement}</p>
-                <p className="claim-reviewed">{t.reviewed} : {claim.reviewed_at ? dateLabel(claim.reviewed_at, language) : t.notReviewed}</p>
+                <p className="claim-reviewed">{t.reviewed} : {claim.reviewed_at ? dateLabel(claim.reviewed_at, language) : (claim.publication_basis === "evidence_verified" ? t.evidenceBasis : t.notReviewed)}</p>
+                {claim.publication_basis === "evidence_verified" && claim.publication_note && <p className="claim-reviewed"><strong>{t.publicationNote} :</strong> {claim.publication_note} {claim.published_at && `(${dateLabel(claim.published_at, language)})`}</p>}
                 {(claim.valid_from || claim.valid_until) && <p className="claim-reviewed">{t.period} : {claim.valid_from ? dateLabel(claim.valid_from, language) : "…"} – {claim.valid_until ? dateLabel(claim.valid_until, language) : "…"}</p>}
                 {claim.editorial_note && <p className="claim-reviewed"><strong>{t.editorialNote} :</strong> {claim.editorial_note}</p>}
                 {claim.uncertainty_note && (

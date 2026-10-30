@@ -87,7 +87,10 @@
       "default": []
     },
     "reviewed_at": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "date"
     },
     "uncertainty_note": {
@@ -97,6 +100,88 @@
     "editorial_note": {
       "type": "string",
       "maxLength": 3000
+    },
+    "publication_basis": {
+      "type": "string",
+      "enum": [
+        "evidence_verified"
+      ]
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "publication_note": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 2000
+    },
+    "requires_human_review": {
+      "type": "boolean"
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "publication_basis": {
+            "const": "evidence_verified"
+          }
+        },
+        "required": [
+          "publication_basis"
+        ]
+      },
+      "then": {
+        "required": [
+          "published_at",
+          "publication_note",
+          "requires_human_review"
+        ],
+        "properties": {
+          "published_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "publication_note": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 2000
+          },
+          "requires_human_review": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "requires_human_review": {
+            "const": true
+          },
+          "claim_status": {
+            "not": {
+              "const": "not_reviewed"
+            }
+          }
+        },
+        "required": [
+          "requires_human_review",
+          "claim_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": [
+          "reviewed_at"
+        ]
+      }
+    }
+  ]
 }

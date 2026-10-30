@@ -2,9 +2,9 @@ name: IMPACT checks
 
 on:
   push:
-    branches: [main]
+    branches: [main, data/nestle-baby-food-microplastics-2026]
   pull_request:
-    branches: [main]
+    branches: [main, data/nestle-baby-food-microplastics-2026]
   workflow_dispatch:
 
 concurrency:

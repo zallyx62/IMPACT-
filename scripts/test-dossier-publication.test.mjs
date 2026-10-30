@@ -32,13 +32,14 @@ const data = {
     { id: "relationship-draft-target", from_entity_id: "entity-one", to_entity_id: "entity-draft", relationship_type: "controls", knowledge_status: "confirmed", source_ids: ["source-reviewed"] },
   ],
   campaigns: [
-    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft", "entity-unreviewed"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"], response_ids: ["response-published", "response-withheld", "response-public-other", "response-pending-source", "response-unknown"] },
+    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft", "entity-unreviewed"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"], response_ids: ["response-published", "response-withheld", "response-public-other", "response-no-published-claim", "response-pending-source", "response-unknown"] },
     { id: "campaign-pending", title: "Pending campaign", target_entity_ids: ["entity-one"], demands: ["Publish data"], campaign_status: "active", source_ids: ["source-pending"] },
   ],
   responses: [
     { id: "response-published", entity_id: "entity-one", related_claim_ids: ["claim-related"], summary: "A published response backed by a reviewed source.", source_id: "source-reviewed", publication_status: "published" },
     { id: "response-withheld", entity_id: "entity-one", related_claim_ids: ["claim-reviewed"], summary: "A response that must not be displayed.", source_id: "source-reviewed", publication_status: "withheld" },
-    { id: "response-public-other", entity_id: "entity-two", related_claim_ids: [], summary: "A public response for a related entity.", source_id: "source-reviewed", publication_status: "published" },
+    { id: "response-public-other", entity_id: "entity-two", related_claim_ids: ["claim-related"], summary: "A public response for a related entity.", source_id: "source-reviewed", publication_status: "published" },
+    { id: "response-no-published-claim", entity_id: "entity-two", related_claim_ids: ["claim-pending"], summary: "A response whose related claim is not publishable.", source_id: "source-reviewed", publication_status: "published" },
     { id: "response-pending-source", entity_id: "entity-two", related_claim_ids: [], summary: "A response backed by a source awaiting review.", source_id: "source-pending", publication_status: "published" },
   ],
   commitments: [
@@ -49,7 +50,7 @@ const data = {
 };
 
 describe("buildEntityDossier publication rules", () => {
-  it("only exposes records backed by reviewed sources", () => {
+  it("only exposes records backed by publishable sources", () => {
     const dossier = buildEntityDossier("entity-one", data);
     assert.ok(dossier);
     assert.deepEqual(dossier.claims.map((item) => item.id).sort(), ["claim-related", "claim-reviewed"]);
@@ -65,10 +66,8 @@ describe("buildEntityDossier publication rules", () => {
     assert.deepEqual(dossier.campaigns[0].response_ids, ["response-published", "response-public-other"]);
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.ok(!dossier.claims.some((item) => item.id === "claim-unrelated"), "claims from unrelated entities must not leak into this dossier");
-    assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
-    assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
-    assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.deepEqual(dossier.responses.map((item) => item.id), ["response-published", "response-public-other"]);
+    assert.ok(!dossier.responses.some((item) => item.id === "response-no-published-claim"), "responses without a published related claim must remain hidden");
     assert.equal(dossier.responses.find((item) => item.id === "response-public-other")?.entity_id, "entity-two",
       "published responses linked from a related campaign must retain their responding entity");
     assert.deepEqual(dossier.commitments.map((item) => item.id), ["commitment-reviewed"]);
@@ -90,42 +89,110 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(dossier?.campaigns[0].organizer_entity_id, "entity-two");
   });
 
+  it("publishes a fully documented evidence-verified entity and claim without human review", () => {
+    const verified = structuredClone(data);
+    verified.entities[0].reviewed_at = null;
+    verified.entities[1].status = "draft";
+    verified.entities[0].publication_basis = "evidence_verified";
+    verified.entities[0].published_at = "2026-10-30";
+    verified.entities[0].publication_note = "Scope is restricted to the primary report listed in this record.";
+    verified.sources[0].review_status = "evidence_verified";
+    verified.sources[0].verification_method = "primary_document_review";
+    verified.sources[0].verified_at = "2026-10-30";
+    verified.sources[0].verification_note = "Original report inspected; methodology, sample and limitations recorded.";
+    verified.claims[0].reviewed_at = null;
+    verified.claims[0].publication_basis = "evidence_verified";
+    verified.claims[0].published_at = "2026-10-30";
+    verified.claims[0].publication_note = "The wording reports only the observation made in the cited primary report.";
+    verified.claims[0].requires_human_review = false;
+    const published = getPublishedEntities(verified);
+    assert.deepEqual(published.map((item) => item.id), ["entity-one"]);
+    const dossier = buildEntityDossier("entity-one", verified);
+    assert.ok(dossier);
+    assert.ok(dossier.claims.some((item) => item.id === "claim-reviewed"));
+    assert.equal(dossier.entity.reviewed_at, null);
+  });
+
+  it("rejects claims and entities that cite even one unpublished source", () => {
+    const mixedClaim = structuredClone(data);
+    mixedClaim.claims[0].source_ids = ["source-reviewed", "source-pending"];
+    const claimDossier = buildEntityDossier("entity-one", mixedClaim);
+    assert.ok(claimDossier);
+    assert.ok(!claimDossier.claims.some((item) => item.id === "claim-reviewed"),
+      "a claim must not pass by citing one reviewed source alongside an unpublished source");
+
+    const mixedEntity = structuredClone(data);
+    mixedEntity.entities[0].source_ids = ["source-reviewed", "source-pending"];
+    assert.equal(buildEntityDossier("entity-one", mixedEntity), undefined,
+      "an entity must not pass by citing one reviewed source alongside an unpublished source");
+  });
+
+  it("does not publish relationships, campaigns or commitments with mixed source verification", () => {
+    const mixedRelationship = structuredClone(data);
+    mixedRelationship.relationships[0].source_ids = ["source-reviewed", "source-pending"];
+    const relationshipDossier = buildEntityDossier("entity-one", mixedRelationship);
+    assert.ok(relationshipDossier);
+    assert.deepEqual(relationshipDossier.relationships, [],
+      "a relationship must not pass with only some of its cited sources verified");
+
+    const mixedCampaign = structuredClone(data);
+    mixedCampaign.campaigns[0].source_ids = ["source-reviewed", "source-pending"];
+    const campaignDossier = buildEntityDossier("entity-one", mixedCampaign);
+    assert.ok(campaignDossier);
+    assert.deepEqual(campaignDossier.campaigns, [],
+      "a campaign must not pass with only some of its cited sources verified");
+
+    const mixedCommitment = structuredClone(data);
+    mixedCommitment.commitments[0].source_ids = ["source-reviewed", "source-pending"];
+    const commitmentDossier = buildEntityDossier("entity-one", mixedCommitment);
+    assert.ok(commitmentDossier);
+    assert.deepEqual(commitmentDossier.commitments, [],
+      "a commitment must not pass with only some of its cited sources verified");
+  });
+
+  it("rejects evidence-verified records missing their audit trail", () => {
+    const invalid = structuredClone(data);
+    invalid.entities[0].reviewed_at = null;
+    invalid.entities[1].status = "draft";
+    invalid.entities[0].publication_basis = "evidence_verified";
+    invalid.entities[0].published_at = "2026-10-30";
+    invalid.entities[0].publication_note = "A sufficiently long documented publication rationale.";
+    invalid.sources[0].review_status = "evidence_verified";
+    invalid.sources[0].verification_method = "primary_document_review";
+    invalid.sources[0].verified_at = "2026-10-30";
+    invalid.sources[0].verification_note = "";
+    assert.deepEqual(getPublishedEntities(invalid), []);
+    assert.equal(buildEntityDossier("entity-one", invalid), undefined);
+  });
+
+  it("blocks allegations and high-risk claims from evidence-only publication", () => {
+    for (const [status, requiresHumanReview] of [["alleged", false], ["confirmed", true]]) {
+      const highRisk = structuredClone(data);
+      highRisk.claims[0].reviewed_at = null;
+      highRisk.claims[0].publication_basis = "evidence_verified";
+      highRisk.claims[0].published_at = "2026-10-30";
+      highRisk.claims[0].publication_note = "The primary source was inspected and its scope recorded.";
+      highRisk.claims[0].claim_status = status;
+      highRisk.claims[0].requires_human_review = requiresHumanReview;
+      const dossier = buildEntityDossier("entity-one", highRisk);
+      assert.ok(dossier);
+      assert.ok(!dossier.claims.some((item) => item.id === "claim-reviewed"),
+        "allegations and explicitly high-risk claims must not pass the evidence-only gate");
+    }
+  });
+
   it("does not expose draft entities", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
   });
 
-  it("lists only entities with at least one reviewed source", () => {
+  it("lists only entities with a publishable source", () => {
     assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["entity-one", "entity-two"]);
     assert.ok(!getPublishedEntities(data).some((item) => item.id === "entity-no-review-date"), "entities without a review date must remain hidden");
   });
 
-  it("does not expose an entity without a reviewed source", () => {
+  it("does not expose an entity without a publishable source", () => {
     const unreviewed = structuredClone(data);
     unreviewed.entities[0].source_ids = ["source-pending"];
     assert.equal(buildEntityDossier("entity-one", unreviewed), undefined);
   });
-  it("removes unreviewed references from every published dossier record", () => {
-    const mixed = structuredClone(data);
-    mixed.entities[0].source_ids.push("source-pending");
-    mixed.claims[0].source_ids.push("source-pending");
-    mixed.claims[0].evidence_ids.push("evidence-pending");
-    mixed.relationships[0].source_ids.push("source-pending");
-    mixed.campaigns[0].source_ids.push("source-pending");
-    mixed.campaigns[0].claim_ids.push("claim-pending");
-    mixed.responses[0].related_claim_ids.push("claim-pending");
-    mixed.commitments[0].source_ids.push("source-pending");
-
-    const dossier = buildEntityDossier("entity-one", mixed);
-    assert.ok(dossier);
-    assert.deepEqual(dossier.entity.source_ids, ["source-reviewed"]);
-    assert.deepEqual(dossier.claims.find((item) => item.id === "claim-reviewed")?.source_ids, ["source-reviewed"]);
-    assert.deepEqual(dossier.claims.find((item) => item.id === "claim-reviewed")?.evidence_ids, ["evidence-reviewed"]);
-    assert.deepEqual(dossier.relationships[0].source_ids, ["source-reviewed"]);
-    assert.deepEqual(dossier.campaigns[0].source_ids, ["source-reviewed"]);
-    assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
-    assert.deepEqual(dossier.responses[0].related_claim_ids, ["claim-related"]);
-    assert.deepEqual(dossier.commitments[0].source_ids, ["source-reviewed"]);
-    assert.ok(dossier.evidence.every((item) => item.source_id === "source-reviewed"));
-  });
-
 });

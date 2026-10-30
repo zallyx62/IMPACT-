@@ -12,5 +12,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Les 219 occurrences sont des observations relevées par ATNi au regard du Code et de ses recommandations ; elles ne sont ni 219 condamnations judiciaires ni nécessairement 219 incidents distincts. L'étude porte sur cinq pays et sur les canaux et produits échantillonnés.",
-  "editorial_note": "Toujours préciser les cinq pays, la période d'étude et le fait qu'ATNi évalue l'alignement sur le Code de l'OMS, pas la conformité aux lois nationales."
+  "editorial_note": "Toujours préciser les cinq pays, la période d'étude et le fait qu'ATNi évalue l'alignement sur le Code de l'OMS, pas la conformité aux lois nationales.",
+  "requires_human_review": true
 }

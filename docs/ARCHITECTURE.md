@@ -70,6 +70,7 @@ Les dépendances sont surveillées chaque semaine par Dependabot et auditées av
 │   │   ├── data/catalog.ts
 │   │   ├── data/records.ts
 │   │   ├── data/dossier-builder.ts
+│   │   ├── data/public-records.generated.ts (généré, ignoré par Git)
 │   │   ├── App.tsx
 │   │   ├── DossierPanel.tsx
 │   │   ├── main.tsx
@@ -84,6 +85,8 @@ Les dépendances sont surveillées chaque semaine par Dependabot et auditées av
 │   ├── check-data.mjs
 │   ├── check-contrast.mjs
 │   ├── check-pwa-build.mjs
+│   ├── generate-public-records.mjs
+│   ├── test-public-data.test.mjs
 │   ├── lib/data-integrity.mjs
 │   ├── lib/schema-validation.mjs
 │   ├── test-service-worker.mjs
@@ -100,12 +103,14 @@ Les dépendances sont surveillées chaque semaine par Dependabot et auditées av
 
 - `app/src/data/catalog.ts` contient uniquement la navigation et les textes génériques du prototype.
 - `data/schema/` définit huit structures : entités, sources, affirmations, preuves, relations, campagnes, réponses et engagements.
-- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Le dépôt contient des brouillons documentaires Nestlé (eaux, substituts du lait maternel, sucre, cacao, travail, emballages et déforestation), qui restent invisibles jusqu'à validation éditoriale humaine.
-- `app/src/data/records.ts` charge les enregistrements publiés ; `dossier-builder.ts` applique les règles de publication avant affichage.
-- Aucun dossier réel d'entreprise ne doit être publié sans recherche, examen des preuves et validation éditoriale humaine.
+- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Le corpus Nestlé couvre les eaux, les substituts du lait maternel, le sucre, le cacao, le travail, les emballages et la déforestation. Sept constats Nestlé sont actuellement publiés selon les critères documentaires : trois sur des faits précisément délimités concernant Nestlé Waters en France (traitements UV et au charbon actif signalés, CJIPE environnementale, conclusion gouvernementale sur l'absence de risque sanitaire constaté à la date de sa réponse), deux sur des produits Gerber testés par Greenpeace/SINTEF et Consumer Reports, un sur la part des objets de marque attribuée à Nestlé dans un audit scientifique évalué par les pairs et un sur les chiffres de déforestation du cacao déclarés par Nestlé. Les autres enregistrements restent invisibles jusqu'à ce que leurs propres preuves satisfassent les critères de publication ou qu'un examen humain requis soit effectué.
+- `scripts/generate-public-records.mjs` lit les enregistrements source, applique `dossier-builder.ts` et génère avant les commandes Web un module filtré `app/src/data/public-records.generated.ts`.
+- `app/src/data/records.ts` charge uniquement ce module généré ; les sources, affirmations et preuves non admissibles ne sont donc pas intégrées au bundle Web distribué.
+- Le module généré est ignoré par Git et recréé avant le développement, le typage, les tests et le build. Le test `scripts/test-public-data.test.mjs` vérifie les statuts et les références ; `scripts/check-pwa-build.mjs` compare les enregistrements source au jeu public et vérifie que l'identifiant de chaque enregistrement exclu est absent des fichiers JavaScript produits.
+- Un dossier réel peut être publié sans validation humaine préalable lorsque les critères de preuve, de corroboration, de transparence et les contrôles définis dans la charte sont satisfaits. Les cas sensibles ou à risque élevé restent bloqués pour examen humain.
 - Une source, une affirmation et un élément de preuve restent trois objets distincts.
 
-La première version contient un corpus de travail non publié ; aucun dossier Nestlé n'est visible tant que les statuts éditoriaux ne sont pas validés. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
+La première version contient un corpus mixte : les enregistrements qui satisfont au seuil de preuve sont visibles, tandis que les dossiers de travail qui ne le satisfont pas restent exclus du bundle public. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
 
 ## 5. Confidentialité
 
@@ -143,15 +148,16 @@ Exigences :
 ## 8. Qualité et sécurité
 
 Les contrôles automatisés exécutés dans GitHub Actions (y compris les changements sous `data/records/` lors des pull requests) sont :
-1. installer les dépendances avec `npm ci` ;
-2. auditer les dépendances avec `npm audit` ;
-3. vérifier TypeScript ;
-4. exécuter les tests de recherche ;
-5. tester l'intégrité des références et la validation JSON Schema ;
-6. tester les règles de publication des dossiers ;
-7. simuler le service worker, vérifier les invariants d'interface et contrôler les contrastes en thèmes clair et sombre ;
-8. construire les fichiers de production ;
-9. vérifier le paquet PWA généré, les schémas et les références de données.
+1. générer le jeu de données publiques filtré à partir des enregistrements source ;
+2. installer les dépendances avec `npm ci` ;
+3. auditer les dépendances avec `npm audit` ;
+4. vérifier TypeScript ;
+5. exécuter les tests de recherche et de publication des données publiques ;
+6. tester l'intégrité des références et la validation JSON Schema ;
+7. tester les règles de publication des dossiers ;
+8. simuler le service worker, vérifier les invariants d'interface et contrôler les contrastes en thèmes clair et sombre ;
+9. construire les fichiers de production ;
+10. vérifier le paquet PWA généré, les schémas et les références de données, notamment l'absence de brouillons dans le bundle.
 
 Ces tests simulés ne remplacent pas les essais sur un vrai navigateur ou téléphone.
 
@@ -172,4 +178,4 @@ Le premier prototype est destiné au développement. Il ne doit pas être prése
 
 Aucun serveur central n'est prévu pour la première version. Un service distant ne sera envisagé que si une exigence réelle le rend indispensable, après analyse du coût, des risques, des possibilités d'auto-hébergement et de la confidentialité.
 
-Les contributions et dossiers factuels pourront être examinés par des humains puis intégrés par des changements versionnés dans le dépôt.
+Les contributions et dossiers factuels sont intégrés par des changements versionnés. La publication suit le seuil de preuve de la charte ; un examen humain préalable est réservé aux catégories sensibles ou à risque élevé.

@@ -5,8 +5,8 @@ Merci de contribuer à un projet qui privilégie la fiabilité, la transparence 
 ## Principes
 
 - Toutes les contributions doivent respecter la licence du code et les licences propres aux contenus.
-- Aucune donnée factuelle n'est publiée automatiquement.
-- Les changements éditoriaux sont examinés par des humains avant publication.
+- Une validation humaine préalable n'est pas systématiquement exigée : une affirmation peut être publiée lorsque les critères de preuve et les contrôles définis dans la [charte éditoriale](docs/CHARTE_EDITORIALE.md) sont satisfaits.
+- Les accusations graves, sujets sensibles, preuves contradictoires non résolues et contenus à risque restent soumis à un examen humain compétent avant publication.
 - Toute affirmation importante doit renvoyer à des sources consultables et indiquer ses limites.
 - Les conflits d'intérêts pertinents doivent être déclarés.
 - Les informations inconnues doivent rester indiquées comme inconnues, sans supposition.
@@ -49,6 +49,19 @@ node scripts/check-data.mjs
 ```
 
 Avant une version stable, des essais manuels d'accessibilité, de navigation, d'installation PWA, de fonctionnement hors ligne et de confidentialité restent nécessaires.
+
+## Analyse de sécurité CodeQL
+
+CodeQL est exécuté automatiquement par GitHub Actions :
+
+- à chaque pull request ciblant `main` ;
+- à chaque push sur `main` ;
+- chaque lundi à 04:23 UTC ;
+- à la demande depuis l'onglet **Actions**, en sélectionnant **CodeQL security analysis**, puis **Run workflow** si cette action est disponible.
+
+Aucune installation locale de CodeQL n'est nécessaire pour le contrôle automatique du dépôt. Pour consulter une exécution, ouvrez **Actions → CodeQL security analysis**, puis sélectionnez l'exécution et le travail **Analyze Java, JavaScript, TypeScript and GitHub Actions**. Attendez que toutes les étapes soient terminées : un travail encore en cours n'est ni un succès ni un échec.
+
+Si l'analyse échoue, consultez l'étape en erreur et ses journaux avant de modifier le workflow. Si elle réussit mais signale des résultats, examinez chaque alerte dans **Security → Code scanning** : vérifiez le chemin, la ligne, le scénario exploitable et le correctif proposé. Une alerte ne doit être ni ignorée ni déclarée faussement positive sans justification documentée. Une analyse réussie signifie que l'exécution s'est terminée ; elle ne prouve pas l'absence de toute vulnérabilité.
 
 ## Sources et droits d'auteur
 

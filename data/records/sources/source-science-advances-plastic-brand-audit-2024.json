@@ -9,6 +9,9 @@
   "language": "en",
   "methodology": "Peer-reviewed analysis of a five-year citizen-science brand audit dataset from 2018–2022, comprising 1,576 audit events in 84 countries. Brand names recorded on plastic items found in the environment were analysed.",
   "limitations": "Half of collected items were unbranded. The 3% figure for Nestlé refers to the share of branded items in this audit dataset, not the share of all plastic pollution worldwide, total company production, or a complete measurement of waste attributable to Nestlé. Audit coverage varies by country.",
-  "review_status": "to_review",
-  "potential_conflicts": "The author list includes an affiliation with Break Free From Plastic, an advocacy coalition that participated in the citizen-science brand-audit movement. The paper is peer-reviewed; its audit dataset and limits should still be described."
+  "review_status": "evidence_verified",
+  "potential_conflicts": "L'une des autrices est affiliée à Break Free From Plastic, coalition ayant participé au mouvement d'audits citoyens utilisé comme jeu de données ; l'article indique également que Break Free From Plastic a contribué au financement de l'étude. L'article est publié dans une revue évaluée par les pairs. Ces liens doivent être visibles et ne remplacent pas l'examen de la méthode, du dénominateur et des limites.",
+  "verification_method": "peer_reviewed_research",
+  "verified_at": "2026-10-30",
+  "verification_note": "Article original de Science Advances consulté via PubMed et le texte intégral indexé. La méthode porte sur un jeu de données de cinq ans (2018–2022), 1 576 événements d'audit dans 84 pays ; 50 % des objets collectés étaient sans marque. Le chiffre de 3 % pour Nestlé est la part des objets de marque recensés dans ce jeu de données, et non la part de tous les déchets plastiques mondiaux ni de la production de l'entreprise. Une autrice est affiliée à Break Free From Plastic et l'article mentionne un financement de cette coalition ; ces éléments sont signalés comme liens pertinents. Les limites de couverture et le caractère participatif des audits sont conservés dans la formulation."
 }

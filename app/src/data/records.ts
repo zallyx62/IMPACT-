@@ -1,4 +1,5 @@
-import { buildEntityDossier, getPublishedEntities as filterPublishedEntities } from "./dossier-builder";
+import { buildEntityDossier } from "./dossier-builder";
+import { publicRecords } from "./public-records.generated";
 
 export type Language = "fr" | "en";
 
@@ -10,6 +11,9 @@ export interface EntityRecord {
   website?: string | null;
   status: string;
   reviewed_at: string | null;
+  publication_basis?: string;
+  published_at?: string;
+  publication_note?: string;
   source_ids: string[];
   country_codes?: string[];
   created_at?: string;
@@ -32,6 +36,9 @@ export interface SourceRecord {
   source_license?: string;
   rights_note?: string;
   review_status: string;
+  verification_method?: string;
+  verified_at?: string;
+  verification_note?: string;
 }
 
 export interface ClaimRecord {
@@ -43,6 +50,10 @@ export interface ClaimRecord {
   source_ids: string[];
   evidence_ids?: string[];
   reviewed_at: string | null;
+  publication_basis?: string;
+  published_at?: string;
+  publication_note?: string;
+  requires_human_review?: boolean;
   uncertainty_note: string;
   valid_from?: string | null;
   valid_until?: string | null;
@@ -114,34 +125,14 @@ export interface CommitmentRecord {
   target_value?: string;
 }
 
-function loadRecords<T>(modules: Record<string, unknown>): T[] {
-  return Object.values(modules) as T[];
-}
-
-export const entities = loadRecords<EntityRecord>(
-  import.meta.glob("../../../data/records/entities/*.json", { eager: true, import: "default" }),
-);
-export const sources = loadRecords<SourceRecord>(
-  import.meta.glob("../../../data/records/sources/*.json", { eager: true, import: "default" }),
-);
-export const claims = loadRecords<ClaimRecord>(
-  import.meta.glob("../../../data/records/claims/*.json", { eager: true, import: "default" }),
-);
-export const evidence = loadRecords<EvidenceRecord>(
-  import.meta.glob("../../../data/records/evidence/*.json", { eager: true, import: "default" }),
-);
-export const relationships = loadRecords<RelationshipRecord>(
-  import.meta.glob("../../../data/records/relationships/*.json", { eager: true, import: "default" }),
-);
-export const campaigns = loadRecords<CampaignRecord>(
-  import.meta.glob("../../../data/records/campaigns/*.json", { eager: true, import: "default" }),
-);
-export const responses = loadRecords<ResponseRecord>(
-  import.meta.glob("../../../data/records/responses/*.json", { eager: true, import: "default" }),
-);
-export const commitments = loadRecords<CommitmentRecord>(
-  import.meta.glob("../../../data/records/commitments/*.json", { eager: true, import: "default" }),
-);
+export const entities = publicRecords.entities as EntityRecord[];
+export const sources = publicRecords.sources as SourceRecord[];
+export const claims = publicRecords.claims as ClaimRecord[];
+export const evidence = publicRecords.evidence as EvidenceRecord[];
+export const relationships = publicRecords.relationships as RelationshipRecord[];
+export const campaigns = publicRecords.campaigns as CampaignRecord[];
+export const responses = publicRecords.responses as ResponseRecord[];
+export const commitments = publicRecords.commitments as CommitmentRecord[];
 
 export interface EntityDossier {
   entity: EntityRecord;
@@ -155,7 +146,7 @@ export interface EntityDossier {
 }
 
 export function getPublishedEntities(): EntityRecord[] {
-  return filterPublishedEntities({ entities, sources, claims, evidence, relationships, campaigns, responses, commitments });
+  return entities;
 }
 
 export function getEntityDossier(entityId: string): EntityDossier | undefined {

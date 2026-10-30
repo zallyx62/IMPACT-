@@ -1,0 +1,17 @@
+{
+  "id": "source-efsa-food-contact-microplastics-review-2025",
+  "title": "Literature review on micro- and nanoplastic release from food contact materials during their use",
+  "publisher": "European Food Safety Authority (EFSA)",
+  "url": "https://efsa.onlinelibrary.wiley.com/doi/10.2903/sp.efsa.2025.EN-9733",
+  "source_type": "other",
+  "published_at": "2025-10-21",
+  "accessed_at": "2026-10-30",
+  "language": "en",
+  "methodology": "Revue structurée de la littérature sur les études publiées entre 2015 et le 20 janvier 2025. L'EFSA indique avoir identifié 1 711 publications, dont 122 retenues pour l'extraction des données, avec huit publications supplémentaires pour le contexte.",
+  "potential_conflicts": "Rapport technique publié par l'EFSA dans le cadre d'un mandat interne ; l'EFSA est l'autorité scientifique européenne compétente en matière d'évaluation des risques alimentaires.",
+  "limitations": "Le rapport relève de nombreuses lacunes méthodologiques dans les conditions d'essai, la préparation des échantillons et la fiabilité des données analytiques, avec des risques d'identification erronée et de mauvais comptage. Les données sur les nanoplastiques sont presque absentes. L'EFSA conclut qu'il n'existe pas de base suffisante pour estimer l'exposition issue des matériaux au contact des aliments. Cette revue n'est pas spécifique aux aliments pour bébés ni aux sachets Gerber.",
+  "review_status": "evidence_verified",
+  "verification_method": "official_record_check",
+  "verified_at": "2026-10-30",
+  "verification_note": "Rapport technique officiel EFSA consulté (Supporting Publication EN-9733, 21 octobre 2025). Le nombre de publications examinées, les mécanismes de libération, les réserves méthodologiques et l'impossibilité d'estimer l'exposition sont rapportés comme conclusions de ce rapport technique, non comme un avis final de risque ni comme une étude spécifique aux sachets Gerber."
+}

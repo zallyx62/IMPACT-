@@ -1,17 +1,22 @@
 {
   "id": "claim-nestle-water-treatments",
   "subject_entity_id": "nestle",
-  "statement": "En 2021, Nestlé Waters a indiqué au cabinet de la ministre chargée de l'industrie avoir utilisé, dans des usines des Vosges et du Gard, des filtres au charbon actif et des traitements ultraviolets non conformes au cadre européen applicable aux eaux minérales naturelles.",
+  "statement": "Le rapport de la commission d'enquête du Sénat rapporte que, lors d'une réunion du 31 août 2021, Nestlé Waters a fait état de l'utilisation de filtres au charbon actif et de traitements ultraviolets dans des usines d'eaux minérales naturelles du groupe dans les Vosges et le Gard. Le rapport indique que Nestlé Waters a reconnu la non-conformité de ces traitements au cadre européen. La réponse du Gouvernement publiée le 3 février 2026 confirme que les traitements UV et au charbon actif étaient interdits et décrit leur retrait parmi les mesures correctrices.",
   "topic": "business_consumption",
-  "claim_status": "not_reviewed",
+  "claim_status": "confirmed",
   "source_ids": [
     "source-senat-2025-enquete-eaux-minerales",
     "source-assemblee-nationale-2026-eaux-nestle"
   ],
   "evidence_ids": [
-    "evidence-nestle-water-admission"
+    "evidence-nestle-water-admission",
+    "evidence-nestle-water-2026-regulatory-response"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "Le périmètre concerne les installations et pratiques de Nestlé Waters évoquées dans les Vosges et le Gard, et non chaque produit ou chaque activité du groupe. Le Gouvernement indique que les traitements non autorisés ont ensuite été retirés.",
-  "editorial_note": "Le rapport du Sénat rapporte la reconnaissance de ces pratiques lors de la réunion du 31 août 2021 et leur non-conformité au cadre européen. La réponse gouvernementale de 2026 confirme l'usage de traitements UV et au charbon actif interdits."
+  "uncertainty_note": "Le rapport situe les pratiques dans des usines de Nestlé Waters des Vosges et du Gard ; il ne faut pas en déduire que chaque traitement était utilisé sur chacun des sites ni que toutes les marques du groupe étaient concernées. Cette affirmation porte sur les filtres au charbon actif et les traitements UV, pas sur le statut de la microfiltration à 0,2 micromètre, qui reste documenté séparément et non publié ici. Le Gouvernement indique que les traitements UV et au charbon actif ont ensuite été retirés. La réponse gouvernementale de février 2026 indique qu'aucun risque sanitaire n'a été constaté pour les eaux conditionnées concernées.",
+  "editorial_note": "Attribuer les détails de la réunion et la reconnaissance de non-conformité au rapport du Sénat ; attribuer au Gouvernement la confirmation du caractère interdit et les mesures correctrices. Ne pas étendre l'affirmation à chaque site, chaque marque, ni à la microfiltration à 0,2 micromètre.",
+  "publication_basis": "evidence_verified",
+  "published_at": "2026-10-30",
+  "publication_note": "L'affirmation se limite aux usines de Nestlé Waters des Vosges et du Gard mentionnées par le rapport et aux traitements UV et au charbon actif. Elle distingue le compte rendu du Sénat de la réponse gouvernementale et n'affirme ni l'usage de chaque traitement sur chaque site, ni un dommage sanitaire, ni le statut de la microfiltration à 0,2 micromètre.",
+  "requires_human_review": false
 }

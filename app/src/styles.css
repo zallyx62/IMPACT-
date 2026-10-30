@@ -503,3 +503,125 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .settings-panel { right: auto; left: 0; }
   .header-actions { align-items: center; }
 }
+
+
+/* IMPACT 0.2 — modernisation visuelle : surfaces plus nettes, rythme et états interactifs. */
+:root {
+  --radius-card: 22px;
+  --radius-control: 14px;
+  --shadow-soft: 0 8px 28px rgba(24, 47, 33, .055);
+  --shadow-raised: 0 18px 42px rgba(24, 47, 33, .11);
+}
+body { letter-spacing: -.008em; }
+.site-header { box-shadow: 0 5px 24px rgba(18, 42, 27, .035); }
+.header-inner { max-width: 1180px; }
+.brand { gap: .85rem; }
+.brand-mark { width: 42px; height: 42px; border-radius: 14px; }
+.brand-copy strong { font-size: 1rem; }
+.brand-copy span { font-size: .68rem; letter-spacing: .015em; }
+.header-actions { gap: 1rem; }
+.text-link { font-weight: 700; text-underline-offset: 4px; }
+.settings-trigger { border-radius: 999px; padding-inline: 1rem; }
+.page-content { max-width: 1180px; }
+.hero { padding-bottom: 1.2rem; }
+.hero h1 { text-wrap: balance; }
+.eyebrow { letter-spacing: .13em; }
+.search-panel { border-radius: 24px; }
+.search-field { border-radius: 15px; }
+.trust-chips > span { min-height: 34px; padding: .45rem .8rem; border-radius: 999px; font-size: .72rem; }
+.section-heading { align-items: end; }
+.section-kicker { letter-spacing: .14em; }
+.universe-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.universe-card, .tool-card, .dossier-card, .result-item {
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+.universe-card { min-height: 218px; padding: 1.35rem; }
+.universe-mark, .tool-mark, .result-mark { border-radius: 14px; }
+.dossier-card { min-height: 210px; padding: 1.25rem; }
+.result-item { padding: 1rem 1.1rem; }
+.selected-panel { border-radius: 26px; }
+.preparation-note, .reality-note { border-radius: 18px; }
+.method-section { border-radius: 28px; }
+.settings-panel { border-radius: 20px; }
+button, .settings-trigger, .search-field { -webkit-tap-highlight-color: transparent; }
+button:active { transform: translateY(0) scale(.99); }
+@media (max-width: 760px) {
+  .header-inner { min-height: 68px; }
+  .brand { flex: 0 1 auto; }
+  .header-actions { width: auto; margin-left: auto; }
+  .hero { padding-top: 2.6rem; }
+  .universe-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .universe-card { min-height: 190px; }
+  .dossier-card { min-height: 185px; }
+}
+@media (max-width: 430px) {
+  .header-inner { align-items: center; flex-wrap: nowrap; gap: .5rem; }
+  .brand { min-width: 0; }
+  .brand-copy span { max-width: 145px; }
+  .header-actions { flex: 0 0 auto; }
+  .header-actions .text-link { display: none; }
+  .settings-trigger { width: auto; min-height: 40px; padding-inline: .8rem; }
+  .hero h1 { max-width: 12ch; }
+  .universe-grid { grid-template-columns: 1fr; }
+  .universe-card { min-height: 158px; }
+  .trust-chips { gap: .45rem; }
+}:root[data-theme="dark"] {
+  --shadow-soft: 0 8px 28px rgba(0, 0, 0, .16);
+  --shadow-raised: 0 18px 42px rgba(0, 0, 0, .26);
+}
+:root[data-theme="dark"] .site-header { box-shadow: 0 5px 24px rgba(0, 0, 0, .12); }
+:root[data-theme="dark"] .universe-card,
+:root[data-theme="dark"] .tool-card,
+:root[data-theme="dark"] .dossier-card,
+:root[data-theme="dark"] .result-item { box-shadow: var(--shadow-soft); }
+:root[data-theme="dark"] .universe-card:hover,
+:root[data-theme="dark"] .tool-card:hover,
+:root[data-theme="dark"] .dossier-card:hover,
+:root[data-theme="dark"] .result-item:hover { box-shadow: var(--shadow-raised); }
+
+
+/* Editorial method — distinct from the privacy section. */
+.editorial-method { padding-top: 1.5rem; }
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+.method-card {
+  min-height: 178px;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+.method-card > span {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--paper-soft);
+  color: var(--green);
+  font-size: .72rem;
+  font-weight: 850;
+  letter-spacing: .04em;
+}
+.method-card h3 {
+  margin: 1rem 0 .45rem;
+  color: var(--ink);
+  font-size: 1rem;
+  letter-spacing: -.02em;
+}
+.method-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .method-grid { grid-template-columns: 1fr; gap: .75rem; }
+  .method-card { min-height: 0; padding: 1.15rem; }
+}

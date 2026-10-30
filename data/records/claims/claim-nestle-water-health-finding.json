@@ -1,17 +1,20 @@
 {
   "id": "claim-nestle-water-health-finding",
   "subject_entity_id": "nestle",
-  "statement": "Dans sa réponse publiée le 3 février 2026, le Gouvernement indique qu'aucun risque sanitaire n'a été constaté pour les consommateurs des eaux conditionnées concernées par cette affaire.",
+  "statement": "Dans sa réponse publiée le 3 février 2026, le Gouvernement indique qu'aucun risque sanitaire n'a été constaté pour les consommateurs des eaux conditionnées par Nestlé Waters concernées par cette affaire.",
   "topic": "business_consumption",
-  "claim_status": "not_reviewed",
+  "claim_status": "confirmed",
   "source_ids": [
-    "source-assemblee-nationale-2026-eaux-nestle",
-    "source-justice-2024-cjipe-nestle"
+    "source-assemblee-nationale-2026-eaux-nestle"
   ],
   "evidence_ids": [
     "evidence-nestle-water-health-finding"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "Cette formulation restitue la conclusion rapportée par le Gouvernement à cette date. Elle ne signifie pas qu'aucun problème de conformité n'a existé : la même réponse confirme l'usage de traitements illicites et qualifie l'affaire de tromperie du consommateur concernant l'étiquetage.",
-  "editorial_note": "Ce point doit être présenté à proximité des faits de non-conformité afin de ne pas laisser croire qu'une infraction de conformité équivaut automatiquement à un dommage sanitaire démontré."
+  "uncertainty_note": "Cette formulation restitue la conclusion administrative rapportée par le Gouvernement le 3 février 2026 pour les eaux conditionnées concernées. Elle ne constitue pas une garantie générale sur tous les produits, sites ou périodes. La même réponse confirme l'usage antérieur de traitements UV et au charbon actif interdits et indique que l'affaire relevait d'une tromperie du consommateur concernant l'étiquetage ; cette dernière qualification est maintenue séparément en attente d'un examen humain renforcé.",
+  "editorial_note": "Ce point doit être présenté à proximité des faits de non-conformité afin de ne pas laisser croire qu'une infraction de conformité équivaut automatiquement à un dommage sanitaire démontré.",
+  "publication_basis": "evidence_verified",
+  "published_at": "2026-10-30",
+  "publication_note": "L'affirmation rapporte précisément la conclusion exprimée par le Gouvernement dans sa réponse parlementaire, à la date de publication. Elle ne signifie ni que les traitements utilisés étaient conformes, ni qu'aucune incertitude n'a existé sur tous les sites et à toutes les périodes.",
+  "requires_human_review": false
 }

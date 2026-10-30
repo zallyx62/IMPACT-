@@ -1,0 +1,23 @@
+{
+  "id": "claim-nestle-gerber-microplastics-consumer-reports-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Dans son enquête publiée en septembre 2026, Consumer Reports rapporte 728 294 particules microplastiques par portion de 99 g pour une purée Gerber Organic Plant Protein Banana Berry and Veggie Smash avec avoine. L'enquête indique que les analyses de microplastiques portaient sur 15 purées et un jus, testés en deux à quatre lots par produit.",
+  "topic": "environment",
+  "claim_status": "confirmed",
+  "source_ids": [
+    "source-consumer-reports-baby-food-testing-2026"
+  ],
+  "evidence_ids": [
+    "evidence-consumer-reports-gerber-microplastics-2026",
+    "evidence-fda-microplastics-health-uncertainty-2026",
+    "evidence-efsa-food-contact-microplastics-2025",
+    "evidence-efsa-microplastics-risk-status-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le résultat concerne un produit Gerber et les lots testés par Consumer Reports, pas l'ensemble de la gamme. L'enquête a testé 48 produits de 11 marques pour plusieurs contaminants ; le sous-échantillon microplastiques comprenait 15 purées et un jus, avec deux à quatre lots par produit, choisis selon les contraintes du laboratoire. Consumer Reports indique ne pas avoir analysé la composition de l'emballage et évoque plusieurs sources possibles de contamination, dont les emballages et les équipements de production. La FDA a déclaré ne pas avoir examiné les méthodes, données brutes ou rapports analytiques de cette enquête. La présence de particules ne prouve pas à elle seule un risque sanitaire ; Consumer Reports précise ne pas recommander d'éviter les produits testés. Les méthodes de mesure des microplastiques ne sont pas encore standardisées. La revue de littérature de l'EFSA publiée en 2025 conclut qu'il existe des éléments montrant une libération de microplastiques lors de l'utilisation de matériaux au contact des aliments, notamment par abrasion ou frottement, mais que les quantités effectivement libérées sont bien inférieures à celles rapportées dans de nombreuses publications et que les données ne suffisent pas à estimer l'exposition. La FDA formule une réserve plus générale sur les preuves de migration depuis les emballages alimentaires ; ces synthèses ont des périmètres différents. En octobre 2026, l'EFSA indique ne pas avoir achevé son évaluation complète des risques sanitaires et prévoit son avis scientifique pour fin 2027. Ces éléments ne tranchent pas le cas précis des sachets testés.",
+  "editorial_note": "Toujours attribuer le chiffre à Consumer Reports et à son enquête de septembre 2026. Afficher le produit exact, la portion de 99 g, le sous-échantillon et les limites. Ne pas présenter le chiffre comme une moyenne sans preuve explicite. Ne pas conclure que l'emballage est la source certaine ni qu'un effet sanitaire a été démontré.",
+  "publication_basis": "evidence_verified",
+  "published_at": "2026-10-30",
+  "publication_note": "L'affirmation rapporte exclusivement le résultat publié par Consumer Reports pour un produit Gerber identifié et une portion de 99 g. Elle précise le sous-échantillon, les lots et les limites de l'enquête ; elle n'attribue pas la contamination à l'emballage et ne conclut à aucun dommage sanitaire.",
+  "requires_human_review": false
+}

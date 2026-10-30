@@ -39,6 +39,40 @@ describe("JSON Schema validation", () => {
     assert.ok(errors.some((error) => error.includes("website") && error.includes("must match pattern")));
   });
 
+  it("requires a human review date for high-risk claims", async () => {
+    const validators = await compileRecordValidators();
+    const invalid = structuredClone(valid);
+    invalid.claims[0].requires_human_review = true;
+    invalid.claims[0].reviewed_at = null;
+    const errors = validateSchemaRecords(invalid, validators);
+    assert.ok(errors.some((error) => error.includes("reviewed_at") && error.includes("must be string")));
+  });
+
+  it("allows a high-risk claim to remain pending until human review", async () => {
+    const validators = await compileRecordValidators();
+    const pending = structuredClone(valid);
+    pending.claims[0].claim_status = "not_reviewed";
+    pending.claims[0].reviewed_at = null;
+    pending.claims[0].requires_human_review = true;
+    assert.deepEqual(validateSchemaRecords(pending, validators), []);
+  });
+
+  it("requires an explicit low-risk classification for evidence-only publication", async () => {
+    const validators = await compileRecordValidators();
+    const invalid = structuredClone(valid);
+    invalid.claims[0].reviewed_at = null;
+    invalid.claims[0].publication_basis = "evidence_verified";
+    invalid.claims[0].published_at = "2026-10-30";
+    invalid.claims[0].publication_note = "The exact observation and its limits are documented.";
+    delete invalid.claims[0].requires_human_review;
+    let errors = validateSchemaRecords(invalid, validators);
+    assert.ok(errors.some((error) => error.includes("requires_human_review") && error.includes("must have required property")));
+
+    invalid.claims[0].requires_human_review = true;
+    errors = validateSchemaRecords(invalid, validators);
+    assert.ok(errors.some((error) => error.includes("requires_human_review") && error.includes("must be equal to constant")));
+  });
+
   it("requires measurement details for achieved commitments", async () => {
     const validators = await compileRecordValidators();
     const invalid = structuredClone(valid);

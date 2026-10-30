@@ -12,5 +12,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Cette formulation rapporte l'analyse de la commission d'enquête parlementaire ; elle ne constitue pas une décision judiciaire sur les intentions de l'entreprise.",
-  "editorial_note": "Toujours attribuer explicitement cette appréciation au rapport du Sénat et afficher le contexte administratif décrit dans le rapport."
+  "editorial_note": "Toujours attribuer explicitement cette appréciation au rapport du Sénat et afficher le contexte administratif décrit dans le rapport.",
+  "requires_human_review": true
 }

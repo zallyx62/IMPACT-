@@ -1,6 +1,6 @@
 # Plan de réalisation — IMPACT 0.1
 
-**But :** obtenir une première application web navigable, claire et légère, sans publier prématurément des informations factuelles sur des entreprises.
+**But :** obtenir une première application web navigable, claire et légère, avec des dossiers factuels limités aux éléments qui satisfont au seuil documentaire de la charte.
 
 ## Périmètre inclus
 
@@ -8,19 +8,19 @@
 - Interface publique en français uniquement ; aucune autre langue n'est prévue dans le périmètre actuel.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
-- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; le corpus Nestlé existe en brouillon et reste bloqué à la publication.
+- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; sept constats Nestlé sont publiés selon le seuil documentaire : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés, un sur un audit scientifique mondial de déchets plastiques de marque et un sur les chiffres de déforestation du cacao déclarés par Nestlé ; les autres sujets restent en préparation.
+- Publication possible sans validation humaine préalable lorsque la source, la méthode, les limites et la formulation sont documentées selon la charte ; examen humain renforcé pour les cas sensibles.
 - Pages explicatives de sélection pour les univers.
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
 - Manifest PWA et mise en cache de ressources statiques.
-- Chargement des données éditoriales JSON versionnées et filtrage des éléments non examinés.
+- Chargement des données éditoriales JSON versionnées ; génération avant build d'un jeu public ne contenant que les enregistrements ayant satisfait à la validation humaine ou au parcours documentaire tracé de la charte.
 - Validation des huit types d'enregistrements et de leurs références croisées.
 - Audit npm et vérification automatisée du paquet PWA.
 - Contrôle de typage, tests unitaires, tests simulés du service worker, contrôle des contrastes en thèmes clair et sombre, invariants d'interface, validation des schémas et build dans GitHub Actions.
 
 ## Hors périmètre de la version 0.1
 
-- Publication de dossiers factuels : le corpus Nestlé est en cours de vérification humaine et ne doit pas être rendu public avant validation.
 - Scanner de codes-barres.
 - Base de données de fournisseurs.
 - Notes ou comparaisons réelles d'entreprises.
@@ -39,6 +39,8 @@
 - Les tests d'intégrité, JSON Schema et règles de publication réussissent.
 - `npm audit --audit-level=high` ne signale aucune vulnérabilité.
 - `node scripts/check-data.mjs` valide les enregistrements et leurs références.
+- Le générateur de données publiques n'inclut que les enregistrements ayant passé l'un des deux parcours de publication définis dans la charte.
+- Les tests vérifient les références du jeu public et l'absence de tout identifiant de dossier exclu dans le bundle de production.
 - Le contrôle PWA vérifie les fichiers générés après le build.
 - `npm run build` réussit.
 - Les six univers s'affichent et sont sélectionnables.
@@ -73,4 +75,4 @@
 - Les hébergeurs statiques peuvent enregistrer des métadonnées de connexion.
 - Une PWA peut avoir des différences de comportement selon les navigateurs.
 - Le corpus éditorial contient des brouillons non publiés ; chaque source et affirmation doit être vérifiée par une personne.
-- Android et F-Droid ne sont pas encore construits ; une PWA ne constitue pas à elle seule une soumission F-Droid.
+- Un wrapper Android de test existe et les APK debug/release non signées ont été compilées en CI ; les tests multi-appareils, la signature et la publication F-Droid restent à réaliser. Une PWA ou un simple wrapper WebView ne suffit pas à lui seul pour une soumission F-Droid.
