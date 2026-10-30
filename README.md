@@ -46,6 +46,7 @@ Le prototype propose une interface en anglais par défaut et en français, un s�
 
 - [Stratégie de langues et traductions](docs/LOCALIZATION.md)
 - [Préparation Android et F-Droid](docs/ANDROID_FDROID.md)
+- [Politique de mises à jour Android](docs/ANDROID_UPDATES.md)
 - [Projet Android et instructions de compilation](android/README.md)
 
 - [Architecture technique](docs/ARCHITECTURE.md)
