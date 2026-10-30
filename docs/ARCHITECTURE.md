@@ -149,7 +149,7 @@ Les contrôles automatisés exécutés dans GitHub Actions (y compris les change
 4. exécuter les tests de recherche ;
 5. tester l'intégrité des références et la validation JSON Schema ;
 6. tester les règles de publication des dossiers ;
-7. simuler le service worker et contrôler le contraste des textes ;
+7. simuler le service worker, vérifier les invariants d'interface et contrôler les contrastes en thèmes clair et sombre ;
 8. construire les fichiers de production ;
 9. vérifier le paquet PWA généré, les schémas et les références de données.
 
