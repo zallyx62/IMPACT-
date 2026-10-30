@@ -1,0 +1,19 @@
+{
+  "id": "claim-shein-emissions-climate-targets-2025",
+  "subject_entity_id": "shein",
+  "statement": "Dans son Corporate Climate Responsibility Monitor 2025, le NewClimate Institute estime que les émissions de SHEIN ont plus que triplé entre 2021 et 2024 et que ses objectifs 2030 ne sont pas alignés sur une trajectoire compatible avec l'Accord de Paris.",
+  "topic": "climate",
+  "claim_status": "not_reviewed",
+  "valid_from": "2021-01-01",
+  "valid_until": "2025-06-01",
+  "source_ids": [
+    "source-newclimate-shein-climate-2025",
+    "source-shein-sustainability-2024"
+  ],
+  "evidence_ids": [
+    "evidence-shein-emissions-climate-targets-2025"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "L'évolution des émissions s'appuie sur les données publiées par SHEIN et l'analyse de NewClimate Institute. Le jugement d'alignement climatique est une évaluation de l'institut, pas une décision réglementaire ou judiciaire.",
+  "editorial_note": "Présenter la conclusion comme l'évaluation de NewClimate Institute et indiquer la période 2021-2024. Ne pas confondre émissions absolues, intensité carbone et projections."
+}
