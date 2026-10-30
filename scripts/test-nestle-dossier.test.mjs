@@ -113,7 +113,7 @@ describe("Nestlé dossier editorial gate", () => {
     assert.equal(entity.status, "published");
     assert.equal(entity.reviewed_at, null);
     assert.equal(entity.publication_basis, "evidence_verified");
-    assert.deepEqual(entity.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026", "source-consumer-reports-baby-food-testing-2026", "source-senat-2025-enquete-eaux-minerales", "source-assemblee-nationale-2026-eaux-nestle", "source-justice-2024-cjipe-nestle", "source-nestle-2024-reponse-cjipe", "source-science-advances-plastic-brand-audit-2024", "source-nestle-plastic-pollution-response-2024"]);
+    assert.deepEqual(entity.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026", "source-consumer-reports-baby-food-testing-2026", "source-senat-2025-enquete-eaux-minerales", "source-assemblee-nationale-2026-eaux-nestle", "source-justice-2024-cjipe-nestle", "source-nestle-2024-reponse-cjipe", "source-science-advances-plastic-brand-audit-2024", "source-nestle-plastic-pollution-response-2024", "source-nestle-deforestation-supply-chains-2025"]);
     const evidenceVerifiedSourceIds = [
       "source-greenpeace-baby-food-plastic-pouches-2026",
       "source-fda-microplastics-food-guidance-2026",
@@ -127,13 +127,14 @@ describe("Nestlé dossier editorial gate", () => {
       "source-nestle-2024-reponse-cjipe",
       "source-science-advances-plastic-brand-audit-2024",
       "source-nestle-plastic-pollution-response-2024",
+      "source-nestle-deforestation-supply-chains-2025",
     ];
     assert.ok(sources.filter((source) => evidenceVerifiedSourceIds.includes(source.id)).every((source) => source.review_status === "evidence_verified"));
     assert.ok(sources.filter((source) => !evidenceVerifiedSourceIds.includes(source.id)).every((source) => source.review_status === "to_review"));
     const greenpeaceClaim = claims.find((claim) => claim.id === "claim-nestle-baby-food-plastic-pouches-2025");
     assert.equal(greenpeaceClaim.publication_basis, "evidence_verified");
     assert.equal(greenpeaceClaim.reviewed_at, null);
-    const publishedClaimIds = new Set([greenpeaceClaim.id, "claim-nestle-gerber-microplastics-consumer-reports-2026", "claim-nestle-water-treatments", "claim-nestle-water-cjipe", "claim-nestle-water-health-finding", "claim-nestle-branded-plastic-audit-2024"]);
+    const publishedClaimIds = new Set([greenpeaceClaim.id, "claim-nestle-gerber-microplastics-consumer-reports-2026", "claim-nestle-water-treatments", "claim-nestle-water-cjipe", "claim-nestle-water-health-finding", "claim-nestle-branded-plastic-audit-2024", "claim-nestle-cocoa-deforestation-2025"]);
     assert.ok(claims.filter((claim) => !publishedClaimIds.has(claim.id)).every((claim) => claim.reviewed_at === null));
     assert.ok(claims.filter((claim) => !publishedClaimIds.has(claim.id)).every((claim) => claim.claim_status === "not_reviewed"));
     assert.ok(claims.filter((claim) => publishedClaimIds.has(claim.id)).every((claim) => claim.requires_human_review === false));
@@ -239,6 +240,22 @@ describe("Nestlé dossier editorial gate", () => {
       assert.ok(sourceIds.has(response.source_id));
     }
   });
+  it("publishes Nestlé's cocoa deforestation figure only as company-reported data", async () => {
+    const source = await readRecord("sources", "source-nestle-deforestation-supply-chains-2025");
+    const claim = await readRecord("claims", "claim-nestle-cocoa-deforestation-2025");
+    const evidence = await readRecord("evidence", "evidence-nestle-cocoa-deforestation-2025");
+    assert.equal(source.review_status, "evidence_verified");
+    assert.equal(source.verification_method, "official_record_check");
+    assert.equal(claim.claim_status, "confirmed");
+    assert.equal(claim.publication_basis, "evidence_verified");
+    assert.equal(claim.requires_human_review, false);
+    assert.match(claim.statement, /91,7 %/);
+    assert.match(claim.statement, /8,3 % du volume de cacao reste classé comme inconnu/);
+    assert.match(claim.uncertainty_note, /ne prouve pas que ces volumes proviennent de zones déforestées/);
+    assert.match(claim.uncertainty_note, /modifiée au premier semestre 2026/);
+    assert.ok(claim.evidence_ids.includes(evidence.id));
+  });
+
   it("publishes the peer-reviewed global plastic brand-audit result with its denominator", async () => {
     const source = await readRecord("sources", "source-science-advances-plastic-brand-audit-2024");
     const claim = await readRecord("claims", "claim-nestle-branded-plastic-audit-2024");
