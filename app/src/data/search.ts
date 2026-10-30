@@ -62,7 +62,7 @@ export function searchableEntityText(
   entity: { name: string; entity_type: string; description?: string },
   dossier?: SearchableDossier,
 ): string {
-  if (!dossier) return normalizeSearch([entity.name, entity.description ?? "", entity.entity_type].join(" "));
+  if (!dossier) return normalizeSearch([entity.name, entity.description ?? "", entity.entity_type, searchAliases[entity.entity_type] ?? ""].join(" "));
 
   return normalizeSearch([
     entity.name,
