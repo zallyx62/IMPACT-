@@ -3,7 +3,7 @@
   "subject_entity_id": "nestle",
   "statement": "Dans sa réponse publiée le 3 février 2026, le Gouvernement indique qu'aucun risque sanitaire n'a été constaté pour les consommateurs des eaux conditionnées concernées par cette affaire.",
   "topic": "business_consumption",
-  "claim_status": "confirmed",
+  "claim_status": "not_reviewed",
   "source_ids": [
     "source-assemblee-nationale-2026-eaux-nestle",
     "source-justice-2024-cjipe-nestle"
