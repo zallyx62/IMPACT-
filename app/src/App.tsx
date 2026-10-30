@@ -134,7 +134,7 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
   return (
     <section className="comparison-tool" aria-labelledby="comparison-title">
       <div className="comparison-intro">
-        <h3 id="comparison-title">Comparer les dossiers publiés</h3>
+        <h3 id="comparison-title">Comparer la documentation des dossiers publiés</h3>
         <p>Cette comparaison mesure uniquement la documentation disponible dans IMPACT. Elle ne classe pas les organisations et ne mesure pas directement leurs impacts réels.</p>
       </div>
       {availableEntities.length < 2 ? (
