@@ -15,8 +15,8 @@ assert.match(app, /id="theme-select"/);
 assert.ok(app.includes("useState<Theme>(getInitialTheme)"));
 assert.ok(app.includes("document.documentElement.dataset.theme = theme"));
 assert.ok(app.includes('localStorage.setItem("impact-theme", theme)'));
-assert.ok(privacy.includes("impact-theme") && privacy.includes("jamais transmise à IMPACT"),
-  "the locally stored theme preference must be disclosed in the privacy policy");
+assert.ok(privacy.includes("impact-theme") && privacy.includes("impact-accent") && /jamais transmises à IMPACT/.test(privacy),
+  "the locally stored theme and accent preferences must be disclosed in the privacy policy");
 assert.match(app, /useState<Language>\("en"\)/, "English must be the default language for new sessions");
 assert.match(app, /<option value="fr">Français<\/option>/);
 assert.match(app, /<option value="en">English<\/option>/);
