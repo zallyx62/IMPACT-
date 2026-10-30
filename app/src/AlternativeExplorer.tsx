@@ -55,7 +55,7 @@ export default function AlternativeExplorer({
               )}
               <p className="alternative-sources"><strong>Sources :</strong> {item.sourceTitles.join(" · ")}</p>
               <div className="alternative-actions">
-                <button type="button" onClick={() => onOpen(item.alternativeName === "" ? item.relationship.from_entity_id : item.relationship.from_entity_id)}>Voir le dossier de l’alternative</button>
+                <button type="button" onClick={() => onOpen(item.relationship.from_entity_id)}>Voir le dossier de l’alternative</button>
                 <button type="button" onClick={() => onOpen(item.relationship.to_entity_id)}>Voir le dossier de référence</button>
               </div>
             </article>
