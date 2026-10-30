@@ -54,6 +54,14 @@ export function validateCollections(collections) {
     }
   }
 
+  function validateDateRange(from, record, startField, endField) {
+    const start = record[startField];
+    const end = record[endField];
+    if (typeof start === "string" && typeof end === "string" && start > end) {
+      errors.push(`${from}/${record.id}: "${startField}" must not be later than "${endField}"`);
+    }
+  }
+
   for (const record of collections.entities ?? []) {
     requireReference("entities", record, "source_ids", "sources", { array: true, nonEmpty: true });
   }
@@ -62,6 +70,7 @@ export function validateCollections(collections) {
     requireReference("claims", record, "subject_entity_id", "entities");
     requireReference("claims", record, "source_ids", "sources", { array: true, nonEmpty: true });
     requireReference("claims", record, "evidence_ids", "evidence", { array: true, optional: true });
+    validateDateRange("claims", record, "valid_from", "valid_until");
   }
 
   for (const record of collections.evidence ?? []) {
@@ -74,6 +83,10 @@ export function validateCollections(collections) {
     requireReference("relationships", record, "from_entity_id", "entities");
     requireReference("relationships", record, "to_entity_id", "entities");
     requireReference("relationships", record, "source_ids", "sources", { array: true, nonEmpty: true });
+    if (record.from_entity_id === record.to_entity_id) {
+      errors.push(`relationships/${record.id}: an entity cannot have a relationship with itself`);
+    }
+    validateDateRange("relationships", record, "valid_from", "valid_until");
   }
 
   for (const record of collections.campaigns ?? []) {
@@ -82,6 +95,7 @@ export function validateCollections(collections) {
     requireReference("campaigns", record, "claim_ids", "claims", { array: true, optional: true });
     requireReference("campaigns", record, "response_ids", "responses", { array: true, optional: true });
     requireReference("campaigns", record, "source_ids", "sources", { array: true, nonEmpty: true });
+    validateDateRange("campaigns", record, "started_at", "ended_at");
   }
 
   for (const record of collections.responses ?? []) {
