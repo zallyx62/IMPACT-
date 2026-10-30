@@ -1,0 +1,12 @@
+{
+  "id": "response-nestle-baby-food-microplastics-2026",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-baby-food-microplastics-2026"
+  ],
+  "published_at": null,
+  "source_id": "source-nestle-baby-food-plastic-packaging-response-2026",
+  "summary": "Dans sa page officielle consacrée aux emballages plastiques des aliments pour bébés, Nestlé dit prendre au sérieux les préoccupations soulevées par les rapports sur les microplastiques. L'entreprise affirme que ses produits sont sûrs et conformes aux réglementations applicables, met en avant ses contrôles de fabrication et sa veille scientifique, et explique que les emballages plastiques alimentaires contribuent à protéger la sécurité et la qualité des aliments et à prévenir le gaspillage. Cette page présente la position de Nestlé ; elle ne publie pas de résultats analytiques propres aux trois sachets Gerber étudiés par SINTEF Ocean.",
+  "full_response_url": "https://www.nestle.com/ask-nestle/environment/answers/baby-food-plastic-packaging",
+  "publication_status": "published"
+}
