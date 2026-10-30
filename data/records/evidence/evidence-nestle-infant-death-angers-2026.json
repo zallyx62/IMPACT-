@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-infant-death-angers-2026",
+  "source_id": "source-afp-angers-infant-death-cereulide-2026",
+  "locator": "Dépêche AFP du 6 mai 2026, déclaration du procureur d'Angers",
+  "summary": "Le procureur d'Angers a déclaré que le lien entre le lait Guigoz rappelé et le décès de la fillette de 27 jours était écarté ; les dernières analyses orientaient l'enquête vers une asphyxie.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-deaths-no-causal-link-2026"
+  ],
+  "limitations": "Dépêche rapportant la position du parquet au 6 mai 2026 ; elle ne constitue pas une décision judiciaire définitive sur les autres dossiers de rappel."
+}
