@@ -66,7 +66,7 @@ Le prototype propose une interface bilingue, une recherche locale, un lecteur de
 
 ## Développement
 
-Consultez [app/README.md](app/README.md) pour démarrer le prototype. Le workflow GitHub Actions exécute `npm ci`, l'audit des dépendances, le typage, les tests de recherche, les contrôles de données et de publication, les tests simulés du service worker, le contrôle de contraste, le build et la vérification du paquet PWA.
+Consultez [app/README.md](app/README.md) pour démarrer le prototype. Le workflow GitHub Actions exécute `npm ci`, l'audit des dépendances, le typage, les tests de recherche, les contrôles de données et de publication, les tests simulés du service worker, les contrôles d'interface et de contraste clair/sombre, le build et la vérification du paquet PWA.
 
 Ces contrôles ne remplacent pas une revue humaine de l'accessibilité, de la sécurité, de la confidentialité et du contenu éditorial.
 
