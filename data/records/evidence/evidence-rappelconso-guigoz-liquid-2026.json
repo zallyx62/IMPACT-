@@ -1,0 +1,10 @@
+{
+  "id": "evidence-rappelconso-guigoz-liquid-2026",
+  "source_id": "source-rappelconso-guigoz-liquid-2026",
+  "locator": "Fiche 2026-01-0041 version 1, publiée le 6 janvier 2026 ; sections identification des produits et consignes",
+  "summary": "RappelConso identifie le lait infantile liquide GUIGOZ 1 ESNWLP209-1, GTIN 8445291179585, lot 53180295M, DDM 30 novembre 2026, en conditionnement 6 × 230 ml. La commercialisation est indiquée du 16 mai 2025 au 6 janvier 2026 dans plusieurs régions françaises. Le motif est la présence potentielle de céréulide liée à une huile ARA provenant d'un fournisseur.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-formula-recall-cereulide-2026"
+  ],
+  "limitations": "Un seul lot est indiqué dans cette fiche. Ne pas extrapoler à l'ensemble des laits liquides Guigoz."
+}
