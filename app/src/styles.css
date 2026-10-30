@@ -579,3 +579,49 @@ button:active { transform: translateY(0) scale(.99); }
 :root[data-theme="dark"] .tool-card:hover,
 :root[data-theme="dark"] .dossier-card:hover,
 :root[data-theme="dark"] .result-item:hover { box-shadow: var(--shadow-raised); }
+
+
+/* Editorial method — distinct from the privacy section. */
+.editorial-method { padding-top: 1.5rem; }
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+.method-card {
+  min-height: 178px;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+.method-card > span {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--paper-soft);
+  color: var(--green);
+  font-size: .72rem;
+  font-weight: 850;
+  letter-spacing: .04em;
+}
+.method-card h3 {
+  margin: 1rem 0 .45rem;
+  color: var(--ink);
+  font-size: 1rem;
+  letter-spacing: -.02em;
+}
+.method-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .method-grid { grid-template-columns: 1fr; gap: .75rem; }
+  .method-card { min-height: 0; padding: 1.15rem; }
+}
