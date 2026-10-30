@@ -115,6 +115,16 @@ export const tools: CatalogItem[] = [
     keywords: ["historique", "engagement", "promesse", "résultat", "history", "commitment", "promise", "outcome"]
   },
   {
+    id: "alternatives", number: "A7", mark: "07",
+    title: { fr: "Alternatives documentées", en: "Documented alternatives" },
+    description: { fr: "Trouver des options reliées à des preuves et à un usage précis.", en: "Find options linked to evidence and a specific use." },
+    detail: {
+      fr: "Les alternatives sont reliées à une entité de référence par une relation sourcée. Leur présence ne signifie pas qu'elles sont automatiquement meilleures : le critère de substitution, le périmètre et les limites doivent être explicités.",
+      en: "Alternatives are linked to a reference entity through a sourced relationship. Their presence does not automatically mean they are better: the substitution criterion, scope and limitations must be explicit."
+    },
+    keywords: ["alternative", "remplacement", "substitut", "produit", "alternative", "replacement", "substitute", "product"]
+  },
+  {
     id: "participate", number: "A5", mark: "05",
     title: { fr: "Contribution citoyenne", en: "Citizen contributions" },
     description: { fr: "Proposer une source ou une correction, examinée par un humain.", en: "Suggest a source or correction for human review." },
