@@ -3,6 +3,7 @@ import { tools, universes, type CatalogItem, type Language } from "./data/catalo
 import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } from "./data/search";
 import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import DossierPanel from "./DossierPanel";
+import EvidenceCentre from "./EvidenceCentre";
 import { parseSelectionHash, type Selection } from "./data/hash-route";
 type Theme = "light" | "dark";
 type Accent = "green" | "blue" | "violet" | "orange" | "rose";
@@ -305,10 +306,14 @@ function App() {
               <div><p className="section-kicker">{t.selected}</p><h2 id="selected-title">{chosen.title[language]}</h2></div>
             </div>
             <p className="selected-description">{chosen.detail[language]}</p>
-            <div className="preparation-note">
-              <span className="note-dot" aria-hidden="true" />
-              <div><strong>{t.inPrep}</strong><p>{t.prepText}</p></div>
-            </div>
+            {chosen.type === "tool" && chosen.id === "evidence" ? (
+              <EvidenceCentre entities={publishedEntities} />
+            ) : (
+              <div className="preparation-note">
+                <span className="note-dot" aria-hidden="true" />
+                <div><strong>{t.inPrep}</strong><p>{t.prepText}</p></div>
+              </div>
+            )}
           </section>
         )}
 
