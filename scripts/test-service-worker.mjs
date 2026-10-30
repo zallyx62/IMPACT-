@@ -88,10 +88,10 @@ const initialHtml = '<html><head><link rel="stylesheet" href="./assets/app.css">
 networkFetch = async (url) => url === "/app/" ? response(initialHtml) : response(`network:${url}`);
 await dispatch("install", lifecycleEvent());
 assert.equal(skipWaitingCalled, true, "install activates the new worker");
-assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/"), "install precaches the app shell");
-assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/manifest.webmanifest"), "install precaches the manifest");
-assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/assets/app.js"), "install precaches the JavaScript bundle");
-assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/assets/app.css"), "install precaches the CSS bundle");
+assert.ok(stores.get("impact-shell-v0.5").has("https://example.test/app/"), "install precaches the app shell");
+assert.ok(stores.get("impact-shell-v0.5").has("https://example.test/app/manifest.webmanifest"), "install precaches the manifest");
+assert.ok(stores.get("impact-shell-v0.5").has("https://example.test/app/assets/app.js"), "install precaches the JavaScript bundle");
+assert.ok(stores.get("impact-shell-v0.5").has("https://example.test/app/assets/app.css"), "install precaches the CSS bundle");
 console.log("PASS first install precaches the shell and built assets");
 
 stores.set("impact-shell-v0.1", new Map());
