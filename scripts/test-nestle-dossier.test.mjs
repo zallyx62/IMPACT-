@@ -29,6 +29,8 @@ describe("Nestlé dossier editorial gate", () => {
       "source-greenpeace-baby-food-plastic-pouches-2026",
       "source-nestle-baby-food-plastic-packaging-response-2026",
       "source-fda-microplastics-food-guidance-2026",
+      "source-nestle-baby-food-plastic-packaging-response-2026",
+      "source-fda-microplastics-food-guidance-2026",
       "source-science-advances-plastic-brand-audit-2024",
       "source-bffp-asian-plastic-sachet-audit-2024",
       "source-nestle-packaging-progress-2025",
@@ -130,6 +132,8 @@ describe("Nestlé dossier editorial gate", () => {
       "source-nestle-plastic-pollution-response-2024",
       "source-nestle-deforestation-supply-chains-2025",
       "source-global-witness-liberia-cocoa-deforestation-2025",
+      "source-nestle-baby-food-plastic-packaging-response-2026",
+      "source-fda-microplastics-food-guidance-2026",
     ]);
     const claimIds = [
       "claim-nestle-water-treatments",
@@ -170,6 +174,7 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-bms-policy-gaps",
       "evidence-nestle-baby-food-added-sugar",
       "evidence-nestle-baby-food-microplastics-2026",
+      "evidence-fda-microplastics-health-uncertainty-2026",
       "evidence-nestle-cocoa-cameroon-child-labor",
       "evidence-nestle-cocoa-cameroon-forced-labor-risk",
       "evidence-nestle-bms-marketing-company-count-2024",
@@ -187,7 +192,7 @@ describe("Nestlé dossier editorial gate", () => {
       assert.ok(claim.evidence_ids.length > 0);
       assert.ok(claim.evidence_ids.every((id) => evidenceIds.has(id)));
     }
-    const responseIds = ["response-nestle-water-cjipe", "response-nestle-bms-policy", "response-nestle-baby-food-sugar", "response-nestle-cocoa-plan", "response-nestle-bms-marketing-2024", "response-nestle-plastic-pollution-2024", "response-nestle-liberia-cocoa-deforestation-2025"];
+    const responseIds = ["response-nestle-water-cjipe", "response-nestle-bms-policy", "response-nestle-baby-food-sugar", "response-nestle-cocoa-plan", "response-nestle-bms-marketing-2024", "response-nestle-plastic-pollution-2024", "response-nestle-liberia-cocoa-deforestation-2025", "response-nestle-baby-food-microplastics-2026"];
     const responses = await Promise.all(responseIds.map((id) => readRecord("responses", id)));
     for (const response of responses) {
       assert.ok(response.related_claim_ids.every((id) => claimIds.includes(id)));
