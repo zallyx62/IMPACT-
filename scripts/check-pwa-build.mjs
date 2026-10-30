@@ -62,7 +62,7 @@ const javascriptBundles = await Promise.all(
 const bundleText = javascriptBundles.join("\n");
 
 const generatedSource = await readFile(new URL("../app/src/data/public-records.generated.ts", import.meta.url), "utf8");
-const generatedMatch = /export const publicRecords = (\\{[\\s\\S]*\\});\\s*$/.exec(generatedSource);
+const generatedMatch = /export const publicRecords = (\{[\s\S]*\});\s*$/.exec(generatedSource);
 assert.ok(generatedMatch, "filtered public editorial data module is missing or malformed");
 const publicRecords = JSON.parse(generatedMatch[1]);
 for (const collection of [
