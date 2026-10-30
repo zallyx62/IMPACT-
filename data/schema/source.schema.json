@@ -94,8 +94,48 @@
         "to_review",
         "reviewed",
         "disputed",
-        "unavailable"
+        "unavailable",
+        "evidence_verified"
       ]
+    },
+    "verification_method": {
+      "type": "string",
+      "enum": [
+        "primary_document_review",
+        "independent_corroboration",
+        "official_record_check",
+        "peer_reviewed_research"
+      ]
+    },
+    "verified_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "verification_note": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 2000
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "review_status": {
+            "const": "evidence_verified"
+          }
+        },
+        "required": [
+          "review_status"
+        ]
+      },
+      "then": {
+        "required": [
+          "verification_method",
+          "verified_at",
+          "verification_note"
+        ]
+      }
+    }
+  ]
 }
