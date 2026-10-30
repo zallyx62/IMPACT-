@@ -1,0 +1,11 @@
+{
+  "id": "response-nestle-baby-food-sugar",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-baby-food-added-sugar"
+  ],
+  "summary": "Dans sa réponse écrite de 2025, Nestlé conteste l'interprétation des résultats de Public Eye et IBFAN. L'entreprise affirme que l'enquête mélange différentes sources de sucres présentes dans les céréales, le lait et les fruits avec les sucres raffinés ajoutés ; elle indique appliquer un seuil mondial pour les sucres ajoutés et respecter les normes locales et internationales. Cette réponse est la position de l'entreprise et ne remplace pas l'examen indépendant des échantillons et des méthodes.",
+  "source_id": "source-nestle-sugar-response-2025",
+  "full_response_url": "https://www.nestle.com/sites/default/files/2025-11/nestle-response-civil-society-organizations.pdf",
+  "publication_status": "published"
+}
