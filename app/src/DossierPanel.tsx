@@ -1,5 +1,7 @@
+import { useEffect, useRef, useState } from "react";
 import { getPublishedEntities, type EntityDossier, type Language, type SourceRecord } from "./data/records";
 import { safeExternalUrl } from "./data/safe-url";
+import { buildDossierShareUrl } from "./data/share-url";
 
 interface Props {
   dossier: EntityDossier;
@@ -10,6 +12,7 @@ interface Props {
 const labels = {
   fr: {
     back: "Retour à l’accueil",
+    share: "Partager le dossier", copied: "Lien copié", copyFailed: "Copie impossible : utilisez la barre d’adresse.", shareUnavailable: "Partage indisponible sur cet appareil.",
     label: "DOSSIER DOCUMENTÉ",
     reviewed: "Dernière vérification humaine", notReviewed: "Sans validation humaine", evidenceBasis: "Publication fondée sur les preuves", publicationNote: "Périmètre de publication", sourceVerification: "Contrôle documentaire", verifiedOn: "Vérifié le",
     claims: "Affirmations publiées",
@@ -39,6 +42,7 @@ const labels = {
   },
   en: {
     back: "Back to home",
+    share: "Share dossier", copied: "Link copied", copyFailed: "Could not copy: use the address bar.", shareUnavailable: "Sharing is unavailable on this device.",
     label: "DOCUMENTED DOSSIER",
     reviewed: "Last human review", notReviewed: "No human approval", evidenceBasis: "Published under evidence criteria", publicationNote: "Publication scope", sourceVerification: "Documentary check", verifiedOn: "Verified on",
     claims: "Published claims",
@@ -104,10 +108,43 @@ function dateLabel(value: string, language: Language) {
 
 export default function DossierPanel({ dossier, language, onBack }: Props) {
   const t = labels[language];
+  const [shareMessage, setShareMessage] = useState("");
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    titleRef.current?.focus();
+  }, [dossier.entity.id]);
   const sourceById = new Map(dossier.sources.map((source) => [source.id, source]));
   const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
   const entityWebsite = safeExternalUrl(dossier.entity.website);
+
+  async function shareDossier() {
+    const shareUrl = buildDossierShareUrl(window.location.href, dossier.entity.id);
+    try {
+      if (typeof navigator.share === "function") {
+        await navigator.share({ title: `IMPACT — ${dossier.entity.name}`, url: shareUrl });
+        setShareMessage("");
+        return;
+      }
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+        setShareMessage(t.copied);
+        return;
+      }
+      setShareMessage(t.shareUnavailable);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(shareUrl);
+          setShareMessage(t.copied);
+          return;
+        }
+      } catch { /* Clipboard access can be blocked by the browser. */ }
+      setShareMessage(t.shareUnavailable);
+    }
+  }
   const entitySources = dossier.sources.filter((source) => dossier.entity.source_ids.includes(source.id));
   const sourceReference = (sourceId: string) => {
     const source = sourceById.get(sourceId);
@@ -151,10 +188,14 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
 
   return (
     <section className="dossier-panel" aria-labelledby="dossier-title">
-      <button className="back-button" type="button" onClick={onBack}>← {t.back}</button>
+      <div className="dossier-actions">
+        <button className="back-button" type="button" onClick={onBack}>← {t.back}</button>
+        <button className="share-button" type="button" onClick={shareDossier}>{t.share}</button>
+        <span className="share-status" role="status" aria-live="polite">{shareMessage}</span>
+      </div>
       <header className="dossier-header">
         <p className="section-kicker">{t.label}</p>
-        <h2 id="dossier-title">{dossier.entity.name}</h2>
+        <h2 id="dossier-title" ref={titleRef} tabIndex={-1}>{dossier.entity.name}</h2>
         <p>{dossier.entity.description || t.noDescription}</p>
         <div className="dossier-meta">
           <span>{t.type} : {displayValue("entityType", dossier.entity.entity_type, language)}</span>

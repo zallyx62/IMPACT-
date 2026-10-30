@@ -79,8 +79,8 @@ export const tools: CatalogItem[] = [
     title: { fr: "Centre de preuves", en: "Evidence centre" },
     description: { fr: "Sources, dates, limites et corrections accessibles.", en: "Accessible sources, dates, limitations and corrections." },
     detail: {
-      fr: "La future fiche séparera une affirmation de ses sources et des éléments précis qui l'étayent ou la contredisent. Elle exposera aussi les inconnues et la date de dernière vérification.",
-      en: "A future record will separate a claim from its sources and the specific evidence supporting or contradicting it. It will also show unknowns and the last review date."
+      fr: "Consultez les preuves publiées, recherchez dans leurs sources et filtrez les éléments favorables, contradictoires, mixtes ou contextuels. Chaque élément conserve son périmètre et ses limites.",
+      en: "Browse published evidence, search its sources and filter supporting, contradicting, mixed or contextual items. Each item retains its scope and limitations."
     },
     keywords: ["preuve", "source", "correction", "fiabilité", "evidence", "source", "correction", "reliability"]
   },
@@ -89,18 +89,18 @@ export const tools: CatalogItem[] = [
     title: { fr: "Carte des acteurs", en: "Actor map" },
     description: { fr: "Liens entre groupes, marques et fournisseurs.", en: "Links between corporate groups, brands and suppliers." },
     detail: {
-      fr: "Les liens seront typés, datés et reliés à des sources. Une relation de fourniture ne sera jamais présentée comme une relation de propriété.",
+      fr: "Explorez les relations publiées entre entités, avec leur type, leur état de connaissance, leur période éventuelle et leurs sources. Une relation de fourniture n’est jamais présentée comme une relation de propriété.",
       en: "Relationships will be typed, dated and linked to sources. A supplier relationship will never be presented as an ownership relationship."
     },
     keywords: ["carte", "groupe", "marque", "filiale", "fournisseur", "map", "group", "brand", "subsidiary", "supplier"]
   },
   {
     id: "compare", number: "A3", mark: "03",
-    title: { fr: "Comparateur multicritère", en: "Multi-criteria comparison" },
-    description: { fr: "Comparer des choix sans note morale simplificatrice.", en: "Compare choices without a simplistic moral score." },
+    title: { fr: "Comparateur documentaire", en: "Documentation comparison" },
+    description: { fr: "Comparer les informations documentées sans note morale.", en: "Compare documented information without moral scoring." },
     detail: {
-      fr: "Les comparaisons expliqueront leurs critères, leur unité, leur période et leurs hypothèses. Les données manquantes resteront visibles au lieu d'être remplacées par des estimations non vérifiées.",
-      en: "Comparisons will explain their criteria, units, time period and assumptions. Missing data will stay visible instead of being replaced with unverified estimates."
+      fr: "Comparez les volumes de documentation disponibles dans les dossiers publiés : affirmations, sources vérifiées, preuves, engagements, réponses et relations. Ces chiffres ne mesurent ni la valeur morale d’une organisation ni son impact réel.",
+      en: "Compare the documentation available in published dossiers: claims, verified sources, evidence, commitments, responses and relationships. These counts do not measure an organisation's moral worth or actual impact."
     },
     keywords: ["comparateur", "coût", "impact", "alternative", "compare", "cost", "impact", "alternative"]
   },
@@ -109,7 +109,7 @@ export const tools: CatalogItem[] = [
     title: { fr: "Observatoire des engagements", en: "Commitment tracker" },
     description: { fr: "Promesses, échéances et résultats documentés.", en: "Promises, deadlines and documented results." },
     detail: {
-      fr: "Les engagements seront séparés des résultats effectivement mesurés. Une promesse annoncée ne sera pas considérée comme réalisée sans éléments justificatifs.",
+      fr: "Retrouvez les engagements publiés, leurs échéances, leur état, les résultats observés et les méthodes de mesure lorsqu’elles existent. Une promesse annoncée n’est jamais considérée comme réalisée sans éléments justificatifs.",
       en: "Commitments will be kept separate from measured results. An announced promise will not be treated as achieved without supporting evidence."
     },
     keywords: ["historique", "engagement", "promesse", "résultat", "history", "commitment", "promise", "outcome"]
@@ -119,7 +119,7 @@ export const tools: CatalogItem[] = [
     title: { fr: "Contribution citoyenne", en: "Citizen contributions" },
     description: { fr: "Proposer une source ou une correction, examinée par un humain.", en: "Suggest a source or correction for human review." },
     detail: {
-      fr: "Les contributions ne seront pas publiées automatiquement. Un processus éditorial devra contrôler les sources, le contexte, les risques et les conflits d'intérêts avant intégration.",
+      fr: "Préparez une proposition de source ou de correction directement sur votre appareil, puis transmettez-la vous-même. Rien n’est envoyé ni publié automatiquement ; chaque proposition doit être examinée selon la charte éditoriale.",
       en: "Contributions will not be published automatically. An editorial process must review sources, context, risks and conflicts of interest before acceptance."
     },
     keywords: ["contribution", "citoyen", "correction", "communauté", "contribution", "citizen", "correction", "community"]
