@@ -42,6 +42,7 @@ node --test scripts/test-data-integrity.test.mjs
 node --test scripts/test-schema-validation.test.mjs
 node --test scripts/test-dossier-publication.test.mjs
 node scripts/check-contrast.mjs
+node scripts/check-ui-invariants.mjs
 node scripts/check-pwa-build.mjs
 node scripts/check-schemas.mjs
 node scripts/check-data.mjs
