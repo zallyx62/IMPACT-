@@ -806,3 +806,21 @@ button:active { transform: translateY(0) scale(.99); }
 .universe-dossier-metrics span{padding:.25rem .45rem;border-radius:999px;background:var(--paper-soft);color:var(--muted);font-size:.68rem;font-weight:700;white-space:nowrap}
 .universe-dossier-arrow{color:var(--green);font-weight:900}
 @media(max-width:680px){.universe-dossier-item{grid-template-columns:minmax(0,1fr) auto}.universe-dossier-metrics{grid-column:1/-1;justify-content:flex-start;grid-row:2}.universe-dossier-arrow{grid-column:2;grid-row:1}}
+
+
+/* Local solution workshop — drafts never leave the current page. */
+.solution-workshop{margin-top:1.5rem;padding:clamp(1rem,3vw,1.5rem);border:1px solid var(--line);border-radius:22px;background:var(--paper);box-shadow:var(--shadow-soft)}
+.solution-workshop-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.solution-workshop-heading h3{margin:0;color:var(--ink);font-size:1.15rem}
+.solution-workshop-heading p{margin:.45rem 0 0;color:var(--muted);font-size:.84rem;line-height:1.65}
+.solution-local-label{flex:0 0 auto;padding:.35rem .6rem;border-radius:999px;background:var(--paper-soft);color:var(--green);font-size:.72rem;font-weight:800}
+.solution-form{display:grid;gap:.5rem;margin-top:1rem}
+.solution-form label,.solution-output label{margin-top:.4rem;color:var(--ink);font-size:.8rem;font-weight:750}
+.solution-form textarea,.solution-output textarea{width:100%;min-height:44px;padding:.7rem .8rem;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);font:inherit;line-height:1.55;resize:vertical}
+.solution-form textarea:focus-visible,.solution-output textarea:focus-visible{outline:3px solid rgba(18,102,79,.2);outline-offset:2px;border-color:var(--green)}
+.solution-prepare{justify-self:start;min-height:42px;margin-top:.5rem;padding:.65rem 1rem;border:0;border-radius:999px;background:var(--green);color:white;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
+.solution-error{color:var(--danger,var(--ink));font-size:.82rem}
+.solution-output{display:grid;gap:.55rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.solution-output textarea{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.78rem}
+.solution-status{color:var(--green);font-size:.82rem;line-height:1.5}
+@media(max-width:560px){.solution-workshop-heading{display:grid}.solution-local-label{justify-self:start}}
