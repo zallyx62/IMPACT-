@@ -1,0 +1,12 @@
+{
+  "id": "response-nestle-water-raids-2026",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-waters-perrier-raids-2026"
+  ],
+  "published_at": "2026-05-19",
+  "source_id": "source-reuters-nestle-perrier-raids-2026",
+  "summary": "Selon Reuters, Nestlé a confirmé les perquisitions menées à l'usine Perrier de Vergèze et dans un laboratoire des Vosges et a déclaré continuer à coopérer pleinement avec les autorités compétentes.",
+  "full_response_url": null,
+  "publication_status": "published"
+}
