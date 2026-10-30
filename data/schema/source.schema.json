@@ -88,11 +88,16 @@
       "type": "string",
       "maxLength": 1000
     },
+    "review_method": {
+      "type": "string",
+      "enum": ["human", "ai_assisted"]
+    },
     "review_status": {
       "type": "string",
       "enum": [
         "to_review",
         "reviewed",
+        "ai_verified",
         "disputed",
         "unavailable"
       ]
