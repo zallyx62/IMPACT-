@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 28 sources sont `to_review`, les 25 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 28 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 32 sources sont `to_review`, les 26 affirmations sont `not_reviewed` et les 31 éléments de preuve avec `reviewed_at: null`, et les 31 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
