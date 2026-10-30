@@ -28,7 +28,7 @@ const data = {
     { id: "relationship-draft-target", from_entity_id: "entity-one", to_entity_id: "entity-draft", relationship_type: "controls", knowledge_status: "confirmed", source_ids: ["source-reviewed"] },
   ],
   campaigns: [
-    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"] },
+    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"], response_ids: ["response-published", "response-withheld", "response-unknown"] },
     { id: "campaign-pending", title: "Pending campaign", target_entity_ids: ["entity-one"], demands: ["Publish data"], campaign_status: "active", source_ids: ["source-pending"] },
   ],
   responses: [
@@ -54,6 +54,7 @@ describe("buildEntityDossier publication rules", () => {
     assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
     assert.equal(dossier.campaigns[0].organizer_entity_id, null, "unpublished campaign organizers are not exposed");
     assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
+    assert.deepEqual(dossier.campaigns[0].response_ids, ["response-published"]);
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
     assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
