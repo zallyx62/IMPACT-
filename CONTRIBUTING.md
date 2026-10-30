@@ -25,12 +25,22 @@ Merci de contribuer à un projet qui privilégie la fiabilité, la transparence 
 Dans le dossier `app/`, exécutez :
 
 ```sh
-npm install
+npm ci
+npm audit --audit-level=high
 npm run typecheck
+npm run test
+node scripts/test-service-worker.mjs
+node --test scripts/test-data-integrity.test.mjs
+node --test scripts/test-schema-validation.test.mjs
+node --test scripts/test-dossier-publication.test.mjs
+node scripts/check-contrast.mjs
 npm run build
+node scripts/check-pwa-build.mjs
+node scripts/check-schemas.mjs
+node scripts/check-data.mjs
 ```
 
-Avant une version stable, le projet devra aussi exécuter des tests d'accessibilité, de navigation, de fonctionnement hors ligne et de confidentialité.
+Avant une version stable, des essais manuels d'accessibilité, de navigation, d'installation PWA, de fonctionnement hors ligne et de confidentialité restent nécessaires.
 
 ## Sources et droits d'auteur
 
