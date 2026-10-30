@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { tools, universes, type CatalogItem, type Language } from "./data/catalog";
 import { normalizeSearch, searchableText } from "./data/search";
-import { entities, getEntityDossier, type EntityRecord } from "./data/records";
+import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import DossierPanel from "./DossierPanel";
 
 type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
@@ -72,7 +72,7 @@ function App() {
     () => trimmedQuery ? tools.filter((item) => searchableText(item).includes(trimmedQuery)) : [],
     [trimmedQuery],
   );
-  const publishedEntities = useMemo(() => entities.filter((item) => item.status === "published"), []);
+  const publishedEntities = useMemo(() => getPublishedEntities(), []);
   const foundEntities = useMemo(
     () => trimmedQuery ? publishedEntities.filter((item) => normalizeSearch([item.name, item.description ?? "", item.entity_type].join(" ")).includes(trimmedQuery)) : [],
     [trimmedQuery, publishedEntities],
