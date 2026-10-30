@@ -1,0 +1,14 @@
+{
+  "id": "source-greenpeace-baby-food-plastic-pouches-2026",
+  "title": "Tiny Plastics, Big Problem: The Hidden Risks of Plastic Pouches for Baby Food",
+  "publisher": "Greenpeace International",
+  "url": "https://www.greenpeace.org/static/planet4-international-stateless/2026/05/04081d9d-hidden-risks-of-baby-food-plastic-pouches.pdf",
+  "source_type": "ngo_report",
+  "published_at": "2026-05-21",
+  "accessed_at": "2026-10-30",
+  "language": "en",
+  "methodology": "Greenpeace International commissioned SINTEF Ocean to analyse three pouches of one Danone product and three pouches of one Nestlé Gerber yoghurt product in 2025. Products were analysed as sold, using digestion, filtration and μ-Raman spectroscopy for particles, and GCxGC-MS for chemicals.",
+  "potential_conflicts": "Report commissioned and published by Greenpeace International, an environmental campaigning organisation.",
+  "limitations": "Very small sample: three pouches per brand, one product per brand, manufactured in the United States and purchased via an online retailer. Polyethylene identification in food is tentative; the report explicitly says this does not prove migration from packaging. Detection method covered particles larger than 20 μm. It does not establish a health outcome or quantify exposure across all products.",
+  "review_status": "to_review"
+}
