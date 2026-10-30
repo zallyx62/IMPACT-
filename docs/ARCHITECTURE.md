@@ -119,7 +119,7 @@ Pour le prototype :
 - aucune police, image ou bibliothèque chargée depuis un CDN ;
 - aucun service d'IA générative intégré.
 
-Le choix de langue est proposé explicitement en français et en anglais et reste en mémoire pendant la session. Les langues futures seront ajoutées via le type `Language` et les dictionnaires de textes ; aucune traduction automatique ne sera intégrée. Une future persistance locale sera ajoutée uniquement si elle répond à un besoin précis et documenté.
+L'interface publique du prototype est en français uniquement. Les sources et citations conservent leur langue d'origine. Aucune traduction automatique ne sera intégrée. Une future persistance locale sera ajoutée uniquement si elle répond à un besoin précis et documenté.
 
 ## 6. Fonctionnement hors ligne
 
@@ -159,7 +159,7 @@ Ces contrôles ne constituent ni un audit de sécurité, ni un audit de confiden
 
 ## 9. Déploiement
 
-Le déploiement public ne doit pas être activé avant :
+Une préversion publique est actuellement déployée sur GitHub Pages. Elle ne doit pas être confondue avec une version stable. Toute nouvelle version publique doit être précédée de :
 - un build réussi ;
 - une vérification manuelle de l'interface ;
 - des tests en ligne et hors ligne ;
