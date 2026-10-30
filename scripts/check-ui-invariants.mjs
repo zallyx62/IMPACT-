@@ -15,6 +15,8 @@ const finalDarkMode = darkModeBlocks.at(-1);
 assert.ok(darkModeBlocks.length > 0, "dark-mode styles are required");
 assert.ok(finalDarkMode.includes(".dossier-card, .claim-card { background: var(--paper); }"),
   "dossier and claim cards must retain dark surfaces after their base styles");
+assert.ok(finalDarkMode.includes(".claim-uncertainty { background: #342f21; color: #e5d9b8; }"),
+  "uncertainty notes must retain their dark-mode colors after their base styles");
 assert.ok(darkMode.includes(".claim-uncertainty { background: #342f21; color: #e5d9b8; }"),
   "uncertainty notes need a dark-mode surface and readable foreground");
 
