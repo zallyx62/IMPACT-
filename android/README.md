@@ -16,7 +16,7 @@ The Android Gradle Plugin is pinned to 9.5.0. The WebView asset handler serves t
 From the repository root:
 
 ```sh
-android/scripts/build-web-assets.sh
+sh android/scripts/build-web-assets.sh
 cd android
 gradle --no-daemon :app:assembleDebug
 ```
