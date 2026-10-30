@@ -119,7 +119,7 @@ export const tools: CatalogItem[] = [
     title: { fr: "Contribution citoyenne", en: "Citizen contributions" },
     description: { fr: "Proposer une source ou une correction, examinée par un humain.", en: "Suggest a source or correction for human review." },
     detail: {
-      fr: "Les contributions ne seront pas publiées automatiquement. Un processus éditorial devra contrôler les sources, le contexte, les risques et les conflits d'intérêts avant intégration.",
+      fr: "Préparez une proposition de source ou de correction directement sur votre appareil, puis transmettez-la vous-même. Rien n’est envoyé ni publié automatiquement ; chaque proposition doit être examinée selon la charte éditoriale.",
       en: "Contributions will not be published automatically. An editorial process must review sources, context, risks and conflicts of interest before acceptance."
     },
     keywords: ["contribution", "citoyen", "correction", "communauté", "contribution", "citizen", "correction", "community"]
