@@ -1,0 +1,18 @@
+{
+  "id": "claim-shein-dsa-investigation-2026",
+  "subject_entity_id": "shein",
+  "statement": "Le 17 février 2026, la Commission européenne a ouvert une procédure formelle contre SHEIN au titre du Digital Services Act, portant notamment sur la vente de produits illégaux, les risques liés à la conception jugée potentiellement addictive du service et la transparence des systèmes de recommandation.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "valid_from": "2026-02-17",
+  "source_ids": [
+    "source-eu-commission-shein-dsa-2026",
+    "source-fr-economy-shein-marketplace-2026"
+  ],
+  "evidence_ids": [
+    "evidence-shein-dsa-investigation-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "L'ouverture de la procédure ne préjuge pas de son issue. La Commission enquête sur les systèmes et risques de la plateforme ; elle n'a pas, par cette seule décision, établi définitivement une infraction.",
+  "editorial_note": "Présenter les trois axes exacts de l'enquête et rappeler qu'il s'agit d'une procédure en cours, pas d'une condamnation."
+}

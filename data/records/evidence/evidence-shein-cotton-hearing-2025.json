@@ -1,0 +1,10 @@
+{
+  "id": "evidence-shein-cotton-hearing-2025",
+  "source_id": "source-uk-parliament-shein-cotton-hearing-2025",
+  "locator": "Questions 224 à 242 de l'audition du 7 janvier 2025, notamment questions sur le coton chinois et le Xinjiang",
+  "summary": "La représentante juridique de SHEIN indique que l'entreprise travaille avec un réseau de fournisseurs dont beaucoup sont en Chine, mais ne confirme pas si les produits contiennent du coton chinois ou du Xinjiang et demande à répondre ultérieurement par écrit.",
+  "supports_claim_ids": [
+    "claim-shein-chinese-cotton-traceability-2025"
+  ],
+  "limitations": "Une réponse non fournie pendant l'audition n'établit pas l'origine du coton ni la présence de travail forcé."
+}

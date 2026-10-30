@@ -128,4 +128,75 @@ describe("buildEntityDossier publication rules", () => {
     assert.ok(dossier.evidence.every((item) => item.source_id === "source-reviewed"));
   });
 
+
+  it("keeps the SHEIN dossier unpublished and validates its record links", async () => {
+    const recordsRoot = new URL("../data/records/", import.meta.url);
+    const readRecord = async (collection, id) =>
+      JSON.parse(await (await import("node:fs/promises")).readFile(new URL(`${collection}/${id}.json`, recordsRoot), "utf8"));
+
+    const entity = await readRecord("entities", "shein");
+    const sourceIds = [
+      "source-eu-commission-shein-dsa-2026",
+      "source-fr-economy-shein-marketplace-2026",
+      "source-france-pcn-shein-2025",
+      "source-newclimate-shein-climate-2025",
+      "source-public-eye-shein-china-2024",
+      "source-reuters-shein-child-labor-2025",
+      "source-senat-shein-dgccrf-2026",
+      "source-shein-sustainability-2024",
+      "source-uk-parliament-shein-cotton-hearing-2025",
+      "source-uk-parliament-shein-cotton-letter-2025",
+    ];
+    const claimIds = [
+      "claim-shein-child-labor-cases-2024",
+      "claim-shein-chinese-cotton-traceability-2025",
+      "claim-shein-consumer-information-fine-2026",
+      "claim-shein-customs-noncompliance-2025",
+      "claim-shein-dsa-investigation-2026",
+      "claim-shein-emissions-climate-targets-2025",
+      "claim-shein-france-pcn-nonconformities-2025",
+      "claim-shein-misleading-prices-environmental-claims-2025",
+      "claim-shein-supplier-working-hours-public-eye-2024",
+    ];
+    const evidenceIds = [
+      "evidence-shein-child-labor-cases-2024",
+      "evidence-shein-consumer-information-fine-2026",
+      "evidence-shein-cotton-hearing-2025",
+      "evidence-shein-cotton-letter-2025",
+      "evidence-shein-customs-noncompliance-2025",
+      "evidence-shein-dsa-investigation-2026",
+      "evidence-shein-emissions-climate-targets-2025",
+      "evidence-shein-france-pcn-2025",
+      "evidence-shein-misleading-prices-environmental-claims-2025",
+      "evidence-shein-supplier-working-hours-public-eye-2024",
+    ];
+    const [sources, claims, evidence] = await Promise.all([
+      Promise.all(sourceIds.map((id) => readRecord("sources", id))),
+      Promise.all(claimIds.map((id) => readRecord("claims", id))),
+      Promise.all(evidenceIds.map((id) => readRecord("evidence", id))),
+    ]);
+    const knownSources = new Set([...entity.source_ids]);
+    const knownEvidence = new Set(evidence.map((item) => item.id));
+    const knownClaims = new Set(claims.map((item) => item.id));
+
+    assert.equal(entity.status, "review_needed");
+    assert.equal(entity.reviewed_at, null);
+    assert.ok(sourceIds.every((id) => knownSources.has(id)));
+    assert.ok(sources.every((source) => source.review_status === "to_review"));
+    assert.ok(claims.every((claim) => claim.claim_status === "not_reviewed" && claim.reviewed_at === null));
+    assert.equal(buildEntityDossier("shein", { ...data, entities: [...data.entities, entity], sources: [...data.sources, ...sources], claims: [...data.claims, ...claims], evidence: [...data.evidence, ...evidence] }), undefined);
+
+    for (const claim of claims) {
+      assert.ok(claim.source_ids.length > 0 && claim.source_ids.every((id) => knownSources.has(id)), `${claim.id} has an unknown source`);
+      assert.ok(claim.evidence_ids.length > 0 && claim.evidence_ids.every((id) => knownEvidence.has(id)), `${claim.id} has missing evidence`);
+    }
+    for (const item of evidence) {
+      assert.ok(knownSources.has(item.source_id), `${item.id} has an unknown source`);
+      assert.ok(item.supports_claim_ids.length > 0 && item.supports_claim_ids.every((id) => knownClaims.has(id)), `${item.id} has an unknown claim`);
+      for (const claimId of item.supports_claim_ids) {
+        assert.ok(claims.find((claim) => claim.id === claimId).evidence_ids.includes(item.id), `${item.id} is not linked back from ${claimId}`);
+      }
+    }
+  });
+
 });

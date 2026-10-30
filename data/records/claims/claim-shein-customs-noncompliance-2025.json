@@ -1,0 +1,17 @@
+{
+  "id": "claim-shein-customs-noncompliance-2025",
+  "subject_entity_id": "shein",
+  "statement": "Lors d'une opération douanière menée à Roissy le 6 novembre 2025, les autorités françaises ont contrôlé 200 000 colis provenant de SHEIN ; le ministère de l'Économie indique que huit articles sur dix examinés se sont révélés non conformes, notamment des cosmétiques, jouets et appareils électroménagers.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "valid_from": "2025-11-06",
+  "source_ids": [
+    "source-fr-economy-shein-marketplace-2026"
+  ],
+  "evidence_ids": [
+    "evidence-shein-customs-noncompliance-2025"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Ce taux concerne l'opération douanière décrite par le ministère et les articles examinés dans ce cadre. Il ne mesure pas le taux de non-conformité de tous les produits vendus par SHEIN ni de tous les colis livrés.",
+  "editorial_note": "Garder les chiffres 200 000 colis et huit articles sur dix ensemble, en précisant qu'il s'agit d'une opération ciblée de contrôle et non d'un échantillon représentatif de tout le catalogue."
+}

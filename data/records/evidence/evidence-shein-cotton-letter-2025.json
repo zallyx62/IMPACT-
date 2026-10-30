@@ -1,0 +1,10 @@
+{
+  "id": "evidence-shein-cotton-letter-2025",
+  "source_id": "source-uk-parliament-shein-cotton-letter-2025",
+  "locator": "Lettre du 27 janvier 2025, page 1, paragraphes « Suppliers »",
+  "summary": "Le comité parlementaire britannique écrit que SHEIN a confirmé ne pas interdire l'utilisation de coton chinois dans ses produits lorsque cette utilisation ne contrevient pas aux lois et règlements des juridictions où l'entreprise opère. Le comité demande ensuite si le système de traçabilité renforcé utilisé pour les produits vendus aux États-Unis s'applique aussi aux produits vendus au Royaume-Uni.",
+  "supports_claim_ids": [
+    "claim-shein-chinese-cotton-traceability-2025"
+  ],
+  "limitations": "La lettre rapporte la réponse écrite de SHEIN telle que résumée par le comité ; elle ne prouve pas que du coton du Xinjiang est utilisé."
+}

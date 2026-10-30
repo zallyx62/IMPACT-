@@ -1,0 +1,10 @@
+{
+  "id": "evidence-shein-emissions-climate-targets-2025",
+  "source_id": "source-newclimate-shein-climate-2025",
+  "locator": "Corporate Climate Responsibility Monitor 2025, section SHEIN, page 28",
+  "summary": "NewClimate Institute estime que les émissions de SHEIN ont plus que triplé entre 2021 et 2024 et juge son objectif de réduction 2030 insuffisant pour une trajectoire compatible avec l'Accord de Paris. Le rapport indique également que le modèle de production à bas prix et à volumes élevés, ainsi que le recours important au fret aérien, contribuent à l'impact climatique.",
+  "supports_claim_ids": [
+    "claim-shein-emissions-climate-targets-2025"
+  ],
+  "limitations": "Analyse de l'institut basée sur les informations disponibles et les déclarations de l'entreprise. Les hypothèses et méthodes de calcul du rapport doivent être lues avant toute comparaison chiffrée détaillée."
+}

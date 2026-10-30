@@ -1,0 +1,10 @@
+{
+  "id": "evidence-shein-supplier-working-hours-public-eye-2024",
+  "source_id": "source-public-eye-shein-china-2024",
+  "locator": "Profil de l'enquête et section « Toujours des semaines de 75 heures »",
+  "summary": "Public Eye indique avoir interrogé 13 employé·e·s (7 femmes et 6 hommes) dans six sites de production de Guangzhou à la fin de l'été 2023. Les personnes interrogées rapportent en moyenne environ douze heures de travail par jour, au moins six jours par semaine, souvent sept. Public Eye indique que ces horaires dépasseraient le plafond de 60 heures du code fournisseur de SHEIN.",
+  "supports_claim_ids": [
+    "claim-shein-supplier-working-hours-public-eye-2024"
+  ],
+  "limitations": "Résultats qualitatifs sur un petit nombre de sites et de personnes. Les liens entre sites et fournisseurs sont documentés dans l'enquête mais SHEIN ne publie pas une liste exhaustive de ses fournisseurs."
+}
