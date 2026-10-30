@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { getPublishedEntities, type EntityDossier, type Language, type SourceRecord } from "./data/records";
 import { safeExternalUrl } from "./data/safe-url";
 import { buildDossierShareUrl } from "./data/share-url";
+import { getDossierSummary } from "./data/dossier-summary";
 
 interface Props {
   dossier: EntityDossier;
@@ -118,6 +119,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
   const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
   const entityWebsite = safeExternalUrl(dossier.entity.website);
+  const summary = getDossierSummary(dossier.entity.id, dossier.claims);
 
   async function shareDossier() {
     const shareUrl = buildDossierShareUrl(window.location.href, dossier.entity.id);
@@ -217,12 +219,45 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         </section>
       )}
 
+      {summary && (
+        <section className="dossier-summary" aria-labelledby="dossier-summary-title">
+          <div className="dossier-summary-top">
+            <div>
+              <p className="section-kicker">{language === "fr" ? "LECTURE RAPIDE" : "QUICK READ"}</p>
+              <h3 id="dossier-summary-title">{summary.title[language]}</h3>
+            </div>
+            <span className={`summary-level summary-level--${summary.level}`}>{summary.levelLabel[language]}</span>
+          </div>
+          <p className="dossier-summary-intro">{summary.introduction[language]}</p>
+          <div className="summary-reasons">
+            {summary.reasons.map((reason) => (
+              <article className="summary-reason" key={reason.title.fr}>
+                <h4>{reason.title[language]}</h4>
+                <p>{reason.text[language]}</p>
+                <div className="summary-links">
+                  {reason.claimIds.map((claimId) => {
+                    const claim = dossier.claims.find((item) => item.id === claimId);
+                    return claim ? <a key={claimId} href={`#claim-${claimId}`}>{language === "fr" ? "Voir le constat détaillé" : "Read detailed finding"}</a> : null;
+                  })}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="summary-balance">
+            <h4>{summary.balanceTitle[language]}</h4>
+            <ul>{summary.balancePoints[language].map((point) => <li key={point}>{point}</li>)}</ul>
+          </div>
+          <p className="summary-conclusion">{summary.conclusion[language]}</p>
+          <p className="summary-methodology">{summary.methodology[language]}</p>
+        </section>
+      )}
+
       <section className="dossier-section" aria-labelledby="claims-heading">
         <h3 id="claims-heading">{t.claims}</h3>
         {dossier.claims.length === 0 ? <p className="empty-state">{t.noClaims}</p> : (
           <div className="dossier-list">
             {dossier.claims.map((claim) => (
-              <article className="claim-card" key={claim.id}>
+              <article className="claim-card" id={`claim-${claim.id}`} key={claim.id}>
                 <div className="claim-card-heading">
                   <span className="claim-topic">{displayValue("topic", claim.topic, language)}</span>
                   <span className="claim-status">{t.statuses[claim.claim_status] ?? claim.claim_status}</span>
