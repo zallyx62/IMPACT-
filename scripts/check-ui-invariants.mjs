@@ -7,7 +7,13 @@ const app = await readFile(new URL("../app/src/App.tsx", import.meta.url), "utf8
 
 assert.match(css, /button:focus-visible, a:focus-visible, input:focus-visible/);
 assert.match(css, /\.language-select:focus-visible/);
+assert.ok(css.includes(':root[data-theme="dark"] {'), "a user-selected dark theme must be available");
+assert.ok(!css.includes("prefers-color-scheme: dark"), "dark mode must not override the user selection");
 assert.match(app, /id="language-select"/);
+assert.match(app, /id="theme-select"/);
+assert.ok(app.includes("useState<Theme>(getInitialTheme)"));
+assert.ok(app.includes("document.documentElement.dataset.theme = theme"));
+assert.ok(app.includes('localStorage.setItem("impact-theme", theme)'));
 assert.match(app, /useState<Language>\("en"\)/, "English must be the default language for new sessions");
 assert.match(app, /<option value="fr">Français<\/option>/);
 assert.match(app, /<option value="en">English<\/option>/);
@@ -19,14 +25,10 @@ assert.match(css, /@media \(max-width: 390px\)/);
 assert.equal((css.match(/prefers-reduced-motion:\s*reduce/g) ?? []).length, 1,
   "reduced-motion rules should be centralized to avoid conflicting duplicates");
 
-const darkModeBlocks = css.split('@media (prefers-color-scheme: dark) {').slice(1).map((block) => block.split(String.fromCharCode(10) + "}")[0]);
-const darkMode = darkModeBlocks[0];
-const finalDarkMode = darkModeBlocks.at(-1);
-assert.ok(darkModeBlocks.length > 0, "dark-mode styles are required");
-assert.ok(finalDarkMode.includes(".dossier-card, .claim-card { background: var(--paper); }"),
-  "dossier and claim cards must retain dark surfaces after their base styles");
-assert.ok(finalDarkMode.includes(".claim-uncertainty { background: #342f21; color: #e5d9b8; }"),
-  "uncertainty notes must retain their dark-mode colors after their base styles");
+const darkMode = css.slice(css.indexOf(':root[data-theme="dark"] {'));
+assert.ok(darkMode.includes("--paper: #18251d;"), "dark mode must replace page and card surfaces");
+assert.ok(darkMode.includes(".dossier-card") && darkMode.includes(".claim-card"),
+  "dossier and claim cards must retain dark surfaces");
 assert.ok(darkMode.includes(".claim-uncertainty { background: #342f21; color: #e5d9b8; }"),
   "uncertainty notes need a dark-mode surface and readable foreground");
 
