@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-liberia-cocoa-deforestation-exposure-2025",
+  "subject_entity_id": "nestle",
+  "statement": "Dans une enquête publiée en novembre 2025, Global Witness estime que Nestlé est exposé au risque de cacao lié à la déforestation au Liberia par l'intermédiaire de négociants et de mélanges de cacao en bilan massique ; l'organisation précise que Nestlé ne s'approvisionne pas directement au Liberia.",
+  "topic": "environment",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-global-witness-liberia-cocoa-deforestation-2025"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-liberia-cocoa-deforestation-exposure-2025"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "L'enquête documente une exposition indirecte au risque par les circuits de négociants et le bilan massique. Elle ne démontre pas qu'un lot précis de cacao libérien se trouve dans un produit Nestlé identifié. Nestlé indique ne pas acheter directement au Liberia et n'a pas fourni à Global Witness d'explication supplémentaire permettant d'exclure cette origine des mélanges.",
+  "editorial_note": "Présenter la réponse de Nestlé dans le même écran. Ne pas écrire que Nestlé déboise directement au Liberia ou que chaque KitKat contient du cacao libérien. Distinguer achat direct, achat via négociants et risque lié au bilan massique."
+}
