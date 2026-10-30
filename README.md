@@ -52,6 +52,7 @@ Le prototype propose une interface en français et en anglais, un sélecteur de 
 - [Guide de contribution](CONTRIBUTING.md)
 - [Code de conduite](CODE_OF_CONDUCT.md)
 - [Politique de sécurité](SECURITY.md)
+- [Contrôles de sécurité automatisés](docs/SECURITY_CONTROLS.md)
 - [Plan de réalisation de la version 0.1](docs/PLAN_V0_1.md)
 - [Modèle de données](docs/MODELE_DE_DONNEES.md)
 - [Charte éditoriale et de vérification](docs/CHARTE_EDITORIALE.md)
