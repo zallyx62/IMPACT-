@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-baby-food-microplastics-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Une analyse commandée par Greenpeace International et réalisée par SINTEF Ocean en 2025 a détecté des particules microplastiques dans les sous-échantillons alimentaires des trois sachets d'une même purée lactée Gerber de Nestlé examinés. Le rapport estime jusqu'à 54 particules par gramme en moyenne et plus de 5 000 particules par sachet pour ce produit précis.",
+  "topic": "environment",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-greenpeace-baby-food-plastic-pouches-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-baby-food-microplastics-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "L'étude porte sur trois sachets d'un seul produit Gerber fabriqués aux États-Unis, achetés par un détaillant en ligne européen et analysés tels que vendus, sans chauffage. L'identification du polyéthylène dans l'aliment est tentative et ne prouve pas une migration depuis l'emballage ; d'autres sources de contamination sont possibles. L'étude ne démontre aucun effet sanitaire chez l'humain et ne permet pas de généraliser à tous les produits Gerber, à tous les sachets Nestlé ou à tous les marchés.",
+  "editorial_note": "Attribuer systématiquement les résultats au rapport commandé par Greenpeace et à l'analyse SINTEF Ocean. Afficher l'échantillon (3 sachets, 1 produit), la limite de détection (>20 μm), les réserves analytiques et l'absence de conclusion clinique. Ne pas écrire que Nestlé a empoisonné les bébés ni que la migration depuis l'emballage est démontrée."
+}
