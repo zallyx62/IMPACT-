@@ -1,41 +1,40 @@
-# Langues et stratégie de traduction — IMPACT
+# Language and translation strategy — IMPACT
 
-## Ordre des langues
+## Language order
 
-1. Français (`fr`) — langue principale et langue par défaut.
-2. Anglais (`en`) — deuxième langue, sélectionnable dans l'interface.
-3. Espagnol (`es`), allemand (`de`) et autres langues — ajout progressif après traduction et relecture.
+1. English (`en`) — primary interface language and default for new sessions.
+2. French (`fr`) — selectable and maintained alongside English.
+3. Spanish (`es`), German (`de`) and other languages — added progressively after translation and review.
 
-Le sélecteur actuel permet de choisir explicitement Français ou English. Le français est la valeur initiale à chaque nouvelle session ; le choix reste en mémoire et n'est pas transmis ni enregistré à distance.
+The selector currently allows an explicit choice between English and French. English is the initial value on each fresh session. The selection remains in application memory only; it is not sent to a server or stored remotely.
 
-## Règles d'architecture
+## Architecture rules
 
-- Utiliser des codes de langue standard et une union TypeScript `Language` extensible.
-- Centraliser les libellés de l'interface par langue ; ne pas disperser les textes traduits dans les composants.
-- Le français est la langue source de rédaction du produit.
-- Une traduction éditoriale doit être relue par une personne avant publication.
-- Ne pas utiliser de traduction automatique dans l'application publique.
-- Ne jamais traduire les citations, titres de documents ou extraits comme s'il s'agissait du texte original.
-- Conserver la langue originale de chaque source et l'afficher dans la fiche.
-- Si une traduction humaine d'un contenu n'existe pas, afficher clairement la langue originale plutôt que prétendre que le contenu est traduit.
-- Les traductions doivent conserver les nuances juridiques, les limites méthodologiques, les statuts et les dates de la version française.
-- Une correction du contenu source doit déclencher une vérification des traductions liées.
+- Use standard language codes and an extensible TypeScript `Language` union.
+- Centralize interface labels by language; do not scatter translated text across components.
+- English is the default interface language; source documents retain their original language.
+- Editorial translations must be reviewed by a person before publication.
+- Do not use automatic translation in the public application.
+- Never translate quotations, document titles or excerpts as though the translation were the original text.
+- Preserve and display the original language of each source.
+- If a human-reviewed translation is unavailable, clearly show the original language rather than implying that the content is translated.
+- Translations must preserve legal and scientific nuance, methodological limits, statuses and dates.
+- A correction to source content must trigger a review of related translations.
 
-## Ajout d'une langue
+## Adding a language
 
-Pour ajouter une langue :
-1. Ajouter son code au type `Language`.
-2. Ajouter les libellés de navigation, formulaires, messages d'erreur et états vides.
-3. Traduire les contenus éditoriaux qui ont été validés.
-4. Faire relire les traductions, notamment les formulations juridiques et scientifiques.
-5. Ajouter des tests garantissant que chaque clé requise existe.
-6. Vérifier les textes longs sur petits écrans et avec lecteur d'écran.
+1. Add its code to the `Language` type.
+2. Add navigation labels, forms, error messages and empty states.
+3. Translate editorial content that has been validated.
+4. Have translations reviewed by a person, especially legal and scientific wording.
+5. Add tests ensuring every required key exists.
+6. Check long text on small screens and with screen readers.
 
-Une langue ne doit pas être annoncée comme disponible tant que l'interface et les contenus présentés ne sont pas effectivement traduits.
+A language must not be advertised as available until the interface and the content actually shown are translated.
 
-## État actuel
+## Current status
 
-- Français : interface disponible, langue par défaut.
-- Anglais : interface disponible, sélection explicite.
-- Espagnol, allemand et autres : prévus, pas encore disponibles.
-- Les dossiers Nestlé sont des brouillons éditoriaux non publiés ; leurs traductions anglaises devront être relues avant toute publication.
+- English: interface available, default language for new sessions.
+- French: interface available and selectable.
+- Spanish, German and others: planned, not yet available.
+- Nestlé dossiers remain unpublished editorial drafts; English and French translations must be reviewed before publication.

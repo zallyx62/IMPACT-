@@ -8,6 +8,7 @@ const app = await readFile(new URL("../app/src/App.tsx", import.meta.url), "utf8
 assert.match(css, /button:focus-visible, a:focus-visible, input:focus-visible/);
 assert.match(css, /\.language-select:focus-visible/);
 assert.match(app, /id="language-select"/);
+assert.match(app, /useState<Language>\("en"\)/, "English must be the default language for new sessions");
 assert.match(app, /<option value="fr">Français<\/option>/);
 assert.match(app, /<option value="en">English<\/option>/);
 assert.match(app, /document\.documentElement\.lang = language/);
