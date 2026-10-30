@@ -63,7 +63,7 @@ jobs:
         run: touch app/dist/.nojekyll
 
       - name: Upload production site
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: app/dist
 
