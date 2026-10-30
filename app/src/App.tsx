@@ -155,10 +155,15 @@ function App() {
           </button>
           <div className="header-actions">
             <a className="text-link" href="#method">{t.method}</a>
-            <button className="language-button" type="button" aria-label={t.switchLanguage}
-              onClick={() => setLanguage((current) => current === "fr" ? "en" : "fr")}>
-              {language === "fr" ? "EN" : "FR"}
-            </button>
+            <label className="language-control" htmlFor="language-select">
+              <span className="language-label">{language === "fr" ? "Langue" : "Language"}</span>
+              <select id="language-select" className="language-select" value={language}
+                onChange={(event) => setLanguage(event.currentTarget.value as Language)}
+                aria-label={language === "fr" ? "Choisir la langue" : "Choose language"}>
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+              </select>
+            </label>
           </div>
         </div>
       </header>
