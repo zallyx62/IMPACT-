@@ -68,6 +68,9 @@ jobs:
         working-directory: app
         run: npm run build
 
+      - name: Check PWA production package
+        run: node scripts/check-pwa-build.mjs
+
       - name: Check data schemas and editorial invariants
         run: node scripts/check-schemas.mjs
 
