@@ -2,7 +2,7 @@
   "id": "nestle",
   "name": "Nestlé",
   "entity_type": "organization",
-  "description": "Groupe agroalimentaire international. Cette fiche publie pour l'instant un seul constat précisément délimité concernant trois sachets d'un produit Gerber analysés dans un rapport Greenpeace/SINTEF. Les autres sujets documentés restent non publiés tant que leurs propres preuves n'ont pas satisfait aux critères de la charte.",
+  "description": "Groupe agroalimentaire international. Cette fiche publie deux constats précisément circonscrits concernant des produits Gerber : un rapport Greenpeace/SINTEF portant sur trois sachets d'un produit de yaourt, et une enquête Consumer Reports portant sur une purée Gerber précise testée parmi un sous-échantillon de 16 aliments pour bébés. Les résultats ne sont pas généralisables à toute la gamme et ne démontrent pas un effet sanitaire.",
   "website": "https://www.nestle.com/",
   "country_codes": [
     "CH",
@@ -13,7 +13,8 @@
   "updated_at": "2026-10-30",
   "reviewed_at": null,
   "source_ids": [
-    "source-greenpeace-baby-food-plastic-pouches-2026"
+    "source-greenpeace-baby-food-plastic-pouches-2026",
+    "source-consumer-reports-baby-food-testing-2026"
   ],
   "publication_basis": "evidence_verified",
   "published_at": "2026-10-30",
