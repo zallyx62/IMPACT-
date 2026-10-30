@@ -103,6 +103,12 @@ describe("Nestlé dossier editorial gate", () => {
       "response-gerber-consumer-reports-baby-food-testing-2026",
     ].map((id) => readRecord("responses", id)));
     const data = { entities: [entity], sources, claims, evidence, relationships: [], campaigns: [], responses, commitments: [] };
+    const reviewGuide = await readFile(new URL("../docs/reviews/NESTLE.md", import.meta.url), "utf8");
+    assert.equal(sources.length, 25);
+    assert.equal(claims.length, 21);
+    assert.equal(evidence.length, 26);
+    assert.match(reviewGuide, /25 sources/);
+    assert.match(reviewGuide, /21 affirmations et de leurs 26 éléments de preuve/);
 
     assert.equal(entity.status, "review_needed");
     assert.equal(entity.reviewed_at, null);
