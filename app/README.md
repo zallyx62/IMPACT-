@@ -1,6 +1,6 @@
 # IMPACT — application web
 
-Application web progressive avec navigation, recherche locale et lecteur de dossiers documentés alimenté par des fichiers JSON versionnés. Le dépôt ne contient pas encore de dossier factuel publié.
+Application web progressive avec navigation, recherche locale et lecteur de dossiers documentés alimenté par des fichiers JSON versionnés. Avant les commandes de développement, de typage, de test et de build, un générateur applique la règle de publication éditoriale et ne produit qu'un jeu de données publiques validées. Les brouillons non examinés ne sont pas intégrés au bundle Web.
 
 ## Prérequis
 
@@ -55,4 +55,4 @@ Une fois déployée, l'infrastructure d'hébergement peut néanmoins traiter des
 
 ## État
 
-Les univers et outils restent des structures de navigation. Le lecteur de dossiers et les validateurs sont en place, mais aucun dossier réel d'entreprise ni aucune évaluation factuelle n'est inclus. Les tests automatisés simulent le cache hors ligne ; une installation et des essais réels sur téléphone et navigateur restent nécessaires avant toute publication stable.
+Les univers et outils restent des structures de navigation. Le lecteur de dossiers et les validateurs sont en place, mais aucun dossier réel d'entreprise ni aucune évaluation factuelle n'est inclus. Les tests automatisés simulent le cache hors ligne et vérifient que les identifiants de brouillons ne se retrouvent pas dans le bundle de production ; une installation et des essais réels sur téléphone et navigateur restent nécessaires avant toute publication stable.
