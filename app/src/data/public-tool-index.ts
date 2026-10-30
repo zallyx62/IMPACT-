@@ -87,7 +87,7 @@ export interface DossierTimelineEvent {
   id: string;
   entityName: string;
   date: string;
-  type: "dossier" | "claim" | "response" | "commitment";
+  type: "dossier" | "claim" | "response" | "commitment" | "change";
   title: string;
   detail: string;
   sourceTitles: string[];
@@ -126,6 +126,11 @@ export function buildDossierTimeline(dossiers: EntityDossier[]): DossierTimeline
         sourceTitles: response.source_id ? [sourceTitles.get(response.source_id)].filter((value): value is string => Boolean(value)) : [],
       });
     }
+    for (const change of dossier.changes ?? []) add({
+      id: change.id, entityName: dossier.entity.name, date: change.event_date, type: "change",
+      title: change.title, detail: change.summary,
+      sourceTitles: change.source_ids.map((id) => sourceTitles.get(id)).filter((value): value is string => Boolean(value)),
+    });
     for (const commitment of dossier.commitments) {
       add({
         id: `${commitment.id}:announced`, entityName: dossier.entity.name, date: commitment.announced_at,
