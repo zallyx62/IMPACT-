@@ -40,12 +40,13 @@ Le projet veut aider chacun à comprendre, vérifier et comparer des information
 
 **Phase : prototype web 0.1 en construction.**
 
-Le prototype propose une interface en anglais par défaut et en français, un sélecteur de langue, des modes d’affichage clair et sombre, une recherche locale, un lecteur de dossiers documentés et les six univers prévus. Le dépôt contient un corpus Nestlé en brouillon (eaux, alimentation infantile, cacao, travail, emballages et environnement), mais aucun dossier n'est publié : la validation humaine reste obligatoire. Les tests automatisés du service worker couvrent le cache initial, les mises à jour, le repli hors ligne et les exclusions de requêtes. Les essais réels sur navigateurs et téléphones, l'audit d'accessibilité et la publication restent à faire.
+Le prototype propose une interface en anglais par défaut et en français, un sélecteur de langue, des modes d’affichage clair et sombre, une recherche locale, un lecteur de dossiers documentés et les six univers prévus. Le dépôt contient un corpus Nestlé en brouillon (eaux, alimentation infantile, cacao, travail, emballages et environnement), mais aucun dossier n'est publié : la validation humaine reste obligatoire. Les tests automatisés du service worker couvrent le cache initial, les mises à jour, le repli hors ligne et les exclusions de requêtes. Les tests automatisés Web et l'analyse CodeQL passent sur `main`. Un projet Android local embarqué existe désormais avec une CI de compilation ; les essais sur téléphone réel, l'audit d'accessibilité et toute publication stable restent à faire.
 
 ## Documentation
 
 - [Stratégie de langues et traductions](docs/LOCALIZATION.md)
 - [Préparation Android et F-Droid](docs/ANDROID_FDROID.md)
+- [Projet Android et instructions de compilation](android/README.md)
 
 - [Architecture technique](docs/ARCHITECTURE.md)
 - [Politique de confidentialité](PRIVACY.md)
