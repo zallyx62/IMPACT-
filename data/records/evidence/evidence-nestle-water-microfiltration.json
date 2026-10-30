@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-microfiltration",
+  "source_id": "source-senat-2025-enquete-eaux-minerales",
+  "locator": "Rapport, partie II, chapitre I, section B, notamment les paragraphes sur la microfiltration à 0,2 micromètre",
+  "summary": "La commission explique que le dispositif à 0,2 micromètre visait, selon son analyse, à décontaminer les eaux et qu'une procédure spécifique d'autorisation n'avait pas été mise en œuvre. La réponse gouvernementale de 2026 indique que les dispositifs à 0,2 micromètre ne sont pas tolérés.",
+  "supports_claim_ids": [
+    "claim-nestle-water-microfiltration"
+  ],
+  "limitations": "L'analyse réglementaire est celle du rapport parlementaire ; la réponse gouvernementale ultérieure apporte une précision sur la position des autorités françaises."
+}
