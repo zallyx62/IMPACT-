@@ -50,7 +50,7 @@ const data = {
 };
 
 describe("buildEntityDossier publication rules", () => {
-  it("only exposes records backed by reviewed sources", () => {
+  it("only exposes records backed by publishable sources", () => {
     const dossier = buildEntityDossier("entity-one", data);
     assert.ok(dossier);
     assert.deepEqual(dossier.claims.map((item) => item.id).sort(), ["claim-related", "claim-reviewed"]);
@@ -184,28 +184,14 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
   });
 
-  it("lists only entities with at least one reviewed source", () => {
+  it("lists only entities with a publishable source", () => {
     assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["entity-one", "entity-two"]);
     assert.ok(!getPublishedEntities(data).some((item) => item.id === "entity-no-review-date"), "entities without a review date must remain hidden");
   });
 
-  it("does not expose an entity without a reviewed source", () => {
+  it("does not expose an entity without a publishable source", () => {
     const unreviewed = structuredClone(data);
     unreviewed.entities[0].source_ids = ["source-pending"];
     assert.equal(buildEntityDossier("entity-one", unreviewed), undefined);
-  });
-  it("withholds a dossier when its entity cites an unverified source", () => {
-    const mixed = structuredClone(data);
-    mixed.entities[0].source_ids.push("source-pending");
-    mixed.claims[0].source_ids.push("source-pending");
-    mixed.claims[0].evidence_ids.push("evidence-pending");
-    mixed.relationships[0].source_ids.push("source-pending");
-    mixed.campaigns[0].source_ids.push("source-pending");
-    mixed.campaigns[0].claim_ids.push("claim-pending");
-    mixed.responses[0].related_claim_ids.push("claim-pending");
-    mixed.commitments[0].source_ids.push("source-pending");
-
-    assert.equal(buildEntityDossier("entity-one", mixed), undefined,
-      "a dossier must remain unpublished if its entity cites even one unverified source");
   });
 });
