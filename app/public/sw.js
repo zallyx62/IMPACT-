@@ -1,4 +1,4 @@
-const CACHE_NAME = "impact-shell-v0.4";
+const CACHE_NAME = "impact-shell-v0.5";
 const BASE_PATH = new URL("./", self.location.href).pathname;
 const SHELL_URLS = [
   BASE_PATH,
