@@ -11,6 +11,7 @@ describe("parseSelectionHash", () => {
 
   it("decodes route identifiers", () => {
     assert.deepEqual(parseSelectionHash("#entity/brand%20name"), { type: "entity", id: "brand name" });
+    assert.deepEqual(parseSelectionHash("#entity/%C3%A9thique"), { type: "entity", id: "éthique" });
   });
 
   it("ignores unsupported, empty and malformed routes", () => {
@@ -18,6 +19,7 @@ describe("parseSelectionHash", () => {
     assert.equal(parseSelectionHash("#method"), null);
     assert.equal(parseSelectionHash("#unknown/nestle"), null);
     assert.equal(parseSelectionHash("#entity/"), null);
+    assert.equal(parseSelectionHash("#entity/%20%20"), null);
     assert.equal(parseSelectionHash("#entity/%E0%A4%A"), null);
   });
 });
