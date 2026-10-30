@@ -22,9 +22,12 @@ assert.match(html, /assets\/[^"]+\.js/);
 assert.match(html, /assets\/[^"]+\.css/);
 
 const manifest = JSON.parse(await readFile(new URL("manifest.webmanifest", dist), "utf8"));
+const iconSvg = await readFile(new URL("icons/impact.svg", dist), "utf8");
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
 assert.ok(Array.isArray(manifest.icons) && manifest.icons.length > 0);
+assert.ok(manifest.icons.some((icon) => icon.purpose?.includes("maskable")), "a maskable icon must be declared");
+assert.ok(iconSvg.includes('transform="translate(12.8 12.8) scale(0.8)"'), "maskable foreground must be scaled into its safe zone");
 for (const icon of manifest.icons) {
   const iconPath = new URL(icon.src, new URL("manifest.webmanifest", dist));
   await access(iconPath, constants.R_OK);
