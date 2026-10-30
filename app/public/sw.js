@@ -24,7 +24,7 @@ self.addEventListener("install", (event) => {
         .map((url) => url.href);
 
       await cache.put(BASE_PATH, shellResponse.clone());
-      await cache.addAll([...SHELL_URLS.slice(1), ...assetUrls]);
+      await cache.addAll([...SHELL_URLS.slice(1), ...new Set(assetUrls)]);
     }).then(() => self.skipWaiting()),
   );
 });
