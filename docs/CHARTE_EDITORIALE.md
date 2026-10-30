@@ -150,7 +150,7 @@ Une étude isolée peut suffire pour publier le fait précis qu'elle a observé 
 
 ### Examen renforcé obligatoire avant publication
 
-Une validation humaine compétente reste requise avant publication pour : accusations pénales ou de fraude non établies par une décision définitive ; allégations de violence, exploitation ou mise en danger imputées à une personne identifiable ; données personnelles ou sensibles ; risques sérieux pour la sécurité ; conclusions médicales ou sanitaires non consensuelles ; documents dont l'authenticité est incertaine ; sources anonymes uniques ; preuves contradictoires non résolues ; ou tout cas où une erreur pourrait causer un préjudice grave.
+Une validation humaine compétente reste requise avant publication pour : accusations pénales ou de fraude non établies par une décision définitive ; allégations de violence, exploitation ou mise en danger imputées à une personne identifiable ; données personnelles ou sensibles ; risques sérieux pour la sécurité ; conclusions médicales ou sanitaires non consensuelles ; documents dont l'authenticité est incertaine ; sources anonymes uniques ; preuves contradictoires non résolues ; ou tout cas où une erreur pourrait causer un préjudice grave. Ces affirmations portent le marqueur technique `requires_human_review: true` et ne peuvent pas passer par le parcours documentaire seul.
 
 ### Statuts et transparence
 
