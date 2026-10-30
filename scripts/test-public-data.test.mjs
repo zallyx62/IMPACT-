@@ -52,7 +52,7 @@ for (const item of publicRecords.commitments) {
 
 const nestle = publicRecords.entities.find((item) => item.id === "nestle");
 assert.ok(nestle, "the evidence-verified Nestlé dossier should be public");
-assert.deepEqual(nestle.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026"]);
+assert.deepEqual(nestle.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026", "source-consumer-reports-baby-food-testing-2026"]);
 assert.deepEqual(publicRecords.claims.filter((item) => item.subject_entity_id === "nestle").map((item) => item.id),
   ["claim-nestle-baby-food-plastic-pouches-2025", "claim-nestle-gerber-microplastics-consumer-reports-2026"].sort(),
   "only narrowly scoped evidence-verified Nestlé claims may be public");
