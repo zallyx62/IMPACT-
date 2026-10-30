@@ -114,6 +114,7 @@ export function validateCollections(collections) {
     requireReference("changes", record, "entity_id", "entities");
     requireReference("changes", record, "source_ids", "sources", { array: true, nonEmpty: true });
     requireReference("changes", record, "claim_ids", "claims", { array: true, optional: true });
+    validateDateRange("changes", record, "event_date", "reviewed_at");
   }
 
   for (const record of collections.commitments ?? []) {
