@@ -18,6 +18,7 @@ assert.ok(activity.includes('ASSET_HOST = "appassets.androidplatform.net"'), "th
 assert.ok(activity.includes('APP_PATH = "/impact/"'), "bundled assets must be isolated under a dedicated path");
 assert.ok(activity.includes('new WebViewAssetLoader.AssetsPathHandler(this)'), "the WebKit-compatible asset handler constructor must be used");
 assert.ok(activity.includes("uri.getPath().startsWith(APP_PATH)"), "only the embedded app path may remain inside the WebView");
+assert.ok(activity.includes('path.isEmpty() ? "index.html" : path'), "the app root must serve index.html for the local service worker shell");
 assert.ok(activity.includes("Intent.ACTION_VIEW"), "external links must open in the system browser");
 assert.ok(activity.includes('"https".equals(scheme) || "http".equals(scheme)'), "only web links may be handed to the browser");
 assert.ok(activity.includes("setJavaScriptEnabled(true)"), "the bundled React app requires JavaScript");
