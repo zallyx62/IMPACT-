@@ -236,6 +236,48 @@ describe("Nestlé dossier editorial gate", () => {
       assert.ok(sourceIds.has(response.source_id));
     }
   });
+  it("publishes narrowly scoped official Nestlé Waters findings and preserves unresolved accusations", async () => {
+    const senate = await readRecord("sources", "source-senat-2025-enquete-eaux-minerales");
+    const government = await readRecord("sources", "source-assemblee-nationale-2026-eaux-nestle");
+    const justice = await readRecord("sources", "source-justice-2024-cjipe-nestle");
+    const company = await readRecord("sources", "source-nestle-2024-reponse-cjipe");
+    for (const source of [senate, government, justice, company]) {
+      assert.equal(source.review_status, "evidence_verified");
+      assert.ok(source.verification_method && source.verified_at && source.verification_note);
+    }
+
+    const treatments = await readRecord("claims", "claim-nestle-water-treatments");
+    const cjipe = await readRecord("claims", "claim-nestle-water-cjipe");
+    const health = await readRecord("claims", "claim-nestle-water-health-finding");
+    for (const claim of [treatments, cjipe, health]) {
+      assert.equal(claim.claim_status, "confirmed");
+      assert.equal(claim.publication_basis, "evidence_verified");
+      assert.equal(claim.reviewed_at, null);
+      assert.ok(claim.published_at && claim.publication_note);
+    }
+    assert.match(treatments.statement, /31 août 2021/);
+    assert.match(treatments.statement, /traitements UV et au charbon actif étaient interdits/);
+    assert.ok(treatments.evidence_ids.includes("evidence-nestle-water-admission"));
+    assert.ok(treatments.evidence_ids.includes("evidence-nestle-water-2026-regulatory-response"));
+    assert.match(cjipe.statement, /deux millions d'euros/);
+    assert.match(cjipe.uncertainty_note, /ne doit pas être présentée comme une condamnation pénale/);
+    assert.ok(cjipe.evidence_ids.includes("evidence-nestle-water-cjipe"));
+    assert.ok(cjipe.evidence_ids.includes("evidence-nestle-water-cjipe-fine"));
+    assert.match(health.statement, /aucun risque sanitaire n'a été constaté/);
+    assert.match(health.uncertainty_note, /3 février 2026/);
+
+    const unresolvedDeception = await readRecord("claims", "claim-nestle-water-consumer-deception");
+    const unresolvedMicrofiltration = await readRecord("claims", "claim-nestle-water-microfiltration");
+    assert.equal(unresolvedDeception.claim_status, "not_reviewed",
+      "the serious consumer-deception characterization remains unpublished pending enhanced review");
+    assert.equal(unresolvedMicrofiltration.claim_status, "not_reviewed",
+      "the complex microfiltration regulatory interpretation remains unpublished pending further review");
+
+    const response = await readRecord("responses", "response-nestle-water-cjipe");
+    assert.deepEqual(response.related_claim_ids, [treatments.id, cjipe.id, health.id]);
+    assert.equal(response.source_id, company.id);
+  });
+
   it("keeps the Greenpeace/SINTEF microplastics finding within its actual sample and evidentiary limits", async () => {
     const source = await readRecord("sources", "source-greenpeace-baby-food-plastic-pouches-2026");
     const claim = await readRecord("claims", "claim-nestle-baby-food-plastic-pouches-2025");
