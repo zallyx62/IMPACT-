@@ -1,0 +1,10 @@
+{
+  "id": "evidence-shein-misleading-prices-environmental-claims-2025",
+  "source_id": "source-senat-shein-dgccrf-2026",
+  "locator": "Réponse du ministère publiée le 10 septembre 2026, paragraphes sur l'amende de 40 millions d'euros, les annonces de réduction et les allégations environnementales",
+  "summary": "Le ministère rapporte que la DGCCRF a sanctionné SHEIN à hauteur de 40 millions d'euros pour des pratiques trompeuses sur les réductions de prix. Sur les annonces contrôlées, 57 % ne proposaient aucune baisse, 19 % une baisse moindre que celle annoncée et 11 % une hausse. Le ministère indique également que l'entreprise n'avait pas justifié certaines allégations environnementales.",
+  "supports_claim_ids": [
+    "claim-shein-misleading-prices-environmental-claims-2025"
+  ],
+  "limitations": "Données rapportées dans une réponse ministérielle ; les taux concernent le sous-ensemble d'annonces contrôlées."
+}

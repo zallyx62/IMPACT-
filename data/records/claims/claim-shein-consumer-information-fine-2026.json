@@ -1,0 +1,16 @@
+{
+  "id": "claim-shein-consumer-information-fine-2026",
+  "subject_entity_id": "shein",
+  "statement": "Selon la réponse ministérielle publiée au Sénat le 10 septembre 2026, la DGCCRF a infligé à SHEIN une amende de 22,4 millions d'euros au début de juin 2026 pour des manquements à l'information des consommateurs, au droit de rétractation et aux obligations d'information sur les caractéristiques environnementales des produits.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-senat-shein-dgccrf-2026"
+  ],
+  "evidence_ids": [
+    "evidence-shein-consumer-information-fine-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le dossier reprend le résumé des manquements fourni par le ministère dans sa réponse parlementaire. Ne pas étendre la sanction à d'autres obligations ou produits que ceux visés par la procédure.",
+  "editorial_note": "Préciser la date, le montant et les catégories de manquements tels que rapportés par le ministère."
+}

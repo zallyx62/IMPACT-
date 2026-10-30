@@ -1,0 +1,10 @@
+{
+  "id": "evidence-shein-customs-noncompliance-2025",
+  "source_id": "source-fr-economy-shein-marketplace-2026",
+  "locator": "Ministère de l'Économie, communiqué du 20 mars 2026, section « Huit articles sur dix non conformes »",
+  "summary": "Le ministère indique qu'une opération douanière du 6 novembre 2025 à Roissy a porté sur 200 000 colis SHEIN et que huit articles sur dix se sont révélés non conformes, avec des exemples de cosmétiques non autorisés, jouets dangereux et appareils électroménagers défaillants.",
+  "supports_claim_ids": [
+    "claim-shein-customs-noncompliance-2025"
+  ],
+  "limitations": "Le ministère ne présente pas ce résultat comme une estimation représentative de l'ensemble des articles vendus par SHEIN."
+}
