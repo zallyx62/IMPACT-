@@ -62,6 +62,13 @@ describe("buildEntityDossier publication rules", () => {
     assert.deepEqual(dossier.commitments.map((item) => item.id), ["commitment-reviewed"]);
   });
 
+  it("preserves a campaign organizer when the organizer is publishable", () => {
+    const withPublishedOrganizer = structuredClone(data);
+    withPublishedOrganizer.campaigns[0].organizer_entity_id = "entity-two";
+    const dossier = buildEntityDossier("entity-one", withPublishedOrganizer);
+    assert.equal(dossier?.campaigns[0].organizer_entity_id, "entity-two");
+  });
+
   it("does not expose draft entities", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
   });
