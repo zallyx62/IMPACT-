@@ -21,7 +21,7 @@ assert.equal(summary.assessmentFactors.fr.length, 5);
 assert.match(summary.reasons[1].text.fr, /ne démontre ni que l'emballage est la source/);
 assert.match(summary.reasons[2].text.fr, /ne représente pas 3 % de la pollution plastique mondiale/);
 assert.match(summary.reasons[3].text.fr, /ne prouve pas une déforestation/);
-assert.match(summary.methodology.fr, /pas une note scientifique/);
+assert.match(summary.methodology.fr, /ni une note scientifique/);
 assert.deepEqual(BOYCOTT_ASSESSMENT_SCALE.priority, ["strong_case", "consider", "watch", "not_established"]);
 assert.equal(getDossierSummary("unknown", published), undefined);
 assert.equal(
