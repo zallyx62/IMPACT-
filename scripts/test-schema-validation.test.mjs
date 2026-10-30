@@ -48,6 +48,15 @@ describe("JSON Schema validation", () => {
     assert.ok(errors.some((error) => error.includes("reviewed_at") && error.includes("must be string")));
   });
 
+  it("allows a high-risk claim to remain pending until human review", async () => {
+    const validators = await compileRecordValidators();
+    const pending = structuredClone(valid);
+    pending.claims[0].claim_status = "not_reviewed";
+    pending.claims[0].reviewed_at = null;
+    pending.claims[0].requires_human_review = true;
+    assert.deepEqual(validateSchemaRecords(pending, validators), []);
+  });
+
   it("requires an explicit low-risk classification for evidence-only publication", async () => {
     const validators = await compileRecordValidators();
     const invalid = structuredClone(valid);
