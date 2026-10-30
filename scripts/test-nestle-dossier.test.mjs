@@ -52,7 +52,6 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-bms-marketing-atni-2024",
       "claim-nestle-bms-policy-gaps",
       "claim-nestle-baby-food-added-sugar",
-      "claim-nestle-baby-food-microplastics-2026",
       "claim-nestle-gerber-microplastics-consumer-reports-2026",
       "claim-nestle-cocoa-cameroon-child-labor",
       "claim-nestle-cocoa-cameroon-forced-labor-risk",
@@ -156,7 +155,6 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-bms-marketing-atni-2024",
       "claim-nestle-bms-policy-gaps",
       "claim-nestle-baby-food-added-sugar",
-      "claim-nestle-baby-food-microplastics-2026",
       "claim-nestle-gerber-microplastics-consumer-reports-2026",
       "claim-nestle-cocoa-cameroon-child-labor",
       "claim-nestle-cocoa-cameroon-forced-labor-risk",
@@ -214,8 +212,8 @@ describe("Nestlé dossier editorial gate", () => {
   });
   it("keeps the Greenpeace/SINTEF microplastics finding within its actual sample and evidentiary limits", async () => {
     const source = await readRecord("sources", "source-greenpeace-baby-food-plastic-pouches-2026");
-    const claim = await readRecord("claims", "claim-nestle-baby-food-microplastics-2026");
-    const evidence = await readRecord("evidence", "evidence-nestle-baby-food-microplastics-2026");
+    const claim = await readRecord("claims", "claim-nestle-baby-food-plastic-pouches-2025");
+    const evidence = await readRecord("evidence", "evidence-nestle-baby-food-plastic-pouches-2025");
 
     assert.equal(source.review_status, "to_review");
     assert.match(source.limitations, /three pouches per brand/i);
@@ -223,7 +221,7 @@ describe("Nestlé dossier editorial gate", () => {
     assert.equal(claim.claim_status, "not_reviewed");
     assert.equal(claim.reviewed_at, null);
     assert.match(claim.statement, /trois sachets/i);
-    assert.match(claim.uncertainty_note, /ne démontre aucun effet sanitaire/i);
+    assert.match(claim.uncertainty_note, /n’établit pas d’effet sanitaire/i);
     assert.ok(claim.source_ids.includes(source.id));
     assert.ok(claim.evidence_ids.includes(evidence.id));
     assert.ok(evidence.supports_claim_ids.includes(claim.id));
@@ -245,6 +243,10 @@ describe("Nestlé dossier editorial gate", () => {
 
     assert.match(fdaEvidence.summary, /ne démontrent pas que les niveaux détectés.*présentent un risque/i);
     assert.match(claim.uncertainty_note, /La FDA indique/i);
+    assert.match(claim.uncertainty_note, /La revue de littérature de l’EFSA/i);
+    assert.ok(claim.evidence_ids.includes(fdaEvidence.id));
+    assert.ok(claim.evidence_ids.includes(efsaReviewEvidence.id));
+    assert.ok(claim.evidence_ids.includes(efsaStatusEvidence.id));
     assert.equal(nestleResponse.publication_status, "published");
     assert.ok(nestleResponse.related_claim_ids.includes(claim.id));
     assert.equal(nestleResponse.source_id, "source-nestle-baby-food-plastic-packaging-response-2026");
