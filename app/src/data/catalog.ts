@@ -100,7 +100,7 @@ export const tools: CatalogItem[] = [
     description: { fr: "Comparer des choix sans note morale simplificatrice.", en: "Compare choices without a simplistic moral score." },
     detail: {
       fr: "Comparez les volumes de documentation disponibles dans les dossiers publiés : affirmations, sources vérifiées, preuves, engagements, réponses et relations. Ces chiffres ne mesurent ni la valeur morale d’une organisation ni son impact réel.",
-      en: "Comparisons will explain their criteria, units, time period and assumptions. Missing data will stay visible instead of being replaced with unverified estimates."
+      en: "Compare the documentation available in published dossiers: claims, verified sources, evidence, commitments, responses and relationships. These counts do not measure an organisation's moral worth or actual impact."
     },
     keywords: ["comparateur", "coût", "impact", "alternative", "compare", "cost", "impact", "alternative"]
   },
