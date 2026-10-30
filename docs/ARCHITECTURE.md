@@ -84,6 +84,8 @@ Les dépendances sont surveillées chaque semaine par Dependabot et auditées av
 │   ├── check-data.mjs
 │   ├── check-contrast.mjs
 │   ├── check-pwa-build.mjs
+│   ├── generate-public-records.mjs
+│   ├── test-public-data.test.mjs
 │   ├── lib/data-integrity.mjs
 │   ├── lib/schema-validation.mjs
 │   ├── test-service-worker.mjs
