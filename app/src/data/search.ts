@@ -17,3 +17,11 @@ export function searchableText(item: CatalogItem): string {
     ...item.keywords,
   ].join(" "));
 }
+
+export function matchesSearch(value: string, query: string): boolean {
+  const terms = normalizeSearch(query).split(/\s+/u).filter(Boolean);
+  if (terms.length === 0) return false;
+
+  const normalizedValue = normalizeSearch(value);
+  return terms.every((term) => normalizedValue.includes(term));
+}
