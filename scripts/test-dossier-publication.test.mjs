@@ -8,6 +8,7 @@ const data = {
     { id: "entity-two", name: "Related entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
     { id: "entity-draft", name: "Draft entity", entity_type: "organization", status: "draft", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
     { id: "entity-unreviewed", name: "Unreviewed entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-pending"] },
+    { id: "entity-no-review-date", name: "Entity awaiting review", entity_type: "organization", status: "published", reviewed_at: null, source_ids: ["source-reviewed"] },
   ],
   sources: [
     { id: "source-reviewed", title: "Reviewed source", publisher: "Publisher", source_type: "official_statement", accessed_at: "2026-10-30", review_status: "reviewed" },
@@ -16,6 +17,7 @@ const data = {
   claims: [
     { id: "claim-reviewed", subject_entity_id: "entity-one", statement: "A reviewed claim with a source.", topic: "other", claim_status: "confirmed", source_ids: ["source-reviewed"], evidence_ids: ["evidence-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
     { id: "claim-pending", subject_entity_id: "entity-one", statement: "A claim that must remain unpublished.", topic: "other", claim_status: "alleged", source_ids: ["source-pending"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
+    { id: "claim-no-review", subject_entity_id: "entity-one", statement: "A claim whose source is reviewed but whose editorial review is pending.", topic: "other", claim_status: "not_reviewed", source_ids: ["source-reviewed"], reviewed_at: null, uncertainty_note: "Human editorial review is pending." },
     { id: "claim-related", subject_entity_id: "entity-two", statement: "A related claim included through a campaign.", topic: "other", claim_status: "corroborated", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
     { id: "claim-unrelated", subject_entity_id: "entity-two", statement: "A claim unrelated to this dossier or its campaigns.", topic: "other", claim_status: "confirmed", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
     { id: "claim-draft-subject", subject_entity_id: "entity-draft", statement: "A claim belonging to an unpublished entity.", topic: "other", claim_status: "confirmed", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
@@ -50,6 +52,7 @@ describe("buildEntityDossier publication rules", () => {
     const dossier = buildEntityDossier("entity-one", data);
     assert.ok(dossier);
     assert.deepEqual(dossier.claims.map((item) => item.id).sort(), ["claim-related", "claim-reviewed"]);
+    assert.ok(!dossier.claims.some((item) => item.id === "claim-no-review"), "claims without human editorial review must remain hidden");
     assert.deepEqual(dossier.sources.map((item) => item.id), ["source-reviewed"]);
     assert.deepEqual(dossier.evidence.map((item) => item.id), ["evidence-reviewed"]);
     assert.deepEqual(dossier.relationships.map((item) => item.id), ["relationship-reviewed"]);
@@ -91,6 +94,7 @@ describe("buildEntityDossier publication rules", () => {
 
   it("lists only entities with at least one reviewed source", () => {
     assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["entity-one", "entity-two"]);
+    assert.ok(!getPublishedEntities(data).some((item) => item.id === "entity-no-review-date"), "entities without a review date must remain hidden");
   });
 
   it("does not expose an entity without a reviewed source", () => {
