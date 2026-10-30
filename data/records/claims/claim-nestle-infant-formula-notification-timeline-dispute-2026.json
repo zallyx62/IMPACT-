@@ -1,0 +1,20 @@
+{
+  "id": "claim-nestle-infant-formula-notification-timeline-dispute-2026",
+  "subject_entity_id": "nestle",
+  "statement": "En mai 2026, une enquête conjointe de Radio France, RTS et RTBF, rapportée par Reuters, a allégué que Nestlé avait tardé à alerter les autorités européennes au sujet de la céréulide et avait procédé à des retraits discrets dans certains pays. Nestlé conteste ces allégations et affirme avoir informé les autorités le 10 décembre 2025 et lancé ce jour-là un rappel volontaire de 25 lots dans 16 pays européens.",
+  "topic": "animals_food",
+  "claim_status": "not_reviewed",
+  "valid_from": "2025-11-01",
+  "source_ids": [
+    "source-reuters-nestle-cereulide-notification-2026",
+    "source-nestle-infant-formula-timeline-2026",
+    "source-fr-health-ministry-infant-formula-recall-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-cereulide-notification-allegation-2026",
+    "evidence-nestle-cereulide-notification-response-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Il s'agit d'une controverse sur la chronologie et les notifications, non d'une conclusion judiciaire définitive. Nestlé nie avoir procédé à des rappels discrets et soutient avoir suivi les procédures réglementaires. Le communiqué gouvernemental du 22 janvier 2026 confirme le rappel et la source fournisseur, mais ne tranche pas à lui seul le différend sur les délais de notification.",
+  "editorial_note": "Toujours afficher côte à côte l'enquête journalistique, la chronologie publiée par Nestlé et les informations des autorités. Ne pas affirmer qu'un dommage sanitaire ou une violation réglementaire a été judiciairement établi."
+}
