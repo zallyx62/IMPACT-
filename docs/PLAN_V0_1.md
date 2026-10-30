@@ -8,7 +8,7 @@
 - Interface publique en français uniquement ; aucune autre langue n'est prévue dans le périmètre actuel.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
-- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; un premier constat Nestlé limité à trois sachets Gerber est publié selon le seuil documentaire, les autres sujets restant en préparation.
+- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; deux constats Nestlé limités à des produits Gerber précis sont publiés selon le seuil documentaire, les autres sujets restant en préparation.
 - Pages explicatives de sélection pour les univers.
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
