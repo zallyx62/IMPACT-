@@ -159,10 +159,16 @@
         "properties": {
           "requires_human_review": {
             "const": true
+          },
+          "claim_status": {
+            "not": {
+              "const": "not_reviewed"
+            }
           }
         },
         "required": [
-          "requires_human_review"
+          "requires_human_review",
+          "claim_status"
         ]
       },
       "then": {
