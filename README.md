@@ -72,6 +72,7 @@ Voir le [guide complet des plateformes, installations et versions](docs/PLATFORM
 - [Projet Android et instructions de compilation](android/README.md)
 
 - [Architecture technique](docs/ARCHITECTURE.md)
+- [Journal des modifications et état des versions](CHANGELOG.md)
 - [Politique de confidentialité](PRIVACY.md)
 - [Guide de contribution](CONTRIBUTING.md)
 - [Code de conduite](CODE_OF_CONDUCT.md)
