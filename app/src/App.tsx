@@ -4,6 +4,7 @@ import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } 
 import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import { getComparisonMetrics } from "./data/comparison-metrics";
 import DossierPanel from "./DossierPanel";
+import EvidenceCentre from "./EvidenceCentre";
 import { parseSelectionHash, type Selection } from "./data/hash-route";
 
 type Theme = "light" | "dark";
@@ -350,7 +351,9 @@ function App() {
               <div><p className="section-kicker">{t.selected}</p><h2 id="selected-title">{chosen.title[language]}</h2></div>
             </div>
             <p className="selected-description">{chosen.detail[language]}</p>
-            {chosen.type === "tool" && chosen.id === "compare" ? (
+            {chosen.type === "tool" && chosen.id === "evidence" ? (
+              <EvidenceCentre entities={publishedEntities} />
+            ) : chosen.type === "tool" && chosen.id === "compare" ? (
               <ComparisonTool entities={publishedEntities} leftId={comparisonLeftId} rightId={comparisonRightId}
                 onLeftChange={setComparisonLeftId} onRightChange={setComparisonRightId} />
             ) : (
