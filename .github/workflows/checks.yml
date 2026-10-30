@@ -65,6 +65,9 @@ jobs:
       - name: Check secondary text contrast
         run: node scripts/check-contrast.mjs
 
+      - name: Check UI invariants
+        run: node scripts/check-ui-invariants.mjs
+
       - name: Build production app
         working-directory: app
         run: npm run build
