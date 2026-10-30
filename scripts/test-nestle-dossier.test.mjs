@@ -203,7 +203,7 @@ describe("Nestlé dossier editorial gate", () => {
     assert.ok(claim.source_ids.includes(source.id));
     assert.ok(claim.evidence_ids.includes(evidence.id));
     assert.ok(evidence.supports_claim_ids.includes(claim.id));
-    assert.match(evidence.limitations, /does not demonstrate.*health outcome/i);
+    assert.match(evidence.limitations, /ne démontre ni.*effet sanitaire/i);
   });
 
 });
