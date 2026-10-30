@@ -25,6 +25,8 @@ export const BOYCOTT_ASSESSMENT_SCALE = {
 } as const;
 
 export interface DossierSummary {
+  /** Date of the editorial assessment, not a claim-level verification date. */
+  assessedAt: string;
   level: EvidenceSeverity;
   levelLabel: Record<Language, string>;
   boycottPriority: BoycottPriority;
@@ -43,6 +45,7 @@ export interface DossierSummary {
 
 const summaries: Record<string, DossierSummary> = {
   nestle: {
+    assessedAt: "2026-10-30",
     level: "high",
     levelLabel: {
       fr: "Gravité documentée : élevée",
