@@ -111,6 +111,13 @@ describe("Nestlé dossier editorial gate", () => {
       "source-fla-cocoa-cameroon-2022",
       "source-nestle-cocoa-plan",
       "source-nestle-non-financial-statement-2024-bms",
+      "source-fla-cocoa-cameroon-iem-2021",
+      "source-greenpeace-baby-food-plastic-pouches-2026",
+      "source-science-advances-plastic-brand-audit-2024",
+      "source-bffp-asian-plastic-sachet-audit-2024",
+      "source-nestle-packaging-progress-2025",
+      "source-nestle-plastic-pollution-response-2024",
+      "source-nestle-deforestation-supply-chains-2025",
     ]);
     const claimIds = [
       "claim-nestle-water-treatments",
@@ -127,6 +134,11 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-cocoa-cameroon-child-labor",
       "claim-nestle-cocoa-cameroon-forced-labor-risk",
       "claim-nestle-bms-marketing-company-count-2024",
+      "claim-nestle-baby-food-plastic-pouches-2025",
+      "claim-nestle-branded-plastic-audit-2024",
+      "claim-nestle-plastic-sachets-asia-2024",
+      "claim-nestle-packaging-progress-2025",
+      "claim-nestle-cocoa-deforestation-2025",
     ];
     const claims = await Promise.all(claimIds.map((id) => readRecord("claims", id)));
     const evidence = await Promise.all([
@@ -146,6 +158,11 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-cocoa-cameroon-child-labor",
       "evidence-nestle-cocoa-cameroon-forced-labor-risk",
       "evidence-nestle-bms-marketing-company-count-2024",
+      "evidence-nestle-baby-food-plastic-pouches-2025",
+      "evidence-nestle-branded-plastic-audit-2024",
+      "evidence-nestle-plastic-sachets-asia-2024",
+      "evidence-nestle-packaging-progress-2025",
+      "evidence-nestle-cocoa-deforestation-2025",
     ].map((id) => readRecord("evidence", id)));
     const evidenceIds = new Set(evidence.map((item) => item.id));
     for (const claim of claims) {
