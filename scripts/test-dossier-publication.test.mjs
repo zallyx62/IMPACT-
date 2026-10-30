@@ -65,4 +65,28 @@ describe("buildEntityDossier publication rules", () => {
     unreviewed.entities[0].source_ids = ["source-pending"];
     assert.equal(buildEntityDossier("entity-one", unreviewed), undefined);
   });
+  it("removes unreviewed references from every published dossier record", () => {
+    const mixed = structuredClone(data);
+    mixed.entities[0].source_ids.push("source-pending");
+    mixed.claims[0].source_ids.push("source-pending");
+    mixed.claims[0].evidence_ids.push("evidence-pending");
+    mixed.relationships[0].source_ids.push("source-pending");
+    mixed.campaigns[0].source_ids.push("source-pending");
+    mixed.campaigns[0].claim_ids.push("claim-pending");
+    mixed.responses[0].related_claim_ids.push("claim-pending");
+    mixed.commitments[0].source_ids.push("source-pending");
+
+    const dossier = buildEntityDossier("entity-one", mixed);
+    assert.ok(dossier);
+    assert.deepEqual(dossier.entity.source_ids, ["source-reviewed"]);
+    assert.deepEqual(dossier.claims.find((item) => item.id === "claim-reviewed")?.source_ids, ["source-reviewed"]);
+    assert.deepEqual(dossier.claims.find((item) => item.id === "claim-reviewed")?.evidence_ids, ["evidence-reviewed"]);
+    assert.deepEqual(dossier.relationships[0].source_ids, ["source-reviewed"]);
+    assert.deepEqual(dossier.campaigns[0].source_ids, ["source-reviewed"]);
+    assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
+    assert.deepEqual(dossier.responses[0].related_claim_ids, ["claim-related"]);
+    assert.deepEqual(dossier.commitments[0].source_ids, ["source-reviewed"]);
+    assert.ok(dossier.evidence.every((item) => item.source_id === "source-reviewed"));
+  });
+
 });
