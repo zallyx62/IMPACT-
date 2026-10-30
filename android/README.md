@@ -33,7 +33,7 @@ For a release build, run `gradle --no-daemon :app:assembleRelease`. The release 
 - App content is served from bundled assets through AndroidX `WebViewAssetLoader`, not `file://`.
 - WebView file and content-provider access are disabled.
 - HTTP/HTTPS links are opened in the user's external browser after an explicit tap; external pages are never loaded inside the app WebView.
-- The WebView DOM storage is enabled only because the web app stores the user's dark/light mode and accent-colour preferences locally on the device. The preference remains on the device.
+- The WebView DOM storage is enabled only because the web app stores the user's dark/light mode and one of five accent-colour preferences locally on the device. These preferences remain on the device.
 - No account, analytics, advertising, telemetry or remote app API is included.
 
 ## Updates: F-Droid-first policy
