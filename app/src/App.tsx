@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { tools, universes, type CatalogItem, type Language } from "./data/catalog";
-import { matchesSearch, normalizeSearch, searchableText } from "./data/search";
+import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } from "./data/search";
 import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import DossierPanel from "./DossierPanel";
 
@@ -99,7 +99,7 @@ function App() {
   );
   const publishedEntities = useMemo(() => getPublishedEntities(), []);
   const foundEntities = useMemo(
-    () => trimmedQuery ? publishedEntities.filter((item) => matchesSearch([item.name, item.description ?? "", item.entity_type].join(" "), trimmedQuery)) : [],
+    () => trimmedQuery ? publishedEntities.filter((item) => matchesSearch(searchableEntityText(item, getEntityDossier(item.id)), trimmedQuery)) : [],
     [trimmedQuery, publishedEntities],
   );
   const chosen = selection && selection.type !== "entity"
