@@ -1,0 +1,22 @@
+{
+  "id": "claim-nestle-infant-deaths-no-causal-link-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Après les deux décès de nourrissons qui avaient déclenché des enquêtes en France dans le contexte des rappels de laits infantiles, les autorités n'ont pas retenu de lien causal avec les laits rappelés : l'évaluation conjointe EFSA/ECDC du 19 février 2026 ne rapportait aucun lien identifié à cette date ; le parquet de Bordeaux a indiqué le 6 mars que le décès en Gironde n'était pas lié au lait rappelé ; le parquet d'Angers a écarté le lien le 6 mai.",
+  "topic": "animals_food",
+  "claim_status": "not_reviewed",
+  "valid_from": "2026-02-19",
+  "source_ids": [
+    "source-ecdc-efsa-cereulide-assessment-2026",
+    "source-reuters-bordeaux-infant-death-cereulide-2026",
+    "source-afp-angers-infant-death-cereulide-2026",
+    "source-nestle-recall-faq-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-infant-death-investigations-ecdc-2026",
+    "evidence-nestle-infant-death-bordeaux-2026",
+    "evidence-nestle-infant-death-angers-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Cette conclusion concerne les deux décès ayant fait l'objet d'enquêtes à Bordeaux et Angers. Elle ne signifie pas que la céréulide ne présentait aucun risque, ni que tous les signalements de troubles digestifs dans l'alerte internationale ont été exclus. L'évaluation ECDC/EFSA du 19 février décrit des cas de symptômes dans plusieurs pays et des limites de surveillance.",
+  "editorial_note": "Afficher ce correctif à proximité du rappel de lots et de la chronologie contestée. Ne jamais écrire que les laits rappelés ont causé ces décès. Distinguer les deux enquêtes sur les décès des enquêtes plus larges sur la contamination et les rappels."
+}
