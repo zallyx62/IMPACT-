@@ -98,9 +98,10 @@ Champs :
 - `potential_conflicts` : intérêts ou liens pertinents connus.
 - `limitations` : limites identifiées.
 - `archived_url` : copie d'archive licite, si disponible.
-- `review_status` : à examiner, examinée, contestée ou inaccessible.
+- `review_status` : `to_review`, `reviewed`, `evidence_verified`, `disputed` ou `unavailable`.
+- `verification_method`, `verified_at` et `verification_note` : obligatoires lorsqu'une source suit le parcours documentaire sans validation humaine préalable ; ils décrivent la méthode, la date et le contrôle réellement effectué.
 
-La nature d'une source ne suffit pas à garantir sa fiabilité. Son contenu et sa méthode doivent être examinés.
+`reviewed` signifie qu'une revue humaine a eu lieu. `evidence_verified` signifie que la source a passé le parcours documentaire tracé défini dans la charte ; ce statut ne doit jamais être utilisé comme synonyme d'une validation humaine. La nature d'une source ne suffit pas à garantir sa fiabilité : son contenu, sa méthode, son périmètre et ses limites doivent être examinés.
 
 ### 2.6 Affirmation
 
@@ -113,13 +114,16 @@ Champs :
 - `topic` : environnement, travail, animaux, vie privée, etc.
 - `claim_status` : confirmé, corroboré, allégué, contesté, réfuté ou insuffisamment documenté.
 - `valid_from` et `valid_until` : période à laquelle l'affirmation se rapporte, si connue.
-- `reviewed_at`
-- `source_ids`
+- `reviewed_at` : date de validation humaine ; reste `null` si aucune validation humaine n'a eu lieu.
+- `source_ids` : toutes les sources nécessaires à l'affirmation ; chacune doit être admissible à la publication.
 - `evidence_ids`
 - `uncertainty_note` : ce qui reste incertain.
 - `editorial_note` : contexte nécessaire à la compréhension.
+- `publication_basis` : `evidence_verified` pour le parcours documentaire sans validation humaine préalable.
+- `published_at` et `publication_note` : date et justification de publication selon ce parcours.
+- `requires_human_review` : doit être explicitement `false` pour le parcours documentaire ; `true` bloque ce parcours et exige une revue humaine.
 
-Le statut décrit l'état de l'examen de l'affirmation ; il ne constitue pas un jugement définitif sur une organisation.
+Le statut décrit l'état de l'examen de l'affirmation ; il ne constitue pas un jugement définitif sur une organisation. Une affirmation publiée sans validation humaine doit rester limitée au périmètre des preuves et conserver ses incertitudes.
 
 ### 2.7 Élément de preuve
 
@@ -225,16 +229,14 @@ Les journaux publics ne doivent pas exposer de données personnelles, d'adresses
 
 ## 5. Règles de publication
 
-Une fiche ne peut être publiée que si :
-1. son objet est identifié sans ambiguïté ;
-2. les affirmations importantes sont formulées précisément ;
-3. les sources sont consultables ou leur indisponibilité est expliquée ;
-4. les dates et limites sont indiquées ;
-5. les réponses pertinentes sont présentées ;
-6. les conflits d'intérêts connus sont déclarés ;
-7. une personne responsable de la validation éditoriale est identifiée dans le processus interne.
+Une fiche peut suivre l'un des deux parcours suivants :
 
-Les informations sensibles, accusations graves et données concernant des personnes physiques nécessitent un examen renforcé et une base légale appropriée.
+1. **Validation humaine :** une personne examine le dossier, les sources, les preuves, les limites et les réponses pertinentes. La date de revue est enregistrée dans `reviewed_at`.
+2. **Parcours documentaire sans validation humaine préalable :** chaque source doit être admissible et comporter les métadonnées de vérification prévues par son schéma ; chaque affirmation doit être précisément formulée, étayée par toutes ses sources admissibles, datée, accompagnée d'une note de publication et porter explicitement `requires_human_review: false`. Le générateur public doit exclure tout enregistrement qui ne satisfait pas intégralement ces conditions.
+
+Dans les deux parcours, l'objet doit être identifié sans ambiguïté, les limites et conflits d'intérêts connus doivent être indiqués, les réponses pertinentes doivent être présentées et les références doivent être cohérentes. Une source citée mais non admissible bloque l'affirmation concernée ; elle ne doit pas être silencieusement retirée pour donner une impression de corroboration complète.
+
+Les accusations graves, sujets sensibles, preuves contradictoires non résolues, conclusions sanitaires non consensuelles et données concernant des personnes physiques nécessitent un examen humain renforcé et une base légale appropriée. Le parcours documentaire ne doit jamais servir à contourner cette exigence.
 
 ## 6. Exemple JSON minimal
 
