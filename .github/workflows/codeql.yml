@@ -4,7 +4,7 @@ on:
   push:
     branches: [main, data/nestle-baby-food-microplastics-2026]
   pull_request:
-    branches: [main]
+    branches: [main, data/nestle-baby-food-microplastics-2026]
   schedule:
     - cron: "23 4 * * 1"
   workflow_dispatch:
