@@ -127,6 +127,20 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(buildEntityDossier("entity-one", invalid), undefined);
   });
 
+  it("blocks allegations and high-risk claims from evidence-only publication", () => {
+    const highRisk = structuredClone(data);
+    highRisk.claims[0].reviewed_at = null;
+    highRisk.claims[0].publication_basis = "evidence_verified";
+    highRisk.claims[0].published_at = "2026-10-30";
+    highRisk.claims[0].publication_note = "The primary source was inspected and its scope recorded.";
+    highRisk.claims[0].claim_status = "alleged";
+    highRisk.claims[0].requires_human_review = true;
+    const dossier = buildEntityDossier("entity-one", highRisk);
+    assert.ok(dossier);
+    assert.ok(!dossier.claims.some((item) => item.id === "claim-reviewed"),
+      "allegations requiring human review must not pass the evidence-only gate");
+  });
+
   it("does not expose draft entities", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
   });
