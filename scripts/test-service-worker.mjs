@@ -19,18 +19,22 @@ function response(body) {
   };
 }
 
+function cacheKey(request) {
+  return new URL(typeof request === "string" ? request : request.url, self.location.href).href;
+}
+
 function cacheFor(name) {
   if (!stores.has(name)) stores.set(name, new Map());
   const entries = stores.get(name);
   return {
     async addAll(urls) {
-      for (const url of urls) entries.set(url, response(`precache:${url}`));
+      for (const url of urls) entries.set(cacheKey(url), response(`precache:${url}`));
     },
     async put(request, value) {
-      entries.set(typeof request === "string" ? request : request.url, value);
+      entries.set(cacheKey(request), value);
     },
     async match(request) {
-      return entries.get(typeof request === "string" ? request : request.url);
+      return entries.get(cacheKey(request));
     },
   };
 }
@@ -41,7 +45,7 @@ const cachesMock = {
   async delete(name) { return stores.delete(name); },
   async match(request) {
     for (const entries of stores.values()) {
-      const found = entries.get(typeof request === "string" ? request : request.url);
+      const found = entries.get(cacheKey(request));
       if (found) return found;
     }
     return undefined;
@@ -78,11 +82,16 @@ function fetchEvent(request) {
   };
 }
 
+networkFetch = async (url) => url === "/app/"
+  ? response('<html><head><link rel="stylesheet" href="./assets/app.css"></head><body><script type="module" src="./assets/app.js"></script></body></html>')
+  : response(`network:${url}`);
 await dispatch("install", lifecycleEvent());
 assert.equal(skipWaitingCalled, true, "install activates the new worker");
-assert.ok(stores.get("impact-shell-v0.3").has("/app/"), "install precaches the app shell");
-assert.ok(stores.get("impact-shell-v0.3").has("/app/manifest.webmanifest"), "install precaches the manifest");
-console.log("PASS install precaches the application shell");
+assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/"), "install precaches the app shell");
+assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/manifest.webmanifest"), "install precaches the manifest");
+assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/assets/app.js"), "install precaches the JavaScript bundle");
+assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/assets/app.css"), "install precaches the CSS bundle");
+console.log("PASS first install precaches the shell and built assets");
 
 stores.set("impact-shell-v0.1", new Map());
 await dispatch("activate", lifecycleEvent());
@@ -98,6 +107,11 @@ assert.equal(await (await cachesMock.match("/app/")).text(), "fresh online page"
 console.log("PASS navigation refreshes and updates the offline shell");
 
 networkFetch = async () => { throw new Error("offline"); };
+const firstVisitOfflineAsset = fetchEvent({ method: "GET", url: "https://example.test/app/assets/app.js", mode: "no-cors" });
+handlers.get("fetch")(firstVisitOfflineAsset);
+assert.equal(await (await firstVisitOfflineAsset.response).text(), "precache: https://example.test/app/assets/app.js");
+console.log("PASS first-visit JavaScript bundle works immediately offline");
+
 const offlineNavigation = fetchEvent({ method: "GET", url: "https://example.test/app/deep-link", mode: "navigate" });
 handlers.get("fetch")(offlineNavigation);
 assert.equal(await (await offlineNavigation.response).text(), "fresh online page");
