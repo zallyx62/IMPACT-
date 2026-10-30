@@ -4,9 +4,9 @@ import { buildEntityDossier } from "../app/src/data/dossier-builder.ts";
 
 const data = {
   entities: [
-    { id: "entity-one", name: "Published entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30" },
+    { id: "entity-one", name: "Published entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
     { id: "entity-two", name: "Related entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30" },
-    { id: "entity-draft", name: "Draft entity", entity_type: "organization", status: "draft", reviewed_at: "2026-10-30" },
+    { id: "entity-draft", name: "Draft entity", entity_type: "organization", status: "draft", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
   ],
   sources: [
     { id: "source-reviewed", title: "Reviewed source", publisher: "Publisher", source_type: "official_statement", accessed_at: "2026-10-30", review_status: "reviewed" },
