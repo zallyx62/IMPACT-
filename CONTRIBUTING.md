@@ -22,15 +22,32 @@ Merci de contribuer à un projet qui privilégie la fiabilité, la transparence 
 
 ## Vérification technique
 
-Dans le dossier `app/`, exécutez :
+Depuis la racine du dépôt, installez et vérifiez l’application :
 
 ```sh
-npm install
+cd app
+npm ci
+npm audit --audit-level=high
 npm run typecheck
+npm run test
 npm run build
+cd ..
 ```
 
-Avant une version stable, le projet devra aussi exécuter des tests d'accessibilité, de navigation, de fonctionnement hors ligne et de confidentialité.
+Puis, toujours depuis la racine, vérifiez les données et le paquet produit :
+
+```sh
+node scripts/test-service-worker.mjs
+node --test scripts/test-data-integrity.test.mjs
+node --test scripts/test-schema-validation.test.mjs
+node --test scripts/test-dossier-publication.test.mjs
+node scripts/check-contrast.mjs
+node scripts/check-pwa-build.mjs
+node scripts/check-schemas.mjs
+node scripts/check-data.mjs
+```
+
+Avant une version stable, des essais manuels d'accessibilité, de navigation, d'installation PWA, de fonctionnement hors ligne et de confidentialité restent nécessaires.
 
 ## Sources et droits d'auteur
 

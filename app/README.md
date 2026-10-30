@@ -24,7 +24,7 @@ npm run build
 npm run preview
 ```
 
-Les contrôles de données et du service worker sont exécutés depuis la racine du dépôt, après `npm ci` :
+Après `npm ci` dans `app/`, revenez à la racine du dépôt (`cd ..`) pour exécuter les contrôles de données et du service worker :
 
 ```sh
 node scripts/test-service-worker.mjs
