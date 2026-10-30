@@ -320,6 +320,10 @@ describe("Nestlé dossier editorial gate", () => {
       "the complex microfiltration regulatory interpretation remains unpublished pending further review");
     assert.equal(unresolvedDeception.requires_human_review, true);
     assert.equal(unresolvedMicrofiltration.requires_human_review, true);
+    assert.equal((await readRecord("claims", "claim-nestle-water-vosges-surveillance")).requires_human_review, true);
+    assert.equal((await readRecord("claims", "claim-nestle-baby-food-added-sugar")).requires_human_review, true);
+    assert.equal((await readRecord("claims", "claim-nestle-bms-policy-gaps")).requires_human_review, true);
+    assert.equal((await readRecord("claims", "claim-nestle-liberia-cocoa-deforestation-exposure-2025")).requires_human_review, true);
 
     const response = await readRecord("responses", "response-nestle-water-cjipe");
     assert.deepEqual(response.related_claim_ids, [treatments.id, cjipe.id, health.id]);
