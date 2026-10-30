@@ -3,7 +3,7 @@
   "subject_entity_id": "nestle",
   "statement": "Dans sa réponse parlementaire du 3 février 2026, le Gouvernement indique que l'affaire relève d'une tromperie du consommateur au regard de l'étiquetage des produits vendus.",
   "topic": "business_consumption",
-  "claim_status": "confirmed",
+  "claim_status": "not_reviewed",
   "source_ids": [
     "source-assemblee-nationale-2026-eaux-nestle"
   ],
