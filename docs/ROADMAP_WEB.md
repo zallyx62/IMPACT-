@@ -37,7 +37,7 @@ Cette feuille de route décrit la cible à long terme et distingue les fonctions
 - Vérifier qu'aucune donnée exclue ou brouillon n'entre dans le paquet public.
 - Documenter les limites de l'hébergement statique et les métadonnées réseau que l'hébergeur peut traiter.
 
-### Priorité 2 — Connaissances et solutions
+### Priorité 2 — Connaissances et solutions\n- Relier des alternatives uniquement lorsque les deux entités sont publiées et que la relation possède une source vérifiable ; documenter le critère de substitution et ses limites.\n- Ne pas qualifier une alternative de « meilleure » sans comparaison indépendante et critères explicites.
 - Construire une bibliothèque de solutions reproductibles avec méthode, conditions, ressources, coûts éventuels, risques, sources et résultats.
 - Séparer les solutions expérimentées, les propositions et les hypothèses.
 - Ajouter des guides pratiques réutilisables et téléchargeables hors ligne.
