@@ -7,12 +7,13 @@
   "valid_from": "2026-01-05",
   "source_ids": [
     "source-fr-health-ministry-infant-formula-recall-2026",
-    "source-nestle-infant-formula-recall-2026"
+    "source-nestle-infant-formula-recall-2026",
+    "source-fr-health-ministry-infant-formula-update-2026"
   ],
   "evidence_ids": [
     "evidence-nestle-infant-formula-recall-cereulide-2026"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "Le rappel concerne des lots identifiés et non l'ensemble des produits Nestlé. Au 22 janvier 2026, les autorités indiquaient qu'aucun lien causal n'avait été établi entre la consommation des produits rappelés et les symptômes rapportés. Ne pas affirmer que les produits ont causé des maladies ou des décès.",
-  "editorial_note": "Afficher les lots et dates exacts depuis RappelConso avant toute information pratique au public. Conserver la distinction entre contamination identifiée, rappel préventif et absence de lien causal établi à la date du communiqué."
+  "uncertainty_note": "Le rappel concerne des lots identifiés et non l'ensemble des produits Nestlé. Le communiqué interministériel du 22 janvier 2026 indiquait qu'aucun lien causal n'avait été mis en évidence entre la consommation des laits concernés et les symptômes rapportés. La page ministérielle mise à jour le 16 avril 2026 mentionne, pour l'ensemble de l'alerte multi-marques, trois décès de nourrissons pour lesquels la consommation de laits rappelés avait été rapportée, sans imputabilité scientifique établie, ainsi que des hospitalisations rapportées. Ces données ne permettent pas d'attribuer un décès ou une maladie à Nestlé. Ne pas affirmer de causalité ni généraliser à tous les produits.",
+  "editorial_note": "Afficher les lots et dates exacts depuis RappelConso avant toute information pratique au public. Distinguer le rappel Nestlé de l'alerte multi-fabricants et mettre à jour les chiffres sanitaires depuis les autorités. Conserver la distinction entre détection, rappel préventif et causalité non établie."
 }
