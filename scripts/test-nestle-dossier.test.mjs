@@ -255,6 +255,7 @@ describe("Nestlé dossier editorial gate", () => {
     const companyResponse = await readRecord("responses", "response-nestle-plastic-pollution-2024");
     assert.ok(companyResponse.related_claim_ids.includes(claim.id));
     assert.equal(companyResponse.source_id, "source-nestle-plastic-pollution-response-2024");
+    assert.match(companyResponse.summary, /ne constitue pas une réponse spécifique à l'article de Science Advances/);
     assert.equal((await readRecord("sources", "source-nestle-plastic-pollution-response-2024")).review_status, "evidence_verified");
   });
 
