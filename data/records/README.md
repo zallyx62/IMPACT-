@@ -6,7 +6,7 @@ Les enregistrements réels seront ajoutés ici, séparés par type :
 - `sources/` : documents et ressources consultés ;
 - `claims/` : affirmations documentées ;
 - `evidence/` : éléments précis extraits des sources ;
-- `relationships/` : liens qualifiés entre entités ;
+- `relationships/` : liens qualifiés entre entités ; le type `alternative_to` relie une alternative (from) à l'entité remplacée (to), avec le critère de substitution et ses limites explicités dans `notes` ;
 - `campaigns/` : campagnes publiques ;
 - `responses/` : réponses des entités ;
 - `commitments/` : engagements et résultats mesurés.
