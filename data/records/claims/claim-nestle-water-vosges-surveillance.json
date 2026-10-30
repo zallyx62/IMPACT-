@@ -3,7 +3,7 @@
   "subject_entity_id": "nestle",
   "statement": "Le rapport sénatorial indique que les analyses virologiques réalisées dans les Vosges n'ont révélé aucune contamination virale de l'eau et que la surveillance renforcée n'a pas relevé de risque sanitaire avéré depuis octobre 2023.",
   "topic": "business_consumption",
-  "claim_status": "confirmed",
+  "claim_status": "not_reviewed",
   "source_ids": [
     "source-senat-2025-enquete-eaux-minerales"
   ],
