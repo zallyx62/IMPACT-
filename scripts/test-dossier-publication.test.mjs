@@ -112,6 +112,20 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(dossier.entity.reviewed_at, null);
   });
 
+  it("rejects claims and entities that cite even one unpublished source", () => {
+    const mixedClaim = structuredClone(data);
+    mixedClaim.claims[0].source_ids = ["source-reviewed", "source-pending"];
+    const claimDossier = buildEntityDossier("entity-one", mixedClaim);
+    assert.ok(claimDossier);
+    assert.ok(!claimDossier.claims.some((item) => item.id === "claim-reviewed"),
+      "a claim must not pass by citing one reviewed source alongside an unpublished source");
+
+    const mixedEntity = structuredClone(data);
+    mixedEntity.entities[0].source_ids = ["source-reviewed", "source-pending"];
+    assert.equal(buildEntityDossier("entity-one", mixedEntity), undefined,
+      "an entity must not pass by citing one reviewed source alongside an unpublished source");
+  });
+
   it("rejects evidence-verified records missing their audit trail", () => {
     const invalid = structuredClone(data);
     invalid.entities[0].reviewed_at = null;
