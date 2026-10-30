@@ -1,4 +1,4 @@
-import { getPublishedEntities, type EntityDossier, type Language } from "./data/records";
+import { getPublishedEntities, type EntityDossier, type Language, type SourceRecord } from "./data/records";
 import { safeExternalUrl } from "./data/safe-url";
 
 interface Props {
@@ -24,7 +24,7 @@ const labels = {
     campaigns: "Campagnes associées", organizer: "Organisateur", targets: "Entités ciblées",
     responses: "Réponses de l’entité",
     commitments: "Engagements suivis",
-    sourceAccessed: "Consultée le", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
+    sourceAccessed: "Consultée le", sourcePublished: "Publiée le", sourceType: "Nature de la source", sourceLanguage: "Langue", sourceMethodology: "Méthode", sourceConflicts: "Intérêts ou liens pertinents", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
     noDescription: "Aucune description éditoriale n’a encore été publiée.",
     type: "Type d’entité", demands: "Demandes", outcome: "Résultat rapporté", measurement: "Méthode de mesure", observed: "Résultat observé", publication: "Statut de publication", relationshipStatus: "État de la relation", targetDate: "Échéance",
     statuses: {
@@ -52,7 +52,7 @@ const labels = {
     campaigns: "Related campaigns", organizer: "Organizer", targets: "Target entities",
     responses: "Entity responses",
     commitments: "Tracked commitments",
-    sourceAccessed: "Accessed on", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
+    sourceAccessed: "Accessed on", sourcePublished: "Published on", sourceType: "Source type", sourceLanguage: "Language", sourceMethodology: "Methodology", sourceConflicts: "Relevant interests or affiliations", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
     noDescription: "No editorial description has been published yet.",
     type: "Entity type", demands: "Demands", outcome: "Reported outcome", measurement: "Measurement method", observed: "Observed result", publication: "Publication status", relationshipStatus: "Relationship status", targetDate: "Target date",
     statuses: {
@@ -68,6 +68,7 @@ const labels = {
 
 const valueLabels: Record<Language, Record<string, Record<string, string>>> = {
   fr: {
+    sourceType: { primary_document: "Document primaire", official_statement: "Déclaration officielle", scientific_study: "Étude scientifique", academic_review: "Revue académique", court_or_regulatory_decision: "Décision judiciaire ou réglementaire", ngo_report: "Rapport associatif", journalism: "Article journalistique", database: "Base de données", other: "Autre" },
     entityType: { organization: "Organisation", brand: "Marque", product: "Produit", service: "Service", association: "Association", institution: "Institution", public_body: "Organisme public" },
     topic: { animals_food: "Animaux et alimentation", environment: "Environnement", human_rights: "Droits humains", business_consumption: "Entreprises et consommation", technology_privacy: "Technologie et vie privée", other: "Autre" },
     relationshipType: { owns: "détient", operates: "exploite", manufactures: "fabrique", distributes: "distribue", supplies: "fournit", certifies: "certifie", funds: "finance", partners_with: "est partenaire de", other: "autre" },
@@ -77,6 +78,7 @@ const valueLabels: Record<Language, Record<string, Record<string, string>>> = {
     commitmentStatus: { announced: "Annoncé", in_progress: "En cours", achieved: "Atteint", not_achieved: "Non atteint", abandoned: "Abandonné", unable_to_assess: "Impossible à évaluer" },
   },
   en: {
+    sourceType: { primary_document: "Primary document", official_statement: "Official statement", scientific_study: "Scientific study", academic_review: "Academic review", court_or_regulatory_decision: "Court or regulatory decision", ngo_report: "NGO report", journalism: "Journalism", database: "Database", other: "Other" },
     entityType: { organization: "Organization", brand: "Brand", product: "Product", service: "Service", association: "Association", institution: "Institution", public_body: "Public body" },
     topic: { animals_food: "Animals and food", environment: "Environment", human_rights: "Human rights", business_consumption: "Business and consumption", technology_privacy: "Technology and privacy", other: "Other" },
     relationshipType: { owns: "owns", operates: "operates", manufactures: "manufactures", distributes: "distributes", supplies: "supplies", certifies: "certifies", funds: "funds", partners_with: "partners with", other: "other" },
@@ -114,6 +116,25 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
       : <span key={source.id}>{source.title}</span>;
   };
 
+  const sourceDetails = (source: SourceRecord) => {
+    const href = safeExternalUrl(source.url);
+    return (
+      <div className="source-reference" key={source.id}>
+        {href
+          ? <a href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
+          : <strong>{source.title}</strong>}
+        <span>{source.publisher} · {t.sourceType} : {displayValue("sourceType", source.source_type, language)} · {t.sourceAccessed} {dateLabel(source.accessed_at, language)}</span>
+        {source.published_at && <small>{t.sourcePublished} : {dateLabel(source.published_at, language)}</small>}
+        {source.language && <small>{t.sourceLanguage} : {source.language.toUpperCase()}</small>}
+        {source.methodology && <small><strong>{t.sourceMethodology} :</strong> {source.methodology}</small>}
+        {source.potential_conflicts && <small><strong>{t.sourceConflicts} :</strong> {source.potential_conflicts}</small>}
+        {source.limitations && <small>{source.limitations}</small>}
+        {source.source_license && <small>{t.sourceLicense} : {source.source_license}</small>}
+        {source.rights_note && <small>{t.sourceRights} : {source.rights_note}</small>}
+      </div>
+    );
+  };
+
   return (
     <section className="dossier-panel" aria-labelledby="dossier-title">
       <button className="back-button" type="button" onClick={onBack}>← {t.back}</button>
@@ -134,20 +155,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         <section className="dossier-section" aria-labelledby="entity-sources-heading">
           <h3 id="entity-sources-heading">{t.entitySources}</h3>
           <div className="claim-sources">
-            {entitySources.map((source) => {
-              const href = safeExternalUrl(source.url);
-              return (
-                <div className="source-reference" key={source.id}>
-                  {href
-                    ? <a href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
-                    : <strong>{source.title}</strong>}
-                  <span>{source.publisher} · {t.sourceAccessed} {dateLabel(source.accessed_at, language)}</span>
-                  {source.limitations && <small>{source.limitations}</small>}
-                  {source.source_license && <small>{t.sourceLicense} : {source.source_license}</small>}
-                  {source.rights_note && <small>{t.sourceRights} : {source.rights_note}</small>}
-                </div>
-              );
-            })}
+            {entitySources.map(sourceDetails)}
           </div>
         </section>
       )}
@@ -174,19 +182,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                   <strong>{t.sources}</strong>
                   {claim.source_ids.map((sourceId) => {
                     const source = sourceById.get(sourceId);
-                    if (!source) return null;
-                    const href = safeExternalUrl(source.url);
-                    return (
-                      <div className="source-reference" key={source.id}>
-                        {href
-                          ? <a href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
-                          : <span>{source.title}</span>}
-                        <span>{source.publisher} · {t.sourceAccessed} {dateLabel(source.accessed_at, language)}</span>
-                        {source.limitations && <small>{source.limitations}</small>}
-                        {source.source_license && <small>{t.sourceLicense} : {source.source_license}</small>}
-                        {source.rights_note && <small>{t.sourceRights} : {source.rights_note}</small>}
-                      </div>
-                    );
+                    return source ? sourceDetails(source) : null;
                   })}
                 </div>
                 {dossier.evidence.filter((item) => claim.evidence_ids?.includes(item.id) || item.supports_claim_ids?.includes(claim.id) || item.contradicts_claim_ids?.includes(claim.id)).map((item) => (
