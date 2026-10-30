@@ -158,6 +158,15 @@ Le statut « confirmé » ne doit être attribué qu'au périmètre exact souten
 
 L'absence de validation humaine ne signifie jamais publication automatique de tout contenu soumis : les critères ci-dessus doivent être remplis et les cas à examen renforcé restent bloqués.
 
+### Traçabilité technique du parcours sans validation humaine
+
+- Une source publiée après examen humain conserve `review_status: reviewed`.
+- Une source publiée selon les critères documentaires porte `review_status: evidence_verified`, `verification_method`, `verified_at` et `verification_note`.
+- Une entité ou une affirmation publiée sans validation humaine porte `publication_basis: evidence_verified`, `published_at` et `publication_note`.
+- `reviewed_at` reste nul lorsqu'aucune personne n'a effectué la validation humaine ; il ne doit jamais être renseigné artificiellement.
+- Le générateur de données publiques exclut les enregistrements qui ne passent aucun des deux parcours. Les sources non admissibles ne peuvent pas être affichées comme preuves d'une affirmation publiée.
+
+
 ## 13. Limites et responsabilité
 
 Une fiche IMPACT reflète l'état des informations consultées à une date donnée. Elle n'est pas une certification, une décision de justice, un audit exhaustif ni un conseil professionnel.
