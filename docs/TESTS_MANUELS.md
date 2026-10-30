@@ -33,6 +33,10 @@ Pour chaque session, noter :
 - [ ] L’Atelier permet de rechercher les trois canevas et de préparer une fiche projet.
 - [ ] Le bouton de téléchargement produit un fichier `.md` lisible, avec un nom de fichier sûr.
 - [ ] Le fichier téléchargé contient les champs saisis et peut être rouvert dans un éditeur de texte.
+- [ ] Le dossier Nestlé affiche une synthèse courte avant les preuves détaillées, avec un niveau de vigilance clairement présenté comme une appréciation qualitative.
+- [ ] Chaque motif de la synthèse renvoie au constat correspondant dans le dossier complet.
+- [ ] Les limites et les réponses de l'entreprise restent visibles dans la synthèse ou les sections détaillées ; aucun constat non publié n'y apparaît.
+- [ ] La synthèse reste lisible en mode clair, sombre et sur petit écran ; le dossier détaillé reste intégralement accessible.
 - [ ] Aucun texte n'est coupé à 320 px, 360 px, 390 px et sur tablette.
 - [ ] Le défilement horizontal involontaire est absent.
 
