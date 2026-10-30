@@ -31,6 +31,12 @@ describe("IMPACT appearance settings", () => {
     assert.doesNotMatch(app, /fetch\s*\(/);
   });
 
+  it("supports system back navigation in the WebView and browser", () => {
+    assert.match(app, /window\.history\.pushState/);
+    assert.match(app, /addEventListener\("popstate"/);
+    assert.match(app, /window\.history\.back\(\)/);
+  });
+
   it("starts the PWA with dark launch colours", () => {
     assert.match(html, /name="theme-color" content="#111b16"/);
     assert.match(manifest, /"theme_color":\s*"#111b16"/);
