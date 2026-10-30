@@ -1,0 +1,19 @@
+{
+  "id": "claim-shein-child-labor-cases-2024",
+  "subject_entity_id": "shein",
+  "statement": "SHEIN a déclaré avoir identifié deux cas de travail d'enfants chez des fournisseurs en 2024. L'information a été rapportée par Reuters en février 2025 à partir des déclarations de l'entreprise devant une commission parlementaire britannique.",
+  "topic": "labor_rights",
+  "claim_status": "not_reviewed",
+  "valid_from": "2024-01-01",
+  "valid_until": "2024-12-31",
+  "source_ids": [
+    "source-reuters-shein-child-labor-2025",
+    "source-shein-sustainability-2024"
+  ],
+  "evidence_ids": [
+    "evidence-shein-child-labor-cases-2024"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Il s'agit du nombre de cas identifiés et déclarés par SHEIN, pas d'une mesure indépendante de la prévalence du travail des enfants dans l'ensemble de sa chaîne d'approvisionnement. L'entreprise dit avoir rompu les relations avec les fournisseurs concernés.",
+  "editorial_note": "Distinguer la déclaration de l'entreprise, le compte rendu Reuters et toute vérification indépendante. Ne pas extrapoler à l'ensemble des fournisseurs."
+}
