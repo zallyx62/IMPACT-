@@ -8,7 +8,7 @@
 - Interface publique en français uniquement ; aucune autre langue n'est prévue dans le périmètre actuel.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
-- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; le corpus Nestlé existe en brouillon et reste bloqué à la publication.
+- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; un premier constat Nestlé limité à trois sachets Gerber est publié selon le seuil documentaire, les autres sujets restant en préparation.
 - Pages explicatives de sélection pour les univers.
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
@@ -20,7 +20,7 @@
 
 ## Hors périmètre de la version 0.1
 
-- Publication de dossiers factuels : le corpus Nestlé est en cours de vérification humaine et ne doit pas être rendu public avant validation.
+- Publication de dossiers factuels : les faits répondant au seuil documentaire de la charte peuvent être publiés sans validation humaine préalable ; les autres dossiers restent exclus jusqu'à ce que leurs preuves soient suffisantes ou qu'un examen humain requis soit effectué.
 - Scanner de codes-barres.
 - Base de données de fournisseurs.
 - Notes ou comparaisons réelles d'entreprises.
