@@ -1,5 +1,6 @@
 import { readdir, readFile } from "node:fs/promises";
 import { COLLECTIONS, validateCollections } from "./lib/data-integrity.mjs";
+import { compileRecordValidators, validateSchemaRecords } from "./lib/schema-validation.mjs";
 
 const root = new URL("../data/records/", import.meta.url);
 
@@ -28,7 +29,11 @@ async function loadCollection(name) {
 const collections = Object.fromEntries(
   await Promise.all(COLLECTIONS.map(async (name) => [name, await loadCollection(name)])),
 );
-const errors = validateCollections(collections);
+const validators = await compileRecordValidators();
+const errors = [
+  ...validateSchemaRecords(collections, validators),
+  ...validateCollections(collections),
+];
 
 if (errors.length > 0) {
   console.error(errors.map((error) => `- ${error}`).join("\n"));
