@@ -34,6 +34,7 @@ node --test scripts/test-dossier-publication.test.mjs
 node scripts/check-schemas.mjs
 node scripts/check-data.mjs
 node scripts/check-contrast.mjs
+node scripts/check-ui-invariants.mjs
 ```
 
 Le contrôle du paquet PWA (`node scripts/check-pwa-build.mjs`) s'exécute après `npm run build`.
