@@ -103,15 +103,13 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     (item) => claimIds.has(item.id) && publishableEntityIds.has(item.subject_entity_id) && item.reviewed_at !== null && item.claim_status !== "not_reviewed" && item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
   const publishedClaimIds = new Set(claims.map((item) => item.id));
-  const publishedResponseIds = new Set(
-    data.responses
-      .filter((item) =>
-        item.publication_status === "published" &&
-        publishableEntityIds.has(item.entity_id) &&
-        Boolean(item.source_id && reviewed.has(item.source_id)),
-      )
-      .map((item) => item.id),
-  );
+  const publishableResponses = dossierResponses
+    .map((item) => ({
+      ...item,
+      related_claim_ids: item.related_claim_ids.filter((id) => publishedClaimIds.has(id)),
+    }))
+    .filter((item) => item.related_claim_ids.length > 0);
+  const publishedResponseIds = new Set(publishableResponses.map((item) => item.id));
   const evidenceIds = new Set(claims.flatMap((item) => item.evidence_ids ?? []));
   const evidence = data.evidence.filter(
     (item) =>
@@ -126,7 +124,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
   claims.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   entityRelationships.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   entityCampaigns.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
-  dossierResponses.forEach((item) => {
+  publishableResponses.forEach((item) => {
     if (item.source_id) sourceIds.add(item.source_id);
   });
   entityCommitments.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
@@ -171,10 +169,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
         ? { response_ids: item.response_ids.filter((id) => publishedResponseIds.has(id)) }
         : {}),
     })),
-    responses: dossierResponses.map((item) => ({
-      ...item,
-      related_claim_ids: item.related_claim_ids.filter((id) => publishedClaimIds.has(id)),
-    })),
+    responses: publishableResponses,
     commitments: entityCommitments.map((item) => ({
       ...item,
       source_ids: item.source_ids.filter((id) => publishedSourceIds.has(id)),
