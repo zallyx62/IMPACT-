@@ -44,7 +44,7 @@ jobs:
           packages: "platform-tools platforms;android-36 build-tools;36.0.0"
 
       - name: Build the Web app and copy its production assets
-        run: android/scripts/build-web-assets.sh
+        run: bash android/scripts/build-web-assets.sh
 
       - name: Test Android wrapper security invariants
         run: node scripts/test-android-wrapper.mjs
