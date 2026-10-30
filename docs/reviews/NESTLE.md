@@ -1,6 +1,6 @@
 # Registre de vérification des preuves — dossier Nestlé
 
-**État actuel : publication partielle.** Un constat sur trois sachets d'un produit Gerber est publié sous `evidence_verified`, sans validation humaine préalable. Les autres sources, affirmations et preuves restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
+**État actuel : publication partielle.** Deux constats distincts concernant des produits Gerber sont publiés sous `evidence_verified`, sans validation humaine préalable. Les autres sources et affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
 
 Le corpus de travail comprend 25 sources et l'examen des 21 affirmations et de leurs 26 éléments de preuve ; seuls les éléments ayant satisfait à leur propre seuil de publication sont inclus dans le bundle public.
 
@@ -120,12 +120,14 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 - `source-greenpeace-baby-food-plastic-pouches-2026` — rapport primaire consulté ; méthode, commanditaire, taille d'échantillon et limites consignés. Publication fondée sur l'examen du document primaire, sans prétendre à une réplication indépendante.
 - `claim-nestle-baby-food-plastic-pouches-2025` — formulation limitée à ce que le rapport rapporte sur trois sachets d'un seul produit Gerber. La publication ne démontre ni migration depuis l'emballage, ni risque ou dommage sanitaire, ni représentativité pour toute la gamme.
+- `source-consumer-reports-baby-food-testing-2026` — enquête originale consultée ; 48 produits de 11 marques, deux à quatre lots par produit et laboratoire externe accrédité. Le sous-échantillon microplastiques comprend 15 purées et un jus, choisis selon les contraintes du laboratoire ; la FDA précise ne pas avoir examiné les méthodes ni les données brutes.
+- `claim-nestle-gerber-microplastics-consumer-reports-2026` — résultat de 728 294 particules rapporté pour une portion de 99 g d'une purée Gerber précisément identifiée. La formulation reste attribuée à Consumer Reports et ne conclut ni à une origine certaine dans l'emballage ni à un effet sanitaire.
 
-Ces deux enregistrements portent `publication_basis: evidence_verified`, une date et une note de publication. Ils ne portent pas de date de validation humaine.
+Les deux affirmations portent `publication_basis: evidence_verified`, une date et une note de publication. Les six sources associées ont une méthode, une date et une justification de vérification. Aucun de ces enregistrements ne porte de date de validation humaine.
 
 ### Toujours non publiés
 
-Les 24 autres sources, les 20 autres affirmations, ainsi que les éléments de preuve et réponses associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain n'a pas été effectué. Les réponses de Nestlé et Gerber ne sont pas présentées comme examinées simplement parce qu'elles figurent dans le corpus de travail.
+Les 19 autres sources, les 19 autres affirmations et les éléments de preuve associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain requis n'a pas été effectué. Les réponses de Nestlé et Gerber sont affichées uniquement lorsqu'elles sont reliées à une source admissible et sont clairement attribuées à l'entreprise.
 
 Avant d'élargir le dossier :
 
