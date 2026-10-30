@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { tools, universes, type CatalogItem, type Language } from "./data/catalog";
 import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } from "./data/search";
-import { getEntityDossier, getPublishedEntities, type EntityDossier, type EntityRecord } from "./data/records";
+import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
 import { getComparisonMetrics } from "./data/comparison-metrics";
 import DossierPanel from "./DossierPanel";
 import { parseSelectionHash, type Selection } from "./data/hash-route";
