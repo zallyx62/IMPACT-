@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-bms-atni-219",
+  "source_id": "source-atni-bms-index-2024",
+  "locator": "Nestlé BMS Index 2024 scorecard, sections « Country Studies overview » and « Main in-country findings »",
+  "summary": "ATNi rapporte 219 observations de pratiques marketing non conformes pour Nestlé dans les cinq marchés étudiés : 109 observations en ligne, 85 sur des étiquettes de produits et 25 dans les médias traditionnels. Les pays couverts sont la Chine, l'Allemagne, l'Indonésie, les États-Unis et le Viet Nam.",
+  "supports_claim_ids": [
+    "claim-nestle-bms-marketing-atni-2024"
+  ],
+  "limitations": "ATNi notes that the assessment is limited by the five selected markets, the available product-label images and data collection. The index assesses alignment with the WHO Code, not national law."
+}

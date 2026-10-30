@@ -2,7 +2,7 @@
   "id": "nestle",
   "name": "Nestlé",
   "entity_type": "organization",
-  "description": "Groupe agroalimentaire international. Ce premier dossier porte sur des pratiques documentées de Nestlé Waters en France et ne prétend pas couvrir l'ensemble des activités du groupe.",
+  "description": "Groupe agroalimentaire international. Ce dossier rassemble des éléments documentés concernant Nestlé Waters en France, la commercialisation de substituts du lait maternel et d'aliments pour bébés, ainsi que certains risques sociaux de la chaîne d'approvisionnement en cacao. Chaque sujet est limité aux produits, pays, périodes et échantillons cités.",
   "website": "https://www.nestle.com/",
   "country_codes": [
     "CH",
@@ -16,6 +16,14 @@
     "source-assemblee-nationale-2026-eaux-nestle",
     "source-senat-2025-enquete-eaux-minerales",
     "source-justice-2024-cjipe-nestle",
-    "source-nestle-2024-reponse-cjipe"
+    "source-nestle-2024-reponse-cjipe",
+    "source-atni-bms-index-2024",
+    "source-nestle-bms-policy-2024",
+    "source-public-eye-baby-food-2024",
+    "source-bmj-nestle-sugar-2024",
+    "source-nestle-sugar-response-2025",
+    "source-fla-cocoa-cameroon-2022",
+    "source-nestle-cocoa-plan",
+    "source-nestle-non-financial-statement-2024-bms"
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-cocoa-cameroon-forced-labor-risk",
+  "source_id": "source-fla-cocoa-cameroon-2022",
+  "locator": "FLA baseline assessment, executive summary and section 5 « Forced Labor », including the case study on wage retention",
+  "summary": "The FLA describes one worker case involving retention of wages, changes to oral working agreements, lack of written contract and no grievance mechanism. It states that these indicators point toward a risk of forced labour in the cocoa-farming supply chain assessed.",
+  "supports_claim_ids": [
+    "claim-nestle-cocoa-cameroon-forced-labor-risk"
+  ],
+  "limitations": "The report identifies risk indicators in a case involving a worker in the supplier chain; it does not state that Nestlé directly employed the worker or that the case represents the whole supply chain."
+}

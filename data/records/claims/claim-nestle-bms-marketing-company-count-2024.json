@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-bms-marketing-company-count-2024",
+  "subject_entity_id": "nestle",
+  "statement": "Dans sa déclaration extra-financière 2024, Nestlé indique avoir recensé 186 cas de non-conformité à sa politique de commercialisation des substituts du lait maternel : 26 attribués à l'entreprise et 160 à des tiers ayant un lien contractuel direct.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-nestle-non-financial-statement-2024-bms"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-bms-marketing-company-count-2024"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Il s'agit d'un chiffre déclaré par Nestlé selon sa propre politique, ses systèmes de suivi et ses mécanismes de signalement. Il ne se compare pas directement aux 219 observations d'ATNi, qui applique le Code international de l'OMS et une méthodologie distincte.",
+  "editorial_note": "Présenter ce chiffre comme une déclaration de l'entreprise, pas comme une mesure indépendante. Garder séparées les catégories attribuées à Nestlé et celles attribuées à des tiers contractuels."
+}

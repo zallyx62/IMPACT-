@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-baby-food-added-sugar",
+  "source_id": "source-bmj-nestle-sugar-2024",
+  "locator": "The BMJ, 18 April 2024, summary of the Public Eye/IBFAN investigation",
+  "summary": "The BMJ reports that Public Eye and IBFAN found 6 grams of added sugar per serving in some biscuit-flavoured Cerelac products sold in Senegal and South Africa, while comparable products sold in Switzerland contained no added sugar. The report also records Nestlé's response that recipes vary by market and that it had reduced added sugars in its infant cereal portfolio.",
+  "supports_claim_ids": [
+    "claim-nestle-baby-food-added-sugar"
+  ],
+  "limitations": "The results refer to specific samples and product variants. Nestlé later disputed the interpretation of the sugar analysis in its written response."
+}

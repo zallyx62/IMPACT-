@@ -1,0 +1,18 @@
+{
+  "id": "claim-nestle-baby-food-added-sugar",
+  "subject_entity_id": "nestle",
+  "statement": "L'enquête de Public Eye et IBFAN publiée en avril 2024 a relevé jusqu'à 6 grammes de sucre ajouté par portion dans certains produits Cerelac saveur biscuit vendus au Sénégal et en Afrique du Sud, tandis que des produits comparables vendus en Suisse étaient présentés sans sucre ajouté.",
+  "topic": "animals_food",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-public-eye-baby-food-2024",
+    "source-bmj-nestle-sugar-2024",
+    "source-nestle-sugar-response-2025"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-baby-food-added-sugar"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le résultat concerne les références et échantillons testés, pas tous les produits Cerelac ou Nido. Nestlé conteste l'interprétation de l'enquête, notamment la classification de certaines sources de sucres provenant des céréales, du lait ou des fruits, et affirme appliquer un seuil mondial de sucres ajoutés.",
+  "editorial_note": "Afficher la réponse de Nestlé à proximité. Distinguer sucres ajoutés, sucres naturellement présents dans les ingrédients et sucres totaux."
+}

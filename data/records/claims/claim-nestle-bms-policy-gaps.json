@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-bms-policy-gaps",
+  "subject_entity_id": "nestle",
+  "statement": "Dans son évaluation 2024, ATNi indique que Nestlé n'appliquait pas ses engagements de commercialisation responsable aux laits de croissance et ne les appliquait aux laits de suite que dans les marchés considérés comme à risque élevé ; les engagements relatifs aux préparations pour nourrissons couvraient davantage de marchés, avec des exceptions pour certaines formules médicales.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-atni-bms-index-2024",
+    "source-nestle-bms-policy-2024"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-bms-policy-gaps"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Cette formulation résume l'analyse d'ATNi sur la portée des engagements de Nestlé en référence au Code OMS et à ses recommandations. Nestlé publie une politique et affirme interdire la promotion des préparations pour nourrissons de 0 à 6 mois dans tous les pays.",
+  "editorial_note": "Présenter côte à côte l'évaluation indépendante d'ATNi et la politique officielle de Nestlé ; ne pas assimiler automatiquement une lacune de politique à une infraction légale."
+}
