@@ -7,6 +7,7 @@ const data = {
     { id: "entity-one", name: "Published entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
     { id: "entity-two", name: "Related entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
     { id: "entity-draft", name: "Draft entity", entity_type: "organization", status: "draft", reviewed_at: "2026-10-30", source_ids: ["source-reviewed"] },
+    { id: "entity-unreviewed", name: "Unreviewed entity", entity_type: "organization", status: "published", reviewed_at: "2026-10-30", source_ids: ["source-pending"] },
   ],
   sources: [
     { id: "source-reviewed", title: "Reviewed source", publisher: "Publisher", source_type: "official_statement", accessed_at: "2026-10-30", review_status: "reviewed" },
@@ -28,13 +29,14 @@ const data = {
     { id: "relationship-draft-target", from_entity_id: "entity-one", to_entity_id: "entity-draft", relationship_type: "controls", knowledge_status: "confirmed", source_ids: ["source-reviewed"] },
   ],
   campaigns: [
-    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"], response_ids: ["response-published", "response-withheld", "response-public-other", "response-unknown"] },
+    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft", "entity-unreviewed"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"], response_ids: ["response-published", "response-withheld", "response-public-other", "response-pending-source", "response-unknown"] },
     { id: "campaign-pending", title: "Pending campaign", target_entity_ids: ["entity-one"], demands: ["Publish data"], campaign_status: "active", source_ids: ["source-pending"] },
   ],
   responses: [
     { id: "response-published", entity_id: "entity-one", related_claim_ids: ["claim-related"], summary: "A published response backed by a reviewed source.", source_id: "source-reviewed", publication_status: "published" },
     { id: "response-withheld", entity_id: "entity-one", related_claim_ids: ["claim-reviewed"], summary: "A response that must not be displayed.", source_id: "source-reviewed", publication_status: "withheld" },
     { id: "response-public-other", entity_id: "entity-two", related_claim_ids: [], summary: "A public response for a related entity.", source_id: "source-reviewed", publication_status: "published" },
+    { id: "response-pending-source", entity_id: "entity-two", related_claim_ids: [], summary: "A response backed by a source awaiting review.", source_id: "source-pending", publication_status: "published" },
   ],
   commitments: [
     { id: "commitment-reviewed", entity_id: "entity-one", statement: "A reviewed public commitment for the test.", announced_at: "2026-10-30", status: "in_progress", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30" },
@@ -62,6 +64,14 @@ describe("buildEntityDossier publication rules", () => {
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.deepEqual(dossier.responses.map((item) => item.id), ["response-published"]);
     assert.deepEqual(dossier.commitments.map((item) => item.id), ["commitment-reviewed"]);
+  });
+
+  it("hides campaign organizers that are published but lack a reviewed source", () => {
+    const withUnreviewedOrganizer = structuredClone(data);
+    withUnreviewedOrganizer.campaigns[0].organizer_entity_id = "entity-unreviewed";
+    const dossier = buildEntityDossier("entity-one", withUnreviewedOrganizer);
+    assert.equal(dossier?.campaigns[0].organizer_entity_id, null);
+    assert.deepEqual(dossier?.campaigns[0].target_entity_ids, ["entity-one"]);
   });
 
   it("preserves a campaign organizer when the organizer is publishable", () => {
