@@ -23,7 +23,7 @@ Cette feuille de route décrit la cible à long terme et distingue les fonctions
 - Observatoire des engagements documentés.
 - Formulaire local de proposition de source ou de correction.
 - Exploration des dossiers par univers.
-- Atelier local de préparation de projets (fiche exportable par copie), sans envoi ni publication.
+- Atelier local de préparation de projets (copie et téléchargement Markdown), sans envoi ni publication.
 - Préférences d'apparence locales et socle PWA.
 
 ## Ordre de réalisation Web
