@@ -8,9 +8,10 @@
     "source-greenpeace-baby-food-plastic-pouches-2026"
   ],
   "evidence_ids": [
-    "evidence-nestle-baby-food-microplastics-2026"
+    "evidence-nestle-baby-food-microplastics-2026",
+    "evidence-fda-microplastics-health-uncertainty-2026"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "L'étude porte sur trois sachets d'un seul produit Gerber fabriqués aux États-Unis, achetés par un détaillant en ligne européen et analysés tels que vendus, sans chauffage. L'identification du polyéthylène dans l'aliment est tentative et ne prouve pas une migration depuis l'emballage ; d'autres sources de contamination sont possibles. L'étude ne démontre aucun effet sanitaire chez l'humain et ne permet pas de généraliser à tous les produits Gerber, à tous les sachets Nestlé ou à tous les marchés.",
+  "uncertainty_note": "L'étude porte sur trois sachets d'un seul produit Gerber fabriqués aux États-Unis, achetés par un détaillant en ligne européen et analysés tels que vendus, sans chauffage. L'identification du polyéthylène dans l'aliment est tentative et ne prouve pas une migration depuis l'emballage ; d'autres sources de contamination sont possibles. L'étude ne démontre aucun effet sanitaire chez l'humain et ne permet pas de généraliser à tous les produits Gerber, à tous les sachets Nestlé ou à tous les marchés. La FDA indique, dans sa synthèse générale sur les microplastiques alimentaires, que les données actuelles ne démontrent pas que les niveaux détectés dans les aliments présentent un risque pour la santé humaine et qu'il n'existe pas de preuves suffisantes établissant une migration depuis les emballages alimentaires. Cette position générale ne tranche pas le cas précis des sachets Gerber étudiés.",
   "editorial_note": "Attribuer systématiquement les résultats au rapport commandé par Greenpeace et à l'analyse SINTEF Ocean. Afficher l'échantillon (3 sachets, 1 produit), la limite de détection (>20 μm), les réserves analytiques et l'absence de conclusion clinique. Ne pas écrire que Nestlé a empoisonné les bébés ni que la migration depuis l'emballage est démontrée."
 }
