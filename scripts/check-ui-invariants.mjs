@@ -13,9 +13,9 @@ const darkModeBlocks = css.split('@media (prefers-color-scheme: dark) {').slice(
 const darkMode = darkModeBlocks[0];
 const finalDarkMode = darkModeBlocks.at(-1);
 assert.ok(darkModeBlocks.length > 0, "dark-mode styles are required");
-assert.match(finalDarkMode, /\.dossier-card, \.claim-card \{ background: var\(--paper\); \}/,
+assert.ok(finalDarkMode.includes(".dossier-card, .claim-card { background: var(--paper); }"),
   "dossier and claim cards must retain dark surfaces after their base styles");
-assert.match(darkMode, /\.claim-uncertainty \{ background: #[0-9a-fA-F]{6}; color: #[0-9a-fA-F]{6}; \}/,
+assert.ok(darkMode.includes(".claim-uncertainty { background: #342f21; color: #e5d9b8; }"),
   "uncertainty notes need a dark-mode surface and readable foreground");
 
 console.log("UI invariant checks passed: keyboard focus, mobile breakpoints, reduced motion and dossier dark mode.");
