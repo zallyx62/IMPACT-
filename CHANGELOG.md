@@ -14,6 +14,8 @@ Ce fichier décrit les changements destinés aux utilisateurs. Les versions publ
 - Préférences d'apparence conservées localement sur l'appareil.
 - Navigation avec prise en charge du retour navigateur et Android.
 - Application Web progressive avec cache hors ligne soumis à des tests automatisés.
+- Génération d'un jeu de données publiques filtré avant développement, typage, tests et build ; les dossiers et sources non examinés ne sont pas intégrés au bundle Web.
+- Test automatisé du paquet PWA pour vérifier que les identifiants de tous les enregistrements éditoriaux exclus sont absents du JavaScript distribué.
 - Contrôles de contraste, d'interface, de données et de build exécutés dans GitHub Actions.
 
 ### Android
@@ -25,7 +27,7 @@ Ce fichier décrit les changements destinés aux utilisateurs. Les versions publ
 
 ### Distribution
 - Workflow de build et de préparation de publication GitHub Pages ajouté.
-- Le site ne sera publié qu'après activation de GitHub Pages dans les paramètres du dépôt.
+- GitHub Pages est activé ; la préversion Web publique est déployée automatiquement depuis `main` après les contrôles.
 - Aucune version officielle n'est publiée dans GitHub Releases.
 - Aucune application native iOS, Windows, macOS ou Linux n'est disponible.
 
@@ -34,6 +36,7 @@ Ce fichier décrit les changements destinés aux utilisateurs. Les versions publ
 - Exclusion des sorties Android/Gradle, APK, AAB et fichiers de signature du dépôt.
 - Tests d'interface alignés sur les règles de mouvement réduit et la confidentialité.
 - Workflows CI configurés pour exécuter les contrôles sur toutes les Pull Requests vers `main`.
+- Ruleset `Protection de main` actif : Pull Request obligatoire, contrôles Quality checks et CodeQL requis, suppressions et force-push bloqués.
 
 ## Politique de versionnement
 
