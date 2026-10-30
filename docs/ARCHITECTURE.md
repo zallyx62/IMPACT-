@@ -103,14 +103,14 @@ Les dépendances sont surveillées chaque semaine par Dependabot et auditées av
 
 - `app/src/data/catalog.ts` contient uniquement la navigation et les textes génériques du prototype.
 - `data/schema/` définit huit structures : entités, sources, affirmations, preuves, relations, campagnes, réponses et engagements.
-- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Le dépôt contient des brouillons documentaires Nestlé (eaux, substituts du lait maternel, sucre, cacao, travail, emballages et déforestation), qui restent invisibles jusqu'à validation éditoriale humaine.
+- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Le corpus Nestlé couvre les eaux, les substituts du lait maternel, le sucre, le cacao, le travail, les emballages et la déforestation. Un seul constat sur les microplastiques dans trois sachets d'un produit Gerber est actuellement publié selon les critères documentaires ; les autres enregistrements restent invisibles jusqu'à leur propre validation par les preuves ou examen humain requis.
 - `scripts/generate-public-records.mjs` lit les enregistrements source, applique `dossier-builder.ts` et génère avant les commandes Web un module filtré `app/src/data/public-records.generated.ts`.
 - `app/src/data/records.ts` charge uniquement ce module généré ; les sources, affirmations et preuves non examinées ne sont donc pas intégrées au bundle Web distribué.
 - Le module généré est ignoré par Git et recréé avant le développement, le typage, les tests et le build. Le test `scripts/test-public-data.test.mjs` vérifie les statuts et les références ; `scripts/check-pwa-build.mjs` compare les enregistrements source au jeu public et vérifie que l'identifiant de chaque enregistrement exclu est absent des fichiers JavaScript produits.
 - Un dossier réel peut être publié sans validation humaine préalable lorsque les critères de preuve, de corroboration, de transparence et les contrôles définis dans la charte sont satisfaits. Les cas sensibles ou à risque élevé restent bloqués pour examen humain.
 - Une source, une affirmation et un élément de preuve restent trois objets distincts.
 
-La première version contient un corpus de travail non publié ; aucun dossier Nestlé n'est visible tant que les critères de preuve et les statuts de publication ne sont pas satisfaits. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
+La première version contient un corpus mixte : les enregistrements qui satisfont au seuil de preuve sont visibles, tandis que les dossiers de travail qui ne le satisfont pas restent exclus du bundle public. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
 
 ## 5. Confidentialité
 
