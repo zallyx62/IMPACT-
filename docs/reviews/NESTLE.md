@@ -1,6 +1,6 @@
 # Registre de vérification des preuves — dossier Nestlé
 
-**État actuel : publication partielle.** Deux constats distincts concernant des produits Gerber sont publiés sous `evidence_verified`, sans validation humaine préalable. Les autres sources et affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
+**État actuel : publication partielle.** Deux constats distincts concernant des produits Gerber sont publiés sous `evidence_verified`, sans validation humaine préalable. Six sources associées sont publiées selon les mêmes critères ; les 19 autres sources et les 19 autres affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
 
 Le corpus de travail comprend 25 sources et l'examen des 21 affirmations et de leurs 26 éléments de preuve ; seuls les éléments ayant satisfait à leur propre seuil de publication sont inclus dans le bundle public.
 
