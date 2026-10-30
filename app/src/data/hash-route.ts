@@ -10,7 +10,8 @@ export function parseSelectionHash(hash: string): Selection {
 
   try {
     const id = decodeURIComponent(match[2]).trim();
-    return id ? { type: match[1] as NonNullable<Selection>["type"], id } : null;
+    if (!id || /[\/\\\u0000-\u001f\u007f]/.test(id)) return null;
+    return { type: match[1] as NonNullable<Selection>["type"], id };
   } catch {
     return null;
   }
