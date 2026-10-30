@@ -5,7 +5,6 @@
   "topic": "environment",
   "claim_status": "not_reviewed",
   "valid_from": "2021-01-01",
-  "valid_until": "2025-06-01",
   "source_ids": [
     "source-newclimate-shein-climate-2025",
     "source-shein-sustainability-2024"
