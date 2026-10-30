@@ -27,7 +27,7 @@ La version Web fonctionne dans les navigateurs modernes sur Android, iOS/iPadOS,
 
 GitHub Pages est activé sur le dépôt et le workflow de publication a réussi le 30 octobre 2026. Les mises à jour de l'application, des scripts et de la documentation déclenchent une reconstruction et une publication après les contrôles.
 
-Consulter l'exécution [Deploy IMPACT Web to GitHub Pages](https://github.com/zallyx62/IMPACT-/actions/runs/41041891940) pour voir le build et le déploiement réussis.
+Consulter l'exécution [Deploy IMPACT Web to GitHub Pages](https://github.com/zallyx62/IMPACT-/actions/runs/41043171012) pour voir le build et le déploiement réussis.
 
 Le workflow construit l'application, exécute les contrôles essentiels, puis publie uniquement le dossier de production `app/dist`. Il ne publie ni les sources de développement, ni les fichiers Android, ni les données éditoriales non destinées à l'application.
 
@@ -43,7 +43,7 @@ L'ajout à l'écran d'accueil ne transforme pas la version Web en application na
 
 ## Android — APK
 
-Le workflow [IMPACT Android build](https://github.com/zallyx62/IMPACT-/actions/workflows/android.yml) construit les APK debug et release. Une compilation debug/release a réussi le 30 octobre 2026 ; [récupérer l'APK debug de test dans l'exécution](https://github.com/zallyx62/IMPACT-/actions/runs/41042218215). L'APK debug peut être conservé temporairement comme artefact de test dans une exécution réussie du workflow ; les artefacts de CI ne sont pas des versions officielles et peuvent expirer.
+Le workflow [IMPACT Android build](https://github.com/zallyx62/IMPACT-/actions/workflows/android.yml) construit les APK debug et release. Une compilation debug/release a réussi le 30 octobre 2026 ; [récupérer l'APK debug de test dans l'exécution](https://github.com/zallyx62/IMPACT-/actions/runs/41043170926). L'APK debug peut être conservé temporairement comme artefact de test dans une exécution réussie du workflow ; les artefacts de CI ne sont pas des versions officielles et peuvent expirer.
 
 La release actuelle est non signée. Elle ne doit pas être présentée comme un téléchargement prêt à installer.
 
