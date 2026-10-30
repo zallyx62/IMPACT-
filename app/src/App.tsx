@@ -61,7 +61,7 @@ const copy: Record<Language, Record<string, string>> = {
     title: "Comprendre ce qui se cache derrière nos choix.",
     subtitle: "Des informations sourcées, des incertitudes visibles et des pistes d’action — sans décider à votre place.",
     searchLabel: "Rechercher dans IMPACT", placeholder: "Entreprise, marque, sujet, alternative…",
-    searchHint: "La recherche couvre les univers, les outils et les dossiers publiés après vérification humaine.",
+    searchHint: "La recherche couvre les univers, les outils et les dossiers publiés après vérification des sources.",
     explore: "Explorer les six univers", exploreText: "Six portes d’entrée pour comprendre les conséquences de nos choix.",
     tools: "Les outils IMPACT", toolsText: "Des outils conçus pour vérifier, comparer et suivre les changements.",
     results: "Résultats dans IMPACT", noResults: "Aucun résultat dans les dossiers, univers ou outils actuellement présentés.",
@@ -72,10 +72,10 @@ const copy: Record<Language, Record<string, string>> = {
     privacyOne: "Aucun compte ni profil", privacyTwo: "Aucun tracker ni outil d’audience",
     privacyThree: "Recherche locale, sans envoi au serveur",
     honest: "Ce prototype ne prétend pas en savoir plus qu’il ne sait.",
-    honestText: "Les univers et outils ci-dessus sont des structures de navigation. Les informations factuelles ne seront publiées qu’avec des sources et une validation éditoriale humaine. Le fonctionnement hors ligne doit encore être testé.",
+    honestText: "Les univers et outils ci-dessus sont des structures de navigation. Les informations factuelles sont publiées lorsque les sources et les preuves satisfont aux critères de la charte éditoriale. Les sujets sensibles nécessitent un examen renforcé. Le fonctionnement hors ligne doit encore être testé.",
     footer: "Projet open source · Licence AGPL-3.0-only · Aucune IA générative dans l’application publique",
     discover: "Découvrir", exploreLabel: "EXPLORER", crossTools: "OUTILS TRANSVERSAUX",
-    localSearch: "RECHERCHE LOCALE", dossiers: "Dossiers documentés", dossiersText: "Fiches d’entités publiées après vérification humaine.", noDossiers: "Aucun dossier vérifié n’est encore publié. Les fiches apparaîtront ici après examen des sources et validation éditoriale."
+    localSearch: "RECHERCHE LOCALE", dossiers: "Dossiers documentés", dossiersText: "Fiches d’entités publiées selon les critères de preuve de la charte.", noDossiers: "Aucun dossier répondant aux critères de publication n’est encore affiché. Les faits publiés renvoient à leurs sources et à leurs limites."
   },
   en: {
     skip: "Skip to content", method: "Our method", switchLanguage: "Switch to French", themeLabel: "Appearance", lightMode: "Light", darkMode: "Dark", accentLabel: "Accent colour", accentGreen: "Green", accentBlue: "Blue", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Settings",
