@@ -228,6 +228,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
             </div>
             <span className={`summary-level summary-level--${summary.boycottPriority}`}>{summary.boycottPriorityLabel[language]}</span>
           </div>
+          <p className="summary-assessed-at">{language === "fr" ? "Évaluation éditoriale datée du" : "Editorial assessment dated"} : {dateLabel(summary.assessedAt, language)}</p>
           <div className="summary-assessment" aria-label={language === "fr" ? "Évaluation éditoriale" : "Editorial assessment"}>
             <div><span>{language === "fr" ? "Gravité documentée" : "Documented severity"}</span><strong>{summary.levelLabel[language]}</strong></div>
             <div><span>{language === "fr" ? "Priorité du boycott" : "Boycott priority"}</span><strong>{summary.boycottPriorityLabel[language]}</strong></div>
