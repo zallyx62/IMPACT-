@@ -116,6 +116,10 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
     ["evidence", "Éléments de preuve"], ["commitments", "Engagements suivis"],
     ["responses", "Réponses publiées"], ["relationships", "Relations documentées"],
   ] as const;
+  function changeLeft(id: string) {
+    if (id === rightId) onRightChange("");
+    onLeftChange(id);
+  }
   return (
     <section className="comparison-tool" aria-labelledby="comparison-title">
       <div className="comparison-intro">
@@ -123,7 +127,7 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
         <p>Cette comparaison mesure uniquement la documentation disponible dans IMPACT. Elle ne classe pas les entreprises et ne mesure pas directement leurs impacts réels.</p>
       </div>
       <div className="comparison-selectors">
-        <label>Premier dossier<select value={leftId} onChange={(event) => onLeftChange(event.currentTarget.value)}>
+        <label>Premier dossier<select value={leftId} onChange={(event) => changeLeft(event.currentTarget.value)}>
           {availableEntities.map((entity) => <option key={entity.id} value={entity.id}>{entity.name}</option>)}
         </select></label>
         <label>Second dossier<select value={rightId} onChange={(event) => onRightChange(event.currentTarget.value)}>
