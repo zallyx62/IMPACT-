@@ -90,6 +90,19 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(dossier?.campaigns[0].organizer_entity_id, "entity-two");
   });
 
+  it("allows explicitly AI-verified sources while keeping pending sources hidden", () => {
+    const aiVerified = structuredClone(data);
+    aiVerified.sources[0].review_status = "ai_verified";
+    aiVerified.sources[0].review_method = "ai_assisted";
+    aiVerified.entities[0].review_method = "ai_assisted";
+    aiVerified.claims[0].review_method = "ai_assisted";
+    const dossier = buildEntityDossier("entity-one", aiVerified);
+    assert.ok(dossier);
+    assert.deepEqual(dossier.sources.map((item) => item.id), ["source-reviewed"]);
+    assert.ok(!dossier.sources.some((item) => item.id === "source-pending"));
+    assert.ok(dossier.claims.some((item) => item.id === "claim-reviewed"));
+  });
+
   it("does not expose draft entities", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
   });
