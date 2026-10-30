@@ -10,7 +10,7 @@ async function readRecord(collection, filename) {
 }
 
 describe("Nestlé dossier editorial gate", () => {
-  it("keeps the first Nestlé dossier out of public results until human review", async () => {
+  it("publishes only the Nestlé facts that pass the evidence gate", async () => {
     const entity = await readRecord("entities", "nestle");
     const sourceNames = [
       "source-assemblee-nationale-2026-eaux-nestle",
@@ -110,14 +110,22 @@ describe("Nestlé dossier editorial gate", () => {
     assert.match(reviewGuide, /25 sources/);
     assert.match(reviewGuide, /21 affirmations et de leurs 26 éléments de preuve/);
 
-    assert.equal(entity.status, "review_needed");
+    assert.equal(entity.status, "published");
     assert.equal(entity.reviewed_at, null);
-    assert.ok(sourceNames.every((id) => entity.source_ids.includes(id)));
-    assert.ok(sources.every((source) => source.review_status === "to_review"));
-    assert.ok(claims.every((claim) => claim.reviewed_at === null));
-    assert.ok(claims.every((claim) => claim.claim_status === "not_reviewed"));
-    assert.deepEqual(getPublishedEntities(data), []);
-    assert.equal(buildEntityDossier("nestle", data), undefined);
+    assert.equal(entity.publication_basis, "evidence_verified");
+    assert.deepEqual(entity.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026"]);
+    assert.equal(sources.filter((source) => source.review_status === "evidence_verified").length, 1);
+    assert.ok(sources.filter((source) => source.id !== "source-greenpeace-baby-food-plastic-pouches-2026").every((source) => source.review_status === "to_review"));
+    const greenpeaceClaim = claims.find((claim) => claim.id === "claim-nestle-baby-food-plastic-pouches-2025");
+    assert.equal(greenpeaceClaim.publication_basis, "evidence_verified");
+    assert.equal(greenpeaceClaim.reviewed_at, null);
+    assert.ok(claims.filter((claim) => claim.id !== greenpeaceClaim.id).every((claim) => claim.reviewed_at === null));
+    assert.ok(claims.filter((claim) => claim.id !== greenpeaceClaim.id).every((claim) => claim.claim_status === "not_reviewed"));
+    assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["nestle"]);
+    const dossier = buildEntityDossier("nestle", data);
+    assert.ok(dossier);
+    assert.deepEqual(dossier.claims.map((claim) => claim.id), [greenpeaceClaim.id]);
+    assert.deepEqual(dossier.sources.map((source) => source.id), ["source-greenpeace-baby-food-plastic-pouches-2026"]);
   });
 
   it("links every Nestlé claim to existing sources and evidence", async () => {
