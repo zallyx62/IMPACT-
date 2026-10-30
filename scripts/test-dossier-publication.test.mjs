@@ -126,6 +126,22 @@ describe("buildEntityDossier publication rules", () => {
       "an entity must not pass by citing one reviewed source alongside an unpublished source");
   });
 
+  it("does not publish campaigns or commitments with mixed source verification", () => {
+    const mixedCampaign = structuredClone(data);
+    mixedCampaign.campaigns[0].source_ids = ["source-reviewed", "source-pending"];
+    const campaignDossier = buildEntityDossier("entity-one", mixedCampaign);
+    assert.ok(campaignDossier);
+    assert.deepEqual(campaignDossier.campaigns, [],
+      "a campaign must not pass with only some of its cited sources verified");
+
+    const mixedCommitment = structuredClone(data);
+    mixedCommitment.commitments[0].source_ids = ["source-reviewed", "source-pending"];
+    const commitmentDossier = buildEntityDossier("entity-one", mixedCommitment);
+    assert.ok(commitmentDossier);
+    assert.deepEqual(commitmentDossier.commitments, [],
+      "a commitment must not pass with only some of its cited sources verified");
+  });
+
   it("rejects evidence-verified records missing their audit trail", () => {
     const invalid = structuredClone(data);
     invalid.entities[0].reviewed_at = null;
