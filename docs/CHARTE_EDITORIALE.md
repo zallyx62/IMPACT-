@@ -127,22 +127,36 @@ Les financements et soutiens matériels éventuels doivent être rendus publics 
 
 ## 11. Utilisation d'outils automatisés et d'IA
 
-Des outils automatisés peuvent assister certaines tâches techniques ou organisationnelles pendant le développement du projet.
+Des outils automatisés peuvent assister la recherche documentaire, les contrôles de cohérence, la détection de contradictions et les tâches techniques. Ils ne constituent pas, à eux seuls, une preuve.
 
-Aucun texte généré automatiquement ne doit être publié comme information vérifiée sans examen humain. Aucune IA générative n'est prévue dans le fonctionnement destiné au public. Les décisions éditoriales et validations sont humaines.
+Aucune IA générative n'est prévue dans le fonctionnement destiné au public. Les sources et les faits sont évalués selon les critères ci-dessous, quelle que soit la manière dont le dossier a été préparé.
 
-## 12. Processus minimal de validation
+## 12. Seuil de publication fondé sur les preuves
 
-Avant publication, le responsable éditorial vérifie :
-1. l'identité de l'entité et le périmètre de la fiche ;
-2. la précision de chaque affirmation importante ;
-3. la consultation des sources et des passages utiles ;
-4. les dates, méthodes et limites ;
-5. les réponses et contestations pertinentes ;
-6. les risques de confusion, de diffamation ou d'atteinte à la vie privée ;
-7. la cohérence des statuts et de l'historique.
+La validation humaine préalable n'est pas une condition systématique de publication. Une affirmation peut être publiée sans approbation humaine individuelle lorsque les contrôles documentaires et techniques établissent que les critères de preuve ci-dessous sont satisfaits.
 
-Les sujets sensibles ou les accusations graves nécessitent un examen renforcé et, si nécessaire, un avis juridique compétent.
+### Publication possible sans validation humaine préalable
+
+Le dossier doit réunir, selon la nature du fait :
+1. **Traçabilité :** source originale accessible, auteur identifié, date, méthode et périmètre explicités ;
+2. **Solidité :** étude évaluée par les pairs, rapport d'enquête méthodologiquement transparent, décision ou document officiel vérifiable, ou plusieurs sources indépendantes de qualité équivalente ;
+3. **Corroboration proportionnée :** confirmation par une source primaire ou par des sources indépendantes lorsque le fait est contestable, sensible ou susceptible d'avoir des conséquences importantes ;
+4. **Fidélité :** formulation strictement limitée aux résultats réellement observés, sans extrapolation ;
+5. **Limites :** incertitudes, limites d'échantillonnage, conflits d'intérêts et éléments contradictoires affichés ;
+6. **Contexte contradictoire :** réponse publique pertinente de l'organisation concernée ajoutée lorsqu'elle existe et est accessible ;
+7. **Contrôles automatisés :** schémas valides, références existantes, statut de publication cohérent et absence de liens cassés connus.
+
+Une étude isolée peut suffire pour publier le fait précis qu'elle a observé si sa méthode est robuste et si la formulation ne dépasse pas son périmètre. Elle ne suffit pas à transformer ce résultat en vérité générale ni à établir une causalité ou un effet sanitaire qu'elle n'a pas mesuré.
+
+### Examen renforcé obligatoire avant publication
+
+Une validation humaine compétente reste requise avant publication pour : accusations pénales ou de fraude non établies par une décision définitive ; allégations de violence, exploitation ou mise en danger imputées à une personne identifiable ; données personnelles ou sensibles ; risques sérieux pour la sécurité ; conclusions médicales ou sanitaires non consensuelles ; documents dont l'authenticité est incertaine ; sources anonymes uniques ; preuves contradictoires non résolues ; ou tout cas où une erreur pourrait causer un préjudice grave.
+
+### Statuts et transparence
+
+Le statut « confirmé » ne doit être attribué qu'au périmètre exact soutenu par les preuves. Les dossiers publiés sans validation humaine préalable portent une mention de méthode indiquant que la publication repose sur les critères documentaires de la charte et qu'une correction ou contestation sourcée peut être soumise. L'historique conserve la date de publication et les modifications ultérieures.
+
+L'absence de validation humaine ne signifie jamais publication automatique de tout contenu soumis : les critères ci-dessus doivent être remplis et les cas à examen renforcé restent bloqués.
 
 ## 13. Limites et responsabilité
 
