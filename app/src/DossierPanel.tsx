@@ -22,7 +22,7 @@ const labels = {
     campaigns: "Campagnes associées",
     responses: "Réponses de l’entité",
     commitments: "Engagements suivis",
-    sourceAccessed: "Consultée le",
+    sourceAccessed: "Consultée le", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
     noDescription: "Aucune description éditoriale n’a encore été publiée.",
     type: "Type d’entité", demands: "Demandes", outcome: "Résultat rapporté", measurement: "Méthode de mesure", observed: "Résultat observé", publication: "Statut de publication", relationshipStatus: "État de la relation", targetDate: "Échéance",
     statuses: {
@@ -49,7 +49,7 @@ const labels = {
     campaigns: "Related campaigns",
     responses: "Entity responses",
     commitments: "Tracked commitments",
-    sourceAccessed: "Accessed on",
+    sourceAccessed: "Accessed on", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
     noDescription: "No editorial description has been published yet.",
     type: "Entity type", demands: "Demands", outcome: "Reported outcome", measurement: "Measurement method", observed: "Observed result", publication: "Publication status", relationshipStatus: "Relationship status", targetDate: "Target date",
     statuses: {
@@ -126,6 +126,8 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                           : <span>{source.title}</span>}
                         <span>{source.publisher} · {t.sourceAccessed} {dateLabel(source.accessed_at, language)}</span>
                         {source.limitations && <small>{source.limitations}</small>}
+                        {source.source_license && <small>{t.sourceLicense} : {source.source_license}</small>}
+                        {source.rights_note && <small>{t.sourceRights} : {source.rights_note}</small>}
                       </div>
                     );
                   })}
