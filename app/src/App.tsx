@@ -79,7 +79,7 @@ const copy: Record<Language, Record<string, string>> = {
 };
 
 function App() {
-  const [language, setLanguage] = useState<Language>("fr");
+  const [language, setLanguage] = useState<Language>("en");
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<Selection>(null);
   const t = copy[language];
