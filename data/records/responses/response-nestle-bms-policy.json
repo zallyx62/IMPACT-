@@ -1,0 +1,13 @@
+{
+  "id": "response-nestle-bms-policy",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-bms-marketing-atni-2024",
+    "claim-nestle-bms-policy-gaps"
+  ],
+  "summary": "Nestlé indique avoir mis à jour en janvier 2023 sa politique de mise en œuvre du Code de l'OMS et affirme interdire au minimum, dans tous les pays, la promotion des préparations pour nourrissons destinées aux bébés de 0 à 6 mois. L'entreprise dit publier chaque année un rapport externe sur ses efforts de conformité. Cette position doit être comparée aux constats et aux limites de couverture relevés par ATNi.",
+  "source_id": "source-nestle-bms-policy-2024",
+  "published_at": "2024-08-16",
+  "full_response_url": "https://www.nestle.com/sustainability/performance-reporting/breast-milk-substitute-compliance",
+  "publication_status": "published"
+}
