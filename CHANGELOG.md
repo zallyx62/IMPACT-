@@ -5,6 +5,9 @@ Ce fichier décrit les changements destinés aux utilisateurs. Les versions publ
 ## [Non publié] — développement en cours
 
 ### Application Web
+- Icônes PWA PNG 192 × 192 et 512 × 512 pour Chromium, icône Apple Touch 180 × 180 ; génération automatique depuis la même identité SVG.
+- Service worker v0.6 : mise en cache hors ligne des icônes d'installation.
+- Contrôle de build PWA renforcé : dimensions PNG, manifeste, icône iOS et cache des icônes.
 - Préversion publique déployée sur GitHub Pages le 30 octobre 2026 ; publication automatisée réservée à la branche `main`.
 - Interface publique en français uniquement ; le thème sombre reste le choix initial.
 - Interface avec thème sombre par défaut, mode clair et cinq couleurs d'accent.
