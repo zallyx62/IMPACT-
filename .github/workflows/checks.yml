@@ -12,6 +12,7 @@ on:
     paths:
       - "app/**"
       - "data/schema/**"
+      - "data/records/**"
       - "scripts/**"
       - ".github/workflows/checks.yml"
   workflow_dispatch:
