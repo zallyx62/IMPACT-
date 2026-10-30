@@ -6,6 +6,7 @@ import DossierPanel from "./DossierPanel";
 import EvidenceCentre from "./EvidenceCentre";
 import ActorMap from "./ActorMap";
 import CommitmentTracker from "./CommitmentTracker";
+import CitizenContribution from "./CitizenContribution";
 import { getComparisonMetrics } from "./data/comparison-metrics";
 import { parseSelectionHash, type Selection } from "./data/hash-route";
 type Theme = "light" | "dark";
@@ -385,6 +386,8 @@ function App() {
               <ActorMap entities={publishedEntities} />
             ) : chosen.type === "tool" && chosen.id === "history" ? (
               <CommitmentTracker entities={publishedEntities} />
+            ) : chosen.type === "tool" && chosen.id === "participate" ? (
+              <CitizenContribution />
             ) : (
               <div className="preparation-note">
                 <span className="note-dot" aria-hidden="true" />
