@@ -30,6 +30,8 @@ describe("Nestlé dossier editorial gate", () => {
       "source-nestle-baby-food-plastic-packaging-response-2026",
       "source-fda-microplastics-food-guidance-2026",
       "source-consumer-reports-baby-food-testing-2026",
+      "source-efsa-food-contact-microplastics-review-2025",
+      "source-efsa-microplastics-food-risk-status-2026",
       "source-science-advances-plastic-brand-audit-2024",
       "source-bffp-asian-plastic-sachet-audit-2024",
       "source-nestle-packaging-progress-2025",
@@ -78,6 +80,8 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-baby-food-added-sugar",
       "evidence-nestle-baby-food-microplastics-2026",
       "evidence-fda-microplastics-health-uncertainty-2026",
+      "evidence-efsa-food-contact-microplastics-2025",
+      "evidence-efsa-microplastics-risk-status-2026",
       "evidence-consumer-reports-gerber-microplastics-2026",
       "evidence-nestle-cocoa-cameroon-child-labor",
       "evidence-nestle-cocoa-cameroon-forced-labor-risk",
@@ -137,6 +141,8 @@ describe("Nestlé dossier editorial gate", () => {
       "source-nestle-baby-food-plastic-packaging-response-2026",
       "source-fda-microplastics-food-guidance-2026",
       "source-consumer-reports-baby-food-testing-2026",
+      "source-efsa-food-contact-microplastics-review-2025",
+      "source-efsa-microplastics-food-risk-status-2026",
     ]);
     const claimIds = [
       "claim-nestle-water-treatments",
@@ -179,6 +185,8 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-baby-food-added-sugar",
       "evidence-nestle-baby-food-microplastics-2026",
       "evidence-fda-microplastics-health-uncertainty-2026",
+      "evidence-efsa-food-contact-microplastics-2025",
+      "evidence-efsa-microplastics-risk-status-2026",
       "evidence-consumer-reports-gerber-microplastics-2026",
       "evidence-nestle-cocoa-cameroon-child-labor",
       "evidence-nestle-cocoa-cameroon-forced-labor-risk",
@@ -225,6 +233,16 @@ describe("Nestlé dossier editorial gate", () => {
     const fdaEvidence = await readRecord("evidence", "evidence-fda-microplastics-health-uncertainty-2026");
     const nestleResponse = await readRecord("responses", "response-nestle-baby-food-microplastics-2026");
     assert.equal(fdaSource.review_status, "to_review");
+    const efsaReviewSource = await readRecord("sources", "source-efsa-food-contact-microplastics-review-2025");
+    const efsaStatusSource = await readRecord("sources", "source-efsa-microplastics-food-risk-status-2026");
+    const efsaReviewEvidence = await readRecord("evidence", "evidence-efsa-food-contact-microplastics-2025");
+    const efsaStatusEvidence = await readRecord("evidence", "evidence-efsa-microplastics-risk-status-2026");
+    assert.equal(efsaReviewSource.review_status, "to_review");
+    assert.equal(efsaStatusSource.review_status, "to_review");
+    assert.match(efsaReviewEvidence.summary, /libération de microplastiques/i);
+    assert.match(efsaReviewEvidence.summary, /bien inférieures/i);
+    assert.match(efsaStatusEvidence.summary, /ne pas avoir encore achevé une évaluation complète/i);
+
     assert.match(fdaEvidence.summary, /ne démontrent pas que les niveaux détectés.*présentent un risque/i);
     assert.match(claim.uncertainty_note, /La FDA indique/i);
     assert.equal(nestleResponse.publication_status, "published");
