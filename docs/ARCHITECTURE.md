@@ -30,7 +30,7 @@ Références techniques :
 - Exigences de Vite 8 : https://vite.dev/blog/announcing-vite8
 - Versions de React : https://react.dev/versions
 
-Les dépendances doivent continuer à être réexaminées régulièrement ; l'audit npm est intégré à la CI.
+Les dépendances sont surveillées chaque semaine par Dependabot et auditées avec `npm audit`. CodeQL analyse le code JavaScript/TypeScript et les workflows GitHub Actions. Ces contrôles complètent les tests ; ils ne remplacent pas une revue de sécurité indépendante. Voir `docs/SECURITY_CONTROLS.md`.
 
 ## 3. Structure du dépôt
 
