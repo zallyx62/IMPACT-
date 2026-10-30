@@ -18,7 +18,7 @@ assert.ok(app.includes('localStorage.setItem("impact-theme", theme)'));
 assert.ok(privacy.includes("impact-theme") && privacy.includes("impact-accent") && /jamais transmises à IMPACT/.test(privacy),
   "the locally stored theme and accent preferences must be disclosed in the privacy policy");
 assert.match(app, /const language: Language = "fr";/, "French must be the only public interface language");
-assert.match(app, /href="#method" onClick=\{\(\) => \{ setSelection\(null\); setQuery\(""); \}\}/,
+assert.ok(app.includes('href="#method" onClick={() => { setSelection(null); setQuery(""); }}'),
   "the method link must clear search or dossier selection before navigating");
 assert.match(app, /<section id="method" className="content-section editorial-method"/,
   "the navigation method link must lead to the editorial evidence policy");
