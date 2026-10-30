@@ -1,4 +1,4 @@
-const CACHE_NAME = "impact-shell-v0.2";
+const CACHE_NAME = "impact-shell-v0.3";
 const BASE_PATH = new URL("./", self.location.href).pathname;
 const SHELL_URLS = [
   BASE_PATH,
@@ -28,7 +28,8 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
-  if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) {
+  const url = new URL(request.url);
+  if (request.method !== "GET" || url.origin !== self.location.origin) {
     return;
   }
 
@@ -53,6 +54,11 @@ self.addEventListener("fetch", (event) => {
     );
     return;
   }
+
+  const isStaticAsset = Boolean(request.destination) ||
+    url.pathname.startsWith(`${BASE_PATH}assets/`) ||
+    SHELL_URLS.includes(url.pathname);
+  if (!isStaticAsset) return;
 
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
