@@ -566,12 +566,7 @@ button:active { transform: translateY(0) scale(.99); }
   .universe-grid { grid-template-columns: 1fr; }
   .universe-card { min-height: 158px; }
   .trust-chips { gap: .45rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-}
-:root[data-theme="dark"] {
+}:root[data-theme="dark"] {
   --shadow-soft: 0 8px 28px rgba(0, 0, 0, .16);
   --shadow-raised: 0 18px 42px rgba(0, 0, 0, .26);
 }
