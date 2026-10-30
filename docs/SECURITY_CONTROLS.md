@@ -14,23 +14,27 @@
 - `npm audit` couvre les vulnérabilités connues des dépendances publiées dans les avis npm ; il ne remplace pas une analyse de code ni une revue manuelle.
 - Les contrôles actuels ne testent pas l'application sur des appareils physiques.
 - Aucun test d'intrusion indépendant n'a été réalisé.
-- **État du dépôt vérifié le 30 octobre 2026 :** la branche `main` est actuellement signalée comme non protégée par l'API GitHub (`protected: false`) et aucun ruleset n'est listé. La connexion utilisée pour cet audit ne permet pas de modifier les paramètres d'administration ; cette protection doit donc être activée manuellement par le propriétaire.
+- **État du dépôt vérifié le 30 octobre 2026 :** la branche `main` est protégée par le ruleset de dépôt actif `Protection de main`, ciblant la branche par défaut. Le ruleset impose une Pull Request, les contrôles `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions` (CodeQL), interdit la suppression et les mises à jour non fast-forward (force-push). Aucune approbation humaine obligatoire n'est configurée ; la validation éditoriale humaine reste néanmoins obligatoire avant publication des dossiers.
 - L'état de Secret Scanning, de Push Protection, des alertes Dependabot et du signalement privé n'a pas pu être confirmé par cette connexion. Une recherche du code indexé sur la branche `main` n'a trouvé aucune occurrence des motifs courants `BEGIN PRIVATE KEY`, `ghp_`, `AKIA`, `password =` et `secret =` ; cela ne remplace pas Secret Scanning et ne couvre pas l'historique complet.
 
-## Réglages GitHub à activer manuellement
+## Réglages GitHub — état actuel
 
-La branche `main` est actuellement non protégée. Ouvrir directement [Settings → Branches](https://github.com/zallyx62/IMPACT-/settings/branches) dans GitHub (au besoin, activer l'affichage « version pour ordinateur » sur mobile), puis protéger `main` avec les règles suivantes :
-- interdire la suppression de la branche et les force-push ;
-- demander une Pull Request pour intégrer les changements ;
-- exiger les contrôles `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions` (CodeQL). Le workflow `IMPACT checks` a été ajusté pour s'exécuter sur toutes les Pull Requests vers `main`, y compris les modifications de documentation ;
-- ne pas exiger d'approbation humaine obligatoire tant qu'il n'existe pas de second mainteneur disponible, afin de ne pas bloquer le propriétaire seul.
+La protection de `main` est déjà active via le ruleset `Protection de main`. Aucune action supplémentaire n'est nécessaire pour activer les protections de base.
+
+Le ruleset impose :
+- une Pull Request avant fusion ;
+- les contrôles `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions` ;
+- le blocage des suppressions de `main` ;
+- le blocage des force-push et mises à jour non fast-forward.
+
+Le nombre d'approbations humaines obligatoires est actuellement de zéro, afin de ne pas bloquer le propriétaire seul. Cela ne dispense pas de la relecture humaine des affirmations éditoriales avant toute publication.
 
 Dans **Settings → Advanced Security**, vérifier et activer si disponibles :
 - Dependabot alerts et Dependabot security updates ;
 - Secret scanning et Push protection ;
 - Code scanning / CodeQL (le workflow CodeQL est déjà présent dans le dépôt).
 
-Dans **Settings → Security → Code security and analysis**, activer le signalement privé des vulnérabilités si cette option est proposée. Le guide [SECURITY.md](../SECURITY.md) fournit déjà la procédure de signalement.
+Dans **Settings → Security → Code security and analysis**, vérifier le signalement privé des vulnérabilités si cette option est proposée. Le guide [SECURITY.md](../SECURITY.md) fournit déjà la procédure de signalement.
 
 ## Procédure
 
