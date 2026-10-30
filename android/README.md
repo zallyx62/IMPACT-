@@ -50,4 +50,4 @@ Release maintainers must increment versionCode for every release and update vers
 
 ## Current limits
 
-This is an Android build prototype, not a release. It still requires a successful clean build, installation and testing on physical Android devices, screen-reader review, security review and a documented signing/release process. F-Droid inclusion is not yet ready; see [the F-Droid preparation notes](../docs/ANDROID_FDROID.md).
+This is an Android build prototype, not a release. The project owner reported successful installation and basic use of a debug APK on one physical Android phone on 30 October 2026. This single-device smoke test is not a compatibility guarantee. Further tests across devices and Android versions, screen-reader review, security review and a documented signing/release process remain required. F-Droid inclusion is not yet ready; see [the F-Droid preparation notes](../docs/ANDROID_FDROID.md).
