@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --experimental-strip-types --test ../scripts/test-search.mjs ../scripts/test-safe-url.mjs ../scripts/test-dossier-publication.test.mjs ../scripts/test-publication-source-gate.test.mjs ../scripts/test-nestle-dossier.test.mjs ../scripts/test-public-data.test.mjs ../scripts/test-theme-settings.mjs ../scripts/test-hash-route.mjs ../scripts/test-share-url.mjs ../scripts/test-evidence-index.mjs ../scripts/test-dossier-accessibility.mjs ../scripts/test-comparison-metrics.mjs ../scripts/test-public-tool-index.mjs ../scripts/test-contribution-draft.mjs",
+    "test": "node --experimental-strip-types --test ../scripts/test-search.mjs ../scripts/test-safe-url.mjs ../scripts/test-dossier-publication.test.mjs ../scripts/test-publication-source-gate.test.mjs ../scripts/test-nestle-dossier.test.mjs ../scripts/test-public-data.test.mjs ../scripts/test-theme-settings.mjs ../scripts/test-hash-route.mjs ../scripts/test-share-url.mjs ../scripts/test-evidence-index.mjs ../scripts/test-dossier-accessibility.mjs ../scripts/test-comparison-metrics.mjs ../scripts/test-public-tool-index.mjs ../scripts/test-contribution-draft.mjs ../scripts/test-universe-index.mjs",
     "predev": "node --experimental-strip-types ../scripts/generate-public-records.mjs && node ../scripts/generate-pwa-icons.mjs",
     "prebuild": "node --experimental-strip-types ../scripts/generate-public-records.mjs && node ../scripts/generate-pwa-icons.mjs",
     "pretypecheck": "node --experimental-strip-types ../scripts/generate-public-records.mjs",
