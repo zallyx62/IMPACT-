@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 20 sources sont `to_review`, les 20 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 22 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 24 sources sont `to_review`, les 23 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 25 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -35,6 +35,8 @@ Affirmations à examiner :
 - `claim-nestle-water-health-finding` — réponse gouvernementale indiquant qu'aucun risque sanitaire n'a été constaté.
 - `claim-nestle-water-gard-uncertainty` — incertitude résiduelle relevée par le Sénat pour le Gard entre août 2023 et mai 2024.
 - `claim-nestle-water-vosges-surveillance` — résultats de surveillance virologique rapportés pour les Vosges.
+- `claim-nestle-waters-cjipe-completion-2026` — exécution des obligations de la CJIPE et extinction de l'action publique annoncées le 14 octobre 2026.
+- `claim-nestle-vosges-plastic-dumps-retrial-2026` — nouveau procès ordonné le 17 septembre 2026 concernant les décharges plastiques, sans décision sur le fond.
 
 **Point de vigilance :** conserver ensemble les conclusions différentes selon les sites et les périodes. L'incertitude relevée dans le Gard ne prouve pas qu'une contamination ou un dommage sanitaire s'est produit ; les résultats rassurants des Vosges ne doivent pas être généralisés au Gard. La réponse gouvernementale de 2026 doit rester distincte des conclusions du rapport sénatorial de 2025.
 
@@ -50,7 +52,15 @@ Affirmations à examiner :
 
 **Point de vigilance :** les 219 observations d'ATNi et les 186 cas déclarés par Nestlé ne sont pas directement comparables. ATNi évalue l'alignement sur le Code international de l'OMS ; Nestlé rapporte ses propres cas selon sa politique et les lois locales. Ne jamais les additionner ni présenter l'un comme la réfutation arithmétique de l'autre.
 
-## 3. Sucre dans les aliments pour bébés
+## 3. Rappel de laits infantiles en France (2026)
+
+Affirmation à examiner :
+
+- `claim-nestle-infant-formula-recall-cereulide-2026` — rappel préventif de certains lots Guigoz et Nidal après identification de céréulide potentiellement liée à un ingrédient fournisseur.
+
+Sources à lire ensemble : le communiqué des ministères du 22 janvier 2026 et le communiqué de Nestlé du 5 janvier 2026. Le communiqué gouvernemental indique qu'aucun lien causal n'était établi à cette date entre les produits rappelés et les symptômes rapportés. Ne pas suggérer qu'un décès ou une maladie a été causé par les produits. Le dossier de rappel doit être mis à jour à partir de RappelConso avant toute information pratique.
+
+## 4. Sucre dans les aliments pour bébés
 
 Affirmation à examiner :
 
@@ -58,7 +68,7 @@ Affirmation à examiner :
 
 **Point de vigilance :** vérifier les références exactes, les portions et les pays testés. Distinguer sucres ajoutés, sucres provenant naturellement des ingrédients et sucres totaux. Lire la réponse de Nestlé de 2025 avant validation.
 
-## 4. Approvisionnement en cacao au Cameroun
+## 5. Approvisionnement en cacao au Cameroun
 
 Affirmations à examiner :
 
@@ -67,7 +77,7 @@ Affirmations à examiner :
 
 **Point de vigilance :** l'évaluation porte sur trois coopératives et six communautés au Cameroun en 2020. La FLA indique n'avoir rencontré aucun cas de travail d'enfant dans les exploitations visitées. Le cas de risque de travail forcé ne prouve pas que Nestlé employait directement le travailleur ni que le phénomène caractérise toute la chaîne. Ne pas présenter ce rapport historique comme un état des lieux actuel.
 
-## 5. Emballages plastiques et pollution
+## 6. Emballages plastiques et pollution
 
 Affirmations à examiner :
 
@@ -80,7 +90,7 @@ Affirmations à examiner :
 
 La réponse de Nestlé aux audits de Break Free From Plastic doit être présentée à proximité, avec ses critiques méthodologiques et les limites des audits citoyens.
 
-## 6. Environnement et déforestation liée au cacao
+## 7. Environnement et déforestation liée au cacao
 
 Affirmation à examiner :
 
@@ -88,7 +98,7 @@ Affirmation à examiner :
 
 **Point de vigilance :** il s'agit d'une mesure publiée par l'entreprise, selon une méthodologie qu'elle décrit et indique avoir modifiée au premier semestre 2026. La part inconnue n'est pas une preuve de déforestation ; la part évaluée comme exempte ne doit pas être présentée comme une vérification indépendante de chaque exploitation.
 
-## 7. Cacao au Liberia et risque de déforestation indirecte
+## 8. Cacao au Liberia et risque de déforestation indirecte
 
 Affirmation à examiner :
 
@@ -104,13 +114,15 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `source-nestle-bms-policy-2024` et `source-nestle-non-financial-statement-2024-bms` — politique et chiffres déclarés par Nestlé sur le marketing des substituts du lait maternel.
 - `source-nestle-sugar-response-2025` — réponse de Nestlé sur l'enquête relative au sucre.
 - `source-nestle-cocoa-plan` — programme cacao et système CLMRS présenté par Nestlé.
+- `source-nestle-infant-formula-recall-2026` — communiqué de Nestlé sur le rappel de certains lots Guigoz et Nidal.
+- `source-fr-health-ministry-infant-formula-recall-2026` — point de situation des autorités françaises.
 
 ## Conditions de publication
 
 Ne publier le dossier qu'après :
 
-1. examen humain des 20 sources ;
-2. examen humain des 20 affirmations et de leurs 22 éléments de preuve ;
+1. examen humain des 24 sources ;
+2. examen humain des 23 affirmations et de leurs 25 éléments de preuve ;
 3. vérification des réponses de Nestlé ;
 4. correction de toute formulation trop large ou ambiguë ;
 5. mise à jour cohérente des statuts, dates de revue et références ;
