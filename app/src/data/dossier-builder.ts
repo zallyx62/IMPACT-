@@ -69,6 +69,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
   const entityCampaigns = data.campaigns.filter(
     (item) =>
       item.target_entity_ids.includes(entityId) &&
+      item.target_entity_ids.some((targetId) => publishableEntityIds.has(targetId)) &&
       item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
   const entityResponses = data.responses.filter(
@@ -85,14 +86,14 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
 
   const claimIds = new Set(
     data.claims
-      .filter((item) => item.subject_entity_id === entityId && item.source_ids.some((sourceId) => reviewed.has(sourceId)))
+      .filter((item) => publishableEntityIds.has(item.subject_entity_id) && item.source_ids.some((sourceId) => reviewed.has(sourceId)))
       .map((item) => item.id),
   );
   entityCampaigns.forEach((item) => (item.claim_ids ?? []).forEach((id) => claimIds.add(id)));
   entityResponses.forEach((item) => item.related_claim_ids.forEach((id) => claimIds.add(id)));
 
   const claims = data.claims.filter(
-    (item) => claimIds.has(item.id) && item.source_ids.some((sourceId) => reviewed.has(sourceId)),
+    (item) => claimIds.has(item.id) && publishableEntityIds.has(item.subject_entity_id) && item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
   const publishedClaimIds = new Set(claims.map((item) => item.id));
   const evidenceIds = new Set(claims.flatMap((item) => item.evidence_ids ?? []));
@@ -142,6 +143,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     })),
     campaigns: entityCampaigns.map((item) => ({
       ...item,
+      target_entity_ids: item.target_entity_ids.filter((id) => publishableEntityIds.has(id)),
       source_ids: item.source_ids.filter((id) => publishedSourceIds.has(id)),
       ...(item.claim_ids
         ? { claim_ids: item.claim_ids.filter((id) => publishedClaimIds.has(id)) }
