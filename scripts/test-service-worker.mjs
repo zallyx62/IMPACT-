@@ -110,6 +110,9 @@ networkFetch = async () => { throw new Error("offline"); };
 const firstVisitOfflineAsset = fetchEvent({ method: "GET", url: "https://example.test/app/assets/app.js", mode: "no-cors" });
 handlers.get("fetch")(firstVisitOfflineAsset);
 assert.equal(await (await firstVisitOfflineAsset.response).text(), "precache:https://example.test/app/assets/app.js");
+const firstVisitOfflineStyle = fetchEvent({ method: "GET", url: "https://example.test/app/assets/app.css", mode: "no-cors" });
+handlers.get("fetch")(firstVisitOfflineStyle);
+assert.equal(await (await firstVisitOfflineStyle.response).text(), "precache:https://example.test/app/assets/app.css");
 console.log("PASS first-visit JavaScript bundle works immediately offline");
 
 const offlineNavigation = fetchEvent({ method: "GET", url: "https://example.test/app/deep-link", mode: "navigate" });
@@ -118,7 +121,7 @@ assert.equal(await (await offlineNavigation.response).text(), "fresh online page
 console.log("PASS offline navigation falls back to the cached application shell");
 
 networkFetch = async () => response("cached asset");
-const assetRequest = { method: "GET", url: "https://example.test/app/assets/app.js", mode: "no-cors" };
+const assetRequest = { method: "GET", url: "https://example.test/app/assets/lazy-chunk.js", mode: "no-cors" };
 const firstAsset = fetchEvent(assetRequest);
 handlers.get("fetch")(firstAsset);
 assert.equal(await (await firstAsset.response).text(), "cached asset");
