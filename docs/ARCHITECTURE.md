@@ -110,7 +110,7 @@ Les dépendances sont surveillées chaque semaine par Dependabot et auditées av
 - Un dossier réel peut être publié sans validation humaine préalable lorsque les critères de preuve, de corroboration, de transparence et les contrôles définis dans la charte sont satisfaits. Les cas sensibles ou à risque élevé restent bloqués pour examen humain.
 - Une source, une affirmation et un élément de preuve restent trois objets distincts.
 
-La première version contient un corpus de travail non publié ; aucun dossier Nestlé n'est visible tant que les statuts éditoriaux ne sont pas validés. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
+La première version contient un corpus de travail non publié ; aucun dossier Nestlé n'est visible tant que les critères de preuve et les statuts de publication ne sont pas satisfaits. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
 
 ## 5. Confidentialité
 
@@ -178,4 +178,4 @@ Le premier prototype est destiné au développement. Il ne doit pas être prése
 
 Aucun serveur central n'est prévu pour la première version. Un service distant ne sera envisagé que si une exigence réelle le rend indispensable, après analyse du coût, des risques, des possibilités d'auto-hébergement et de la confidentialité.
 
-Les contributions et dossiers factuels pourront être examinés par des humains puis intégrés par des changements versionnés dans le dépôt.
+Les contributions et dossiers factuels sont intégrés par des changements versionnés. La publication suit le seuil de preuve de la charte ; un examen humain préalable est réservé aux catégories sensibles ou à risque élevé.
