@@ -49,7 +49,7 @@ const searchAliases: Record<string, string> = {
 };
 
 export interface SearchableDossier {
-  claims: Array<{ statement: string; topic: string; uncertainty_note?: string }>;
+  claims: Array<{ statement: string; topic: string; claim_status: string; uncertainty_note?: string }>;
   sources: Array<{ title: string; publisher: string }>;
   evidence: Array<{ summary: string; locator: string }>;
   campaigns: Array<{ title: string; demands: string[]; outcome_summary?: string }>;
@@ -69,7 +69,7 @@ export function searchableEntityText(
     entity.description ?? "",
     entity.entity_type,
     searchAliases[entity.entity_type] ?? "",
-    ...dossier.claims.flatMap((item) => [item.statement, item.topic, searchAliases[item.topic] ?? "", item.uncertainty_note ?? ""]),
+    ...dossier.claims.flatMap((item) => [item.statement, item.topic, searchAliases[item.topic] ?? "", item.claim_status, searchAliases[item.claim_status] ?? "", item.uncertainty_note ?? ""]),
     ...dossier.sources.flatMap((item) => [item.title, item.publisher]),
     ...dossier.evidence.flatMap((item) => [item.summary, item.locator]),
     ...dossier.campaigns.flatMap((item) => [item.title, ...item.demands, item.outcome_summary ?? ""]),
