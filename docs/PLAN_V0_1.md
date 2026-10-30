@@ -1,6 +1,6 @@
 # Plan de réalisation — IMPACT 0.1
 
-**But :** obtenir une première application web navigable, claire et légère, sans publier prématurément des informations factuelles sur des entreprises.
+**But :** obtenir une première application web navigable, claire et légère, avec des dossiers factuels limités aux éléments qui satisfont au seuil documentaire de la charte.
 
 ## Périmètre inclus
 
@@ -9,6 +9,7 @@
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
 - Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; deux constats Nestlé limités à des produits Gerber précis sont publiés selon le seuil documentaire, les autres sujets restant en préparation.
+- Publication possible sans validation humaine préalable lorsque la source, la méthode, les limites et la formulation sont documentées selon la charte ; examen humain renforcé pour les cas sensibles.
 - Pages explicatives de sélection pour les univers.
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
@@ -20,7 +21,6 @@
 
 ## Hors périmètre de la version 0.1
 
-- Publication de dossiers factuels : les faits répondant au seuil documentaire de la charte peuvent être publiés sans validation humaine préalable ; les autres dossiers restent exclus jusqu'à ce que leurs preuves soient suffisantes ou qu'un examen humain requis soit effectué.
 - Scanner de codes-barres.
 - Base de données de fournisseurs.
 - Notes ou comparaisons réelles d'entreprises.
@@ -39,7 +39,7 @@
 - Les tests d'intégrité, JSON Schema et règles de publication réussissent.
 - `npm audit --audit-level=high` ne signale aucune vulnérabilité.
 - `node scripts/check-data.mjs` valide les enregistrements et leurs références.
-- Le générateur de données publiques n'inclut que les enregistrements ayant passé la règle de publication humaine.
+- Le générateur de données publiques n'inclut que les enregistrements ayant passé l'un des deux parcours de publication définis dans la charte.
 - Les tests vérifient les références du jeu public et l'absence de tout identifiant de dossier exclu dans le bundle de production.
 - Le contrôle PWA vérifie les fichiers générés après le build.
 - `npm run build` réussit.
