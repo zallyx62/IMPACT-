@@ -8,6 +8,7 @@ const requiredFiles = [
   "sw.js",
   "manifest.webmanifest",
   "icons/impact.svg",
+  "icons/impact-180.png",
   "icons/impact-192.png",
   "icons/impact-512.png",
 ];
@@ -31,7 +32,11 @@ assert.equal(manifest.lang, "fr");
 assert.ok(Array.isArray(manifest.icons) && manifest.icons.length > 0);
 assert.ok(manifest.icons.some((icon) => icon.purpose?.includes("maskable")), "a maskable icon must be declared");
 assert.ok(iconSvg.includes('transform="translate(12.8 12.8) scale(0.8)"'), "maskable foreground must be scaled into its safe zone");
-assert.match(html, /rel="apple-touch-icon"[^>]+impact-192\.png/);
+assert.match(html, /rel="apple-touch-icon"[^>]+impact-180\.png/);
+
+const appleIcon = await readFile(new URL("icons/impact-180.png", dist));
+assert.equal(appleIcon.readUInt32BE(16), 180, "Apple touch icon width must be 180px");
+assert.equal(appleIcon.readUInt32BE(20), 180, "Apple touch icon height must be 180px");
 
 for (const size of [192, 512]) {
   const icon = manifest.icons.find((item) => item.sizes === `${size}x${size}` && item.type === "image/png");
