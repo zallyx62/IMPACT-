@@ -90,6 +90,7 @@ describe("Nestlé dossier editorial gate", () => {
 
     assert.equal(entity.status, "review_needed");
     assert.equal(entity.reviewed_at, null);
+    assert.ok(sourceNames.every((id) => entity.source_ids.includes(id)));
     assert.ok(sources.every((source) => source.review_status === "to_review"));
     assert.ok(claims.every((claim) => claim.reviewed_at === null));
     assert.ok(claims.every((claim) => claim.claim_status === "not_reviewed"));
