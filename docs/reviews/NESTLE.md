@@ -104,6 +104,10 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `source-nestle-2024-reponse-cjipe` — réponse de Nestlé Waters sur l'affaire des eaux.
 - `source-nestle-bms-policy-2024` et `source-nestle-non-financial-statement-2024-bms` — politique et chiffres déclarés par Nestlé sur le marketing des substituts du lait maternel.
 - `source-nestle-sugar-response-2025` — réponse de Nestlé sur l'enquête relative au sucre.
+- `source-nestle-baby-food-plastic-packaging-response-2026` — position officielle de Nestlé sur les emballages plastiques des aliments pour bébés ; elle ne fournit pas de résultats analytiques propres aux sachets étudiés.
+- `source-fda-microplastics-food-guidance-2026` — contexte général de la FDA sur les microplastiques alimentaires, les preuves de migration et les limites des connaissances.
+- `source-efsa-food-contact-microplastics-review-2025` et `source-efsa-microplastics-food-risk-status-2026` — revue technique sur la libération par les matériaux au contact des aliments et état de l'évaluation des risques par l'EFSA.
+- `source-consumer-reports-baby-food-testing-2026` — enquête de tests de produits de Consumer Reports, avec limites de méthode, financement et réponse de Gerber.
 - `source-nestle-cocoa-plan` — programme cacao et système CLMRS présenté par Nestlé.
 
 ## Conditions de publication
