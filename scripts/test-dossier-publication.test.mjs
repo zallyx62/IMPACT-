@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { buildEntityDossier, getPublishedEntities } from "../app/src/data/dossier-builder.ts";
+import { buildEntityDossier, getEvidenceRelation, getPublishedEntities } from "../app/src/data/dossier-builder.ts";
 
 const data = {
   entities: [
@@ -195,4 +195,19 @@ describe("buildEntityDossier publication rules", () => {
     unreviewed.entities[0].source_ids = ["source-pending"];
     assert.equal(buildEntityDossier("entity-one", unreviewed), undefined);
   });
+
+
+describe("evidence relation labels", () => {
+  it("distinguishes supporting, contradicting, mixed and contextual evidence", () => {
+    assert.equal(getEvidenceRelation({ supports_claim_ids: ["claim-one"] }, "claim-one"), "supports");
+    assert.equal(getEvidenceRelation({ contradicts_claim_ids: ["claim-one"] }, "claim-one"), "contradicts");
+    assert.equal(getEvidenceRelation({ supports_claim_ids: ["claim-one"], contradicts_claim_ids: ["claim-one"] }, "claim-one"), "mixed");
+    assert.equal(getEvidenceRelation({ supports_claim_ids: [], contradicts_claim_ids: [] }, "claim-one"), "context");
+  });
+
+  it("does not classify evidence linked to a different claim as supporting or contradicting", () => {
+    assert.equal(getEvidenceRelation({ supports_claim_ids: ["claim-two"], contradicts_claim_ids: ["claim-three"] }, "claim-one"), "context");
+  });
+});
+
 });
