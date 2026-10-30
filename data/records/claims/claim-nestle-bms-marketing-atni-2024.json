@@ -1,0 +1,20 @@
+{
+  "id": "claim-nestle-bms-marketing-atni-2024",
+  "subject_entity_id": "nestle",
+  "statement": "Dans son BMS Index 2024, l'Access to Nutrition Initiative a recensé 219 incidences de non-conformité au Code international de l'OMS dans les pratiques de commercialisation des substituts du lait maternel de Nestlé sur cinq marchés étudiés : 109 observations en ligne, 85 sur des étiquettes de produits et 25 dans les médias traditionnels.",
+  "topic": "business_consumption",
+  "claim_status": "not_reviewed",
+  "valid_from": "2024-01-01",
+  "valid_until": null,
+  "source_ids": [
+    "source-atni-bms-index-2024-nestle",
+    "source-nestle-non-financial-statement-2024-bms"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-bms-marketing-atni-2024",
+    "evidence-nestle-bms-marketing-company-response"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Les 219 incidences sont des observations de non-alignement avec le Code international de l'OMS dans cinq marchés, et non 219 infractions à la loi ou décisions de justice. Le périmètre ne couvre pas tous les pays où Nestlé vend ses produits. Le rapport d'ATNi souligne des limites de collecte et d'engagement des entreprises.",
+  "editorial_note": "Afficher la réponse de Nestlé à proximité : son rapport 2024 indique qu'ATNi n'a relevé aucun cas de non-conformité à la politique Nestlé ou aux lois locales. Expliquer explicitement que les critères diffèrent : ATNi évalue le Code international de l'OMS, tandis que Nestlé rapporte ses résultats selon sa propre politique et le droit local. Ne pas confondre les 219 observations ATNi avec les 186 cas déclarés par Nestlé."
+}
