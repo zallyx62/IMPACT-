@@ -15,7 +15,7 @@ function getInitialTheme(): Theme {
   try {
     return window.localStorage.getItem("impact-theme") === "light" ? "light" : "dark";
   } catch {
-    return "light";
+    return "dark";
   }
 }
 
