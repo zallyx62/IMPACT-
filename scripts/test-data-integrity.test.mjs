@@ -38,4 +38,20 @@ describe("validateCollections", () => {
     assert.ok(errors.some((error) => error.includes("must not be empty")));
     assert.ok(errors.some((error) => error.includes("duplicate id")));
   });
+  it("checks references for evidence, relationships, campaigns, responses and commitments", () => {
+    const broken = structuredClone(valid);
+    broken.evidence[0].source_id = "missing-evidence-source";
+    broken.relationships[0].to_entity_id = "missing-target";
+    broken.campaigns[0].target_entity_ids = ["missing-campaign-target"];
+    broken.responses[0].source_id = "missing-response-source";
+    broken.commitments[0].entity_id = "missing-commitment-entity";
+    const errors = validateCollections(broken);
+    assert.equal(errors.length, 5);
+    assert.ok(errors.some((error) => error.includes("missing-evidence-source")));
+    assert.ok(errors.some((error) => error.includes("missing-target")));
+    assert.ok(errors.some((error) => error.includes("missing-campaign-target")));
+    assert.ok(errors.some((error) => error.includes("missing-response-source")));
+    assert.ok(errors.some((error) => error.includes("missing-commitment-entity")));
+  });
+
 });
