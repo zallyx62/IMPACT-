@@ -105,7 +105,7 @@ Les dépendances doivent continuer à être réexaminées régulièrement ; l'au
 - Aucun dossier réel d'entreprise ne doit être inventé ou publié sans recherche et validation éditoriale.
 - Une source, une affirmation et un élément de preuve restent trois objets distincts.
 
-La première version ne contient pas encore de base de données factuelle vérifiée. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
+La première version contient un corpus de travail non publié ; aucun dossier Nestlé n'est visible tant que les statuts éditoriaux ne sont pas validés. Les écrans qui présentent les outils avancés signalent donc explicitement qu'ils sont en préparation.
 
 ## 5. Confidentialité
 
