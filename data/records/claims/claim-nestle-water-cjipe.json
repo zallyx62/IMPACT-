@@ -1,9 +1,9 @@
 {
   "id": "claim-nestle-water-cjipe",
   "subject_entity_id": "nestle",
-  "statement": "En septembre 2024, Nestlé Waters Supply Est a conclu une convention judiciaire d'intérêt public environnementale avec le parquet d'Épinal, assortie d'une amende d'intérêt public de deux millions d'euros.",
+  "statement": "Le 2 septembre 2024, Nestlé Waters Supply Est a conclu avec le parquet d'Épinal une convention judiciaire d'intérêt public environnementale concernant des faits relevant de son activité dans les Vosges. La convention était assortie d'une amende d'intérêt public de deux millions d'euros.",
   "topic": "business_consumption",
-  "claim_status": "not_reviewed",
+  "claim_status": "confirmed",
   "valid_from": "2024-09-02",
   "valid_until": null,
   "source_ids": [
@@ -15,6 +15,9 @@
     "evidence-nestle-water-cjipe-fine"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "La convention concerne Nestlé Waters Supply Est et les faits relevant de son périmètre dans les Vosges. Elle ne doit pas être présentée comme une condamnation de l'ensemble du groupe Nestlé.",
-  "editorial_note": "Présenter la nature exacte de la convention et ses limites de périmètre ; ne pas la confondre avec une condamnation pénale de toutes les entités du groupe."
+  "uncertainty_note": "La convention concerne Nestlé Waters Supply Est et les faits relevant de son périmètre dans les Vosges. Elle ne doit pas être présentée comme une condamnation pénale de l'ensemble du groupe. Les déclarations de Nestlé sur les mesures correctrices et l'absence d'atteinte à la santé publique restent attribuées à l'entreprise et doivent être distinguées des constats officiels.",
+  "editorial_note": "Présenter la nature exacte de la convention et ses limites de périmètre ; ne pas la confondre avec une condamnation pénale de toutes les entités du groupe.",
+  "publication_basis": "evidence_verified",
+  "published_at": "2026-10-30",
+  "publication_note": "La publication décrit la signature et le montant de la convention judiciaire d'intérêt public environnementale, en s'appuyant sur le document du ministère de la Justice et sur le communiqué de l'entreprise. Une CJIPE n'est pas présentée comme une condamnation pénale et ne concerne pas automatiquement toutes les entités du groupe Nestlé."
 }
