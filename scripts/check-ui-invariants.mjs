@@ -10,16 +10,15 @@ assert.match(css, /button:focus-visible, a:focus-visible, input:focus-visible/);
 assert.match(css, /\.language-select:focus-visible/);
 assert.ok(css.includes(':root[data-theme="dark"] {'), "a user-selected dark theme must be available");
 assert.ok(!css.includes("prefers-color-scheme: dark"), "dark mode must not override the user selection");
-assert.match(app, /id="language-select"/);
+assert.doesNotMatch(app, /id="language-select"/, "the public prototype must not expose a language selector");
 assert.match(app, /id="theme-select"/);
 assert.ok(app.includes("useState<Theme>(getInitialTheme)"));
 assert.ok(app.includes("document.documentElement.dataset.theme = theme"));
 assert.ok(app.includes('localStorage.setItem("impact-theme", theme)'));
 assert.ok(privacy.includes("impact-theme") && privacy.includes("impact-accent") && /jamais transmises à IMPACT/.test(privacy),
   "the locally stored theme and accent preferences must be disclosed in the privacy policy");
-assert.match(app, /useState<Language>\("en"\)/, "English must be the default language for new sessions");
-assert.match(app, /<option value="fr">Français<\/option>/);
-assert.match(app, /<option value="en">English<\/option>/);
+assert.match(app, /const language: Language = "fr";/, "French must be the only public interface language");
+assert.doesNotMatch(app, /setLanguage/, "the public prototype must not expose a language switch");
 assert.match(app, /document\.documentElement\.lang = language/);
 assert.match(app, /document\.title = language === "fr"/);
 assert.match(app, /meta\[name="description"\]/);
@@ -60,4 +59,4 @@ assert.match(dossierPanel, /claim\.subject_entity_id !== dossier\.entity\.id/,
 assert.match(dossierPanel, /claimAbout: "Concerne"/);
 assert.match(dossierPanel, /claimAbout: "About"/);
 
-console.log("UI invariant checks passed: keyboard focus, language selection, mobile breakpoints, reduced motion, dossier dark mode and cross-entity claim attribution.");
+console.log("UI invariant checks passed: keyboard focus, French-only interface, mobile breakpoints, reduced motion, dossier dark mode and cross-entity claim attribution.");
