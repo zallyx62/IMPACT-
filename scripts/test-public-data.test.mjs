@@ -54,8 +54,8 @@ const nestle = publicRecords.entities.find((item) => item.id === "nestle");
 assert.ok(nestle, "the evidence-verified Nestlé dossier should be public");
 assert.deepEqual(nestle.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026"]);
 assert.deepEqual(publicRecords.claims.filter((item) => item.subject_entity_id === "nestle").map((item) => item.id),
-  ["claim-nestle-baby-food-plastic-pouches-2025"],
-  "only the narrowly scoped evidence-verified Nestlé claim may be public");
+  ["claim-nestle-baby-food-plastic-pouches-2025", "claim-nestle-gerber-microplastics-consumer-reports-2026"].sort(),
+  "only narrowly scoped evidence-verified Nestlé claims may be public");
 assert.ok(publicRecords.sources.some((item) => item.id === "source-greenpeace-baby-food-plastic-pouches-2026"),
   "the evidence-verified primary report must be included");
 const allowedContextSources = new Set([
@@ -64,6 +64,7 @@ const allowedContextSources = new Set([
   "source-efsa-food-contact-microplastics-review-2025",
   "source-efsa-microplastics-food-risk-status-2026",
   "source-nestle-baby-food-plastic-packaging-response-2026",
+  "source-consumer-reports-baby-food-testing-2026",
 ]);
 assert.ok(publicRecords.sources.some((item) => item.id === "source-fda-microplastics-food-guidance-2026"));
 assert.ok(publicRecords.sources.some((item) => item.id === "source-efsa-food-contact-microplastics-review-2025"));
@@ -73,7 +74,7 @@ assert.ok(!publicRecords.sources.some((item) =>
   (item.id.startsWith("source-nestle-") && !allowedContextSources.has(item.id)) ||
   item.id === "source-consumer-reports-baby-food-testing-2026"),
   "unverified Nestlé and Consumer Reports source drafts must remain excluded");
-assert.ok(!JSON.stringify(publicRecords).includes("claim-nestle-gerber-microplastics-consumer-reports-2026"),
-  "the Consumer Reports claim remains unpublished until its own evidence gate is completed");
+assert.ok(JSON.stringify(publicRecords).includes("claim-nestle-gerber-microplastics-consumer-reports-2026"),
+  "the independently documented Consumer Reports claim must be included");
 
 console.log(`Public editorial bundle checks passed (${publicRecords.entities.length} entities, ${publicRecords.claims.length} claims, ${publicRecords.sources.length} sources).`);
