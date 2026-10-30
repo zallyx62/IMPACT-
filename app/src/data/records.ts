@@ -133,43 +133,69 @@ export function getEntityDossier(entityId: string): EntityDossier | undefined {
   const entity = entities.find((item) => item.id === entityId && item.status === "published");
   if (!entity) return undefined;
 
-  const entityClaims = claims.filter((claim) => claim.subject_entity_id === entityId);
-  const claimIds = new Set(entityClaims.map((claim) => claim.id));
-  const sourceIds = new Set(entityClaims.flatMap((claim) => claim.source_ids));
-  const evidenceIds = new Set(entityClaims.flatMap((claim) => claim.evidence_ids ?? []));
+  const reviewedSourceIds = new Set(
+    sources.filter((item) => item.review_status === "reviewed").map((item) => item.id),
+  );
 
   const entityRelationships = relationships.filter(
-    (item) => item.from_entity_id === entityId || item.to_entity_id === entityId,
+    (item) =>
+      (item.from_entity_id === entityId || item.to_entity_id === entityId) &&
+      item.source_ids.some((sourceId) => reviewedSourceIds.has(sourceId)),
   );
+
+  const entityCampaigns = campaigns.filter(
+    (item) =>
+      item.target_entity_ids.includes(entityId) &&
+      item.source_ids.some((sourceId) => reviewedSourceIds.has(sourceId)),
+  );
+
+  const entityResponses = responses.filter(
+    (item) =>
+      item.entity_id === entityId &&
+      item.publication_status === "published" &&
+      Boolean(item.source_id && reviewedSourceIds.has(item.source_id)),
+  );
+
+  const entityCommitments = commitments.filter(
+    (item) =>
+      item.entity_id === entityId &&
+      item.source_ids.some((sourceId) => reviewedSourceIds.has(sourceId)),
+  );
+
+  const claimIds = new Set(
+    claims
+      .filter((item) => item.subject_entity_id === entityId && item.source_ids.some((sourceId) => reviewedSourceIds.has(sourceId)))
+      .map((item) => item.id),
+  );
+  entityCampaigns.forEach((item) => (item.claim_ids ?? []).forEach((id) => claimIds.add(id)));
+  entityResponses.forEach((item) => item.related_claim_ids.forEach((id) => claimIds.add(id)));
+
+  const relatedClaims = claims.filter(
+    (item) => claimIds.has(item.id) && item.source_ids.some((sourceId) => reviewedSourceIds.has(sourceId)),
+  );
+  const sourceIds = new Set<string>();
+  const evidenceIds = new Set(relatedClaims.flatMap((item) => item.evidence_ids ?? []));
+
+  relatedClaims.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   entityRelationships.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
-
-  const entityCampaigns = campaigns.filter((item) => item.target_entity_ids.includes(entityId));
-  entityCampaigns.forEach((item) => {
-    item.source_ids.forEach((id) => sourceIds.add(id));
-    (item.claim_ids ?? []).forEach((id) => claimIds.add(id));
-  });
-
-  const entityResponses = responses.filter((item) => item.entity_id === entityId);
+  entityCampaigns.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   entityResponses.forEach((item) => {
-    item.related_claim_ids.forEach((id) => claimIds.add(id));
     if (item.source_id) sourceIds.add(item.source_id);
   });
-
-  const entityCommitments = commitments.filter((item) => item.entity_id === entityId);
   entityCommitments.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
 
-  const relatedClaims = claims.filter((item) => claimIds.has(item.id));
-  relatedClaims.forEach((item) => {
-    item.source_ids.forEach((id) => sourceIds.add(id));
-    (item.evidence_ids ?? []).forEach((id) => evidenceIds.add(id));
-  });
-
   const relatedEvidence = evidence.filter(
-    (item) => evidenceIds.has(item.id) || item.supports_claim_ids?.some((id) => claimIds.has(id)) || item.contradicts_claim_ids?.some((id) => claimIds.has(id)),
+    (item) =>
+      reviewedSourceIds.has(item.source_id) &&
+      (evidenceIds.has(item.id) ||
+        item.supports_claim_ids?.some((id) => claimIds.has(id)) ||
+        item.contradicts_claim_ids?.some((id) => claimIds.has(id))),
   );
   relatedEvidence.forEach((item) => sourceIds.add(item.source_id));
 
-  const relatedSources = sources.filter((item) => sourceIds.has(item.id));
+  const relatedSources = sources.filter(
+    (item) => sourceIds.has(item.id) && reviewedSourceIds.has(item.id),
+  );
 
   return {
     entity,
