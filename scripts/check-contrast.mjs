@@ -48,4 +48,21 @@ for (const check of checks) {
   console.log(`PASS ${check.selector}: ${ratio.toFixed(2)}:1`);
 }
 
-console.log("All checked secondary-text contrast ratios meet WCAG AA (4.5:1).");
+
+const darkChecks = [
+  { label: "dark primary text", foreground: "#e1ebe2", background: "#18251d" },
+  { label: "dark secondary text", foreground: "#a5b4a9", background: "#18251d" },
+  { label: "dark links", foreground: "#b3efd0", background: "#18251d" },
+  { label: "dark uncertainty note", foreground: "#e5d9b8", background: "#342f21" },
+  { label: "dark status label", foreground: "#b3efd0", background: "#28493a" },
+];
+
+for (const check of darkChecks) {
+  assert.ok(css.includes(check.foreground) && css.includes(check.background),
+    `Missing dark-mode colors for ${check.label}`);
+  const ratio = contrast(check.foreground, check.background);
+  assert.ok(ratio >= 4.5, `${check.label} contrast is ${ratio.toFixed(2)}:1; expected at least 4.5:1`);
+  console.log(`PASS ${check.label}: ${ratio.toFixed(2)}:1`);
+}
+
+console.log("All checked light and dark text contrast ratios meet WCAG AA (4.5:1).");
