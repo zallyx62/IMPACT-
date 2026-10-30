@@ -1,4 +1,4 @@
-import { safeExternalUrl } from "./safe-url";
+import { safeExternalUrl } from "./safe-url.ts";
 
 export interface ContributionDraftInput {
   subject: string;
