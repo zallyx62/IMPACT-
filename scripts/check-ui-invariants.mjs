@@ -19,7 +19,8 @@ assert.ok(privacy.includes("impact-theme") && privacy.includes("impact-accent") 
   "the locally stored theme and accent preferences must be disclosed in the privacy policy");
 assert.match(app, /const language: Language = "fr";/, "French must be the only public interface language");
 assert.match(app, /href="#method" onClick=\{\(\) => \{ setSelection\(null\); setQuery\(""); \}\}/,
-  "the method link must clear search or dossier selection before navigating");\nassert.match(app, /<section id="method" className="content-section editorial-method"/,
+  "the method link must clear search or dossier selection before navigating");
+assert.match(app, /<section id="method" className="content-section editorial-method"/,
   "the navigation method link must lead to the editorial evidence policy");
 assert.match(app, /<section id="privacy" className="method-section"/,
   "the privacy section must have its own anchor, separate from editorial method");
