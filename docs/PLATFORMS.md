@@ -33,6 +33,8 @@ Le workflow construit l'application, exécute les contrôles essentiels, puis pu
 
 Le réglage Pages est déjà activé dans les paramètres du dépôt. Le workflow ne déploie que depuis `main`.
 
+Le manifeste PWA fournit des icônes PNG de 192 × 192 et 512 × 512 pixels pour les navigateurs Chromium, ainsi qu'une icône Apple Touch de 180 × 180 pixels. Elles sont générées depuis la même icône vectorielle pour conserver la direction artistique ; la CI vérifie leur présence, leurs dimensions et leur déclaration. L'installation réelle et l'affichage de l'invite doivent encore être testés sur des appareils Android et iOS physiques.
+
 ### Ajouter IMPACT à l'écran d'accueil
 
 - **Android :** ouvrir l'adresse Web dans Chrome ou un navigateur compatible, puis utiliser l'option d'installation ou « Ajouter à l'écran d'accueil » proposée par le navigateur.
