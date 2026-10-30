@@ -29,7 +29,8 @@ function isPublishableEntity(entity: EntityRecord, sourceIds: Set<string>): bool
     (entity.publication_basis === "evidence_verified" &&
       Boolean(entity.published_at) && Boolean(entity.publication_note?.trim()));
   return entity.status === "published" && eligible &&
-    Array.isArray(entity.source_ids) && entity.source_ids.every((id) => sourceIds.has(id));
+    Array.isArray(entity.source_ids) && entity.source_ids.length > 0 &&
+    entity.source_ids.every((id) => sourceIds.has(id));
 }
 
 function isPublishableClaim(claim: ClaimRecord, sourceIds: Set<string>): boolean {
