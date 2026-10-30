@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { tools, universes } from "../app/src/data/catalog.ts";
-import { matchesSearch, normalizeSearch, searchableText } from "../app/src/data/search.ts";
+import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } from "../app/src/data/search.ts";
 
 describe("normalizeSearch", () => {
   it("ignores accents and letter case", () => {
@@ -28,6 +28,38 @@ describe("searchableText", () => {
 
   it("includes cross-cutting tool keywords", () => {
     assert.ok(searchableText(tools[0]).includes("reliability"));
+  });
+});
+
+describe("searchableEntityText", () => {
+  const entity = { name: "Example Group", entity_type: "organization", description: "A published entity." };
+  const dossier = {
+    claims: [{ statement: "Uses a documented supply-chain standard.", topic: "human_rights", uncertainty_note: "Coverage remains incomplete." }],
+    sources: [{ title: "Supply chain report", publisher: "Independent Institute" }],
+    evidence: [{ summary: "The report describes supplier audits.", locator: "Page 12" }],
+    campaigns: [{ title: "Transparency campaign", demands: ["Publish supplier information"], outcome_summary: "A public response was issued." }],
+    responses: [{ summary: "The organization published a response." }],
+    commitments: [{ statement: "Reduce emissions by 2030.", measurement_method: "Annual inventory", observed_result: "Baseline published." }],
+    relationships: [{ relationship_type: "supplies" }],
+  };
+
+  it("indexes published claims, source metadata, evidence and campaigns", () => {
+    const text = searchableEntityText(entity, dossier);
+    assert.ok(matchesSearch(text, "supply chain"));
+    assert.ok(matchesSearch(text, "supplier audits"));
+    assert.ok(matchesSearch(text, "transparency campaign"));
+    assert.ok(matchesSearch(text, "supplier information"));
+  });
+
+  it("indexes published responses, commitments and relationships", () => {
+    const text = searchableEntityText(entity, dossier);
+    assert.ok(matchesSearch(text, "annual inventory"));
+    assert.ok(matchesSearch(text, "public response"));
+    assert.ok(matchesSearch(text, "supplies"));
+  });
+
+  it("keeps the entity searchable when no dossier is supplied", () => {
+    assert.ok(matchesSearch(searchableEntityText(entity), "example group"));
   });
 });
 
