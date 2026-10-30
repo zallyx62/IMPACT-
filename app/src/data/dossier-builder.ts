@@ -34,8 +34,12 @@ function isPublishableEntity(entity: EntityRecord, sourceIds: Set<string>): bool
 }
 
 function isPublishableClaim(claim: ClaimRecord, sourceIds: Set<string>): boolean {
+  // Human-rights, food/animal-welfare and privacy claims always need an editorial review.
+  // Evidence verification alone is not a substitute for reviewing these higher-risk topics.
+  const requiresTopicReview = ["human_rights", "animals_food", "technology_privacy"].includes(claim.topic);
   const eligible = claim.reviewed_at !== null ||
-    (claim.publication_basis === "evidence_verified" &&
+    (!requiresTopicReview &&
+      claim.publication_basis === "evidence_verified" &&
       (claim.claim_status === "confirmed" || claim.claim_status === "corroborated") &&
       claim.requires_human_review === false &&
       Boolean(claim.published_at) && Boolean(claim.publication_note?.trim()));
