@@ -2,6 +2,8 @@
 
 **État actuel : publication partielle.** Un constat sur trois sachets d'un produit Gerber est publié sous `evidence_verified`, sans validation humaine préalable. Les autres sources, affirmations et preuves restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
 
+Le corpus de travail comprend 25 sources et l'examen des 21 affirmations et de leurs 26 éléments de preuve ; seuls les éléments ayant satisfait à leur propre seuil de publication sont inclus dans le bundle public.
+
 Ce document sert de registre de contrôle des preuves et des limites. Il distingue les éléments déjà publiés selon les critères documentaires de la charte des éléments encore en attente d'examen.
 
 ## Règles de validation
