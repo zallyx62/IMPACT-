@@ -71,8 +71,8 @@
 ## Risques à suivre
 
 - Les catégories seules ne remplacent pas une base documentaire.
-- Les contenus éditoriaux exigent du travail humain continu.
+- Les contenus éditoriaux exigent une surveillance, une actualisation et des corrections continues ; la revue humaine préalable est réservée aux catégories sensibles et à risque définies dans la charte.
 - Les hébergeurs statiques peuvent enregistrer des métadonnées de connexion.
 - Une PWA peut avoir des différences de comportement selon les navigateurs.
-- Le corpus éditorial contient des brouillons non publiés ; chaque source et affirmation doit être vérifiée par une personne.
+- Le corpus éditorial contient des brouillons non publiés ; chaque source et affirmation doit passer soit par la validation humaine, soit par le parcours documentaire tracé de la charte. Les cas à examen renforcé restent bloqués jusqu'à une revue humaine compétente.
 - Un wrapper Android de test existe et les APK debug/release non signées ont été compilées en CI ; les tests multi-appareils, la signature et la publication F-Droid restent à réaliser. Une PWA ou un simple wrapper WebView ne suffit pas à lui seul pour une soumission F-Droid.
