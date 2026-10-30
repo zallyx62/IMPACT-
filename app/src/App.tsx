@@ -5,6 +5,7 @@ import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./dat
 import DossierPanel from "./DossierPanel";
 import EvidenceCentre from "./EvidenceCentre";
 import ActorMap from "./ActorMap";
+import AlternativeExplorer from "./AlternativeExplorer";
 import CommitmentTracker from "./CommitmentTracker";
 import CitizenContribution from "./CitizenContribution";
 import SolutionWorkshop from "./SolutionWorkshop";
@@ -388,6 +389,8 @@ function App() {
                 onLeftChange={setComparisonLeftId} onRightChange={setComparisonRightId} />
             ) : chosen.type === "tool" && chosen.id === "network" ? (
               <ActorMap entities={publishedEntities} />
+            ) : chosen.type === "tool" && chosen.id === "alternatives" ? (
+              <AlternativeExplorer entities={publishedEntities} onOpen={(id) => open("entity", id)} />
             ) : chosen.type === "tool" && chosen.id === "history" ? (
               <CommitmentTracker entities={publishedEntities} />
             ) : chosen.type === "tool" && chosen.id === "participate" ? (
