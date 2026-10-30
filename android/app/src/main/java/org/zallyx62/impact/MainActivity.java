@@ -54,7 +54,7 @@ public final class MainActivity extends Activity {
         }
 
         WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
-                .addPathHandler(APP_PATH, new WebViewAssetLoader.AssetsPathHandler(this))
+                .addPathHandler("/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .build();
 
         webView.setWebViewClient(new WebViewClient() {
