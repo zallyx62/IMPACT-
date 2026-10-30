@@ -32,6 +32,7 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-water-pressure",
       "evidence-nestle-water-health-finding",
       "evidence-nestle-water-cjipe",
+      "evidence-nestle-water-2026-regulatory-response",
     ].map((id) => readRecord("evidence", id)));
     const responses = [await readRecord("responses", "response-nestle-water-cjipe")];
     const data = { entities: [entity], sources, claims, evidence, relationships: [], campaigns: [], responses, commitments: [] };
@@ -59,10 +60,12 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-water-cjipe",
     ];
     const claims = await Promise.all(claimIds.map((id) => readRecord("claims", id)));
+    const evidenceIds = new Set(evidence.map((item) => item.id));
     for (const claim of claims) {
       assert.ok(claim.source_ids.length > 0);
       assert.ok(claim.source_ids.every((id) => sourceIds.has(id)));
       assert.ok(claim.evidence_ids.length > 0);
+      assert.ok(claim.evidence_ids.every((id) => evidenceIds.has(id)));
     }
     const response = await readRecord("responses", "response-nestle-water-cjipe");
     assert.ok(response.related_claim_ids.every((id) => claimIds.includes(id)));
