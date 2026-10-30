@@ -65,7 +65,8 @@ export function buildAlternativeIndex(dossiers: EntityDossier[]): AlternativeLin
   for (const dossier of dossiers) {
     for (const relationship of dossier.relationships) {
       if (relationship.relationship_type === "alternative_to" &&
-        (relationship.knowledge_status === "confirmed" || relationship.knowledge_status === "partial")) {
+        (relationship.knowledge_status === "confirmed" || relationship.knowledge_status === "partial") &&
+        Boolean(relationship.notes?.trim())) {
         relationships.set(relationship.id, relationship);
       }
     }
