@@ -114,8 +114,15 @@ describe("Nestlé dossier editorial gate", () => {
     assert.equal(entity.reviewed_at, null);
     assert.equal(entity.publication_basis, "evidence_verified");
     assert.deepEqual(entity.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026"]);
-    assert.equal(sources.filter((source) => source.review_status === "evidence_verified").length, 1);
-    assert.ok(sources.filter((source) => source.id !== "source-greenpeace-baby-food-plastic-pouches-2026").every((source) => source.review_status === "to_review"));
+    const evidenceVerifiedSourceIds = [
+      "source-greenpeace-baby-food-plastic-pouches-2026",
+      "source-fda-microplastics-food-guidance-2026",
+      "source-efsa-food-contact-microplastics-review-2025",
+      "source-efsa-microplastics-food-risk-status-2026",
+      "source-nestle-baby-food-plastic-packaging-response-2026",
+    ];
+    assert.ok(sources.filter((source) => evidenceVerifiedSourceIds.includes(source.id)).every((source) => source.review_status === "evidence_verified"));
+    assert.ok(sources.filter((source) => !evidenceVerifiedSourceIds.includes(source.id)).every((source) => source.review_status === "to_review"));
     const greenpeaceClaim = claims.find((claim) => claim.id === "claim-nestle-baby-food-plastic-pouches-2025");
     assert.equal(greenpeaceClaim.publication_basis, "evidence_verified");
     assert.equal(greenpeaceClaim.reviewed_at, null);
@@ -125,7 +132,8 @@ describe("Nestlé dossier editorial gate", () => {
     const dossier = buildEntityDossier("nestle", data);
     assert.ok(dossier);
     assert.deepEqual(dossier.claims.map((claim) => claim.id), [greenpeaceClaim.id]);
-    assert.deepEqual(dossier.sources.map((source) => source.id), ["source-greenpeace-baby-food-plastic-pouches-2026"]);
+    assert.deepEqual(new Set(dossier.sources.map((source) => source.id)), new Set(evidenceVerifiedSourceIds));
+    assert.deepEqual(dossier.responses.map((response) => response.id), ["response-nestle-baby-food-microplastics-2026"]);
   });
 
   it("links every Nestlé claim to existing sources and evidence", async () => {
@@ -245,13 +253,13 @@ describe("Nestlé dossier editorial gate", () => {
     const fdaSource = await readRecord("sources", "source-fda-microplastics-food-guidance-2026");
     const fdaEvidence = await readRecord("evidence", "evidence-fda-microplastics-health-uncertainty-2026");
     const nestleResponse = await readRecord("responses", "response-nestle-baby-food-microplastics-2026");
-    assert.equal(fdaSource.review_status, "to_review");
+    assert.equal(fdaSource.review_status, "evidence_verified");
     const efsaReviewSource = await readRecord("sources", "source-efsa-food-contact-microplastics-review-2025");
     const efsaStatusSource = await readRecord("sources", "source-efsa-microplastics-food-risk-status-2026");
     const efsaReviewEvidence = await readRecord("evidence", "evidence-efsa-food-contact-microplastics-2025");
     const efsaStatusEvidence = await readRecord("evidence", "evidence-efsa-microplastics-risk-status-2026");
-    assert.equal(efsaReviewSource.review_status, "to_review");
-    assert.equal(efsaStatusSource.review_status, "to_review");
+    assert.equal(efsaReviewSource.review_status, "evidence_verified");
+    assert.equal(efsaStatusSource.review_status, "evidence_verified");
     assert.match(efsaReviewEvidence.summary, /libération de microplastiques/i);
     assert.match(efsaReviewEvidence.summary, /bien inférieures/i);
     assert.match(efsaStatusEvidence.summary, /ne pas avoir encore achevé une évaluation complète/i);
@@ -263,6 +271,7 @@ describe("Nestlé dossier editorial gate", () => {
     assert.ok(claim.evidence_ids.includes(efsaReviewEvidence.id));
     assert.ok(claim.evidence_ids.includes(efsaStatusEvidence.id));
     assert.equal(nestleResponse.publication_status, "published");
+    assert.equal((await readRecord("sources", "source-nestle-baby-food-plastic-packaging-response-2026")).review_status, "evidence_verified");
     assert.ok(nestleResponse.related_claim_ids.includes(claim.id));
     assert.equal(nestleResponse.source_id, "source-nestle-baby-food-plastic-packaging-response-2026");
 
