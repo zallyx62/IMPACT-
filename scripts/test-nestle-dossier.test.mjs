@@ -223,7 +223,7 @@ describe("Nestlé dossier editorial gate", () => {
     assert.ok(claim.source_ids.includes(source.id));
     assert.ok(claim.evidence_ids.includes(evidence.id));
     assert.ok(evidence.supports_claim_ids.includes(claim.id));
-    assert.match(evidence.limitations, /ne démontre ni.*effet sanitaire/i);
+    assert.match(evidence.limitations, /No clinical health outcome was measured/i);
 
     const fdaSource = await readRecord("sources", "source-fda-microplastics-food-guidance-2026");
     const fdaEvidence = await readRecord("evidence", "evidence-fda-microplastics-health-uncertainty-2026");
