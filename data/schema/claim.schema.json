@@ -133,7 +133,18 @@
         "required": [
           "published_at",
           "publication_note"
-        ]
+        ],
+        "properties": {
+          "published_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "publication_note": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 2000
+          }
+        }
       }
     }
   ]
