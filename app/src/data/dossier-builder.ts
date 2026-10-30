@@ -69,8 +69,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
   const entityCampaigns = data.campaigns.filter(
     (item) =>
       item.target_entity_ids.includes(entityId) &&
-      item.target_entity_ids.every((targetId) => publishableEntityIds.has(targetId)) &&
-      (!item.organizer_entity_id || publishableEntityIds.has(item.organizer_entity_id)) &&
+      item.target_entity_ids.some((targetId) => publishableEntityIds.has(targetId)) &&
       item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
   const entityResponses = data.responses.filter(
