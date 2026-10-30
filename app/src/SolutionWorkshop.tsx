@@ -1,5 +1,6 @@
-import { useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { buildSolutionPlan } from "./data/solution-plan";
+import { searchSolutionMethods } from "./data/solution-library";
 
 export default function SolutionWorkshop() {
   const [objective, setObjective] = useState("");
@@ -9,6 +10,8 @@ export default function SolutionWorkshop() {
   const [indicator, setIndicator] = useState("");
   const [plan, setPlan] = useState("");
   const [error, setError] = useState("");
+  const [methodQuery, setMethodQuery] = useState("");
+  const methods = useMemo(() => searchSolutionMethods(methodQuery), [methodQuery]);
 
   function prepare(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -30,6 +33,39 @@ export default function SolutionWorkshop() {
         </div>
         <span className="solution-local-label">Local uniquement</span>
       </div>
+
+      <section className="solution-library" aria-labelledby="solution-library-title">
+        <div className="solution-library-heading">
+          <div>
+            <h4 id="solution-library-title">Bibliothèque de méthodes réutilisables</h4>
+            <p>Des canevas de travail pour diagnostiquer, expérimenter et évaluer. Ce sont des méthodes génériques, pas des interventions dont l'efficacité aurait été démontrée.</p>
+          </div>
+          <span>{methods.length} / 3</span>
+        </div>
+        <label className="solution-library-search-label" htmlFor="solution-method-search">Rechercher une méthode</label>
+        <input id="solution-method-search" className="solution-library-search" type="search" value={methodQuery}
+          onChange={(event) => setMethodQuery(event.currentTarget.value)} placeholder="Diagnostic, expérimentation, indicateur…" />
+        {methods.length === 0 ? <p className="solution-library-empty">Aucune méthode ne correspond à cette recherche.</p> : (
+          <div className="solution-method-list">
+            {methods.map((method) => (
+              <details className="solution-method" key={method.id}>
+                <summary><strong>{method.title}</strong><span>{method.description}</span></summary>
+                <div className="solution-method-content">
+                  <h5>Quand l'utiliser</h5>
+                  <p>{method.whenToUse}</p>
+                  <h5>Étapes proposées</h5>
+                  <ol>{method.steps.map((step) => <li key={step}>{step}</li>)}</ol>
+                  <h5>Exemples d'indicateurs</h5>
+                  <ul>{method.indicatorExamples.map((item) => <li key={item}>{item}</li>)}</ul>
+                  <h5>Points de vigilance</h5>
+                  <ul>{method.watchPoints.map((item) => <li key={item}>{item}</li>)}</ul>
+                </div>
+              </details>
+            ))}
+          </div>
+        )}
+      </section>
+
       <form className="solution-form" onSubmit={prepare}>
         <label htmlFor="solution-objective">Quel problème voulez-vous résoudre ?</label>
         <textarea id="solution-objective" value={objective} onChange={(event) => setObjective(event.currentTarget.value)}

@@ -824,3 +824,26 @@ button:active { transform: translateY(0) scale(.99); }
 .solution-output textarea{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.78rem}
 .solution-status{color:var(--green);font-size:.82rem;line-height:1.5}
 @media(max-width:560px){.solution-workshop-heading{display:grid}.solution-local-label{justify-self:start}}
+
+
+/* Reusable solution-method library. */
+.solution-library{margin-top:1.25rem;padding:1rem;border:1px solid var(--line);border-radius:16px;background:var(--paper-soft)}
+.solution-library-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.solution-library-heading h4{margin:0;color:var(--ink);font-size:.98rem}
+.solution-library-heading p{margin:.35rem 0 0;color:var(--muted);font-size:.78rem;line-height:1.6}
+.solution-library-heading>span{flex:0 0 auto;color:var(--green);font-size:.75rem;font-weight:800}
+.solution-library-search-label{display:block;margin:.8rem 0 .35rem;color:var(--ink);font-size:.78rem;font-weight:750}
+.solution-library-search{width:100%;min-height:42px;padding:.6rem .75rem;border:1px solid var(--line);border-radius:11px;background:var(--paper);color:var(--ink);font:inherit}
+.solution-library-search:focus-visible{outline:3px solid rgba(18,102,79,.2);outline-offset:2px;border-color:var(--green)}
+.solution-method-list{display:grid;gap:.55rem;margin-top:.75rem}
+.solution-method{border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden}
+.solution-method summary{display:grid;gap:.2rem;padding:.8rem;cursor:pointer;color:var(--ink);list-style-position:inside}
+.solution-method summary strong{display:inline;font-size:.84rem}
+.solution-method summary span{padding-left:1.2rem;color:var(--muted);font-size:.76rem;line-height:1.5}
+.solution-method-content{padding:0 .9rem .9rem;color:var(--muted);font-size:.8rem;line-height:1.65}
+.solution-method-content h5{margin:.8rem 0 .25rem;color:var(--ink);font-size:.78rem}
+.solution-method-content p{margin:.2rem 0}
+.solution-method-content ol,.solution-method-content ul{margin:.3rem 0;padding-left:1.35rem}
+.solution-method-content li{padding:.12rem 0}
+.solution-library-empty{margin:.8rem 0 0;color:var(--muted);font-size:.8rem}
+@media(max-width:560px){.solution-library-heading{display:grid}}
