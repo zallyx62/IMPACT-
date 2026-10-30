@@ -2,7 +2,7 @@
   "id": "nestle",
   "name": "Nestlé",
   "entity_type": "organization",
-  "description": "Groupe agroalimentaire international. Cette fiche publie six constats précisément délimités : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés et un sur la part des objets plastiques de marque attribuée à Nestlé dans un audit scientifique mondial évalué par les pairs. Les résultats ne sont pas généralisés à l'ensemble du groupe, de ses produits ou de ses périodes d'activité. Les autres sujets restent en préparation.",
+  "description": "Groupe agroalimentaire international. Cette fiche publie sept constats précisément délimités : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés, un sur les objets plastiques de marque recensés dans un audit scientifique mondial et un sur les chiffres de déforestation du cacao déclarés par Nestlé. Les résultats ne sont pas généralisés à l'ensemble du groupe, de ses produits ou de ses périodes d'activité. Les autres sujets restent en préparation.",
   "website": "https://www.nestle.com/",
   "country_codes": [
     "CH",
@@ -20,9 +20,10 @@
     "source-justice-2024-cjipe-nestle",
     "source-nestle-2024-reponse-cjipe",
     "source-science-advances-plastic-brand-audit-2024",
-    "source-nestle-plastic-pollution-response-2024"
+    "source-nestle-plastic-pollution-response-2024",
+    "source-nestle-deforestation-supply-chains-2025"
   ],
   "publication_basis": "evidence_verified",
   "published_at": "2026-10-30",
-  "publication_note": "Publication partielle limitée à six affirmations documentées : trois concernant les pratiques de Nestlé Waters en France, deux concernant des échantillons de produits Gerber et une concernant les résultats d'un audit scientifique mondial de déchets plastiques de marque. Chaque affirmation conserve ses sources, son périmètre et ses limites. Les autres affirmations du corpus ne sont pas publiées tant qu'elles ne satisfont pas leur propre seuil de preuve ou l'examen humain renforcé requis."
+  "publication_note": "Publication partielle limitée à sept affirmations documentées : trois concernant les pratiques de Nestlé Waters en France, deux concernant des échantillons de produits Gerber, une concernant les résultats d'un audit scientifique mondial de déchets plastiques de marque et une concernant les chiffres de déforestation du cacao publiés par Nestlé elle-même. Chaque affirmation conserve ses sources, son périmètre et ses limites. Les autres affirmations du corpus ne sont pas publiées tant qu'elles ne satisfont pas leur propre seuil de preuve ou l'examen humain renforcé requis."
 }
