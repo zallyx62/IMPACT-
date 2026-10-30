@@ -42,6 +42,7 @@
 - Le contrôle PWA vérifie les fichiers générés après le build.
 - `npm run build` réussit.
 - Les six univers s'affichent et sont sélectionnables.
+- Le bouton Retour Android et la navigation arrière du navigateur reviennent à l'écran précédent après ouverture d'un dossier ou d'un univers.
 - La recherche filtre les titres, descriptions et mots-clés locaux des univers, outils et dossiers publiés.
 - Le sélecteur permet de choisir français ou anglais ; l’anglais est sélectionné par défaut.
 - Le mode sombre est sélectionné par défaut ; l’utilisateur peut choisir le mode clair et l’une des cinq couleurs d’accent (vert, bleu, violet, orange, rose), avec mémorisation locale sur l’appareil.
