@@ -4,10 +4,11 @@
 
 ## Périmètre inclus
 
-- Accueil responsive en français et anglais.
+- Accueil responsive en français par défaut et en anglais, avec sélecteur de langue explicite.
+- Architecture de localisation extensible ; espagnol, allemand et autres langues ajoutés après traduction humaine.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
-- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; aucun dossier réel n'est encore publié.
+- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; le corpus Nestlé existe en brouillon et reste bloqué à la publication.
 - Pages explicatives de sélection pour les univers.
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
@@ -19,7 +20,7 @@
 
 ## Hors périmètre de la version 0.1
 
-- Dossiers factuels réels d'entreprises, marques ou produits (le lecteur est prêt, mais le corpus reste vide).
+- Publication de dossiers factuels : le corpus Nestlé est en cours de vérification humaine et ne doit pas être rendu public avant validation.
 - Scanner de codes-barres.
 - Base de données de fournisseurs.
 - Notes ou comparaisons réelles d'entreprises.
@@ -42,7 +43,9 @@
 - `npm run build` réussit.
 - Les six univers s'affichent et sont sélectionnables.
 - La recherche filtre les titres, descriptions et mots-clés locaux des univers, outils et dossiers publiés.
-- Le bouton de langue change les textes de l'interface.
+- Le sélecteur permet de choisir français ou anglais ; le français est sélectionné par défaut.
+- Les contenus éditoriaux ne sont affichés en anglais que lorsqu'une traduction humaine est disponible ; la langue originale des sources reste indiquée.
+- Les langues futures peuvent être ajoutées sans réécrire l'architecture.
 - Les fonctions encore indisponibles sont clairement signalées.
 - Le navigateur n'envoie ni recherche, ni préférence à un serveur.
 - L'application n'inclut pas de publicités, suivi analytique, compte ni IA générative.
@@ -58,7 +61,8 @@
 4. Réaliser une revue des chemins PWA et du service worker.
 5. Vérifier manuellement l'interface sur mobile.
 6. Demander une revue humaine de la sécurité, de la confidentialité et de l'accessibilité.
-8. Seulement ensuite, envisager un premier hébergement public.
+7. Préparer un wrapper Android natif et les métadonnées F-Droid, puis construire et tester un APK reproductible.
+8. Seulement ensuite, envisager un premier hébergement public et une soumission F-Droid.
 
 ## Risques à suivre
 
@@ -66,4 +70,5 @@
 - Les contenus éditoriaux exigent du travail humain continu.
 - Les hébergeurs statiques peuvent enregistrer des métadonnées de connexion.
 - Une PWA peut avoir des différences de comportement selon les navigateurs.
-- Le corpus éditorial reste vide : la collecte, la vérification humaine et le choix d'une licence de données sont encore nécessaires.
+- Le corpus éditorial contient des brouillons non publiés ; chaque source et affirmation doit être vérifiée par une personne.
+- Android et F-Droid ne sont pas encore construits ; une PWA ne constitue pas à elle seule une soumission F-Droid.
