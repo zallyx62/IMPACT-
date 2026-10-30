@@ -5,6 +5,8 @@ Ce fichier décrit les changements destinés aux utilisateurs. Les versions publ
 ## [Non publié] — développement en cours
 
 ### Application Web
+- Préversion publique déployée sur GitHub Pages le 30 octobre 2026 ; publication automatisée réservée à la branche `main`.
+- Interface publique en français uniquement ; le thème sombre reste le choix initial.
 - Interface avec thème sombre par défaut, mode clair et cinq couleurs d'accent.
 - Préférences d'apparence conservées localement sur l'appareil.
 - Navigation avec prise en charge du retour navigateur et Android.
@@ -12,6 +14,7 @@ Ce fichier décrit les changements destinés aux utilisateurs. Les versions publ
 - Contrôles de contraste, d'interface, de données et de build exécutés dans GitHub Actions.
 
 ### Android
+- Premier test manuel de base de l'APK debug rapporté comme réussi sur un téléphone par le propriétaire le 30 octobre 2026 ; couverture multi-appareils toujours nécessaire.
 - Premier projet Android qui embarque le build Web dans une WebView locale.
 - Permissions réseau et installation de paquets non déclarées.
 - Compilation debug et release dans GitHub Actions ; l'APK release reste non signée.
