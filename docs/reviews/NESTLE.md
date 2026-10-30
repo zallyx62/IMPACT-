@@ -144,7 +144,7 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 Ne publier le dossier qu'après :
 
-1. examen humain des 32 sources ;
+1. examen humain des 40 sources ;
 2. examen humain des 27 affirmations et de leurs 41 éléments de preuve ;
 3. vérification des réponses de Nestlé ;
 4. correction de toute formulation trop large ou ambiguë ;
