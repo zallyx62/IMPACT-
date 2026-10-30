@@ -2,7 +2,7 @@
   "id": "nestle",
   "name": "Nestlé",
   "entity_type": "organization",
-  "description": "Groupe agroalimentaire international. Cette fiche publie deux constats précisément circonscrits concernant des produits Gerber : un rapport Greenpeace/SINTEF portant sur trois sachets d'un produit de yaourt, et une enquête Consumer Reports portant sur une purée Gerber précise testée parmi un sous-échantillon de 16 aliments pour bébés. Les résultats ne sont pas généralisables à toute la gamme et ne démontrent pas un effet sanitaire.",
+  "description": "Groupe agroalimentaire international. Cette fiche publie cinq constats précisément délimités : trois sur les pratiques de Nestlé Waters en France (traitements interdits signalés, convention judiciaire d'intérêt public et conclusion gouvernementale sur l'absence de risque sanitaire constaté à la date de sa réponse) et deux sur des produits Gerber analysés par Greenpeace/SINTEF et Consumer Reports. Les résultats ne sont pas généralisés à l'ensemble du groupe, de ses produits ou de ses périodes d'activité. Les autres sujets restent en préparation.",
   "website": "https://www.nestle.com/",
   "country_codes": [
     "CH",
@@ -14,9 +14,13 @@
   "reviewed_at": null,
   "source_ids": [
     "source-greenpeace-baby-food-plastic-pouches-2026",
-    "source-consumer-reports-baby-food-testing-2026"
+    "source-consumer-reports-baby-food-testing-2026",
+    "source-senat-2025-enquete-eaux-minerales",
+    "source-assemblee-nationale-2026-eaux-nestle",
+    "source-justice-2024-cjipe-nestle",
+    "source-nestle-2024-reponse-cjipe"
   ],
   "publication_basis": "evidence_verified",
   "published_at": "2026-10-30",
-  "publication_note": "Deux constats précisément circonscrits sont publiés : le rapport Greenpeace/SINTEF portant sur trois sachets d'un produit de yaourt Gerber, et l'enquête Consumer Reports portant sur une purée Gerber précise. Les autres affirmations du dossier restent exclues. Ces résultats ne sont pas généralisables à toute la gamme et ne démontrent pas un effet sanitaire."
+  "publication_note": "Publication partielle limitée à cinq affirmations documentées : trois concernant les pratiques de Nestlé Waters en France et deux concernant des échantillons de produits Gerber. Chaque affirmation conserve ses sources, son périmètre et ses limites. Les autres affirmations du corpus ne sont pas publiées tant qu'elles ne satisfont pas leur propre seuil de preuve ou l'examen humain renforcé requis."
 }
