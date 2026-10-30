@@ -46,6 +46,7 @@ const searchAliases: Record<string, string> = {
   disputed: "contestee disputed",
   refuted: "refutee refuted",
   insufficient_information: "informations insuffisantes insufficient information",
+  not_reviewed: "non examinee a verifier not reviewed",
 };
 
 export interface SearchableDossier {
