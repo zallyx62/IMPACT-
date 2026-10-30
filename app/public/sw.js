@@ -55,8 +55,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  const isStaticAsset = Boolean(request.destination) ||
-    url.pathname.startsWith(`${BASE_PATH}assets/`) ||
+  const isStaticAsset = url.pathname.startsWith(`${BASE_PATH}assets/`) ||
     SHELL_URLS.includes(url.pathname);
   if (!isStaticAsset) return;
 
