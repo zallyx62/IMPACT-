@@ -31,6 +31,7 @@ For a release build, run `gradle --no-daemon :app:assembleRelease`. The release 
 
 - The Android manifest declares no `INTERNET` permission.
 - App content is served from bundled assets through AndroidX `WebViewAssetLoader`, not `file://`.
+- The WebView applies Android system-bar and display-cutout insets, keeping the app content clear of status/navigation bars and screen notches on edge-to-edge devices.
 - WebView file and content-provider access are disabled.
 - HTTP/HTTPS links are opened in the user's external browser after an explicit tap; external pages are never loaded inside the app WebView.
 - The WebView DOM storage is enabled only because the web app stores the user's dark/light mode and one of five accent-colour preferences locally on the device. These preferences remain on the device.
