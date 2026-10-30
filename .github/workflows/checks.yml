@@ -2,20 +2,9 @@ name: IMPACT checks
 
 on:
   push:
-    paths:
-      - "app/**"
-      - "data/schema/**"
-      - "data/records/**"
-      - "scripts/**"
-      - ".github/workflows/**"
-      - ".github/dependabot.yml"
+    branches: [main]
   pull_request:
-    paths:
-      - "app/**"
-      - "data/schema/**"
-      - "data/records/**"
-      - "scripts/**"
-      - ".github/workflows/checks.yml"
+    branches: [main]
   workflow_dispatch:
 
 permissions:
