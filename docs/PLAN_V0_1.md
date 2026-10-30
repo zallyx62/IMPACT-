@@ -6,16 +6,20 @@
 
 - Accueil responsive en français et anglais.
 - Navigation dans les six univers.
-- Recherche locale parmi les univers et les outils du prototype.
+- Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
+- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; aucun dossier réel n'est encore publié.
 - Pages explicatives de sélection pour les univers.
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
 - Manifest PWA et mise en cache de ressources statiques.
+- Chargement des données éditoriales JSON versionnées et filtrage des éléments non examinés.
+- Validation des huit types d'enregistrements et de leurs références croisées.
+- Audit npm et vérification automatisée du paquet PWA.
 - Contrôle de typage, tests unitaires, tests simulés du service worker, validation des schémas et build dans GitHub Actions.
 
 ## Hors périmètre de la version 0.1
 
-- Dossiers factuels d'entreprises, marques ou produits.
+- Dossiers factuels réels d'entreprises, marques ou produits (le lecteur est prêt, mais le corpus reste vide).
 - Scanner de codes-barres.
 - Base de données de fournisseurs.
 - Notes ou comparaisons réelles d'entreprises.
@@ -31,9 +35,13 @@
 - `npm run typecheck` réussit.
 - `npm run test` réussit.
 - `node scripts/test-service-worker.mjs` réussit depuis la racine du dépôt.
+- Les tests d'intégrité, JSON Schema et règles de publication réussissent.
+- `npm audit --audit-level=high` ne signale aucune vulnérabilité.
+- `node scripts/check-data.mjs` valide les enregistrements et leurs références.
+- Le contrôle PWA vérifie les fichiers générés après le build.
 - `npm run build` réussit.
 - Les six univers s'affichent et sont sélectionnables.
-- La recherche filtre les titres, descriptions et mots-clés locaux.
+- La recherche filtre les titres, descriptions et mots-clés locaux des univers, outils et dossiers publiés.
 - Le bouton de langue change les textes de l'interface.
 - Les fonctions encore indisponibles sont clairement signalées.
 - Le navigateur n'envoie ni recherche, ni préférence à un serveur.
@@ -57,4 +65,4 @@
 - Les contenus éditoriaux exigent du travail humain continu.
 - Les hébergeurs statiques peuvent enregistrer des métadonnées de connexion.
 - Une PWA peut avoir des différences de comportement selon les navigateurs.
-- Sans fichier de verrouillage, les dépendances transitives ne sont pas totalement reproductibles ; ajouter un lockfile avant une version stable.
+- Le corpus éditorial reste vide : la collecte, la vérification humaine et le choix d'une licence de données sont encore nécessaires.

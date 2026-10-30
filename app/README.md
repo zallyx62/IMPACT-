@@ -11,7 +11,7 @@ Node.js 22.12 ou plus récent dans la ligne 22, ou une version Node compatible a
 Dans ce dossier :
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
@@ -24,11 +24,19 @@ npm run build
 npm run preview
 ```
 
-Le test du service worker est exécuté depuis la racine du dépôt :
+Les contrôles de données et du service worker sont exécutés depuis la racine du dépôt, après `npm ci` :
 
 ```sh
 node scripts/test-service-worker.mjs
+node --test scripts/test-data-integrity.test.mjs
+node --test scripts/test-schema-validation.test.mjs
+node --test scripts/test-dossier-publication.test.mjs
+node scripts/check-schemas.mjs
+node scripts/check-data.mjs
+node scripts/check-contrast.mjs
 ```
+
+Le contrôle du paquet PWA (`node scripts/check-pwa-build.mjs`) s'exécute après `npm run build`.
 
 Le build de production est généré dans `dist/`.
 
@@ -40,4 +48,4 @@ Une fois déployée, l'infrastructure d'hébergement peut néanmoins traiter des
 
 ## État
 
-Les univers et outils sont des éléments de navigation de démonstration. Aucun dossier réel d'entreprise ni aucune évaluation factuelle n'est inclus. Le comportement hors ligne nécessite encore des essais manuels avant toute publication stable.
+Les univers et outils restent des structures de navigation. Le lecteur de dossiers et les validateurs sont en place, mais aucun dossier réel d'entreprise ni aucune évaluation factuelle n'est inclus. Les tests automatisés simulent le cache hors ligne ; une installation et des essais réels sur téléphone et navigateur restent nécessaires avant toute publication stable.

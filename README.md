@@ -50,6 +50,7 @@ Le prototype propose une interface bilingue, une recherche locale, un lecteur de
 - [Plan de réalisation de la version 0.1](docs/PLAN_V0_1.md)
 - [Modèle de données](docs/MODELE_DE_DONNEES.md)
 - [Charte éditoriale et de vérification](docs/CHARTE_EDITORIALE.md)
+- [Politique des droits sur les données](docs/DATA_RIGHTS_POLICY.md)
 - [Schéma JSON des affirmations](data/schema/claim.schema.json)
 - [Schéma JSON des sources](data/schema/source.schema.json)
 - [Schéma JSON des entités](data/schema/entity.schema.json)
@@ -63,7 +64,7 @@ Le prototype propose une interface bilingue, une recherche locale, un lecteur de
 
 ## Développement
 
-Consultez [app/README.md](app/README.md) pour démarrer le prototype. Le workflow GitHub Actions vérifie le typage, les tests unitaires, le comportement simulé du service worker, le build et les invariants éditoriaux des schémas.
+Consultez [app/README.md](app/README.md) pour démarrer le prototype. Le workflow GitHub Actions exécute `npm ci`, l'audit des dépendances, le typage, les tests de recherche, les contrôles de données et de publication, les tests simulés du service worker, le contrôle de contraste, le build et la vérification du paquet PWA.
 
 Ces contrôles ne remplacent pas une revue humaine de l'accessibilité, de la sécurité, de la confidentialité et du contenu éditorial.
 
