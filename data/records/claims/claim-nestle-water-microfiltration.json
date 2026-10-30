@@ -3,7 +3,7 @@
   "subject_entity_id": "nestle",
   "statement": "Le rapport de la commission d'enquête du Sénat conclut que la microfiltration à 0,2 micromètre utilisée ou demandée par Nestlé Waters pour certaines eaux avait une fonction de décontamination et ne relevait pas de la procédure d'autorisation prévue pour un nouveau traitement.",
   "topic": "business_consumption",
-  "claim_status": "confirmed",
+  "claim_status": "not_reviewed",
   "source_ids": [
     "source-senat-2025-enquete-eaux-minerales",
     "source-assemblee-nationale-2026-eaux-nestle"
