@@ -17,5 +17,6 @@
   "editorial_note": "Attribuer les détails de la réunion et la reconnaissance de non-conformité au rapport du Sénat ; attribuer au Gouvernement la confirmation du caractère interdit et les mesures correctrices. Ne pas étendre l'affirmation à chaque site, chaque marque, ni à la microfiltration à 0,2 micromètre.",
   "publication_basis": "evidence_verified",
   "published_at": "2026-10-30",
-  "publication_note": "L'affirmation se limite aux usines de Nestlé Waters des Vosges et du Gard mentionnées par le rapport et aux traitements UV et au charbon actif. Elle distingue le compte rendu du Sénat de la réponse gouvernementale et n'affirme ni l'usage de chaque traitement sur chaque site, ni un dommage sanitaire, ni le statut de la microfiltration à 0,2 micromètre."
+  "publication_note": "L'affirmation se limite aux usines de Nestlé Waters des Vosges et du Gard mentionnées par le rapport et aux traitements UV et au charbon actif. Elle distingue le compte rendu du Sénat de la réponse gouvernementale et n'affirme ni l'usage de chaque traitement sur chaque site, ni un dommage sanitaire, ni le statut de la microfiltration à 0,2 micromètre.",
+  "requires_human_review": false
 }
