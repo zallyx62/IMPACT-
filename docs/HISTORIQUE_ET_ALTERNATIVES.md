@@ -38,3 +38,12 @@ La chronologie n'est pas présentée comme exhaustive : l'absence d'une entrée 
 ## Échéances des engagements
 
 L'état éditorial d'un engagement n'est jamais modifié automatiquement. L'interface peut afficher « échéance dépassée » lorsque la date cible est passée et que l'état reste « annoncé » ou « en cours ». Seul un nouvel examen appuyé par des éléments probants peut faire évoluer l'état vers « atteint », « non atteint », « abandonné » ou « impossible à évaluer ».
+
+
+## Suivi personnel des dossiers
+
+Le suivi facultatif est stocké dans le stockage local du navigateur sous une clé versionnée. Il ne crée aucun compte, n'envoie aucune donnée et ne déclenche aucune notification lorsque l'application est fermée. Les nouveautés sont détectées à l'ouverture d'un dossier en comparant les dates d'activité publiées à la dernière date consultée. Les échéances futures d'engagements ne sont pas considérées comme une nouvelle activité. Si le stockage local est bloqué ou indisponible, le suivi est désactivé sans empêcher la consultation.
+
+## Guide d'action
+
+Chaque dossier propose une démarche de lecture : examiner les constats et leurs sources, prendre en compte les limites et réponses, consulter les engagements et alternatives sourcées lorsqu'ils existent, puis choisir une action proportionnée aux éléments établis. Ce guide ne recommande pas automatiquement un boycott et ne remplace pas l'examen des preuves.
