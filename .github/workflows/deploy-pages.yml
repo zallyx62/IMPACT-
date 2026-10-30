@@ -6,6 +6,9 @@ on:
     paths:
       - "app/**"
       - "scripts/**"
+      - "docs/**"
+      - "README.md"
+      - "CHANGELOG.md"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -66,7 +69,7 @@ jobs:
   deploy:
     name: Publish Web app
     needs: build
-    if: needs.build.outputs.pages_enabled == 'true'
+    if: needs.build.outputs.pages_enabled == 'true' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
