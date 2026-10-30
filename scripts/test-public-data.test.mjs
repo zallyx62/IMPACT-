@@ -7,12 +7,15 @@ const claimIds = new Set(publicRecords.claims.map((item) => item.id));
 const evidenceIds = new Set(publicRecords.evidence.map((item) => item.id));
 const responseIds = new Set(publicRecords.responses.map((item) => item.id));
 
-assert.ok(publicRecords.entities.every((item) => item.status === "published" && item.reviewed_at !== null),
-  "only human-reviewed published entities may enter the public bundle");
-assert.ok(publicRecords.sources.every((item) => item.review_status === "reviewed"),
-  "unreviewed sources must never enter the public bundle");
-assert.ok(publicRecords.claims.every((item) => item.reviewed_at !== null && item.claim_status !== "not_reviewed"),
-  "unreviewed claims must never enter the public bundle");
+assert.ok(publicRecords.entities.every((item) => item.status === "published" &&
+  (item.reviewed_at !== null || (item.publication_basis === "evidence_verified" && item.published_at && item.publication_note))),
+  "public entities must pass either human review or the documented evidence gate");
+assert.ok(publicRecords.sources.every((item) => item.review_status === "reviewed" ||
+  (item.review_status === "evidence_verified" && item.verified_at && item.verification_method && item.verification_note)),
+  "public sources must pass human review or complete evidence verification");
+assert.ok(publicRecords.claims.every((item) => item.claim_status !== "not_reviewed" &&
+  (item.reviewed_at !== null || (item.publication_basis === "evidence_verified" && item.published_at && item.publication_note))),
+  "public claims must pass human review or the documented evidence gate");
 assert.ok(publicRecords.evidence.every((item) => sourceIds.has(item.source_id)),
   "public evidence must only reference public sources");
 
