@@ -7,6 +7,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const iconDirectory = resolve(root, "app/public/icons");
 
 const icons = [
+  { size: 180, source: "impact-180.png.b64" },
   { size: 192, source: "impact-192.png.b64" },
   { size: 512, source: "impact-512.png.b64" },
 ];
