@@ -96,8 +96,8 @@ export const tools: CatalogItem[] = [
   },
   {
     id: "compare", number: "A3", mark: "03",
-    title: { fr: "Comparateur multicritère", en: "Multi-criteria comparison" },
-    description: { fr: "Comparer des choix sans note morale simplificatrice.", en: "Compare choices without a simplistic moral score." },
+    title: { fr: "Comparateur documentaire", en: "Documentation comparison" },
+    description: { fr: "Comparer les informations documentées sans note morale.", en: "Compare documented information without moral scoring." },
     detail: {
       fr: "Comparez les volumes de documentation disponibles dans les dossiers publiés : affirmations, sources vérifiées, preuves, engagements, réponses et relations. Ces chiffres ne mesurent ni la valeur morale d’une organisation ni son impact réel.",
       en: "Compare the documentation available in published dossiers: claims, verified sources, evidence, commitments, responses and relationships. These counts do not measure an organisation's moral worth or actual impact."
