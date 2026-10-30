@@ -15,6 +15,7 @@ const collections = [
   "campaigns",
   "responses",
   "commitments",
+  "changes",
 ];
 
 async function loadCollection(name) {
@@ -50,6 +51,7 @@ const publicRecords = {
   campaigns: uniqueRecords(dossiers.flatMap((dossier) => dossier.campaigns)),
   responses: uniqueRecords(dossiers.flatMap((dossier) => dossier.responses)),
   commitments: uniqueRecords(dossiers.flatMap((dossier) => dossier.commitments)),
+  changes: uniqueRecords(dossiers.flatMap((dossier) => dossier.changes)),
 };
 
 const output = [
