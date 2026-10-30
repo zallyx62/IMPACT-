@@ -28,6 +28,8 @@ function cacheFor(name) {
   const entries = stores.get(name);
   return {
     async addAll(urls) {
+      const keys = urls.map(cacheKey);
+      if (new Set(keys).size !== keys.length) throw new Error("duplicate cache request");
       for (const url of urls) entries.set(cacheKey(url), response(`precache:${url}`));
     },
     async put(request, value) {
@@ -83,7 +85,7 @@ function fetchEvent(request) {
 }
 
 networkFetch = async (url) => url === "/app/"
-  ? response('<html><head><link rel="stylesheet" href="./assets/app.css"></head><body><script type="module" src="./assets/app.js"></script></body></html>')
+  ? response('<html><head><link rel="stylesheet" href="./assets/app.css"><link rel="modulepreload" href="./assets/app.js"></head><body><script type="module" src="./assets/app.js"></script></body></html>')
   : response(`network:${url}`);
 await dispatch("install", lifecycleEvent());
 assert.equal(skipWaitingCalled, true, "install activates the new worker");
