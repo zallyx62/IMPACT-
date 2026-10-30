@@ -17,7 +17,7 @@ const labels = {
     noClaims: "Aucune affirmation publiée dans ce dossier.",
     status: "État de l’examen",
     uncertainty: "Limites et incertitudes",
-    sources: "Sources", entitySources: "Sources de l’entité",
+    sources: "Sources", sourceLabel: "Source", entitySources: "Sources de l’entité",
     noSource: "Aucune source associée.",
     evidence: "Éléments de preuve",
     relationships: "Relations documentées",
@@ -45,7 +45,7 @@ const labels = {
     noClaims: "No claims have been published in this dossier.",
     status: "Review status",
     uncertainty: "Limitations and uncertainty",
-    sources: "Sources", entitySources: "Entity sources",
+    sources: "Sources", sourceLabel: "Source", entitySources: "Entity sources",
     noSource: "No sources are associated.",
     evidence: "Evidence",
     relationships: "Documented relationships",
@@ -189,6 +189,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                   <div className="evidence-reference" key={item.id}>
                     <strong>{t.evidence} · {item.locator}</strong>
                     <p>{item.summary}</p>
+                    <div className="extra-sources"><strong>{t.sourceLabel} :</strong> {sourceReference(item.source_id)}</div>
                     {item.limitations && <small>{item.limitations}</small>}
                   </div>
                 ))}
