@@ -134,7 +134,27 @@
           "verification_method",
           "verified_at",
           "verification_note"
-        ]
+        ],
+        "properties": {
+          "verification_method": {
+            "type": "string",
+            "enum": [
+              "primary_document_review",
+              "independent_corroboration",
+              "official_record_check",
+              "peer_reviewed_research"
+            ]
+          },
+          "verified_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "verification_note": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 2000
+          }
+        }
       }
     }
   ]
