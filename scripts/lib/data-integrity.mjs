@@ -62,6 +62,10 @@ export function validateCollections(collections) {
     }
   }
 
+  for (const record of collections.sources ?? []) {
+    validateDateRange("sources", record, "published_at", "accessed_at");
+  }
+
   for (const record of collections.entities ?? []) {
     requireReference("entities", record, "source_ids", "sources", { array: true, nonEmpty: true });
   }
