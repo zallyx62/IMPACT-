@@ -49,9 +49,21 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
   const reviewed = reviewedSourceIds(data);
   if (!originalEntity.source_ids.some((sourceId) => reviewed.has(sourceId))) return undefined;
 
+  const publishableEntityIds = new Set(
+    data.entities
+      .filter(
+        (item) =>
+          item.status === "published" &&
+          Array.isArray(item.source_ids) &&
+          item.source_ids.some((sourceId) => reviewed.has(sourceId)),
+      )
+      .map((item) => item.id),
+  );
   const entityRelationships = data.relationships.filter(
     (item) =>
       (item.from_entity_id === entityId || item.to_entity_id === entityId) &&
+      publishableEntityIds.has(item.from_entity_id) &&
+      publishableEntityIds.has(item.to_entity_id) &&
       item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
   const entityCampaigns = data.campaigns.filter(
