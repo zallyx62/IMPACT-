@@ -143,6 +143,9 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     })),
     campaigns: entityCampaigns.map((item) => ({
       ...item,
+      ...(item.organizer_entity_id && !publishableEntityIds.has(item.organizer_entity_id)
+        ? { organizer_entity_id: null }
+        : {}),
       target_entity_ids: item.target_entity_ids.filter((id) => publishableEntityIds.has(id)),
       source_ids: item.source_ids.filter((id) => publishedSourceIds.has(id)),
       ...(item.claim_ids
