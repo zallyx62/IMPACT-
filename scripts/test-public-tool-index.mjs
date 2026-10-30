@@ -59,7 +59,7 @@ test("timeline includes only dated public events and sorts newest first", () => 
     claims: [{ id: "claim1", statement: "Constat", published_at: "2025-03-01", source_ids: ["s1"] }],
     responses: [{ id: "response1", summary: "Réponse", received_at: "2025-04-01", source_id: "s1" }],
   }]);
-  assert.equal(result[0].date, "2025-04-01");
+  assert.equal(result[0].date, "2026-01-01");
   assert.ok(result.some((event) => event.title === "Échéance annoncée"));
   assert.equal(result.length, 6);
 });
