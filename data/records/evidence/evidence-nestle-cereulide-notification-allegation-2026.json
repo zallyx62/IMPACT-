@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-cereulide-notification-allegation-2026",
+  "source_id": "source-reuters-nestle-cereulide-notification-2026",
+  "locator": "Reuters, 19 mai 2026, paragraphes sur les allégations de Radio France, RTS et RTBF concernant les notifications et retraits",
+  "summary": "Reuters rapporte que les médias d'investigation français, suisses et belges ont estimé que Nestlé avait tardé à alerter les autorités européennes et effectué des retraits discrets en Autriche et en Allemagne avant le rappel public élargi de janvier 2026.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-formula-notification-timeline-dispute-2026"
+  ],
+  "limitations": "Il s'agit d'allégations journalistiques rapportées par Reuters, contestées par Nestlé ; ce n'est pas une décision officielle établissant une infraction."
+}
