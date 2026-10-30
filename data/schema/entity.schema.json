@@ -13,7 +13,7 @@
       "enum": ["organization", "brand", "product", "service", "association", "institution", "public_body"]
     },
     "description": { "type": "string", "maxLength": 3000 },
-    "website": { "type": ["string", "null"], "format": "uri", "maxLength": 2000 },
+    "website": { "type": ["string", "null"], "format": "uri", "pattern": "^https?://", "maxLength": 2000 },
     "source_ids": {
       "type": "array",
       "items": { "type": "string", "minLength": 3, "maxLength": 80 },

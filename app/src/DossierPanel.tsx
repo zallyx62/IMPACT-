@@ -1,4 +1,5 @@
 import { getPublishedEntities, type EntityDossier, type Language } from "./data/records";
+import { safeExternalUrl } from "./data/safe-url";
 
 interface Props {
   dossier: EntityDossier;
@@ -75,11 +76,13 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
   const sourceById = new Map(dossier.sources.map((source) => [source.id, source]));
   const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
+  const entityWebsite = safeExternalUrl(dossier.entity.website);
   const sourceReference = (sourceId: string) => {
     const source = sourceById.get(sourceId);
     if (!source) return <span key={sourceId}>{sourceId}</span>;
-    return source.url
-      ? <a key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+    const href = safeExternalUrl(source.url);
+    return href
+      ? <a key={source.id} href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
       : <span key={source.id}>{source.title}</span>;
   };
 
@@ -94,8 +97,8 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
           <span>{t.type} : {dossier.entity.entity_type}</span>
           <span>{t.reviewed} : {dateLabel(dossier.entity.reviewed_at, language)}</span>
         </div>
-        {dossier.entity.website && (
-          <a href={dossier.entity.website} target="_blank" rel="noreferrer">{dossier.entity.website}</a>
+        {entityWebsite && (
+          <a href={entityWebsite} target="_blank" rel="noopener noreferrer">{entityWebsite}</a>
         )}
       </header>
 
@@ -119,10 +122,11 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                   {claim.source_ids.map((sourceId) => {
                     const source = sourceById.get(sourceId);
                     if (!source) return <span key={sourceId}>{sourceId}</span>;
+                    const href = safeExternalUrl(source.url);
                     return (
                       <div className="source-reference" key={source.id}>
-                        {source.url
-                          ? <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+                        {href
+                          ? <a href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
                           : <span>{source.title}</span>}
                         <span>{source.publisher} · {t.sourceAccessed} {dateLabel(source.accessed_at, language)}</span>
                         {source.limitations && <small>{source.limitations}</small>}

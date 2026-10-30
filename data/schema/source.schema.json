@@ -30,6 +30,7 @@
     "url": {
       "type": "string",
       "format": "uri",
+      "pattern": "^https?://",
       "maxLength": 2000
     },
     "source_type": {
@@ -76,6 +77,7 @@
     "archived_url": {
       "type": "string",
       "format": "uri",
+      "pattern": "^https?://",
       "maxLength": 2000
     },
     "source_license": {
@@ -95,25 +97,5 @@
         "unavailable"
       ]
     }
-  },
-  "allOf": [
-    {
-      "if": {
-        "required": [
-          "url"
-        ],
-        "properties": {
-          "url": { "type": "string" }
-        }
-      },
-      "then": {
-        "properties": {
-          "url": {
-            "type": "string",
-            "format": "uri"
-          }
-        }
-      }
-    }
-  ]
+  }
 }
