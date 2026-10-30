@@ -1,0 +1,12 @@
+{
+  "id": "response-nestle-cocoa-plan",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-cocoa-cameroon-child-labor",
+    "claim-nestle-cocoa-cameroon-forced-labor-risk"
+  ],
+  "summary": "Nestlé indique avoir créé en 2012, avec l'International Cocoa Initiative, un système de suivi et de remédiation du travail des enfants (CLMRS), et présente ce dispositif comme un élément de son plan cacao. Cette déclaration décrit le programme revendiqué par l'entreprise ; son efficacité et sa couverture doivent être examinées à l'aide d'évaluations indépendantes, dont celle de la Fair Labor Association au Cameroun en 2020.",
+  "source_id": "source-nestle-cocoa-plan",
+  "full_response_url": "https://www.nestle.fr/developpement-durable/approvisionnement-durable/cacao",
+  "publication_status": "published"
+}
