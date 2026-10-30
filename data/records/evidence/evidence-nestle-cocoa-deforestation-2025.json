@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-cocoa-deforestation-2025",
+  "source_id": "source-nestle-deforestation-supply-chains-2025",
+  "locator": "Nestlé forest supply chains page, « Cocoa deforestation-free status » and methodology definitions",
+  "summary": "Nestlé reports 91.7% of its primary cocoa supply chain as assessed deforestation-free for 2025, representing 317.7 kilotonnes; the page shows 8.3% as unknown. Its methodology combines traceability to non-very-high-risk origins, on-the-ground assessment and satellite monitoring, and the page says the calculation methodology changed in the first half of 2026.",
+  "limitations": "Company disclosure; the unknown share is not evidence of deforestation, and the assessed deforestation-free share is not proof that every farm in the full upstream chain was independently verified.",
+  "supports_claim_ids": [
+    "claim-nestle-cocoa-deforestation-2025"
+  ]
+}
