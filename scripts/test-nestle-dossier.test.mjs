@@ -113,7 +113,7 @@ describe("Nestlé dossier editorial gate", () => {
     assert.equal(entity.status, "published");
     assert.equal(entity.reviewed_at, null);
     assert.equal(entity.publication_basis, "evidence_verified");
-    assert.deepEqual(entity.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026", "source-consumer-reports-baby-food-testing-2026"]);
+    assert.deepEqual(entity.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026", "source-consumer-reports-baby-food-testing-2026", "source-senat-2025-enquete-eaux-minerales", "source-assemblee-nationale-2026-eaux-nestle", "source-justice-2024-cjipe-nestle", "source-nestle-2024-reponse-cjipe"]);
     const evidenceVerifiedSourceIds = [
       "source-greenpeace-baby-food-plastic-pouches-2026",
       "source-fda-microplastics-food-guidance-2026",
@@ -121,21 +121,25 @@ describe("Nestlé dossier editorial gate", () => {
       "source-efsa-microplastics-food-risk-status-2026",
       "source-nestle-baby-food-plastic-packaging-response-2026",
       "source-consumer-reports-baby-food-testing-2026",
+      "source-senat-2025-enquete-eaux-minerales",
+      "source-assemblee-nationale-2026-eaux-nestle",
+      "source-justice-2024-cjipe-nestle",
+      "source-nestle-2024-reponse-cjipe",
     ];
     assert.ok(sources.filter((source) => evidenceVerifiedSourceIds.includes(source.id)).every((source) => source.review_status === "evidence_verified"));
     assert.ok(sources.filter((source) => !evidenceVerifiedSourceIds.includes(source.id)).every((source) => source.review_status === "to_review"));
     const greenpeaceClaim = claims.find((claim) => claim.id === "claim-nestle-baby-food-plastic-pouches-2025");
     assert.equal(greenpeaceClaim.publication_basis, "evidence_verified");
     assert.equal(greenpeaceClaim.reviewed_at, null);
-    const publishedClaimIds = new Set([greenpeaceClaim.id, "claim-nestle-gerber-microplastics-consumer-reports-2026"]);
+    const publishedClaimIds = new Set([greenpeaceClaim.id, "claim-nestle-gerber-microplastics-consumer-reports-2026", "claim-nestle-water-treatments", "claim-nestle-water-cjipe", "claim-nestle-water-health-finding"]);
     assert.ok(claims.filter((claim) => !publishedClaimIds.has(claim.id)).every((claim) => claim.reviewed_at === null));
     assert.ok(claims.filter((claim) => !publishedClaimIds.has(claim.id)).every((claim) => claim.claim_status === "not_reviewed"));
     assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["nestle"]);
     const dossier = buildEntityDossier("nestle", data);
     assert.ok(dossier);
-    assert.deepEqual(dossier.claims.map((claim) => claim.id).sort(), [greenpeaceClaim.id, "claim-nestle-gerber-microplastics-consumer-reports-2026"].sort());
+    assert.deepEqual(dossier.claims.map((claim) => claim.id).sort(), [...publishedClaimIds].sort());
     assert.deepEqual(new Set(dossier.sources.map((source) => source.id)), new Set(evidenceVerifiedSourceIds));
-    assert.deepEqual(dossier.responses.map((response) => response.id).sort(), ["response-nestle-baby-food-microplastics-2026", "response-gerber-consumer-reports-baby-food-testing-2026"].sort());
+    assert.deepEqual(dossier.responses.map((response) => response.id).sort(), ["response-nestle-water-cjipe", "response-nestle-baby-food-microplastics-2026", "response-gerber-consumer-reports-baby-food-testing-2026"].sort());
   });
 
   it("links every Nestlé claim to existing sources and evidence", async () => {
