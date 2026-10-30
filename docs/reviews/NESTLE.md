@@ -1,6 +1,6 @@
-# Revue éditoriale humaine — dossier Nestlé
+# Registre de vérification des preuves — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 25 sources sont `to_review`, les 21 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 26 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : publication partielle.** Un constat sur trois sachets d'un produit Gerber est publié sous `evidence_verified`, sans validation humaine préalable. Les autres sources, affirmations et preuves restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
 
 Ce document sert de registre de contrôle des preuves et des limites. Il distingue les éléments déjà publiés selon les critères documentaires de la charte des éléments encore en attente d'examen.
 
@@ -21,7 +21,9 @@ Pour chaque affirmation :
 - [ ] Vérifier que les sources contradictoires ou les réponses de l'entreprise sont visibles.
 - [ ] Réduire ou préciser la formulation si la preuve ne couvre qu'un pays, un site, un échantillon ou une période.
 - [ ] Ne renseigner `reviewed_at` qu'après examen humain effectif.
-- [ ] Remplacer `not_reviewed` par le statut éditorial approprié seulement après validation.
+- [ ] Pour une publication sans validation humaine, renseigner `publication_basis: evidence_verified`, `published_at` et une `publication_note` qui délimite exactement le fait publié.
+- [ ] Pour chaque source publiée sans validation humaine, renseigner `review_status: evidence_verified`, `verification_method`, `verified_at` et `verification_note`.
+- [ ] Ne jamais transformer une source simplement consultée en source vérifiée sans consigner sa méthode et ses limites.
 
 ## 1. Eaux minérales en France
 
