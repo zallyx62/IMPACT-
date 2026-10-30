@@ -9,7 +9,8 @@ Les enregistrements réels seront ajoutés ici, séparés par type :
 - `relationships/` : liens qualifiés entre entités ; le type `alternative_to` relie une alternative (from) à l'entité remplacée (to), avec le critère de substitution et ses limites explicités dans `notes` ;
 - `campaigns/` : campagnes publiques ;
 - `responses/` : réponses des entités ;
-- `commitments/` : engagements et résultats mesurés.
+- `commitments/` : engagements et résultats mesurés ;
+- `changes/` : corrections et évolutions éditoriales datées, examinées et reliées à des sources et, si possible, aux constats concernés.
 
 Chaque enregistrement doit être un fichier JSON contenant un seul objet, avec un identifiant stable. Son nom de fichier peut reprendre cet identifiant.
 
