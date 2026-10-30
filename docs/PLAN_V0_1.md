@@ -4,7 +4,7 @@
 
 ## Périmètre inclus
 
-- Accueil responsive bilingue français/anglais, avec sélecteur de langue explicite, modes clair/sombre et hiérarchie visuelle affinée.
+- Accueil responsive bilingue français/anglais, avec sélecteur de langue explicite, mode sombre par défaut, mode clair, cinq couleurs d’accent au choix et hiérarchie visuelle affinée.
 - Architecture de localisation extensible ; espagnol, allemand et autres langues ajoutés après traduction humaine.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
@@ -44,7 +44,7 @@
 - Les six univers s'affichent et sont sélectionnables.
 - La recherche filtre les titres, descriptions et mots-clés locaux des univers, outils et dossiers publiés.
 - Le sélecteur permet de choisir français ou anglais ; l’anglais est sélectionné par défaut.
-- Le sélecteur permet de choisir le thème clair ou sombre ; le thème choisi est conservé uniquement sur l’appareil.
+- Le mode sombre est sélectionné par défaut ; l’utilisateur peut choisir le mode clair et l’une des cinq couleurs d’accent (vert, bleu, violet, orange, rose), avec mémorisation locale sur l’appareil.
 - Les contenus éditoriaux ne sont affichés en anglais que lorsqu'une traduction humaine est disponible ; la langue originale des sources reste indiquée.
 - Les langues futures peuvent être ajoutées sans réécrire l'architecture.
 - Les fonctions encore indisponibles sont clairement signalées.
