@@ -2,41 +2,20 @@
   "id": "nestle",
   "name": "Nestlé",
   "entity_type": "organization",
-  "description": "Groupe agroalimentaire international. Ce dossier rassemble des éléments documentés concernant Nestlé Waters en France, la commercialisation de substituts du lait maternel et d'aliments pour bébés, certains risques sociaux de la chaîne d'approvisionnement en cacao, ainsi que les emballages plastiques et les risques de déforestation liés au cacao. Chaque sujet est limité aux produits, pays, périodes et échantillons cités.",
+  "description": "Groupe agroalimentaire international. Cette fiche publie pour l'instant un seul constat précisément délimité concernant trois sachets d'un produit Gerber analysés dans un rapport Greenpeace/SINTEF. Les autres sujets documentés restent non publiés tant que leurs propres preuves n'ont pas satisfait aux critères de la charte.",
   "website": "https://www.nestle.com/",
   "country_codes": [
     "CH",
     "FR"
   ],
-  "status": "review_needed",
+  "status": "published",
   "created_at": "2026-10-30",
   "updated_at": "2026-10-30",
   "reviewed_at": null,
   "source_ids": [
-    "source-assemblee-nationale-2026-eaux-nestle",
-    "source-senat-2025-enquete-eaux-minerales",
-    "source-justice-2024-cjipe-nestle",
-    "source-nestle-2024-reponse-cjipe",
-    "source-atni-bms-index-2024",
-    "source-nestle-bms-policy-2024",
-    "source-public-eye-baby-food-2024",
-    "source-bmj-nestle-sugar-2024",
-    "source-nestle-sugar-response-2025",
-    "source-fla-cocoa-cameroon-2022",
-    "source-nestle-cocoa-plan",
-    "source-nestle-non-financial-statement-2024-bms",
-    "source-fla-cocoa-cameroon-iem-2021",
-    "source-greenpeace-baby-food-plastic-pouches-2026",
-    "source-science-advances-plastic-brand-audit-2024",
-    "source-bffp-asian-plastic-sachet-audit-2024",
-    "source-nestle-packaging-progress-2025",
-    "source-nestle-plastic-pollution-response-2024",
-    "source-nestle-deforestation-supply-chains-2025",
-    "source-global-witness-liberia-cocoa-deforestation-2025",
-    "source-nestle-baby-food-plastic-packaging-response-2026",
-    "source-fda-microplastics-food-guidance-2026",
-    "source-consumer-reports-baby-food-testing-2026",
-    "source-efsa-food-contact-microplastics-review-2025",
-    "source-efsa-microplastics-food-risk-status-2026"
-  ]
+    "source-greenpeace-baby-food-plastic-pouches-2026"
+  ],
+  "publication_basis": "evidence_verified",
+  "published_at": "2026-10-30",
+  "publication_note": "Publication limitée au constat rapporté par le rapport primaire Greenpeace/SINTEF sur trois sachets d'un seul produit Gerber. Les autres sources et affirmations du dossier restent exclues."
 }
