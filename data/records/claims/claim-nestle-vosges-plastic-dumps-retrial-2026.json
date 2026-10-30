@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-vosges-plastic-dumps-retrial-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Le 17 septembre 2026, la cour d'appel de Nancy a décidé qu'un nouveau procès devait se tenir concernant les décharges de déchets plastiques près des sites vosgiens de Nestlé Waters, en réintégrant des expertises écartées lors du premier procès.",
+  "topic": "environment",
+  "valid_from": "2026-09-17",
+  "source_ids": [
+    "source-afp-nestle-vosges-dumps-retrial-2026"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-vosges-plastic-dumps-retrial-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "La décision concerne la procédure et les éléments d'expertise ; elle ne tranche pas la culpabilité de l'entreprise. Nestlé conteste certaines conclusions et indique vouloir présenter ses arguments au cours de la procédure.",
+  "editorial_note": "Séparer strictement le dossier de décharges plastiques de la CJIPE de 2024, qui porte sur d'autres faits. Actualiser la date du nouveau procès lorsqu'elle sera officiellement fixée."
+}
