@@ -777,3 +777,15 @@ button:active { transform: translateY(0) scale(.99); }
 .commitment-card dt{color:var(--muted);font-size:.72rem;font-weight:750}
 .commitment-card dd{margin:.2rem 0 0;color:var(--ink);font-size:.82rem;overflow-wrap:anywhere}
 @media(max-width:600px){.public-tool-heading{align-items:flex-start}.public-tool-controls{grid-template-columns:1fr}.public-tool-controls .public-tool-search-label:first-child,.public-tool-controls .public-tool-search,.public-tool-controls .public-tool-search-label:nth-of-type(2),.public-tool-controls .public-tool-select{grid-column:1;grid-row:auto}.commitment-card dl{grid-template-columns:1fr}}
+
+
+/* Local citizen contribution draft — no server submission. */
+.contribution-form{display:grid;gap:.5rem;margin-top:1rem}
+.contribution-form label,.contribution-output label{margin-top:.45rem;color:var(--ink);font-size:.8rem;font-weight:750}
+.contribution-form input,.contribution-form textarea,.contribution-output textarea{width:100%;min-height:44px;padding:.7rem .8rem;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);font:inherit;line-height:1.55}
+.contribution-form textarea,.contribution-output textarea{resize:vertical}
+.contribution-form input:focus-visible,.contribution-form textarea:focus-visible,.contribution-output textarea:focus-visible{outline:3px solid rgba(18,102,79,.2);outline-offset:2px;border-color:var(--green)}
+.contribution-prepare{justify-self:start;min-height:42px;margin-top:.5rem;padding:.65rem 1rem;border:0;border-radius:999px;background:var(--green);color:white;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
+.contribution-status{color:var(--green);font-size:.82rem;line-height:1.5}
+.contribution-output{display:grid;gap:.55rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.contribution-output textarea{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.78rem}
