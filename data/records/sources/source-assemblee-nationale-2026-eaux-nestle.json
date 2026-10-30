@@ -9,5 +9,8 @@
   "language": "fr",
   "methodology": "Réponse ministérielle publiée au Journal officiel à une question écrite parlementaire. Utiliser la section « Réponse publiée le 3 février 2026 », et non confondre celle-ci avec les arguments exposés dans la question du député.",
   "limitations": "La réponse rapporte les mesures et conclusions de l'administration à cette date. Elle indique qu'aucun risque sanitaire n'a été constaté pour les eaux conditionnées concernées ; cela ne doit pas être reformulé comme une garantie générale portant sur tous les produits ou toutes les périodes.",
-  "review_status": "to_review"
+  "review_status": "evidence_verified",
+  "verification_method": "official_record_check",
+  "verified_at": "2026-10-30",
+  "verification_note": "Réponse ministérielle publiée au Journal officiel le 3 février 2026, consultée sur le site officiel de l'Assemblée nationale. Seule la partie « Réponse du Gouvernement » est utilisée : elle confirme les traitements UV et au charbon actif interdits, les mesures correctrices, la convention judiciaire et l'absence de risque sanitaire constaté à cette date. Les affirmations contenues dans la question initiale du député ne sont pas attribuées au Gouvernement."
 }
