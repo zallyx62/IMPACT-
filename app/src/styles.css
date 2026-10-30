@@ -445,3 +445,62 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   html { scroll-behavior: auto; }
   .universe-card, .tool-card, .dossier-card, .result-item { transition: none; }
 }
+
+
+/* Settings menu and five user-selectable accent palettes. */
+.settings-menu { position: relative; }
+.settings-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 42px;
+  padding: .55rem .85rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: .82rem;
+  font-weight: 750;
+  cursor: pointer;
+  list-style: none;
+}
+.settings-trigger::-webkit-details-marker { display: none; }
+.settings-trigger:hover, .settings-menu[open] .settings-trigger { border-color: var(--green); }
+.settings-icon { font-size: 1rem; }
+.settings-panel {
+  position: absolute;
+  top: calc(100% + .65rem);
+  right: 0;
+  z-index: 30;
+  display: grid;
+  gap: .9rem;
+  width: min(290px, calc(100vw - 32px));
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.settings-field { display: grid; gap: .4rem; color: var(--muted); font-size: .75rem; font-weight: 750; }
+.settings-field .language-select { width: 100%; }
+:root[data-accent="green"] { --green: #176b52; --green-deep: #104c3b; --green-soft: #e7f2eb; }
+:root[data-accent="blue"] { --green: #2866b2; --green-deep: #194879; --green-soft: #e5effb; }
+:root[data-accent="violet"] { --green: #7651b5; --green-deep: #50327f; --green-soft: #eee8f8; }
+:root[data-accent="orange"] { --green: #b76525; --green-deep: #804216; --green-soft: #f9ecdf; }
+:root[data-accent="rose"] { --green: #b34f70; --green-deep: #7c3049; --green-soft: #f8e8ee; }
+:root[data-theme="dark"][data-accent="green"] { --green: #75c7a3; --green-deep: #b3efd0; --green-soft: #28493a; }
+:root[data-theme="dark"][data-accent="blue"] { --green: #82b8fa; --green-deep: #c2ddff; --green-soft: #263d5b; }
+:root[data-theme="dark"][data-accent="violet"] { --green: #c0a0fa; --green-deep: #dfd0ff; --green-soft: #3b2d55; }
+:root[data-theme="dark"][data-accent="orange"] { --green: #f2ad72; --green-deep: #ffdab9; --green-soft: #503622; }
+:root[data-theme="dark"][data-accent="rose"] { --green: #f09ab5; --green-deep: #ffd0df; --green-soft: #512d3c; }
+:root[data-theme="dark"] { color-scheme: dark; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] .settings-trigger,
+:root[data-theme="dark"] .settings-panel { background: var(--paper); color: var(--ink); }
+:root[data-theme="dark"] .settings-field { color: var(--muted); }
+@media (max-width: 760px) {
+  .settings-trigger { width: 100%; }
+  .settings-panel { right: auto; left: 0; }
+  .header-actions { align-items: center; }
+}
