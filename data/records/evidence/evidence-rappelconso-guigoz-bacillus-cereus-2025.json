@@ -1,0 +1,10 @@
+{
+  "id": "evidence-rappelconso-guigoz-bacillus-cereus-2025",
+  "source_id": "source-rappelconso-guigoz-bacillus-cereus-2025",
+  "locator": "Fiche 2025-12-0088 version 1, publiée le 11 décembre 2025 ; sections identification du produit, motif du rappel et date de fin de procédure",
+  "summary": "RappelConso indique un rappel volontaire et préventif de Guigoz Optipro Relais 1 en boîte de 800 g, GTIN 7613038317922, lot 52820346AB, DDM 31 octobre 2027. La commercialisation indiquée va du 22 octobre au 10 décembre 2025. Le motif est le risque de présence de Bacillus cereus, avec des troubles digestifs possibles. La fiche indique la fin de la procédure de rappel au 10 février 2026.",
+  "supports_claim_ids": [
+    "claim-nestle-guigoz-bacillus-cereus-recall-2025"
+  ],
+  "limitations": "Ce rappel porte sur un seul lot et un risque de Bacillus cereus. Il ne doit pas être amalgamé aux rappels 2026 pour céréulide."
+}
