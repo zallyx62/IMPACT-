@@ -13,7 +13,7 @@
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
 - Manifest PWA et mise en cache de ressources statiques.
-- Chargement des données éditoriales JSON versionnées et filtrage des éléments non examinés.
+- Chargement des données éditoriales JSON versionnées ; génération avant build d'un jeu public ne contenant que les enregistrements validés humainement.
 - Validation des huit types d'enregistrements et de leurs références croisées.
 - Audit npm et vérification automatisée du paquet PWA.
 - Contrôle de typage, tests unitaires, tests simulés du service worker, contrôle des contrastes en thèmes clair et sombre, invariants d'interface, validation des schémas et build dans GitHub Actions.
@@ -73,4 +73,4 @@
 - Les hébergeurs statiques peuvent enregistrer des métadonnées de connexion.
 - Une PWA peut avoir des différences de comportement selon les navigateurs.
 - Le corpus éditorial contient des brouillons non publiés ; chaque source et affirmation doit être vérifiée par une personne.
-- Android et F-Droid ne sont pas encore construits ; une PWA ne constitue pas à elle seule une soumission F-Droid.
+- Un wrapper Android de test existe et les APK debug/release non signées ont été compilées en CI ; les tests multi-appareils, la signature et la publication F-Droid restent à réaliser. Une PWA ou un simple wrapper WebView ne suffit pas à lui seul pour une soumission F-Droid.
