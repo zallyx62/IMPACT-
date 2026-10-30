@@ -81,6 +81,7 @@ Voir le [guide complet des plateformes, installations et versions](docs/PLATFORM
 - [Politique de sécurité](SECURITY.md)
 - [Contrôles de sécurité automatisés](docs/SECURITY_CONTROLS.md)
 - [Plan de réalisation de la version 0.1](docs/PLAN_V0_1.md)
+- [Feuille de route Web à long terme](docs/ROADMAP_WEB.md)
 - [Modèle de données](docs/MODELE_DE_DONNEES.md)
 - [Charte éditoriale et de vérification](docs/CHARTE_EDITORIALE.md)
 - [Politique des droits sur les données](docs/DATA_RIGHTS_POLICY.md)
