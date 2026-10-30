@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 35 sources sont `to_review`, les 26 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 35 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 39 sources sont `to_review`, les 26 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 39 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -57,11 +57,11 @@ Affirmations à examiner :
 
 Affirmation à examiner :
 
-- `claim-nestle-infant-formula-recall-cereulide-2026` — rappel préventif de certains lots Guigoz et Nidal après identification de céréulide potentiellement liée à un ingrédient fournisseur.
+- `claim-nestle-infant-formula-recall-cereulide-2026` — fiches RappelConso pour des lots précis de Guigoz en poudre, Nidal en poudre et Guigoz liquide (6–7 janvier 2026), puis un lot supplémentaire Guigoz Optipro Relais 1 le 4 février après évolution de la méthode d'analyse.
 - `claim-nestle-infant-formula-notification-timeline-dispute-2026` — allégations de retards de notification formulées par Radio France, RTS et RTBF, et réponse de Nestlé sur la chronologie des rappels.
 - `claim-nestle-infant-deaths-no-causal-link-2026` — les deux dossiers initiaux de Bordeaux et d'Angers, les trois décès signalés dans l'alerte multi-marques sans causalité établie à la date du point de situation et le quatrième décès faisant l'objet d'une enquête distincte hors lots rappelés.
 
-Sources à lire ensemble : les communiqués des ministères du 22 janvier 2026 et le suivi sanitaire mis à jour le 16 avril 2026, ainsi que le communiqué de Nestlé du 5 janvier 2026. Le communiqué interministériel du 22 janvier 2026 indique qu'aucun lien causal n'était établi à cette date entre les produits rappelés et les symptômes rapportés. La page officielle de suivi, publiée le 29 janvier et mise à jour le 16 avril 2026, rapporte trois décès de nourrissons pour lesquels la consommation de laits concernés par les rappels a été signalée, sans imputabilité scientifique établie, ainsi que des hospitalisations dans le cadre de l'alerte multi-marques. Le compte rendu de l'Assemblée nationale du 19 mai mentionne en outre un quatrième décès faisant l'objet d'une enquête distincte concernant un produit hors des lots rappelés. Pour les deux décès initiaux étudiés à Bordeaux et Angers, les évaluations et déclarations des parquets n'ont pas retenu de lien avec les laits rappelés dans ces dossiers. Les chiffres multi-marques ne sont pas attribuables à Nestlé seul. Cette conclusion ne s'étend pas aux autres signalements, aux cas de symptômes ou à l'ensemble de l'alerte multi-marques. Ne pas suggérer qu'un décès ou une maladie a été causé par les produits Nestlé. Le dossier de rappel doit être mis à jour à partir de RappelConso avant toute information pratique.
+Sources à lire ensemble : les communiqués des ministères du 22 janvier 2026 et le suivi sanitaire mis à jour le 16 avril 2026, ainsi que le communiqué de Nestlé du 5 janvier 2026. Le communiqué interministériel du 22 janvier 2026 indique qu'aucun lien causal n'était établi à cette date entre les produits rappelés et les symptômes rapportés. La page officielle de suivi, publiée le 29 janvier et mise à jour le 16 avril 2026, rapporte trois décès de nourrissons pour lesquels la consommation de laits concernés par les rappels a été signalée, sans imputabilité scientifique établie, ainsi que des hospitalisations dans le cadre de l'alerte multi-marques. Le compte rendu de l'Assemblée nationale du 19 mai mentionne en outre un quatrième décès faisant l'objet d'une enquête distincte concernant un produit hors des lots rappelés. Pour les deux décès initiaux étudiés à Bordeaux et Angers, les évaluations et déclarations des parquets n'ont pas retenu de lien avec les laits rappelés dans ces dossiers. Les chiffres multi-marques ne sont pas attribuables à Nestlé seul. Cette conclusion ne s'étend pas aux autres signalements, aux cas de symptômes ou à l'ensemble de l'alerte multi-marques. Ne pas suggérer qu'un décès ou une maladie a été causé par les produits Nestlé. Les fiches RappelConso précisent les références, GTIN et lots concernés : Guigoz poudre (fiche 2026-01-0040, 7 janvier), Nidal poudre (2026-01-0042, 7 janvier), Guigoz liquide (2026-01-0041, 6 janvier) et un lot Guigoz Optipro Relais 1 (2026-02-0043, 4 février) après évolution des méthodes d'analyse. Les rappels sont volontaires et ne concernent que les lots listés ; ils ne démontrent pas la contamination de chaque unité ni de tous les produits des marques. Les fiches sont des informations transmises par Nestlé et hébergées sur le service officiel RappelConso. Vérifier leur statut actuel avant toute information pratique.
 
 La chronologie des notifications est contestée et doit désormais être présentée à partir de trois sources distinctes :
 
@@ -133,6 +133,7 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `source-reuters-nestle-perrier-raids-2026` — compte rendu des perquisitions à Vergèze et dans les Vosges en mai 2026.
 - `source-fr-health-ministry-infant-formula-recall-2026` — point de situation des autorités françaises du 22 janvier 2026.
 - `source-fr-health-ministry-infant-formula-update-2026` — suivi sanitaire officiel mis à jour le 16 avril 2026 ; données multi-marques, sans imputabilité scientifique établie pour les décès signalés.
+- `source-rappelconso-guigoz-powder-2026`, `source-rappelconso-nidal-powder-2026`, `source-rappelconso-guigoz-liquid-2026` et `source-rappelconso-guigoz-optipro-relai-2026-02` — fiches officielles de rappel par lots, dont un rappel complémentaire le 4 février après évolution de la méthode d'analyse.
 - `source-ecdc-efsa-cereulide-assessment-2026` — évaluation conjointe du 19 février 2026, qui précise que deux décès inexpliqués étaient investigués en France et qu'aucun lien avec les laits consommés n'avait été identifié à cette date.
 - `source-reuters-bordeaux-infant-death-cereulide-2026` et `source-afp-angers-infant-death-cereulide-2026` — déclarations des parquets de Bordeaux (6 mars) et d'Angers (6 mai) écartant un lien avec le lait dans ces deux dossiers.
 - `source-nestle-recall-faq-2026` — mise à jour de la FAQ Nestlé du 29 mai 2026, à lire comme déclaration de l'entreprise et à confronter aux déclarations indépendantes des parquets.
@@ -142,7 +143,7 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 Ne publier le dossier qu'après :
 
 1. examen humain des 32 sources ;
-2. examen humain des 26 affirmations et de leurs 35 éléments de preuve ;
+2. examen humain des 26 affirmations et de leurs 39 éléments de preuve ;
 3. vérification des réponses de Nestlé ;
 4. correction de toute formulation trop large ou ambiguë ;
 5. mise à jour cohérente des statuts, dates de revue et références ;
