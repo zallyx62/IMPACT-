@@ -29,12 +29,17 @@ function isPublishableEntity(entity: EntityRecord, sourceIds: Set<string>): bool
     (entity.publication_basis === "evidence_verified" &&
       Boolean(entity.published_at) && Boolean(entity.publication_note?.trim()));
   return entity.status === "published" && eligible &&
-    Array.isArray(entity.source_ids) && entity.source_ids.every((id) => sourceIds.has(id));
+    Array.isArray(entity.source_ids) && entity.source_ids.length > 0 &&
+    entity.source_ids.every((id) => sourceIds.has(id));
 }
 
 function isPublishableClaim(claim: ClaimRecord, sourceIds: Set<string>): boolean {
+  // Human-rights, food/animal-welfare and privacy claims always need an editorial review.
+  // Evidence verification alone is not a substitute for reviewing these higher-risk topics.
+  const requiresTopicReview = ["human_rights", "animals_food", "technology_privacy"].includes(claim.topic);
   const eligible = claim.reviewed_at !== null ||
-    (claim.publication_basis === "evidence_verified" &&
+    (!requiresTopicReview &&
+      claim.publication_basis === "evidence_verified" &&
       (claim.claim_status === "confirmed" || claim.claim_status === "corroborated") &&
       claim.requires_human_review === false &&
       Boolean(claim.published_at) && Boolean(claim.publication_note?.trim()));
@@ -164,4 +169,18 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
       ...item, source_ids: item.source_ids.filter((id) => publishedSourceIds.has(id)),
     })),
   };
+}
+
+export type EvidenceRelation = "supports" | "contradicts" | "mixed" | "context";
+
+export function getEvidenceRelation(
+  evidence: Pick<EvidenceRecord, "supports_claim_ids" | "contradicts_claim_ids">,
+  claimId: string,
+): EvidenceRelation {
+  const supports = evidence.supports_claim_ids?.includes(claimId) ?? false;
+  const contradicts = evidence.contradicts_claim_ids?.includes(claimId) ?? false;
+  if (supports && contradicts) return "mixed";
+  if (supports) return "supports";
+  if (contradicts) return "contradicts";
+  return "context";
 }

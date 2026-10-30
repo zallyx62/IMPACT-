@@ -18,6 +18,8 @@ assert.ok(publicRecords.claims.every((item) => item.claim_status !== "not_review
   "public claims must pass human review or the documented evidence gate");
 assert.ok(publicRecords.claims.filter((item) => item.publication_basis === "evidence_verified").every((item) => item.requires_human_review === false),
   "evidence-only claims must explicitly declare that enhanced human review is not required");
+assert.ok(publicRecords.claims.filter((item) => ["human_rights", "animals_food", "technology_privacy"].includes(item.topic)).every((item) => item.reviewed_at !== null),
+  "high-risk claims must have a recorded human editorial review before publication");
 assert.ok(publicRecords.evidence.every((item) => sourceIds.has(item.source_id)),
   "public evidence must only reference public sources");
 

@@ -1,4 +1,7 @@
+import { useEffect, useRef, useState } from "react";
+import { buildDossierShareUrl } from "./data/share-url";
 import { getPublishedEntities, type EntityDossier, type Language, type SourceRecord } from "./data/records";
+import { getEvidenceRelation } from "./data/dossier-builder";
 import { safeExternalUrl } from "./data/safe-url";
 
 interface Props {
@@ -10,6 +13,7 @@ interface Props {
 const labels = {
   fr: {
     back: "Retour à l’accueil",
+    share: "Partager le dossier", copied: "Lien copié", shareUnavailable: "Partage indisponible sur cet appareil.",
     label: "DOSSIER DOCUMENTÉ",
     reviewed: "Dernière vérification humaine", notReviewed: "Sans validation humaine", evidenceBasis: "Publication fondée sur les preuves", publicationNote: "Périmètre de publication", sourceVerification: "Contrôle documentaire", verifiedOn: "Vérifié le",
     claims: "Affirmations publiées",
@@ -19,7 +23,7 @@ const labels = {
     uncertainty: "Limites et incertitudes",
     sources: "Sources", sourceLabel: "Source", entitySources: "Sources de l’entité",
     noSource: "Aucune source associée.",
-    evidence: "Éléments de preuve",
+    evidence: "Éléments de preuve", evidenceRelation: { supports: "Élément allant dans le sens de l’affirmation", contradicts: "Élément contradictoire ou nuançant", mixed: "Élément à la fois favorable et contradictoire", context: "Élément associé — portée non déterminée" },
     relationships: "Relations documentées",
     campaigns: "Campagnes associées", organizer: "Organisateur", targets: "Entités ciblées",
     responses: "Réponses publiées liées au dossier", respondingEntity: "Entité répondante",
@@ -39,6 +43,7 @@ const labels = {
   },
   en: {
     back: "Back to home",
+    share: "Share dossier", copied: "Link copied", shareUnavailable: "Sharing is unavailable on this device.",
     label: "DOCUMENTED DOSSIER",
     reviewed: "Last human review", notReviewed: "No human approval", evidenceBasis: "Published under evidence criteria", publicationNote: "Publication scope", sourceVerification: "Documentary check", verifiedOn: "Verified on",
     claims: "Published claims",
@@ -48,7 +53,7 @@ const labels = {
     uncertainty: "Limitations and uncertainty",
     sources: "Sources", sourceLabel: "Source", entitySources: "Entity sources",
     noSource: "No sources are associated.",
-    evidence: "Evidence",
+    evidence: "Evidence", evidenceRelation: { supports: "Evidence supporting this claim", contradicts: "Evidence contradicting or qualifying it", mixed: "Evidence both supporting and contradicting it", context: "Related evidence — its bearing is not determined" },
     relationships: "Documented relationships",
     campaigns: "Related campaigns", organizer: "Organizer", targets: "Target entities",
     responses: "Published responses linked to this dossier", respondingEntity: "Responding entity",
@@ -103,7 +108,40 @@ function dateLabel(value: string, language: Language) {
 }
 
 export default function DossierPanel({ dossier, language, onBack }: Props) {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [shareStatus, setShareStatus] = useState("");
+
+  useEffect(() => {
+    titleRef.current?.focus();
+  }, [dossier.entity.id]);
   const t = labels[language];
+
+  async function shareDossier() {
+    const url = buildDossierShareUrl(window.location.href, dossier.entity.id);
+    try {
+      if (typeof navigator.share === "function") {
+        await navigator.share({ title: `IMPACT — ${dossier.entity.name}`, url });
+        setShareStatus("");
+        return;
+      }
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+        setShareStatus(t.copied);
+        return;
+      }
+      setShareStatus(t.shareUnavailable);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(url);
+          setShareStatus(t.copied);
+          return;
+        }
+      } catch { /* Clipboard access can be blocked by the browser. */ }
+      setShareStatus(t.shareUnavailable);
+    }
+  }
   const sourceById = new Map(dossier.sources.map((source) => [source.id, source]));
   const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
@@ -153,8 +191,10 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
     <section className="dossier-panel" aria-labelledby="dossier-title">
       <button className="back-button" type="button" onClick={onBack}>← {t.back}</button>
       <header className="dossier-header">
+        <button className="share-button" type="button" onClick={shareDossier}>{t.share}</button>
+        <span className="share-status" role="status" aria-live="polite">{shareStatus}</span>
         <p className="section-kicker">{t.label}</p>
-        <h2 id="dossier-title">{dossier.entity.name}</h2>
+        <h2 id="dossier-title" ref={titleRef} tabIndex={-1}>{dossier.entity.name}</h2>
         <p>{dossier.entity.description || t.noDescription}</p>
         <div className="dossier-meta">
           <span>{t.type} : {displayValue("entityType", dossier.entity.entity_type, language)}</span>
@@ -207,6 +247,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                 {dossier.evidence.filter((item) => claim.evidence_ids?.includes(item.id) || item.supports_claim_ids?.includes(claim.id) || item.contradicts_claim_ids?.includes(claim.id)).map((item) => (
                   <div className="evidence-reference" key={item.id}>
                     <strong>{t.evidence} · {item.locator}</strong>
+                    <p className="claim-reviewed">{t.evidenceRelation[getEvidenceRelation(item, claim.id)]}</p>
                     <p>{item.summary}</p>
                     <div className="extra-sources"><strong>{t.sourceLabel} :</strong> {sourceReference(item.source_id)}</div>
                     {item.limitations && <small>{item.limitations}</small>}

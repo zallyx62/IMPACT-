@@ -37,6 +37,9 @@ assert.equal(claim.properties.requires_human_review.type, "boolean", "high-risk 
 assert.ok(claim.allOf.some((rule) => rule.if?.properties?.requires_human_review?.const === true &&
   rule.then?.required?.includes("reviewed_at")),
   "claims flagged for human review must require a review date");
+assert.ok(claim.allOf.some((rule) => rule.if?.properties?.topic?.enum?.includes("human_rights") &&
+  rule.then?.required?.includes("requires_human_review") && rule.then?.properties?.requires_human_review?.const === true),
+  "high-risk topics must always require human review while pending records remain valid");
 assert.ok(claim.allOf.some((rule) => rule.if?.properties?.publication_basis?.const === "evidence_verified" &&
   ["published_at", "publication_note"].every((field) => rule.then?.required?.includes(field))),
   "evidence-published claims must record publication date and rationale");

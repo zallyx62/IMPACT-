@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { buildEntityDossier, getPublishedEntities } from "../app/src/data/dossier-builder.ts";
+import { buildEntityDossier, getEvidenceRelation, getPublishedEntities } from "../app/src/data/dossier-builder.ts";
 
 const data = {
   entities: [
@@ -181,6 +181,31 @@ describe("buildEntityDossier publication rules", () => {
     }
   });
 
+  it("requires human review for human-rights, food/animal-welfare and privacy topics", () => {
+    for (const topic of ["human_rights", "animals_food", "technology_privacy"]) {
+      const highRisk = structuredClone(data);
+      highRisk.claims[0].reviewed_at = null;
+      highRisk.claims[0].publication_basis = "evidence_verified";
+      highRisk.claims[0].published_at = "2026-10-30";
+      highRisk.claims[0].publication_note = "The primary source was inspected and its scope recorded.";
+      highRisk.claims[0].claim_status = "confirmed";
+      highRisk.claims[0].requires_human_review = false;
+      highRisk.claims[0].topic = topic;
+      const dossier = buildEntityDossier("entity-one", highRisk);
+      assert.ok(dossier);
+      assert.ok(!dossier.claims.some((item) => item.id === "claim-reviewed"),
+        `topic ${topic} must not pass the evidence-only publication gate`);
+    }
+  });
+
+  it("allows a high-risk topic after a recorded human editorial review", () => {
+    const reviewed = structuredClone(data);
+    reviewed.claims[0].topic = "human_rights";
+    reviewed.claims[0].reviewed_at = "2026-10-30";
+    const dossier = buildEntityDossier("entity-one", reviewed);
+    assert.ok(dossier?.claims.some((item) => item.id === "claim-reviewed"));
+  });
+
   it("does not expose draft entities", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
   });
@@ -195,4 +220,26 @@ describe("buildEntityDossier publication rules", () => {
     unreviewed.entities[0].source_ids = ["source-pending"];
     assert.equal(buildEntityDossier("entity-one", unreviewed), undefined);
   });
+
+  it("does not publish an entity with an empty source list", () => {
+    const unreferenced = structuredClone(data);
+    unreferenced.entities[0].source_ids = [];
+    assert.equal(buildEntityDossier("entity-one", unreferenced), undefined);
+    assert.ok(!getPublishedEntities(unreferenced).some((item) => item.id === "entity-one"));
+  });
+
+
+describe("evidence relation labels", () => {
+  it("distinguishes supporting, contradicting, mixed and contextual evidence", () => {
+    assert.equal(getEvidenceRelation({ supports_claim_ids: ["claim-one"] }, "claim-one"), "supports");
+    assert.equal(getEvidenceRelation({ contradicts_claim_ids: ["claim-one"] }, "claim-one"), "contradicts");
+    assert.equal(getEvidenceRelation({ supports_claim_ids: ["claim-one"], contradicts_claim_ids: ["claim-one"] }, "claim-one"), "mixed");
+    assert.equal(getEvidenceRelation({ supports_claim_ids: [], contradicts_claim_ids: [] }, "claim-one"), "context");
+  });
+
+  it("does not classify evidence linked to a different claim as supporting or contradicting", () => {
+    assert.equal(getEvidenceRelation({ supports_claim_ids: ["claim-two"], contradicts_claim_ids: ["claim-three"] }, "claim-one"), "context");
+  });
+});
+
 });

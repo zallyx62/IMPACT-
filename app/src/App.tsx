@@ -2,9 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import { tools, universes, type CatalogItem, type Language } from "./data/catalog";
 import { matchesSearch, normalizeSearch, searchableEntityText, searchableText } from "./data/search";
 import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./data/records";
+import { getComparisonMetrics } from "./data/comparison-metrics";
 import DossierPanel from "./DossierPanel";
+import EvidenceCentre from "./EvidenceCentre";
+import { parseSelectionHash, type Selection } from "./data/hash-route";
 
-type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
 type Theme = "light" | "dark";
 type Accent = "green" | "blue" | "violet" | "orange" | "rose";
 const accentColors: Record<Accent, string> = {
@@ -101,12 +103,60 @@ const copy: Record<Language, Record<string, string>> = {
   }
 };
 
+
+function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftChange, onRightChange }: {
+  entities: EntityRecord[]; leftId: string; rightId: string;
+  onLeftChange: (id: string) => void; onRightChange: (id: string) => void;
+}) {
+  const left = getEntityDossier(leftId);
+  const right = getEntityDossier(rightId);
+  const leftMetrics = left ? getComparisonMetrics(left) : null;
+  const rightMetrics = right ? getComparisonMetrics(right) : null;
+  const metrics = [
+    ["claims", "Affirmations documentées"], ["verifiedSources", "Sources avec preuves vérifiées"],
+    ["evidence", "Éléments de preuve"], ["commitments", "Engagements suivis"],
+    ["responses", "Réponses publiées"], ["relationships", "Relations documentées"],
+  ] as const;
+  function changeLeft(id: string) {
+    if (id === rightId) onRightChange("");
+    onLeftChange(id);
+  }
+  return (
+    <section className="comparison-tool" aria-labelledby="comparison-title">
+      <div className="comparison-intro">
+        <h3 id="comparison-title">Comparer les dossiers publiés</h3>
+        <p>Cette comparaison mesure uniquement la documentation disponible dans IMPACT. Elle ne classe pas les entreprises et ne mesure pas directement leurs impacts réels.</p>
+      </div>
+      <div className="comparison-selectors">
+        <label>Premier dossier<select value={leftId} onChange={(event) => changeLeft(event.currentTarget.value)}>
+          {availableEntities.map((entity) => <option key={entity.id} value={entity.id}>{entity.name}</option>)}
+        </select></label>
+        <label>Second dossier<select value={rightId} onChange={(event) => onRightChange(event.currentTarget.value)}>
+          <option value="">Choisir un dossier</option>
+          {availableEntities.filter((entity) => entity.id !== leftId).map((entity) => <option key={entity.id} value={entity.id}>{entity.name}</option>)}
+        </select></label>
+      </div>
+      {availableEntities.length < 2 || !rightMetrics ? (
+        <p className="comparison-empty">La comparaison nécessite au moins deux dossiers publiés. Pour le moment, IMPACT ne dispose pas encore de deux dossiers distincts.</p>
+      ) : (
+        <div className="comparison-table-wrap"><table className="comparison-table">
+          <thead><tr><th scope="col">Critère documentaire</th><th scope="col">{left?.entity.name ?? "Premier dossier"}</th><th scope="col">{right?.entity.name ?? "Second dossier"}</th></tr></thead>
+          <tbody>{metrics.map(([key, label]) => <tr key={key}><th scope="row">{label}</th><td>{leftMetrics?.[key] ?? "Non disponible"}</td><td>{rightMetrics?.[key] ?? "Non disponible"}</td></tr>)}</tbody>
+        </table></div>
+      )}
+      <p className="comparison-caveat">Un nombre plus élevé de documents ne signifie pas automatiquement un meilleur ou un moins bon comportement. Les données absentes ne sont pas assimilées à zéro impact.</p>
+    </section>
+  );
+}
+
 function App() {
   const language: Language = "fr";
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [accent, setAccent] = useState<Accent>(getInitialAccent);
   const [query, setQuery] = useState("");
-  const [selection, setSelection] = useState<Selection>(null);
+  const [comparisonLeftId, setComparisonLeftId] = useState(() => getPublishedEntities()[0]?.id ?? "");
+  const [comparisonRightId, setComparisonRightId] = useState(() => getPublishedEntities()[1]?.id ?? "");
+  const [selection, setSelection] = useState<Selection>(() => parseSelectionHash(window.location.hash));
   const t = copy[language];
   const trimmedQuery = normalizeSearch(query);
 
@@ -125,12 +175,7 @@ function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      const match = /^#(universe|tool|entity)\/(.+)$/.exec(window.location.hash);
-      if (match) {
-        setSelection({ type: match[1] as "universe" | "tool" | "entity", id: decodeURIComponent(match[2]) });
-      } else {
-        setSelection(null);
-      }
+      setSelection(parseSelectionHash(window.location.hash));
       setQuery("");
     };
     window.addEventListener("popstate", handlePopState);
@@ -178,11 +223,12 @@ function App() {
   }
 
   function reset() {
-    if (selection && window.location.hash) {
+    if (selection && window.history.state?.impactSelection) {
       window.history.back();
       setQuery("");
       return;
     }
+    window.history.replaceState(null, "", window.location.pathname + window.location.search);
     setSelection(null);
     setQuery("");
   }
@@ -305,10 +351,17 @@ function App() {
               <div><p className="section-kicker">{t.selected}</p><h2 id="selected-title">{chosen.title[language]}</h2></div>
             </div>
             <p className="selected-description">{chosen.detail[language]}</p>
-            <div className="preparation-note">
-              <span className="note-dot" aria-hidden="true" />
-              <div><strong>{t.inPrep}</strong><p>{t.prepText}</p></div>
-            </div>
+            {chosen.type === "tool" && chosen.id === "evidence" ? (
+              <EvidenceCentre entities={publishedEntities} />
+            ) : chosen.type === "tool" && chosen.id === "compare" ? (
+              <ComparisonTool entities={publishedEntities} leftId={comparisonLeftId} rightId={comparisonRightId}
+                onLeftChange={setComparisonLeftId} onRightChange={setComparisonRightId} />
+            ) : (
+              <div className="preparation-note">
+                <span className="note-dot" aria-hidden="true" />
+                <div><strong>{t.inPrep}</strong><p>{t.prepText}</p></div>
+              </div>
+            )}
           </section>
         )}
 

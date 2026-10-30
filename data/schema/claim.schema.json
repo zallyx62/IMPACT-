@@ -182,6 +182,32 @@
           "reviewed_at"
         ]
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "topic": {
+            "enum": [
+              "human_rights",
+              "animals_food",
+              "technology_privacy"
+            ]
+          }
+        },
+        "required": [
+          "topic"
+        ]
+      },
+      "then": {
+        "properties": {
+          "requires_human_review": {
+            "const": true
+          }
+        },
+        "required": [
+          "requires_human_review"
+        ]
+      }
     }
   ]
 }
