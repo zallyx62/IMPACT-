@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-cocoa-cameroon-child-labor",
+  "subject_entity_id": "nestle",
+  "statement": "Dans son évaluation de référence de 2020 au Cameroun, la Fair Labor Association a constaté que le système de suivi et de remédiation du travail des enfants chez un fournisseur de Nestlé était encore en cours de mise en place et a relevé des attitudes préoccupantes dans les communautés ; elle précise toutefois n'avoir rencontré aucun cas de travail d'enfant dans les exploitations visitées.",
+  "topic": "human_rights",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-fla-cocoa-cameroon-2022",
+    "source-nestle-cocoa-plan"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-cocoa-cameroon-child-labor"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Évaluation historique limitée à trois coopératives et six communautés approvisionnant un fournisseur de premier rang. L'absence de cas observé dans les fermes visitées ne prouve pas l'absence de travail des enfants dans toute la chaîne ; les attitudes rapportées ne prouvent pas non plus qu'un cas précis s'est produit.",
+  "editorial_note": "Comparer avec le dispositif CLMRS que Nestlé dit avoir développé avec l'International Cocoa Initiative depuis 2012. Ne pas présenter cette étude de 2020 comme un état des lieux actuel."
+}
