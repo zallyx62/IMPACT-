@@ -15,6 +15,10 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Generated PWA raster icons (recreated by npm predev/prebuild)
+app/public/icons/impact-192.png
+app/public/icons/impact-512.png
+
 # Android / Gradle build output and local machine configuration
 .gradle/
 **/build/
