@@ -134,7 +134,7 @@ function App() {
   function itemButton(item: CatalogItem, type: "universe" | "tool") {
     return (
       <button className="result-item" key={item.id} type="button" onClick={() => open(type, item.id)}>
-        <span className="result-mark">{item.mark}</span>
+        <span className="result-mark" aria-hidden="true">{item.mark}</span>
         <span className="result-copy">
           <strong>{item.title[language]}</strong>
           <span>{item.description[language]}</span>
@@ -208,7 +208,7 @@ function App() {
           <section className="selected-panel" aria-labelledby="selected-title">
             <button className="back-button" type="button" onClick={reset}>← {t.back}</button>
             <div className="selected-heading">
-              <span className="selected-mark">{chosen.mark}</span>
+              <span className="selected-mark" aria-hidden="true">{chosen.mark}</span>
               <div><p className="section-kicker">{t.selected}</p><h2 id="selected-title">{chosen.title[language]}</h2></div>
             </div>
             <p className="selected-description">{chosen.detail[language]}</p>
@@ -249,7 +249,7 @@ function App() {
               <div className="universe-grid">
                 {universes.map((item) => (
                   <button className="universe-card" key={item.id} type="button" onClick={() => open("universe", item.id)}>
-                    <span className="universe-card-top"><span className="universe-mark">{item.mark}</span><span className="universe-number">{item.number}</span></span>
+                    <span className="universe-card-top"><span className="universe-mark" aria-hidden="true">{item.mark}</span><span className="universe-number">{item.number}</span></span>
                     <strong>{item.title[language]}</strong>
                     <span className="universe-description">{item.description[language]}</span>
                     <span className="card-footer">{t.discover}<span aria-hidden="true">↗</span></span>
@@ -265,7 +265,7 @@ function App() {
               <div className="tool-grid">
                 {tools.map((item) => (
                   <button className="tool-card" key={item.id} type="button" onClick={() => open("tool", item.id)}>
-                    <span className="tool-mark">{item.mark}</span>
+                    <span className="tool-mark" aria-hidden="true">{item.mark}</span>
                     <span className="tool-copy"><strong>{item.title[language]}</strong><span>{item.description[language]}</span></span>
                     <span className="tool-arrow" aria-hidden="true">↗</span>
                   </button>
@@ -302,7 +302,7 @@ function App() {
 
       <footer className="site-footer">
         <div className="footer-inner">
-          <div className="footer-brand"><span className="footer-mark">I</span><strong>IMPACT</strong></div>
+          <div className="footer-brand"><span className="footer-mark" aria-hidden="true">I</span><strong>IMPACT</strong></div>
           <p>{t.footer}</p><span className="footer-version">Prototype 0.1</span>
         </div>
       </footer>
