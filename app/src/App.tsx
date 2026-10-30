@@ -56,7 +56,7 @@ function entityTypeLabel(value: string, language: Language): string {
 
 const copy: Record<Language, Record<string, string>> = {
   fr: {
-    skip: "Aller au contenu", method: "Notre méthode", switchLanguage: "Passer en anglais", themeLabel: "Apparence", lightMode: "Clair", darkMode: "Sombre", accentLabel: "Couleur", accentGreen: "Vert", accentBlue: "Bleu", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Paramètres",
+    skip: "Aller au contenu", method: "Notre méthode", methodTitle: "Des faits vérifiables, pas des affirmations sans preuves.", methodIntro: "Chaque dossier distingue ce qui est établi, ce qui est rapporté par une source, ce qui reste incertain et ce qui est contesté.", methodSources: "Sources traçables", methodSourcesText: "Documents originaux, études, enquêtes et déclarations clairement attribuées, avec dates et liens consultables.", methodScope: "Périmètre précis", methodScopeText: "Produit, pays, période, échantillon et méthode sont indiqués. Aucun résultat n’est généralisé au-delà de ce qu’il mesure.", methodPublication: "Publication proportionnée", methodPublicationText: "Une affirmation peut être publiée sans validation humaine si les preuves et leur contrôle sont documentés. Les sujets à risque élevé exigent un examen humain.", methodResponse: "Contradictions et corrections", methodResponseText: "Les réponses des organisations, les limites et les corrections sont présentées sans transformer une réponse en preuve ni une allégation en fait.", switchLanguage: "Passer en anglais", themeLabel: "Apparence", lightMode: "Clair", darkMode: "Sombre", accentLabel: "Couleur", accentGreen: "Vert", accentBlue: "Bleu", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Paramètres",
     kicker: "PROJET LIBRE · PREMIER PROTOTYPE",
     title: "Comprendre ce qui se cache derrière nos choix.",
     subtitle: "Des informations sourcées, des incertitudes visibles et des pistes d’action — sans décider à votre place.",
@@ -78,7 +78,7 @@ const copy: Record<Language, Record<string, string>> = {
     localSearch: "RECHERCHE LOCALE", dossiers: "Dossiers documentés", dossiersText: "Fiches d’entités publiées selon les critères de preuve de la charte.", noDossiers: "Aucun dossier répondant aux critères de publication n’est encore affiché. Les faits publiés renvoient à leurs sources et à leurs limites."
   },
   en: {
-    skip: "Skip to content", method: "Our method", switchLanguage: "Switch to French", themeLabel: "Appearance", lightMode: "Light", darkMode: "Dark", accentLabel: "Accent colour", accentGreen: "Green", accentBlue: "Blue", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Settings",
+    skip: "Skip to content", method: "Our method", methodTitle: "Verifiable facts, not unsupported claims.", methodIntro: "Each dossier distinguishes established facts, what a source reports, what remains uncertain and what is disputed.", methodSources: "Traceable sources", methodSourcesText: "Original documents, studies, investigations and clearly attributed statements, with dates and accessible links.", methodScope: "Precise scope", methodScopeText: "Product, country, period, sample and method are stated. No result is generalized beyond what it measures.", methodPublication: "Evidence-based publication", methodPublicationText: "A claim may be published without human approval when its evidence and checks are documented. High-risk topics require human review.", methodResponse: "Disputes and corrections", methodResponseText: "Organization responses, limitations and corrections are shown without treating a response as proof or an allegation as fact.", switchLanguage: "Switch to French", themeLabel: "Appearance", lightMode: "Light", darkMode: "Dark", accentLabel: "Accent colour", accentGreen: "Green", accentBlue: "Blue", accentViolet: "Violet", accentOrange: "Orange", accentRose: "Rose", settings: "Settings",
     kicker: "OPEN PROJECT · FIRST PROTOTYPE",
     title: "Understand what sits behind our choices.",
     subtitle: "Sourced information, visible uncertainty and ways to act — without making decisions for you.",
@@ -368,7 +368,19 @@ function App() {
           </>
         )}
 
-        <section id="method" className="method-section" aria-labelledby="privacy-title">
+        <section id="method" className="content-section editorial-method" aria-labelledby="method-title">
+          <div className="section-heading">
+            <div><p className="section-kicker">{language === "fr" ? "MÉTHODE ÉDITORIALE" : "EDITORIAL METHOD"}</p><h2 id="method-title">{t.methodTitle}</h2><p>{t.methodIntro}</p></div>
+          </div>
+          <div className="method-grid">
+            <article className="method-card"><span>01</span><h3>{t.methodSources}</h3><p>{t.methodSourcesText}</p></article>
+            <article className="method-card"><span>02</span><h3>{t.methodScope}</h3><p>{t.methodScopeText}</p></article>
+            <article className="method-card"><span>03</span><h3>{t.methodPublication}</h3><p>{t.methodPublicationText}</p></article>
+            <article className="method-card"><span>04</span><h3>{t.methodResponse}</h3><p>{t.methodResponseText}</p></article>
+          </div>
+        </section>
+
+        <section id="privacy" className="method-section" aria-labelledby="privacy-title">
           <div className="method-copy">
             <p className="section-kicker">{language === "fr" ? "ENGAGEMENT FONDATEUR" : "FOUNDING PRINCIPLE"}</p>
             <h2 id="privacy-title">{t.privacy}</h2>
