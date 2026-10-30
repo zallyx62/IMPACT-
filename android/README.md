@@ -36,6 +36,18 @@ For a release build, run `gradle --no-daemon :app:assembleRelease`. The release 
 - The WebView DOM storage is enabled only because the web app uses local storage for the user's Light/Dark display preference. The preference remains on the device.
 - No account, analytics, advertising, telemetry or remote app API is included.
 
+## Updates: F-Droid-first policy
+
+IMPACT will use F-Droid as the trusted update manager for the F-Droid edition:
+
+- **Automatic updates:** when IMPACT is distributed through an F-Droid repository, the F-Droid client checks for new repository metadata and can download/install updates according to the user's F-Droid settings and Android's confirmation/permission rules.
+- **Manual updates:** the user can open F-Droid, refresh/check for updates, and choose when to install an available IMPACT update.
+- **Direct APK edition:** if a separate direct-download channel is ever offered, its update flow must be a clearly labelled, opt-in alternative. It must explain that the user is leaving F-Droid's build/signature verification path, verify the package signature and checksum, and require Android's explicit installation confirmation.
+
+The app itself will not silently download or install replacement APKs. The Android manifest intentionally has no Internet or package-install permission at this stage. This avoids adding network access and bypassing F-Droid's trusted update flow. F-Droid's current inclusion policy requires explicit opt-in before downloading executable updates outside its checks. The exact in-app links and update screen can only be finalized after an official F-Droid package/repository URL exists.
+
+Release maintainers must increment versionCode for every release and update versionName; F-Droid can detect Gradle version fields and automatically process tagged releases. Never reuse a version code or change the signing key after publication.
+
 ## Current limits
 
 This is an Android build prototype, not a release. It still requires a successful clean build, installation and testing on physical Android devices, screen-reader review, security review and a documented signing/release process. F-Droid inclusion is not yet ready; see [the F-Droid preparation notes](../docs/ANDROID_FDROID.md).
