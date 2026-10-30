@@ -18,6 +18,12 @@ assert.ok(app.includes('localStorage.setItem("impact-theme", theme)'));
 assert.ok(privacy.includes("impact-theme") && privacy.includes("impact-accent") && /jamais transmises à IMPACT/.test(privacy),
   "the locally stored theme and accent preferences must be disclosed in the privacy policy");
 assert.match(app, /const language: Language = "fr";/, "French must be the only public interface language");
+assert.match(app, /<section id="method" className="content-section editorial-method"/,
+  "the navigation method link must lead to the editorial evidence policy");
+assert.match(app, /<section id="privacy" className="method-section"/,
+  "the privacy section must have its own anchor, separate from editorial method");
+assert.match(app, /methodPublicationText: "Une affirmation peut être publiée sans validation humaine/,
+  "the public method must explain evidence-based publication without human approval");
 assert.doesNotMatch(app, /setLanguage/, "the public prototype must not expose a language switch");
 assert.match(app, /document\.documentElement\.lang = language/);
 assert.match(app, /document\.title = language === "fr"/);
