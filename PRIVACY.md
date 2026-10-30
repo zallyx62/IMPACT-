@@ -10,6 +10,7 @@ IMPACT est conçu pour être consulté sans compte, sans profil publicitaire et 
 - La recherche filtre uniquement les textes et mots-clés embarqués dans l'application.
 - Le texte recherché n'est pas envoyé à un serveur et n'est pas conservé après fermeture de la page.
 - La langue sélectionnée reste en mémoire pendant la session ; elle n'est pas enregistrée dans un profil.
+- Le thème clair ou sombre choisi est enregistré uniquement dans le stockage local du navigateur sous la clé `impact-theme` afin de conserver cette préférence sur l’appareil ; cette valeur n’est jamais transmise à IMPACT.
 - Aucun outil d'analyse d'audience, tracker publicitaire ou SDK tiers n'est intégré.
 - Aucune API distante n'est nécessaire pour afficher les univers et les outils de démonstration.
 - Le service worker met en cache des ressources statiques pour amorcer le fonctionnement hors ligne.
@@ -22,7 +23,7 @@ La promesse du projet est de réduire les transmissions, de ne pas mettre en pla
 
 ## Données locales et hors ligne
 
-Le prototype n'utilise actuellement ni cookie applicatif, ni stockage local de recherche, ni IndexedDB. Le cache du service worker contient les ressources de l'application et peut être supprimé depuis les réglages du navigateur.
+Le prototype n'utilise aucun cookie applicatif, stockage local de recherche ni IndexedDB. Le seul élément de préférence conservé dans le stockage local est le thème clair ou sombre choisi par la personne, sur son propre appareil. Le cache du service worker contient les ressources de l'application et peut être supprimé depuis les réglages du navigateur.
 
 Le premier chargement nécessite une connexion. La disponibilité hors ligne doit être testée sur les appareils et navigateurs ciblés avant toute version stable. Les futurs dossiers de données ne seront pas automatiquement disponibles hors ligne s'ils n'ont pas été inclus dans le cache.
 
