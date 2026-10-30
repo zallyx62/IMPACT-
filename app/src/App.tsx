@@ -7,6 +7,9 @@ import DossierPanel from "./DossierPanel";
 type Selection = { type: "universe" | "tool" | "entity"; id: string } | null;
 type Theme = "light" | "dark";
 type Accent = "green" | "blue" | "violet" | "orange" | "rose";
+const accentColors: Record<Accent, string> = {
+  green: "#176b52", blue: "#2866b2", violet: "#7651b5", orange: "#b76525", rose: "#b34f70",
+};
 
 function getInitialTheme(): Theme {
   try {
@@ -125,7 +128,7 @@ function App() {
     document.documentElement.dataset.accent = accent;
     document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute(
       "content",
-      theme === "dark" ? "#111b16" : "#12664f",
+      theme === "dark" ? "#111b16" : accentColors[accent],
     );
     try {
       window.localStorage.setItem("impact-theme", theme);
