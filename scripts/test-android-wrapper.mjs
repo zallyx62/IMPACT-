@@ -21,6 +21,9 @@ assert.ok(activity.includes("uri.getPath().startsWith(APP_PATH)"), "only the emb
 assert.ok(activity.includes('path.isEmpty() ? "index.html" : path'), "the app root must serve index.html for the local service worker shell");
 assert.ok(activity.includes("Intent.ACTION_VIEW"), "external links must open in the system browser");
 assert.ok(activity.includes('"https".equals(scheme) || "http".equals(scheme)'), "only web links may be handed to the browser");
+assert.ok(activity.includes("OnBackInvokedDispatcher.PRIORITY_DEFAULT"), "Android 13+ must use the predictive-back callback");
+assert.ok(activity.includes("unregisterOnBackInvokedCallback"), "the predictive-back callback must be unregistered when the Activity is destroyed");
+assert.ok(activity.includes("@SuppressWarnings(\"deprecation\")"), "the legacy back handler must be explicitly limited to compatibility fallback");
 assert.ok(activity.includes("setJavaScriptEnabled(true)"), "the bundled React app requires JavaScript");
 assert.ok(activity.includes("setDomStorageEnabled(true)"), "the local theme preference requires DOM storage");
 assert.ok(gradle.includes('applicationId = "org.zallyx62.impact"'));
