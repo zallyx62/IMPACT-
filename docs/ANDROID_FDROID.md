@@ -1,46 +1,67 @@
 # Préparation Android et F-Droid
 
-## Décision de principe
+## Projet Android ajouté
 
-La priorité reste le Web. L'application actuelle est une PWA statique construite avec React, TypeScript et Vite. Une PWA installable n'est pas à elle seule une application Android publiable sur F-Droid.
+Un premier projet Android source est présent dans `android/`. Il embarque le build de production du Web dans l'APK ; il ne charge pas le site IMPACT depuis un serveur distant.
 
-L'application Android devra embarquer les ressources Web localement et fonctionner sans serveur applicatif, compte, télémétrie, publicité ou dépendance propriétaire. Le choix final entre une enveloppe Android native légère (WebView) et une solution de pont multiplateforme sera arrêté après un prototype et un test de compilation reproductible. Ne pas ajouter de SDK tant que son utilité, sa licence et son comportement réseau ne sont pas vérifiés.
+- Identifiant provisoire : `org.zallyx62.impact` (à vérifier avant une vraie publication).
+- Version de départ : `0.1.0`, code version `1`.
+- JDK : 17.
+- Android Gradle Plugin : 9.5.0.
+- Gradle CI : 9.6.0.
+- Android SDK : compile / target 36, minimum 24.
+- AndroidX WebKit : 1.18.0.
+- Build Web embarqué : `android/scripts/build-web-assets.sh`.
+- CI : `.github/workflows/android.yml`, qui prépare les ressources puis tente les APK debug et release.
 
-## Étapes Android
+Le projet ne contient pas encore de Gradle Wrapper ; la CI installe explicitement Gradle 9.6.0. La release générée par Gradle est non signée. Aucun APK signé ni paquet de distribution n'est livré.
 
-1. Choisir et vérifier un identifiant d'application Android unique.
-2. Créer un projet Android source complet, avec les ressources Web générées localement.
-3. Définir les permissions minimales : aucune permission réseau si l'application peut fonctionner entièrement sur les ressources embarquées ; ne pas demander d'accès inutile aux contacts, fichiers, localisation ou identifiants.
-4. Bloquer la navigation WebView vers des domaines externes dans la vue intégrée ; ouvrir les sources externes dans le navigateur système après action explicite.
-5. Vérifier les liens externes, le clavier, le retour Android, les tailles d'écran, les lecteurs d'écran, le thème sombre et le mode hors ligne.
-6. Fixer les versions du JDK, du Gradle, du plugin Android et du SDK nécessaires à la compilation.
-7. Construire en ligne de commande depuis une copie propre du dépôt et documenter chaque dépendance.
-8. Ajouter un job CI Android seulement lorsque le projet natif existe et que le build peut être reproduit.
+## Sécurité et confidentialité Android
 
-## Préparation F-Droid
+- Le manifeste ne déclare aucune permission, notamment aucune permission `INTERNET`.
+- Les ressources locales sont servies avec AndroidX `WebViewAssetLoader`, sous une origine HTTPS locale ; aucun chargement depuis `file://`.
+- L'accès WebView aux fichiers et aux fournisseurs de contenu est désactivé.
+- Les liens HTTP/HTTPS ne sont pas ouverts dans la WebView : une action explicite les transmet au navigateur du système.
+- Le stockage DOM est activé uniquement pour la préférence de thème clair/sombre, conservée localement par la WebView.
+- Aucun compte, tracker, publicité, télémétrie ni API applicative distante n'est intégré.
 
-F-Droid exige notamment un logiciel libre, des dépendances et outils de compilation acceptables, un dépôt public avec le vrai code source, des métadonnées complètes et une application utile et maintenue. Un simple site web emballé sans amélioration native peut ne pas répondre à ses critères.
+La documentation Android recommande `WebViewAssetLoader` plutôt que les URL `file://`, et déconseille d'activer les accès fichier depuis une WebView. Ces précautions sont appliquées ici.
 
-Avant soumission :
-- vérifier les licences de toutes les dépendances et ressources ;
-- supprimer toute dépendance propriétaire, publicité, analyse d'audience ou SDK de suivi ;
-- fournir un identifiant Android unique et un numéro de version ;
-- publier une version taguée et ses instructions de compilation ;
-- fournir les métadonnées et captures d'écran requises ;
-- préparer et tester la recette de compilation F-Droid ;
-- comparer le binaire amont et le binaire reconstruit, et viser la reproductibilité ;
-- demander une revue de conformité avant la soumission.
+## Vérifications encore obligatoires
 
-Références officielles :
-- Politique d'inclusion : https://f-droid.org/fr/docs/Inclusion_Policy/
-- Guide de soumission : https://f-droid.org/docs/Submitting_to_F-Droid_Quick_Start_Guide/
-- Compilation reproductible : https://f-droid.org/docs/Reproducible_Builds/
+Le code source et la compilation automatisée ne remplacent pas :
+- l'installation du debug APK sur au moins un téléphone Android réel ;
+- les tests de retour Android, liens externes, clavier, rotation et reprise après fermeture ;
+- la vérification du thème clair/sombre après relancement ;
+- le contrôle TalkBack, contraste, tailles d'écran et mode avion ;
+- une revue indépendante du comportement de la WebView et des permissions ;
+- la construction reproductible et la vérification d'un APK release non signé puis signé dans une procédure séparée.
 
-## État actuel et limites
+Ne pas annoncer Android comme stable avant ces essais. Ne pas publier de binaire signé dans le dépôt.
 
-- PWA : prototype Web présent, contrôles automatisés réussis dans GitHub Actions.
-- Android : aucun projet natif, APK ou paquet signé n'est encore livré.
-- F-Droid : aucune métadonnée de soumission ni demande d'inclusion n'est encore prête.
-- Les tests actuels du service worker sont simulés ; ils ne remplacent pas les essais sur appareils réels.
+## Conditions F-Droid
 
-Aucune publication Android ou F-Droid ne doit être annoncée avant la compilation, l'installation et les tests réels.
+La PWA et un simple emballage WebView ne suffisent pas à garantir l'acceptation. La politique d'inclusion F-Droid demande notamment que les applications qui emballent un site apportent des fonctions ou améliorations natives, qu'elles soient utiles et maintenues, et que la construction soit vérifiable avec une chaîne d'outils libre. Elle prévoit normalement au moins trois mois de développement actif, sauf exceptions (par exemple des utilisateurs déjà établis ou une expérience antérieure de publication F-Droid).
+
+Le dépôt public IMPACT date du 29 octobre 2026. Sans preuve d'un développement public plus ancien ni exception, le critère de trois mois ne serait normalement atteint qu'à partir du 29 janvier 2027, sous réserve de poursuivre le développement. Cette date n'est pas une garantie d'acceptation : les mainteneurs F-Droid restent seuls décisionnaires.
+
+Avant une demande d'inclusion :
+- confirmer l'identifiant d'application et les droits sur les ressources ;
+- vérifier la licence de chaque dépendance et de chaque outil de compilation ;
+- développer des améliorations Android utiles au-delà de l'affichage Web ;
+- compléter les tests d'appareils et l'audit de sécurité ;
+- documenter une compilation hors ligne ou reproductible et vérifier le binaire obtenu ;
+- préparer les métadonnées, descriptions, captures d'écran, notes de version et recette de compilation ;
+- vérifier les exigences et versions de la politique au moment de la soumission.
+
+Aucune soumission F-Droid n'a été faite et aucun APK n'est déclaré prêt à distribuer.
+
+## Références officielles
+
+- Politique d'inclusion F-Droid : https://f-droid.org/docs/Inclusion_Policy/
+- Guide de soumission F-Droid : https://f-droid.org/docs/Submitting_to_F-Droid_Quick_Start_Guide/
+- Builds reproductibles F-Droid : https://f-droid.org/docs/Reproducible_Builds/
+- Android — charger du contenu local : https://developer.android.com/develop/ui/views/layout/webapps/load-local-content
+- Android — inclusion de fichiers non sécurisée dans les WebView : https://developer.android.com/privacy-and-security/risks/webview-unsafe-file-inclusion
+- Android Gradle Plugin — versions et compatibilité : https://developer.android.com/build/releases/about-agp
+- AndroidX WebKit — notes de version : https://developer.android.com/jetpack/androidx/releases/webkit
