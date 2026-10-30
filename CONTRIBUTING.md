@@ -73,7 +73,7 @@ Si l'analyse échoue, consultez l'étape en erreur et ses journaux avant de modi
 
 ## Transparence sur les outils
 
-Les contributeurs restent responsables de leurs modifications. Une assistance automatisée ne remplace ni la vérification des sources ni la revue humaine. Le projet ne prévoit pas d'intégrer d'IA générative dans l'application destinée au public.
+Les contributeurs restent responsables de leurs modifications. Une assistance automatisée ne remplace jamais l'examen réel des sources, de leur méthode, de leur périmètre et de leurs limites. Une validation humaine compétente est obligatoire pour les catégories à examen renforcé définies dans la charte. Pour les autres faits, une publication sans approbation humaine individuelle est possible uniquement si le parcours documentaire est complet, traçable et validé par les contrôles automatiques. Le projet ne prévoit pas d'intégrer d'IA générative dans l'application destinée au public.
 
 ## Respect et collaboration
 
