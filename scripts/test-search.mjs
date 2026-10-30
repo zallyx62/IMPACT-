@@ -33,11 +33,11 @@ describe("searchableText", () => {
 
 describe("matchesSearch", () => {
   it("matches every query term regardless of order or adjacency", () => {
-    assert.equal(matchesSearch("Climate impacts and biodiversity loss", "biodiversité climat"), true);
+    assert.equal(matchesSearch("Climat, impacts et biodiversité", "biodiversité climat"), true);
   });
 
   it("rejects a query when one term is missing", () => {
-    assert.equal(matchesSearch("Climate impacts and biodiversity loss", "climate oceans"), false);
+    assert.equal(matchesSearch("Climat, impacts et biodiversité", "climat océans"), false);
   });
 
   it("does not match an empty query", () => {
