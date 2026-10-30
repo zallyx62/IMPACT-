@@ -1,6 +1,6 @@
 # Registre de vérification des preuves — dossier Nestlé
 
-**État actuel : publication partielle.** Deux constats distincts concernant des produits Gerber sont publiés sous `evidence_verified`, sans validation humaine préalable. Six sources associées sont publiées selon les mêmes critères ; les 19 autres sources et les 19 autres affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
+**État actuel : publication partielle.** Cinq constats précisément circonscrits sont publiés sous `evidence_verified`, sans validation humaine préalable : trois sur les pratiques de Nestlé Waters en France et deux sur des produits Gerber testés. Dix sources associées sont publiées selon les mêmes critères ; les 15 autres sources et les 16 autres affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
 
 Le corpus de travail comprend 25 sources et l'examen des 21 affirmations et de leurs 26 éléments de preuve ; seuls les éléments ayant satisfait à leur propre seuil de publication sont inclus dans le bundle public.
 
@@ -108,13 +108,16 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 ## Sources déjà vérifiées et publiées en contexte
 
+- `source-senat-2025-enquete-eaux-minerales` — rapport de la commission d'enquête du Sénat sur les traitements utilisés par Nestlé Waters, la microfiltration et les limites de l'enquête.
+- `source-assemblee-nationale-2026-eaux-nestle` — réponse du Gouvernement confirmant l'usage de traitements UV et au charbon actif interdits, les mesures correctrices et l'absence de risque sanitaire constaté à la date de la réponse.
+- `source-justice-2024-cjipe-nestle` — convention judiciaire d'intérêt public environnementale signée par Nestlé Waters Supply Est ; périmètre limité aux faits concernés dans les Vosges.
+- `source-nestle-2024-reponse-cjipe` — position officielle de Nestlé Waters, vérifiée comme déclaration de l'entreprise et non comme validation indépendante.
 - `source-nestle-baby-food-plastic-packaging-response-2026` — position officielle de Nestlé sur les emballages plastiques des aliments pour bébés ; elle ne fournit pas de résultats analytiques propres aux sachets étudiés.
 - `source-fda-microplastics-food-guidance-2026` — contexte général de la FDA sur les microplastiques alimentaires, les preuves de migration et les limites des connaissances.
 - `source-efsa-food-contact-microplastics-review-2025` et `source-efsa-microplastics-food-risk-status-2026` — revue technique sur la libération par les matériaux au contact des aliments et état de l'évaluation des risques par l'EFSA.
 
 ## Autres sources de l'entreprise à examiner en regard des évaluations indépendantes
 
-- `source-nestle-2024-reponse-cjipe` — réponse de Nestlé Waters sur l'affaire des eaux.
 - `source-nestle-bms-policy-2024` et `source-nestle-non-financial-statement-2024-bms` — politique et chiffres déclarés par Nestlé sur le marketing des substituts du lait maternel.
 - `source-nestle-sugar-response-2025` — réponse de Nestlé sur l'enquête relative au sucre.
 - `source-nestle-cocoa-plan` — programme cacao et système CLMRS présenté par Nestlé.
@@ -127,12 +130,15 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `claim-nestle-baby-food-plastic-pouches-2025` — formulation limitée à ce que le rapport rapporte sur trois sachets d'un seul produit Gerber. La publication ne démontre ni migration depuis l'emballage, ni risque ou dommage sanitaire, ni représentativité pour toute la gamme.
 - `source-consumer-reports-baby-food-testing-2026` — enquête originale consultée ; 48 produits de 11 marques, deux à quatre lots par produit et laboratoire externe accrédité. Le sous-échantillon microplastiques comprend 15 purées et un jus, choisis selon les contraintes du laboratoire ; la FDA précise ne pas avoir examiné les méthodes ni les données brutes.
 - `claim-nestle-gerber-microplastics-consumer-reports-2026` — résultat de 728 294 particules rapporté pour une portion de 99 g d'une purée Gerber précisément identifiée. La formulation reste attribuée à Consumer Reports et ne conclut ni à une origine certaine dans l'emballage ni à un effet sanitaire.
+- `claim-nestle-water-treatments` — rapport du Sénat et réponse gouvernementale confirmant l'utilisation par Nestlé Waters de traitements UV et au charbon actif interdits dans les installations citées. La publication distingue ces traitements de la microfiltration et n'affirme pas qu'un dommage sanitaire a été subi.
+- `claim-nestle-water-cjipe` — convention judiciaire d'intérêt public environnementale signée le 2 septembre 2024 par Nestlé Waters Supply Est, assortie d'une amende d'intérêt public de deux millions d'euros. La CJIPE n'est pas présentée comme une condamnation pénale générale du groupe.
+- `claim-nestle-water-health-finding` — réponse du Gouvernement indiquant qu'aucun risque sanitaire n'avait été constaté pour les eaux concernées à la date de sa réponse du 3 février 2026. Cette conclusion est strictement datée et limitée au périmètre indiqué.
 
-Les deux affirmations portent `publication_basis: evidence_verified`, une date et une note de publication. Les six sources associées ont une méthode, une date et une justification de vérification. Aucun de ces enregistrements ne porte de date de validation humaine.
+Les cinq affirmations publiées portent `publication_basis: evidence_verified`, une date et une note de publication. Les dix sources associées ont une méthode, une date et une justification de vérification. Aucun de ces enregistrements ne porte de date de validation humaine.
 
 ### Toujours non publiés
 
-Les 19 autres sources, les 19 autres affirmations et les éléments de preuve associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain requis n'a pas été effectué. Les réponses de Nestlé et Gerber sont affichées uniquement lorsqu'elles sont reliées à une source admissible et sont clairement attribuées à l'entreprise.
+Les 15 autres sources, les 16 autres affirmations et les éléments de preuve associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain requis n'a pas été effectué. Les réponses de Nestlé et Gerber sont affichées uniquement lorsqu'elles sont reliées à une source admissible et sont clairement attribuées à l'entreprise.
 
 Avant d'élargir le dossier :
 
