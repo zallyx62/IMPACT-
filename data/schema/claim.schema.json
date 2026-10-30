@@ -199,15 +199,14 @@
         ]
       },
       "then": {
-        "required": [
-          "reviewed_at"
-        ],
         "properties": {
-          "reviewed_at": {
-            "type": "string",
-            "format": "date"
+          "requires_human_review": {
+            "const": true
           }
-        }
+        },
+        "required": [
+          "requires_human_review"
+        ]
       }
     }
   ]

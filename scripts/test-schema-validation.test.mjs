@@ -48,6 +48,15 @@ describe("JSON Schema validation", () => {
     assert.ok(errors.some((error) => error.includes("reviewed_at") && error.includes("must be string")));
   });
 
+  it("requires human review for every high-risk topic", async () => {
+    const validators = await compileRecordValidators();
+    const invalid = structuredClone(valid);
+    invalid.claims[0].topic = "human_rights";
+    invalid.claims[0].requires_human_review = false;
+    const errors = validateSchemaRecords(invalid, validators);
+    assert.ok(errors.some((error) => error.includes("requires_human_review") && error.includes("must be equal to constant")));
+  });
+
   it("allows a high-risk claim to remain pending until human review", async () => {
     const validators = await compileRecordValidators();
     const pending = structuredClone(valid);
