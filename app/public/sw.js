@@ -1,4 +1,4 @@
-const CACHE_NAME = "impact-shell-v0.3";
+const CACHE_NAME = "impact-shell-v0.4";
 const BASE_PATH = new URL("./", self.location.href).pathname;
 const SHELL_URLS = [
   BASE_PATH,
@@ -8,9 +8,24 @@ const SHELL_URLS = [
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(SHELL_URLS))
-      .then(() => self.skipWaiting()),
+    caches.open(CACHE_NAME).then(async (cache) => {
+      const shellResponse = await fetch(BASE_PATH);
+      if (!shellResponse.ok || shellResponse.type !== "basic") {
+        throw new Error("Impossible de précharger la page de l’application.");
+      }
+
+      const html = await shellResponse.clone().text();
+      const assetReferences = [...html.matchAll(/(?:src|href)="([^"]+)"/g)];
+      const assetUrls = assetReferences
+        .map((match) => match[1])
+        .filter((path) => path.includes("/assets/"))
+        .map((path) => new URL(path, self.location.href))
+        .filter((url) => url.origin === self.location.origin && url.pathname.startsWith(`${BASE_PATH}assets/`))
+        .map((url) => url.href);
+
+      await cache.put(BASE_PATH, shellResponse.clone());
+      await cache.addAll([...SHELL_URLS.slice(1), ...assetUrls]);
+    }).then(() => self.skipWaiting()),
   );
 });
 

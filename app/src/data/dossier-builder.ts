@@ -96,6 +96,15 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     (item) => claimIds.has(item.id) && publishableEntityIds.has(item.subject_entity_id) && item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
   const publishedClaimIds = new Set(claims.map((item) => item.id));
+  const publishedResponseIds = new Set(
+    data.responses
+      .filter((item) =>
+        item.publication_status === "published" &&
+        publishableEntityIds.has(item.entity_id) &&
+        Boolean(item.source_id && reviewed.has(item.source_id)),
+      )
+      .map((item) => item.id),
+  );
   const evidenceIds = new Set(claims.flatMap((item) => item.evidence_ids ?? []));
   const evidence = data.evidence.filter(
     (item) =>
@@ -143,10 +152,16 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     })),
     campaigns: entityCampaigns.map((item) => ({
       ...item,
+      ...(item.organizer_entity_id && !publishableEntityIds.has(item.organizer_entity_id)
+        ? { organizer_entity_id: null }
+        : {}),
       target_entity_ids: item.target_entity_ids.filter((id) => publishableEntityIds.has(id)),
       source_ids: item.source_ids.filter((id) => publishedSourceIds.has(id)),
       ...(item.claim_ids
         ? { claim_ids: item.claim_ids.filter((id) => publishedClaimIds.has(id)) }
+        : {}),
+      ...(item.response_ids
+        ? { response_ids: item.response_ids.filter((id) => publishedResponseIds.has(id)) }
         : {}),
     })),
     responses: entityResponses.map((item) => ({

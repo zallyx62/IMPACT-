@@ -17,7 +17,6 @@ const data = {
     { id: "claim-pending", subject_entity_id: "entity-one", statement: "A claim that must remain unpublished.", topic: "other", claim_status: "alleged", source_ids: ["source-pending"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
     { id: "claim-related", subject_entity_id: "entity-two", statement: "A related claim included through a campaign.", topic: "other", claim_status: "corroborated", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
     { id: "claim-draft-subject", subject_entity_id: "entity-draft", statement: "A claim belonging to an unpublished entity.", topic: "other", claim_status: "confirmed", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
-    { id: "claim-draft-subject", subject_entity_id: "entity-draft", statement: "A claim belonging to an unpublished entity.", topic: "other", claim_status: "confirmed", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", uncertainty_note: "Test fixture." },
   ],
   evidence: [
     { id: "evidence-reviewed", source_id: "source-reviewed", locator: "Section 1", summary: "A reviewed evidence summary for this test.", supports_claim_ids: ["claim-reviewed"] },
@@ -29,12 +28,13 @@ const data = {
     { id: "relationship-draft-target", from_entity_id: "entity-one", to_entity_id: "entity-draft", relationship_type: "controls", knowledge_status: "confirmed", source_ids: ["source-reviewed"] },
   ],
   campaigns: [
-    { id: "campaign-reviewed", title: "Reviewed campaign", target_entity_ids: ["entity-one", "entity-draft"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"] },
+    { id: "campaign-reviewed", title: "Reviewed campaign", organizer_entity_id: "entity-draft", target_entity_ids: ["entity-one", "entity-draft"], demands: ["Publish a report"], campaign_status: "active", source_ids: ["source-reviewed"], claim_ids: ["claim-related", "claim-draft-subject"], response_ids: ["response-published", "response-withheld", "response-public-other", "response-unknown"] },
     { id: "campaign-pending", title: "Pending campaign", target_entity_ids: ["entity-one"], demands: ["Publish data"], campaign_status: "active", source_ids: ["source-pending"] },
   ],
   responses: [
     { id: "response-published", entity_id: "entity-one", related_claim_ids: ["claim-related"], summary: "A published response backed by a reviewed source.", source_id: "source-reviewed", publication_status: "published" },
     { id: "response-withheld", entity_id: "entity-one", related_claim_ids: ["claim-reviewed"], summary: "A response that must not be displayed.", source_id: "source-reviewed", publication_status: "withheld" },
+    { id: "response-public-other", entity_id: "entity-two", related_claim_ids: [], summary: "A public response for a related entity.", source_id: "source-reviewed", publication_status: "published" },
   ],
   commitments: [
     { id: "commitment-reviewed", entity_id: "entity-one", statement: "A reviewed public commitment for the test.", announced_at: "2026-10-30", status: "in_progress", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30" },
@@ -53,13 +53,22 @@ describe("buildEntityDossier publication rules", () => {
     assert.ok(dossier.relationships.every((item) => item.to_entity_id !== "entity-draft"));
     assert.deepEqual(dossier.campaigns.map((item) => item.id), ["campaign-reviewed"]);
     assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
+    assert.equal(dossier.campaigns[0].organizer_entity_id, null, "unpublished campaign organizers are not exposed");
     assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
+    assert.deepEqual(dossier.campaigns[0].response_ids, ["response-published", "response-public-other"]);
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.deepEqual(dossier.campaigns[0].target_entity_ids, ["entity-one"]);
     assert.deepEqual(dossier.campaigns[0].claim_ids, ["claim-related"]);
     assert.ok(!dossier.claims.some((item) => item.id === "claim-draft-subject"));
     assert.deepEqual(dossier.responses.map((item) => item.id), ["response-published"]);
     assert.deepEqual(dossier.commitments.map((item) => item.id), ["commitment-reviewed"]);
+  });
+
+  it("preserves a campaign organizer when the organizer is publishable", () => {
+    const withPublishedOrganizer = structuredClone(data);
+    withPublishedOrganizer.campaigns[0].organizer_entity_id = "entity-two";
+    const dossier = buildEntityDossier("entity-one", withPublishedOrganizer);
+    assert.equal(dossier?.campaigns[0].organizer_entity_id, "entity-two");
   });
 
   it("does not expose draft entities", () => {
