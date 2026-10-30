@@ -11,6 +11,9 @@ export interface EntityRecord {
   website?: string | null;
   status: string;
   reviewed_at: string | null;
+  publication_basis?: string;
+  published_at?: string;
+  publication_note?: string;
   source_ids: string[];
   country_codes?: string[];
   created_at?: string;
@@ -33,6 +36,9 @@ export interface SourceRecord {
   source_license?: string;
   rights_note?: string;
   review_status: string;
+  verification_method?: string;
+  verified_at?: string;
+  verification_note?: string;
 }
 
 export interface ClaimRecord {
@@ -44,6 +50,9 @@ export interface ClaimRecord {
   source_ids: string[];
   evidence_ids?: string[];
   reviewed_at: string | null;
+  publication_basis?: string;
+  published_at?: string;
+  publication_note?: string;
   uncertainty_note: string;
   valid_from?: string | null;
   valid_until?: string | null;
