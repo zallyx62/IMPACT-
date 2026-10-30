@@ -12,5 +12,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Le rapport parle d'indicateurs de risque dans un cas observé chez un fournisseur de la chaîne étudiée ; il ne conclut pas que Nestlé employait directement ce travailleur ni que ces pratiques caractérisent l'ensemble de sa chaîne d'approvisionnement.",
-  "editorial_note": "Garder le périmètre fournisseur, pays, échantillon et date visibles. Ne pas transformer un indicateur de risque en condamnation ou constat généralisé."
+  "editorial_note": "Garder le périmètre fournisseur, pays, échantillon et date visibles. Ne pas transformer un indicateur de risque en condamnation ou constat généralisé.",
+  "requires_human_review": true
 }
