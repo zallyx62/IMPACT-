@@ -28,7 +28,8 @@ for (const marker of ["selected-mark", "tool-mark", "result-mark", "universe-mar
 }
 
 assert.ok(dossierPanel.includes("sourceReference(item.source_id)"), "every evidence item must link to its own source");
-for (const field of ["claim.valid_from", "claim.valid_until", "claim.editorial_note", "item.started_at", "item.ended_at", "item.received_at", "item.published_at", "item.full_response_url", "item.baseline", "item.target_value"]) {
+assert.ok(dossierPanel.includes("dossier.entity.updated_at"), "entity update dates must be displayed when supplied");
+for (const field of ["claim.valid_from", "claim.valid_until", "claim.editorial_note", "item.started_at", "item.ended_at", "item.received_at", "item.published_at", "item.full_response_url", "item.announced_at", "item.baseline", "item.target_value"]) {
   assert.ok(dossierPanel.includes(field), `editorial metadata field ${field} must be displayed`);
 }
 

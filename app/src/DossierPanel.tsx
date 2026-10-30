@@ -26,7 +26,7 @@ const labels = {
     commitments: "Engagements suivis",
     sourceArchive: "Copie d’archive", sourceAccessed: "Consultée le", sourcePublished: "Publiée le", sourceType: "Nature de la source", sourceLanguage: "Langue", sourceMethodology: "Méthode", sourceConflicts: "Intérêts ou liens pertinents", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
     noDescription: "Aucune description éditoriale n’a encore été publiée.",
-    type: "Type d’entité", countries: "Pays concernés", period: "Période concernée", editorialNote: "Note éditoriale", started: "Début", ended: "Fin", received: "Réponse reçue le", published: "Publiée le", fullResponse: "Réponse complète", baseline: "Situation de référence", targetValue: "Valeur cible", demands: "Demandes", outcome: "Résultat rapporté", measurement: "Méthode de mesure", observed: "Résultat observé", publication: "Statut de publication", relationshipStatus: "État de la relation", targetDate: "Échéance",
+    type: "Type d’entité", updated: "Mise à jour", announced: "Annoncé le", countries: "Pays concernés", period: "Période concernée", editorialNote: "Note éditoriale", started: "Début", ended: "Fin", received: "Réponse reçue le", published: "Publiée le", fullResponse: "Réponse complète", baseline: "Situation de référence", targetValue: "Valeur cible", demands: "Demandes", outcome: "Résultat rapporté", measurement: "Méthode de mesure", observed: "Résultat observé", publication: "Statut de publication", relationshipStatus: "État de la relation", targetDate: "Échéance",
     statuses: {
       confirmed: "Confirmée",
       corroborated: "Corroborée",
@@ -54,7 +54,7 @@ const labels = {
     commitments: "Tracked commitments",
     sourceArchive: "Archived copy", sourceAccessed: "Accessed on", sourcePublished: "Published on", sourceType: "Source type", sourceLanguage: "Language", sourceMethodology: "Methodology", sourceConflicts: "Relevant interests or affiliations", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
     noDescription: "No editorial description has been published yet.",
-    type: "Entity type", countries: "Countries concerned", period: "Relevant period", editorialNote: "Editorial note", started: "Started", ended: "Ended", received: "Response received", published: "Published on", fullResponse: "Full response", baseline: "Baseline", targetValue: "Target value", demands: "Demands", outcome: "Reported outcome", measurement: "Measurement method", observed: "Observed result", publication: "Publication status", relationshipStatus: "Relationship status", targetDate: "Target date",
+    type: "Entity type", updated: "Last updated", announced: "Announced on", countries: "Countries concerned", period: "Relevant period", editorialNote: "Editorial note", started: "Started", ended: "Ended", received: "Response received", published: "Published on", fullResponse: "Full response", baseline: "Baseline", targetValue: "Target value", demands: "Demands", outcome: "Reported outcome", measurement: "Measurement method", observed: "Observed result", publication: "Publication status", relationshipStatus: "Relationship status", targetDate: "Target date",
     statuses: {
       confirmed: "Confirmed",
       corroborated: "Corroborated",
@@ -157,6 +157,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
           <span>{t.type} : {displayValue("entityType", dossier.entity.entity_type, language)}</span>
           {dossier.entity.country_codes && dossier.entity.country_codes.length > 0 && <span>{t.countries} : {dossier.entity.country_codes.join(", ")}</span>}
           <span>{t.reviewed} : {dateLabel(dossier.entity.reviewed_at, language)}</span>
+          {dossier.entity.updated_at && <span>{t.updated} : {dateLabel(dossier.entity.updated_at, language)}</span>}
         </div>
         {entityWebsite && (
           <a href={entityWebsite} target="_blank" rel="noopener noreferrer">{entityWebsite}</a>
@@ -236,7 +237,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
       {dossier.commitments.length > 0 && (
         <section className="dossier-section">
           <h3>{t.commitments}</h3>
-          <div className="dossier-list">{dossier.commitments.map((item) => <article className="claim-card" key={item.id}><p className="claim-statement">{item.statement}</p><p>{displayValue("commitmentStatus", item.status, language)}{item.target_date ? ` · ${t.targetDate} : ${dateLabel(item.target_date, language)}` : ""}</p>{item.baseline && <p><strong>{t.baseline} :</strong> {item.baseline}</p>}{item.target_value && <p><strong>{t.targetValue} :</strong> {item.target_value}</p>}{item.measurement_method && <p><strong>{t.measurement} :</strong> {item.measurement_method}</p>}{item.observed_result && <p><strong>{t.observed} :</strong> {item.observed_result}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
+          <div className="dossier-list">{dossier.commitments.map((item) => <article className="claim-card" key={item.id}><p className="claim-statement">{item.statement}</p><p>{displayValue("commitmentStatus", item.status, language)} · {t.announced} : {dateLabel(item.announced_at, language)}{item.target_date ? ` · ${t.targetDate} : ${dateLabel(item.target_date, language)}` : ""}</p>{item.baseline && <p><strong>{t.baseline} :</strong> {item.baseline}</p>}{item.target_value && <p><strong>{t.targetValue} :</strong> {item.target_value}</p>}{item.measurement_method && <p><strong>{t.measurement} :</strong> {item.measurement_method}</p>}{item.observed_result && <p><strong>{t.observed} :</strong> {item.observed_result}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
         </section>
       )}
     </section>
