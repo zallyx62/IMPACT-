@@ -16,6 +16,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.webkit.WebViewAssetLoader;
 
 public final class MainActivity extends Activity {
@@ -29,6 +33,10 @@ public final class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Android 15+ enforces edge-to-edge for modern target SDKs.
+        // Apply system-bar and display-cutout insets to keep the WebView content readable.
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         getWindow().setStatusBarColor(Color.rgb(17, 27, 22));
         getWindow().setNavigationBarColor(Color.rgb(17, 27, 22));
 
@@ -38,6 +46,14 @@ public final class MainActivity extends Activity {
                 ViewGroup.LayoutParams.MATCH_PARENT
         ));
         webView.setBackgroundColor(Color.rgb(17, 27, 22));
+        ViewCompat.setOnApplyWindowInsetsListener(webView, (view, windowInsets) -> {
+            Insets safeInsets = windowInsets.getInsets(
+                    WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout()
+            );
+            view.setPadding(safeInsets.left, safeInsets.top, safeInsets.right, safeInsets.bottom);
+            return windowInsets;
+        });
+        ViewCompat.requestApplyInsets(webView);
 
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
