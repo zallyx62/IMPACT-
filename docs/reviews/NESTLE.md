@@ -1,6 +1,6 @@
 # Registre de vérification des preuves — dossier Nestlé
 
-**État actuel : publication partielle.** Six constats précisément circonscrits sont publiés sous `evidence_verified`, sans validation humaine préalable : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés et un sur les objets plastiques de marque recensés dans un audit scientifique mondial. Douze sources associées sont publiées selon les mêmes critères ; les 13 autres sources et les 15 autres affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
+**État actuel : publication partielle.** Sept constats précisément circonscrits sont publiés sous `evidence_verified`, sans validation humaine préalable : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés, un sur les objets plastiques de marque recensés dans un audit scientifique mondial et un sur les chiffres de déforestation du cacao déclarés par Nestlé. Treize sources associées sont publiées selon les mêmes critères ; les 12 autres sources et les 14 autres affirmations restent non publiées. Le lecteur public ne doit afficher que les enregistrements ayant passé leur propre seuil de publication.
 
 Le corpus de travail comprend 25 sources et l'examen des 21 affirmations et de leurs 26 éléments de preuve ; seuls les éléments ayant satisfait à leur propre seuil de publication sont inclus dans le bundle public.
 
@@ -90,9 +90,9 @@ La réponse de Nestlé aux audits de Break Free From Plastic doit être présent
 
 ## 6. Environnement et déforestation liée au cacao
 
-Affirmation à examiner :
+Affirmation publiée selon les critères documentaires :
 
-- `claim-nestle-cocoa-deforestation-2025` — Nestlé déclare 91,7 % de sa chaîne d'approvisionnement primaire en cacao évaluée comme exempte de déforestation en 2025, et 8,3 % classée comme inconnue.
+- `claim-nestle-cocoa-deforestation-2025` — Nestlé déclare 91,7 % de sa chaîne d'approvisionnement primaire en cacao évaluée comme exempte de déforestation en 2025, et 8,3 % classée comme inconnue. La publication porte sur les chiffres de l'entreprise, pas sur une certification indépendante.
 
 **Point de vigilance :** il s'agit d'une mesure publiée par l'entreprise, selon une méthodologie qu'elle décrit et indique avoir modifiée au premier semestre 2026. La part inconnue n'est pas une preuve de déforestation ; la part évaluée comme exempte ne doit pas être présentée comme une vérification indépendante de chaque exploitation.
 
@@ -108,6 +108,7 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 ## Sources déjà vérifiées et publiées en contexte
 
+- `source-nestle-deforestation-supply-chains-2025` — déclaration officielle de Nestlé indiquant 91,7 % de la chaîne primaire de cacao évaluée comme exempte de déforestation et 8,3 % inconnue en 2025 ; la méthode a changé en 2026 et n'est pas une vérification indépendante de chaque exploitation.
 - `source-science-advances-plastic-brand-audit-2024` — étude évaluée par les pairs, fondée sur 1 576 événements d'audit dans 84 pays entre 2018 et 2022 ; les 3 % pour Nestlé concernent les objets de marque recensés.
 - `source-nestle-plastic-pollution-response-2024` — position officielle de Nestlé de juin 2024 sur les audits de Break Free From Plastic ; présentée comme une critique de l'entreprise, non comme une réfutation indépendante de l'étude scientifique.
 - `source-senat-2025-enquete-eaux-minerales` — rapport de la commission d'enquête du Sénat sur les traitements utilisés par Nestlé Waters, la microfiltration et les limites de l'enquête.
@@ -136,12 +137,13 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `claim-nestle-water-cjipe` — convention judiciaire d'intérêt public environnementale signée le 2 septembre 2024 par Nestlé Waters Supply Est, assortie d'une amende d'intérêt public de deux millions d'euros. La CJIPE n'est pas présentée comme une condamnation pénale générale du groupe.
 - `claim-nestle-water-health-finding` — réponse du Gouvernement indiquant qu'aucun risque sanitaire n'avait été constaté pour les eaux concernées à la date de sa réponse du 3 février 2026. Cette conclusion est strictement datée et limitée au périmètre indiqué.
 - `claim-nestle-branded-plastic-audit-2024` — étude évaluée par les pairs : 3 % des objets de marque recensés dans le jeu de données d'audits sont attribués à Nestlé ; la formulation ne présente pas ce chiffre comme une part de la pollution mondiale.
+- `claim-nestle-cocoa-deforestation-2025` — déclaration de Nestlé pour 2025 : 91,7 % du cacao primaire évalué comme exempt de déforestation et 8,3 % inconnu. La catégorie inconnue n'est pas présentée comme une preuve de déforestation ; la méthode a changé en 2026.
 
-Les six affirmations publiées portent `publication_basis: evidence_verified`, une date et une note de publication. Les douze sources associées ont une méthode, une date et une justification de vérification. Aucun de ces enregistrements ne porte de date de validation humaine.
+Les sept affirmations publiées portent `publication_basis: evidence_verified`, une date et une note de publication. Les treize sources associées ont une méthode, une date et une justification de vérification. Aucun de ces enregistrements ne porte de date de validation humaine.
 
 ### Toujours non publiés
 
-Les 13 autres sources, les 15 autres affirmations et les éléments de preuve associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain requis n'a pas été effectué. Les réponses de Nestlé et Gerber sont affichées uniquement lorsqu'elles sont reliées à une source admissible et sont clairement attribuées à l'entreprise.
+Les 12 autres sources, les 14 autres affirmations et les éléments de preuve associés restent exclus du bundle public tant que leurs propres critères documentaires ne sont pas remplis ou qu'un examen humain requis n'a pas été effectué. Les réponses de Nestlé et Gerber sont affichées uniquement lorsqu'elles sont reliées à une source admissible et sont clairement attribuées à l'entreprise.
 
 Avant d'élargir le dossier :
 
