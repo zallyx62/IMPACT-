@@ -487,8 +487,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 :root[data-accent="green"] { --green: #176b52; --green-deep: #104c3b; --green-soft: #e7f2eb; }
 :root[data-accent="blue"] { --green: #2866b2; --green-deep: #194879; --green-soft: #e5effb; }
 :root[data-accent="violet"] { --green: #7651b5; --green-deep: #50327f; --green-soft: #eee8f8; }
-:root[data-accent="orange"] { --green: #b76525; --green-deep: #804216; --green-soft: #f9ecdf; }
-:root[data-accent="rose"] { --green: #b34f70; --green-deep: #7c3049; --green-soft: #f8e8ee; }
+:root[data-accent="orange"] { --green: #9f4f16; --green-deep: #71360f; --green-soft: #f9ecdf; }
+:root[data-accent="rose"] { --green: #9a3d5a; --green-deep: #6e2940; --green-soft: #f8e8ee; }
 :root[data-theme="dark"][data-accent="green"] { --green: #75c7a3; --green-deep: #b3efd0; --green-soft: #28493a; }
 :root[data-theme="dark"][data-accent="blue"] { --green: #82b8fa; --green-deep: #c2ddff; --green-soft: #263d5b; }
 :root[data-theme="dark"][data-accent="violet"] { --green: #c0a0fa; --green-deep: #dfd0ff; --green-soft: #3b2d55; }
