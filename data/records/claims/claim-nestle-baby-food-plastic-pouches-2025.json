@@ -18,5 +18,6 @@
   "editorial_note": "Conserver la taille très réduite de l'échantillon, le caractère commandité de l'étude et les limites analytiques dans tout résumé. Présenter les positions générales de la FDA et de l'EFSA comme contexte scientifique, sans les faire passer pour une analyse des sachets Gerber testés. Ne pas transformer un risque d'exposition potentiel en dommage sanitaire démontré.",
   "publication_basis": "evidence_verified",
   "published_at": "2026-10-30",
-  "publication_note": "L'affirmation décrit le résultat publié par le rapport primaire et se limite aux trois sachets du produit identifié. Elle ne présente pas ce résultat comme représentatif de la gamme, ne démontre pas la migration depuis l'emballage et ne conclut à aucun dommage sanitaire."
+  "publication_note": "L'affirmation décrit le résultat publié par le rapport primaire et se limite aux trois sachets du produit identifié. Elle ne présente pas ce résultat comme représentatif de la gamme, ne démontre pas la migration depuis l'emballage et ne conclut à aucun dommage sanitaire.",
+  "requires_human_review": false
 }
