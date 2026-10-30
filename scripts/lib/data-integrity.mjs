@@ -54,6 +54,10 @@ export function validateCollections(collections) {
     }
   }
 
+  for (const record of collections.entities ?? []) {
+    requireReference("entities", record, "source_ids", "sources", { array: true, nonEmpty: true });
+  }
+
   for (const record of collections.claims ?? []) {
     requireReference("claims", record, "subject_entity_id", "entities");
     requireReference("claims", record, "source_ids", "sources", { array: true, nonEmpty: true });
