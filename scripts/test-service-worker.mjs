@@ -84,9 +84,8 @@ function fetchEvent(request) {
   };
 }
 
-networkFetch = async (url) => url === "/app/"
-  ? response('<html><head><link rel="stylesheet" href="./assets/app.css"><link rel="modulepreload" href="./assets/app.js"></head><body><script type="module" src="./assets/app.js"></script></body></html>')
-  : response(`network:${url}`);
+const initialHtml = '<html><head><link rel="stylesheet" href="./assets/app.css"><link rel="modulepreload" href="./assets/app.js"></head><body><script type="module" src="./assets/app.js"></script></body></html>';
+networkFetch = async (url) => url === "/app/" ? response(initialHtml) : response(`network:${url}`);
 await dispatch("install", lifecycleEvent());
 assert.equal(skipWaitingCalled, true, "install activates the new worker");
 assert.ok(stores.get("impact-shell-v0.4").has("https://example.test/app/"), "install precaches the app shell");
@@ -100,6 +99,12 @@ await dispatch("activate", lifecycleEvent());
 assert.equal(stores.has("impact-shell-v0.1"), false, "activation removes the previous cache");
 assert.equal(clientsClaimed, true, "activation claims open clients");
 console.log("PASS activation cleans old caches and claims clients");
+
+networkFetch = async () => { throw new Error("offline"); };
+const firstVisitOfflineNavigation = fetchEvent({ method: "GET", url: "https://example.test/app/deep-link", mode: "navigate" });
+handlers.get("fetch")(firstVisitOfflineNavigation);
+assert.equal(await (await firstVisitOfflineNavigation.response).text(), initialHtml);
+console.log("PASS first-visit navigation works immediately offline");
 
 const navigation = fetchEvent({ method: "GET", url: "https://example.test/app/", mode: "navigate" });
 networkFetch = async () => response("fresh online page");
