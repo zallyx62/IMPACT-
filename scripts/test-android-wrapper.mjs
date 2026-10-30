@@ -15,6 +15,9 @@ assert.ok(activity.includes("setAllowContentAccess(false)"), "WebView content-pr
 assert.ok(activity.includes("setAllowFileAccessFromFileURLs(false)"), "file URL access must be disabled");
 assert.ok(activity.includes("setAllowUniversalAccessFromFileURLs(false)"), "universal file URL access must be disabled");
 assert.ok(activity.includes('ASSET_HOST = "appassets.androidplatform.net"'), "the local asset origin must be explicit");
+assert.ok(activity.includes('APP_PATH = "/impact/"'), "bundled assets must be isolated under a dedicated path");
+assert.ok(activity.includes('new WebViewAssetLoader.AssetsPathHandler(this)'), "the WebKit-compatible asset handler constructor must be used");
+assert.ok(activity.includes("uri.getPath().startsWith(APP_PATH)"), "only the embedded app path may remain inside the WebView");
 assert.ok(activity.includes("Intent.ACTION_VIEW"), "external links must open in the system browser");
 assert.ok(activity.includes('"https".equals(scheme) || "http".equals(scheme)'), "only web links may be handed to the browser");
 assert.ok(activity.includes("setJavaScriptEnabled(true)"), "the bundled React app requires JavaScript");
