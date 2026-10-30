@@ -196,6 +196,13 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(buildEntityDossier("entity-one", unreviewed), undefined);
   });
 
+  it("does not publish an entity with an empty source list", () => {
+    const unreferenced = structuredClone(data);
+    unreferenced.entities[0].source_ids = [];
+    assert.equal(buildEntityDossier("entity-one", unreferenced), undefined);
+    assert.ok(!getPublishedEntities(unreferenced).some((item) => item.id === "entity-one"));
+  });
+
 
 describe("evidence relation labels", () => {
   it("distinguishes supporting, contradicting, mixed and contextual evidence", () => {
