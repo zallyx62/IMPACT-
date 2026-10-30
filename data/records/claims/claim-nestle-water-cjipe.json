@@ -19,5 +19,6 @@
   "editorial_note": "Présenter la nature exacte de la convention et ses limites de périmètre ; ne pas la confondre avec une condamnation pénale de toutes les entités du groupe.",
   "publication_basis": "evidence_verified",
   "published_at": "2026-10-30",
-  "publication_note": "La publication décrit la signature et le montant de la convention judiciaire d'intérêt public environnementale, en s'appuyant sur le document du ministère de la Justice et sur le communiqué de l'entreprise. Une CJIPE n'est pas présentée comme une condamnation pénale et ne concerne pas automatiquement toutes les entités du groupe Nestlé."
+  "publication_note": "La publication décrit la signature et le montant de la convention judiciaire d'intérêt public environnementale, en s'appuyant sur le document du ministère de la Justice et sur le communiqué de l'entreprise. Une CJIPE n'est pas présentée comme une condamnation pénale et ne concerne pas automatiquement toutes les entités du groupe Nestlé.",
+  "requires_human_review": false
 }
