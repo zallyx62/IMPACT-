@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 const css = await readFile(new URL("../app/src/styles.css", import.meta.url), "utf8");
 const dossierPanel = await readFile(new URL("../app/src/DossierPanel.tsx", import.meta.url), "utf8");
 const app = await readFile(new URL("../app/src/App.tsx", import.meta.url), "utf8");
+const privacy = await readFile(new URL("../PRIVACY.md", import.meta.url), "utf8");
 
 assert.match(css, /button:focus-visible, a:focus-visible, input:focus-visible/);
 assert.match(css, /\.language-select:focus-visible/);
@@ -14,6 +15,8 @@ assert.match(app, /id="theme-select"/);
 assert.ok(app.includes("useState<Theme>(getInitialTheme)"));
 assert.ok(app.includes("document.documentElement.dataset.theme = theme"));
 assert.ok(app.includes('localStorage.setItem("impact-theme", theme)'));
+assert.ok(privacy.includes("impact-theme") && privacy.includes("jamais transmise à IMPACT"),
+  "the locally stored theme preference must be disclosed in the privacy policy");
 assert.match(app, /useState<Language>\("en"\)/, "English must be the default language for new sessions");
 assert.match(app, /<option value="fr">Français<\/option>/);
 assert.match(app, /<option value="en">English<\/option>/);
