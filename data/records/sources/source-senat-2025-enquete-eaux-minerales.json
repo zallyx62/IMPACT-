@@ -9,5 +9,8 @@
   "language": "fr",
   "methodology": "Rapport d'une commission d'enquête parlementaire, fondé notamment sur des auditions, documents administratifs et travaux de contrôle. Les conclusions et appréciations sont attribuées à la commission.",
   "limitations": "Un rapport parlementaire n'est pas un jugement judiciaire. Les formulations relatives aux pressions, aux intentions et à l'interprétation des règles doivent rester attribuées au rapport et être lues avec les réponses de l'entreprise et les documents judiciaires.",
-  "review_status": "to_review"
+  "review_status": "evidence_verified",
+  "verification_method": "primary_document_review",
+  "verified_at": "2026-10-30",
+  "verification_note": "Rapport officiel n° 628 (2024-2025), tome I, déposé le 14 mai 2025, consulté sur le site du Sénat. Les passages utilisés portent sur la révélation des traitements par Nestlé Waters, les sites de Vergèze, Vittel et Contrexéville, la distinction entre traitements interdits et microfiltration, et les limites de l'enquête. Les interprétations et appréciations restent attribuées à la commission ; le rapport n'est pas un jugement judiciaire."
 }
