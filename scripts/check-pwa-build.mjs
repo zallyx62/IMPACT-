@@ -56,6 +56,19 @@ const assets = await readdir(new URL("assets/", dist));
 assert.ok(assets.some((file) => file.endsWith(".js")), "production JavaScript bundle is missing");
 assert.ok(assets.some((file) => file.endsWith(".css")), "production CSS bundle is missing");
 
+const javascriptBundles = await Promise.all(
+  assets.filter((file) => file.endsWith(".js")).map((file) => readFile(new URL(`assets/${file}`, dist), "utf8")),
+);
+const bundleText = javascriptBundles.join("\\n");
+for (const draftMarker of [
+  "claim-nestle-baby-food-added-sugar",
+  "claim-nestle-baby-food-plastic-pouches-2025",
+  "source-greenpeace-baby-food-plastic-pouches-2026",
+  "source-assemblee-nationale-2026-eaux-nestle",
+]) {
+  assert.ok(!bundleText.includes(draftMarker), `unpublished editorial record leaked into production bundle: ${draftMarker}`);
+}
+
 const serviceWorker = await readFile(new URL("sw.js", dist), "utf8");
 assert.match(serviceWorker, /self\.addEventListener\(["']install/);
 assert.match(serviceWorker, /self\.addEventListener\(["']fetch/);
