@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 33 sources sont `to_review`, les 26 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 32 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 35 sources sont `to_review`, les 26 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 34 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -36,12 +36,12 @@ Affirmations à examiner :
 - `claim-nestle-water-gard-uncertainty` — incertitude résiduelle relevée par le Sénat pour le Gard entre août 2023 et mai 2024.
 - `claim-nestle-water-vosges-surveillance` — résultats de surveillance virologique rapportés pour les Vosges.
 - `claim-nestle-waters-cjipe-completion-2026` — exécution des obligations de la CJIPE et extinction de l'action publique annoncées le 14 octobre 2026.
-- `claim-nestle-vosges-plastic-dumps-retrial-2026` — nouveau procès ordonné le 17 septembre 2026 concernant les décharges plastiques, sans décision sur le fond.
+- `claim-nestle-vosges-plastic-dumps-retrial-2026` — arrêt du 17 septembre 2026 ordonnant un nouvel examen du dossier des décharges plastiques ; pourvoi en cassation de Nestlé le 8 octobre et décision du tribunal correctionnel reportée au 9 décembre selon Keystone-ATS, sans décision au fond.
 - `claim-nestle-waters-perrier-raids-2026` — perquisitions du 19 mai 2026 à Vergèze et dans un laboratoire des Vosges dans le cadre d'une enquête distincte pour tromperie ; il s'agit d'actes d'enquête, pas d'une décision au fond.
 
 **Point de vigilance :** conserver ensemble les conclusions différentes selon les sites et les périodes. L'incertitude relevée dans le Gard ne prouve pas qu'une contamination ou un dommage sanitaire s'est produit ; les résultats rassurants des Vosges ne doivent pas être généralisés au Gard. La réponse gouvernementale de 2026 doit rester distincte des conclusions du rapport sénatorial de 2025.
 
-La CJIPE concerne Nestlé Waters Supply Est et son périmètre judiciaire dans les Vosges ; ne pas l'attribuer indistinctement à toutes les sociétés du groupe.
+La CJIPE concerne Nestlé Waters Supply Est et son périmètre judiciaire dans les Vosges ; ne pas l'attribuer indistinctement à toutes les sociétés du groupe. Le procureur a constaté l'exécution des obligations le 9 octobre 2026 ; l'information a été publiée le 14 octobre. Le montant de 2 millions d'euros est l'amende d'intérêt public, à distinguer des indemnisations et du programme de renaturation.
 
 ## 2. Marketing des substituts du lait maternel
 
@@ -69,7 +69,7 @@ La chronologie des notifications est contestée et doit désormais être présen
 - La chronologie publiée par Nestlé le 29 janvier 2026, qui affirme que les autorités néerlandaises, les pays potentiellement concernés et la Commission européenne ont été informés le 10 décembre 2025, et qu'un rappel volontaire de 25 lots dans 16 pays a été initié le même jour.
 - L'enquête conjointe de Radio France, RTS et RTBF rapportée par Reuters le 19 mai 2026, qui allègue des retards et des retraits discrets dans certains pays ; Nestlé conteste ces allégations.
 
-Ces documents ne décrivent pas les mêmes dates de notification. Il faut distinguer le premier rappel, le rappel élargi, les alertes aux autorités et les communications publiques. Ne pas présenter le différend comme tranché par un tribunal.
+Ces documents ne décrivent pas exactement les mêmes dates ni les mêmes étapes de notification. Le document de Nestlé du 29 janvier indique une information des autorités néerlandaises, des pays potentiellement concernés et de la Commission européenne dès le 10 décembre. Sa réponse à Radio France du 19 mai précise que les notifications aux autorités pays par pays ont commencé le 2 janvier, avec des rappels publics à partir du 5 janvier. Les rapporteurs de l'Assemblée nationale présentent une chronologie dans laquelle les autorités de contrôle ont été averties le 5 janvier. Il faut distinguer l'information des autorités néerlandaises, les notifications pays par pays, les alertes aux fabricants, le premier rappel et les rappels publics élargis. Ne pas présenter le différend comme tranché par un tribunal.
 
 ## 4. Sucre dans les aliments pour bébés
 
@@ -128,6 +128,7 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 - `source-nestle-infant-formula-recall-2026` — communiqué de Nestlé sur le rappel de certains lots Guigoz et Nidal.
 - `source-nestle-infant-formula-timeline-2026` — chronologie publiée par Nestlé le 29 janvier 2026, à confronter aux enquêtes journalistiques.
 - `source-reuters-nestle-cereulide-notification-2026` — compte rendu des allégations de Radio France, RTS et RTBF sur les délais de notification.
+- `source-nestle-response-radiofrance-2026` — réponse de Nestlé du 19 mai 2026, qui affirme des notifications pays par pays à compter du 2 janvier et des rappels publics à partir du 5 janvier.
 - `source-assemblee-nationale-2026-cereulide-mission-flash` — compte rendu officiel de la communication des rapporteurs de la mission flash à la commission des affaires sociales, 19 mai 2026, à confronter à la chronologie de Nestlé.
 - `source-reuters-nestle-perrier-raids-2026` — compte rendu des perquisitions à Vergèze et dans les Vosges en mai 2026.
 - `source-fr-health-ministry-infant-formula-recall-2026` — point de situation des autorités françaises du 22 janvier 2026.
