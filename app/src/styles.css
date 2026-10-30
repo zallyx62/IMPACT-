@@ -173,6 +173,8 @@ a { color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  html { scroll-behavior: auto; }
+  .universe-card, .tool-card, .dossier-card, .result-item { transition: none; }
 }
 /* Published, source-backed dossiers */
 .dossier-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; }
@@ -441,10 +443,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 :root[data-theme="dark"] .method-section { background: #1b2a20; border-color: #334d39; }
 :root[data-theme="dark"] .method-copy > p:not(.section-kicker),
 :root[data-theme="dark"] .privacy-list li { color: #b5cbb9; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .universe-card, .tool-card, .dossier-card, .result-item { transition: none; }
-}
+
 
 
 /* Settings menu and five user-selectable accent palettes. */
