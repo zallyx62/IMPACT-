@@ -24,6 +24,7 @@ Cette feuille de route décrit la cible à long terme et distingue les fonctions
 - Formulaire local de proposition de source ou de correction.
 - Exploration des dossiers par univers.
 - Atelier local de préparation de projets (fiche exportable par copie), sans envoi ni publication.
+- Bibliothèque locale de trois canevas méthodologiques : diagnostic, expérimentation limitée et évaluation ; ils ne sont pas présentés comme des interventions dont l'efficacité serait démontrée.
 - Préférences d'apparence locales et socle PWA.
 
 ## Ordre de réalisation Web
