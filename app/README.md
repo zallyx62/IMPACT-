@@ -39,7 +39,7 @@ node scripts/check-ui-invariants.mjs
 
 Le contrôle du paquet PWA (`node scripts/check-pwa-build.mjs`) s'exécute après `npm run build`.
 
-Le build de production est généré dans `dist/`.
+Le build de production est généré dans `dist/`. Les icônes PNG PWA de 180, 192 et 512 pixels sont générées automatiquement depuis les sources versionnées dans `assets/pwa-icons/` avant `npm run dev` et `npm run build` ; les fichiers générés restent ignorés par Git.
 
 ## Interface et navigation
 
