@@ -60,7 +60,7 @@ test("timeline includes only dated public events and sorts newest first", () => 
   }]);
   assert.equal(result[0].date, "2025-04-01");
   assert.ok(result.some((event) => event.title === "Échéance annoncée"));
-  assert.equal(result.length, 5);
+  assert.equal(result.length, 6);
 });
 
 test("overdue label is computed without mutating the published commitment status", () => {
