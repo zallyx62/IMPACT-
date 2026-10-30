@@ -34,6 +34,7 @@ const labels = {
       disputed: "Contestée",
       refuted: "Réfutée",
       insufficient_information: "Informations insuffisantes",
+      not_reviewed: "Non examinée",
     } as Record<string, string>,
   },
   en: {
@@ -62,6 +63,7 @@ const labels = {
       disputed: "Disputed",
       refuted: "Refuted",
       insufficient_information: "Insufficient information",
+      not_reviewed: "Not reviewed",
     } as Record<string, string>,
   },
 };
