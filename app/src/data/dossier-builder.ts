@@ -72,10 +72,14 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
       item.target_entity_ids.some((targetId) => publishableEntityIds.has(targetId)) &&
       item.source_ids.some((sourceId) => reviewed.has(sourceId)),
   );
-  const entityResponses = data.responses.filter(
+  const campaignResponseIds = new Set(
+    entityCampaigns.flatMap((item) => item.response_ids ?? []),
+  );
+  const dossierResponses = data.responses.filter(
     (item) =>
-      item.entity_id === entityId &&
+      (item.entity_id === entityId || campaignResponseIds.has(item.id)) &&
       item.publication_status === "published" &&
+      publishableEntityIds.has(item.entity_id) &&
       Boolean(item.source_id && reviewed.has(item.source_id)),
   );
   const entityCommitments = data.commitments.filter(
@@ -90,7 +94,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
       .map((item) => item.id),
   );
   entityCampaigns.forEach((item) => (item.claim_ids ?? []).forEach((id) => claimIds.add(id)));
-  entityResponses.forEach((item) => item.related_claim_ids.forEach((id) => claimIds.add(id)));
+  dossierResponses.forEach((item) => item.related_claim_ids.forEach((id) => claimIds.add(id)));
 
   const claims = data.claims.filter(
     (item) => claimIds.has(item.id) && publishableEntityIds.has(item.subject_entity_id) && item.source_ids.some((sourceId) => reviewed.has(sourceId)),
@@ -119,7 +123,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
   claims.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   entityRelationships.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
   entityCampaigns.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
-  entityResponses.forEach((item) => {
+  dossierResponses.forEach((item) => {
     if (item.source_id) sourceIds.add(item.source_id);
   });
   entityCommitments.forEach((item) => item.source_ids.forEach((id) => sourceIds.add(id)));
@@ -164,7 +168,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
         ? { response_ids: item.response_ids.filter((id) => publishedResponseIds.has(id)) }
         : {}),
     })),
-    responses: entityResponses.map((item) => ({
+    responses: dossierResponses.map((item) => ({
       ...item,
       related_claim_ids: item.related_claim_ids.filter((id) => publishedClaimIds.has(id)),
     })),

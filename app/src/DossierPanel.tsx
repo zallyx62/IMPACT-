@@ -22,7 +22,7 @@ const labels = {
     evidence: "Éléments de preuve",
     relationships: "Relations documentées",
     campaigns: "Campagnes associées", organizer: "Organisateur", targets: "Entités ciblées",
-    responses: "Réponses de l’entité",
+    responses: "Réponses publiées liées au dossier", respondingEntity: "Entité répondante",
     commitments: "Engagements suivis",
     sourceArchive: "Copie d’archive", sourceAccessed: "Consultée le", sourcePublished: "Publiée le", sourceType: "Nature de la source", sourceLanguage: "Langue", sourceMethodology: "Méthode", sourceConflicts: "Intérêts ou liens pertinents", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
     noDescription: "Aucune description éditoriale n’a encore été publiée.",
@@ -50,7 +50,7 @@ const labels = {
     evidence: "Evidence",
     relationships: "Documented relationships",
     campaigns: "Related campaigns", organizer: "Organizer", targets: "Target entities",
-    responses: "Entity responses",
+    responses: "Published responses linked to this dossier", respondingEntity: "Responding entity",
     commitments: "Tracked commitments",
     sourceArchive: "Archived copy", sourceAccessed: "Accessed on", sourcePublished: "Published on", sourceType: "Source type", sourceLanguage: "Language", sourceMethodology: "Methodology", sourceConflicts: "Relevant interests or affiliations", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
     noDescription: "No editorial description has been published yet.",
@@ -230,7 +230,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
       {dossier.responses.length > 0 && (
         <section className="dossier-section">
           <h3>{t.responses}</h3>
-          <div className="dossier-list">{dossier.responses.map((item) => <article className="claim-card" key={item.id}><p>{item.summary}</p><p>{t.publication} : {displayValue("publicationStatus", item.publication_status, language)}</p>{item.received_at && <p>{t.received} : {dateLabel(item.received_at, language)}</p>}{item.published_at && <p>{t.published} : {dateLabel(item.published_at, language)}</p>}{item.full_response_url && safeExternalUrl(item.full_response_url) && <p><a href={safeExternalUrl(item.full_response_url)} target="_blank" rel="noopener noreferrer">{t.fullResponse}</a></p>}{item.source_id && <div className="extra-sources">{sourceReference(item.source_id)}</div>}</article>)}</div>
+          <div className="dossier-list">{dossier.responses.map((item) => <article className="claim-card" key={item.id}>{item.entity_id !== dossier.entity.id && <p><strong>{t.respondingEntity} :</strong> {entityName(item.entity_id)}</p>}<p>{item.summary}</p><p>{t.publication} : {displayValue("publicationStatus", item.publication_status, language)}</p>{item.received_at && <p>{t.received} : {dateLabel(item.received_at, language)}</p>}{item.published_at && <p>{t.published} : {dateLabel(item.published_at, language)}</p>}{item.full_response_url && safeExternalUrl(item.full_response_url) && <p><a href={safeExternalUrl(item.full_response_url)} target="_blank" rel="noopener noreferrer">{t.fullResponse}</a></p>}{item.source_id && <div className="extra-sources">{sourceReference(item.source_id)}</div>}</article>)}</div>
         </section>
       )}
       {dossier.commitments.length > 0 && (

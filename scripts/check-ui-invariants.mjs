@@ -36,6 +36,11 @@ for (const field of ["source.source_type", "source.published_at", "source.langua
   assert.ok(dossierPanel.includes(field), `source provenance field ${field} must be displayed`);
 }
 
+assert.match(dossierPanel, /item\.entity_id !== dossier\.entity\.id/,
+  "responses from related campaign entities must be attributed");
+assert.match(dossierPanel, /respondingEntity: "Entité répondante"/);
+assert.match(dossierPanel, /respondingEntity: "Responding entity"/);
+
 assert.match(dossierPanel, /claim\.subject_entity_id !== dossier\.entity\.id/,
   "claims about another entity must be explicitly attributed in the dossier");
 assert.match(dossierPanel, /claimAbout: "Concerne"/);
