@@ -9,9 +9,11 @@ assert.match(css, /@media \(max-width: 390px\)/);
 assert.equal((css.match(/prefers-reduced-motion:\s*reduce/g) ?? []).length, 1,
   "reduced-motion rules should be centralized to avoid conflicting duplicates");
 
-const darkMode = css.match(/@media \(prefers-color-scheme: dark\) \{([\s\S]*?)\n\}/);
+const darkModeBlocks = [...css.matchAll(/@media \\(prefers-color-scheme: dark\\) \\{([\\s\\S]*?)\\n\\}/g)];
+const darkMode = darkModeBlocks[0];
+const finalDarkMode = darkModeBlocks.at(-1);
 assert.ok(darkMode, "dark-mode styles are required");
-assert.match(darkMode[1], /\.dossier-card, \.claim-card \{ background: var\(--paper\); \}/,
+assert.match(finalDarkMode[1], /\.dossier-card, \.claim-card \{ background: var\(--paper\); \}/,
   "dossier and claim cards must use the dark surface color");
 assert.match(darkMode[1], /\.claim-uncertainty \{ background: #[0-9a-fA-F]{6}; color: #[0-9a-fA-F]{6}; \}/,
   "uncertainty notes need a dark-mode surface and readable foreground");
