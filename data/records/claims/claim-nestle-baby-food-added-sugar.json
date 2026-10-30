@@ -14,5 +14,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Le résultat concerne les références et échantillons testés, pas tous les produits Cerelac ou Nido. Nestlé conteste l'interprétation de l'enquête, notamment la classification de certaines sources de sucres provenant des céréales, du lait ou des fruits, et affirme appliquer un seuil mondial de sucres ajoutés.",
-  "editorial_note": "Afficher la réponse de Nestlé à proximité. Distinguer sucres ajoutés, sucres naturellement présents dans les ingrédients et sucres totaux."
+  "editorial_note": "Afficher la réponse de Nestlé à proximité. Distinguer sucres ajoutés, sucres naturellement présents dans les ingrédients et sucres totaux.",
+  "requires_human_review": true
 }
