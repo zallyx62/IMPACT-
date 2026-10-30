@@ -44,6 +44,7 @@ const data = {
   commitments: [
     { id: "commitment-reviewed", entity_id: "entity-one", statement: "A reviewed public commitment for the test.", announced_at: "2026-10-30", status: "in_progress", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30" },
     { id: "commitment-pending", entity_id: "entity-one", statement: "An unreviewed commitment for the test.", announced_at: "2026-10-30", status: "announced", source_ids: ["source-pending"], reviewed_at: "2026-10-30" },
+    { id: "commitment-no-review", entity_id: "entity-one", statement: "A commitment whose source is reviewed but whose editorial review is pending.", announced_at: "2026-10-30", status: "announced", source_ids: ["source-reviewed"], reviewed_at: null },
   ],
 };
 
@@ -71,6 +72,7 @@ describe("buildEntityDossier publication rules", () => {
     assert.equal(dossier.responses.find((item) => item.id === "response-public-other")?.entity_id, "entity-two",
       "published responses linked from a related campaign must retain their responding entity");
     assert.deepEqual(dossier.commitments.map((item) => item.id), ["commitment-reviewed"]);
+    assert.ok(!dossier.commitments.some((item) => item.id === "commitment-no-review"), "unreviewed commitments must remain hidden");
   });
 
   it("hides campaign organizers that are published but lack a reviewed source", () => {
