@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "IMPACT — Relation entre entités",
-  "description": "Relation qualifiée et sourcée entre deux entités. Une relation commerciale ne prouve pas une relation de propriété.",
+  "description": "Relation qualifiée et sourcée entre deux entités. Une relation commerciale ne prouve pas une relation de propriété ; alternative_to indique une option de remplacement pour un usage et un critère explicités.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "from_entity_id", "to_entity_id", "relationship_type", "knowledge_status", "source_ids"],
