@@ -80,7 +80,7 @@ export const tools: CatalogItem[] = [
     description: { fr: "Sources, dates, limites et corrections accessibles.", en: "Accessible sources, dates, limitations and corrections." },
     detail: {
       fr: "La future fiche séparera une affirmation de ses sources et des éléments précis qui l'étayent ou la contredisent. Elle exposera aussi les inconnues et la date de dernière vérification.",
-      en: "A future record will separate a claim from its sources and the specific evidence supporting or contradicting it. It will also show unknowns and the last review date."
+      en: "Browse published evidence, search its sources and filter supporting, contradicting, mixed or contextual items. Each item retains its scope and limitations."
     },
     keywords: ["preuve", "source", "correction", "fiabilité", "evidence", "source", "correction", "reliability"]
   },
