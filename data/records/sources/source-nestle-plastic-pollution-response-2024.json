@@ -10,5 +10,8 @@
   "methodology": "Company response to Break Free From Plastic brand audit findings and criticism of Nestlé's contribution to plastic pollution.",
   "potential_conflicts": "Official response by the company discussed in the reports.",
   "limitations": "Documents Nestlé's position and criticisms of the brand-audit methodology; it is not an independent reanalysis of the underlying audit dataset.",
-  "review_status": "to_review"
+  "review_status": "evidence_verified",
+  "verification_method": "official_record_check",
+  "verified_at": "2026-10-30",
+  "verification_note": "Document officiel de position de Nestlé, daté de juin 2024 et hébergé sur le site de l'entreprise, consulté dans son intégralité (4 pages). La partie consacrée aux audits de Break Free From Plastic expose la critique de l'entreprise sur la collecte bénévole, l'absence de vérification indépendante et le risque de double comptage. Il s'agit uniquement de la position de Nestlé sur ces audits ; le document ne constitue pas une réanalyse indépendante et ne répond pas spécifiquement à l'article évalué par les pairs de Science Advances."
 }
