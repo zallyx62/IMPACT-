@@ -11,6 +11,10 @@ describe("normalizeSearch", () => {
   it("trims surrounding whitespace", () => {
     assert.equal(normalizeSearch("  privacy  "), "privacy");
   });
+
+  it("normalizes ASCII case independently of the browser locale", () => {
+    assert.equal(normalizeSearch("IMPACT"), "impact");
+  });
 });
 
 describe("searchableText", () => {
