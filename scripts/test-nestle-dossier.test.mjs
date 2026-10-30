@@ -32,6 +32,7 @@ describe("Nestlé dossier editorial gate", () => {
       "source-nestle-packaging-progress-2025",
       "source-nestle-plastic-pollution-response-2024",
       "source-nestle-deforestation-supply-chains-2025",
+      "source-global-witness-liberia-cocoa-deforestation-2025",
     ];
     const sources = await Promise.all(sourceNames.map((id) => readRecord("sources", id)));
     const claims = await Promise.all([
@@ -54,6 +55,7 @@ describe("Nestlé dossier editorial gate", () => {
       "claim-nestle-plastic-sachets-asia-2024",
       "claim-nestle-packaging-progress-2025",
       "claim-nestle-cocoa-deforestation-2025",
+      "claim-nestle-liberia-cocoa-deforestation-exposure-2025",
     ].map((id) => readRecord("claims", id)));
     const evidence = await Promise.all([
       "evidence-nestle-water-admission",
@@ -77,6 +79,7 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-plastic-sachets-asia-2024",
       "evidence-nestle-packaging-progress-2025",
       "evidence-nestle-cocoa-deforestation-2025",
+      "evidence-nestle-liberia-cocoa-deforestation-exposure-2025",
     ].map((id) => readRecord("evidence", id)));
     const responses = await Promise.all([
       "response-nestle-water-cjipe",
@@ -85,6 +88,7 @@ describe("Nestlé dossier editorial gate", () => {
       "response-nestle-cocoa-plan",
       "response-nestle-bms-marketing-2024",
       "response-nestle-plastic-pollution-2024",
+      "response-nestle-liberia-cocoa-deforestation-2025",
     ].map((id) => readRecord("responses", id)));
     const data = { entities: [entity], sources, claims, evidence, relationships: [], campaigns: [], responses, commitments: [] };
 
