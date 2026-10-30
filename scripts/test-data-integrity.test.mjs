@@ -38,6 +38,24 @@ describe("validateCollections", () => {
     assert.ok(errors.some((error) => error.includes("must not be empty")));
     assert.ok(errors.some((error) => error.includes("duplicate id")));
   });
+  it("rejects self-relations and reversed editorial date ranges", () => {
+    const broken = structuredClone(valid);
+    broken.relationships[0].from_entity_id = "entity-one";
+    broken.relationships[0].to_entity_id = "entity-one";
+    broken.relationships[0].valid_from = "2026-12-01";
+    broken.relationships[0].valid_until = "2026-01-01";
+    broken.claims[0].valid_from = "2026-12-01";
+    broken.claims[0].valid_until = "2026-01-01";
+    broken.campaigns[0].started_at = "2026-12-01";
+    broken.campaigns[0].ended_at = "2026-01-01";
+
+    const errors = validateCollections(broken);
+    assert.equal(errors.length, 4);
+    assert.ok(errors.some((error) => error.includes("cannot have a relationship with itself")));
+    assert.ok(errors.some((error) => error.includes('"valid_from" must not be later than "valid_until"')));
+    assert.ok(errors.some((error) => error.includes('"started_at" must not be later than "ended_at"')));
+  });
+
   it("checks references for evidence, relationships, campaigns, responses and commitments", () => {
     const broken = structuredClone(valid);
     broken.evidence[0].source_id = "missing-evidence-source";
