@@ -87,6 +87,15 @@ function App() {
 
   useEffect(() => {
     document.documentElement.lang = language;
+    document.title = language === "fr"
+      ? "IMPACT — Comprendre. Choisir. Agir."
+      : "IMPACT — Understand. Choose. Act.";
+    document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute(
+      "content",
+      language === "fr"
+        ? "IMPACT — comprendre, vérifier, comparer et agir grâce à des informations documentées."
+        : "IMPACT — understand, verify, compare and act with documented information.",
+    );
   }, [language]);
 
   const foundUniverses = useMemo(
