@@ -1,9 +1,12 @@
-const CACHE_NAME = "impact-shell-v0.5";
+const CACHE_NAME = "impact-shell-v0.6";
 const BASE_PATH = new URL("./", self.location.href).pathname;
 const SHELL_URLS = [
   BASE_PATH,
   new URL("manifest.webmanifest", self.location.href).pathname,
   new URL("icons/impact.svg", self.location.href).pathname,
+  new URL("icons/impact-180.png", self.location.href).pathname,
+  new URL("icons/impact-192.png", self.location.href).pathname,
+  new URL("icons/impact-512.png", self.location.href).pathname,
 ];
 
 self.addEventListener("install", (event) => {
