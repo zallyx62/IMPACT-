@@ -53,8 +53,12 @@ public final class MainActivity extends Activity {
             settings.setSafeBrowsingEnabled(true);
         }
 
+        WebViewAssetLoader.AssetsPathHandler assetsHandler =
+                new WebViewAssetLoader.AssetsPathHandler(this);
         WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
-                .addPathHandler(APP_PATH, new WebViewAssetLoader.AssetsPathHandler(this))
+                .addPathHandler(APP_PATH, path -> assetsHandler.handle(
+                        path.isEmpty() ? "index.html" : path
+                ))
                 .build();
 
         webView.setWebViewClient(new WebViewClient() {
