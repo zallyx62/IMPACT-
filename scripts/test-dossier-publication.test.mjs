@@ -55,4 +55,10 @@ describe("buildEntityDossier publication rules", () => {
   it("does not expose draft entities", () => {
     assert.equal(buildEntityDossier("entity-draft", data), undefined);
   });
+
+  it("does not expose an entity without a reviewed source", () => {
+    const unreviewed = structuredClone(data);
+    unreviewed.entities[0].source_ids = ["source-pending"];
+    assert.equal(buildEntityDossier("entity-one", unreviewed), undefined);
+  });
 });
