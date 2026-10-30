@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { buildDossierShareUrl } from "./data/share-url";
 import { getPublishedEntities, type EntityDossier, type Language, type SourceRecord } from "./data/records";
 import { getEvidenceRelation } from "./data/dossier-builder";
 import { safeExternalUrl } from "./data/safe-url";
@@ -12,6 +13,7 @@ interface Props {
 const labels = {
   fr: {
     back: "Retour à l’accueil",
+    share: "Partager le dossier", copied: "Lien copié", shareUnavailable: "Partage indisponible sur cet appareil.",
     label: "DOSSIER DOCUMENTÉ",
     reviewed: "Dernière vérification humaine", notReviewed: "Sans validation humaine", evidenceBasis: "Publication fondée sur les preuves", publicationNote: "Périmètre de publication", sourceVerification: "Contrôle documentaire", verifiedOn: "Vérifié le",
     claims: "Affirmations publiées",
@@ -41,6 +43,7 @@ const labels = {
   },
   en: {
     back: "Back to home",
+    share: "Share dossier", copied: "Link copied", shareUnavailable: "Sharing is unavailable on this device.",
     label: "DOCUMENTED DOSSIER",
     reviewed: "Last human review", notReviewed: "No human approval", evidenceBasis: "Published under evidence criteria", publicationNote: "Publication scope", sourceVerification: "Documentary check", verifiedOn: "Verified on",
     claims: "Published claims",
@@ -106,11 +109,39 @@ function dateLabel(value: string, language: Language) {
 
 export default function DossierPanel({ dossier, language, onBack }: Props) {
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const [shareStatus, setShareStatus] = useState("");
 
   useEffect(() => {
     titleRef.current?.focus();
   }, [dossier.entity.id]);
   const t = labels[language];
+
+  async function shareDossier() {
+    const url = buildDossierShareUrl(window.location.href, dossier.entity.id);
+    try {
+      if (typeof navigator.share === "function") {
+        await navigator.share({ title: `IMPACT — ${dossier.entity.name}`, url });
+        setShareStatus("");
+        return;
+      }
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+        setShareStatus(t.copied);
+        return;
+      }
+      setShareStatus(t.shareUnavailable);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(url);
+          setShareStatus(t.copied);
+          return;
+        }
+      } catch { /* Clipboard access can be blocked by the browser. */ }
+      setShareStatus(t.shareUnavailable);
+    }
+  }
   const sourceById = new Map(dossier.sources.map((source) => [source.id, source]));
   const entityById = new Map(getPublishedEntities().map((entity) => [entity.id, entity.name]));
   const entityName = (id: string) => entityById.get(id) ?? id;
@@ -160,6 +191,8 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
     <section className="dossier-panel" aria-labelledby="dossier-title">
       <button className="back-button" type="button" onClick={onBack}>← {t.back}</button>
       <header className="dossier-header">
+        <button className="share-button" type="button" onClick={shareDossier}>{t.share}</button>
+        <span className="share-status" role="status" aria-live="polite">{shareStatus}</span>
         <p className="section-kicker">{t.label}</p>
         <h2 id="dossier-title" ref={titleRef} tabIndex={-1}>{dossier.entity.name}</h2>
         <p>{dossier.entity.description || t.noDescription}</p>

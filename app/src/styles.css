@@ -627,3 +627,7 @@ button:active { transform: translateY(0) scale(.99); }
   .method-grid { grid-template-columns: 1fr; gap: .75rem; }
   .method-card { min-height: 0; padding: 1.15rem; }
 }
+
+.share-button { display: inline-flex; align-items: center; min-height: 42px; margin: 0 0 .9rem; padding: .65rem .95rem; border: 1px solid var(--line); border-radius: 11px; background: var(--paper-soft); color: var(--green-deep); font: inherit; font-size: .82rem; font-weight: 750; cursor: pointer; }
+.share-button:hover { border-color: var(--green); }
+.share-status { display: inline-block; margin: 0 0 .9rem .65rem; color: var(--muted); font-size: .78rem; }
