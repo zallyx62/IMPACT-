@@ -18,6 +18,7 @@ export interface SourceRecord {
   title: string;
   publisher: string;
   url?: string | null;
+  archived_url?: string | null;
   source_type: string;
   published_at?: string | null;
   accessed_at: string;

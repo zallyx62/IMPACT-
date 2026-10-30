@@ -29,7 +29,7 @@ for (const marker of ["selected-mark", "tool-mark", "result-mark", "universe-mar
 
 assert.ok(dossierPanel.includes("sourceReference(item.source_id)"), "every evidence item must link to its own source");
 
-for (const field of ["source.source_type", "source.published_at", "source.language", "source.methodology", "source.potential_conflicts"]) {
+for (const field of ["source.source_type", "source.published_at", "source.language", "source.methodology", "source.potential_conflicts", "source.archived_url"]) {
   assert.ok(dossierPanel.includes(field), `source provenance field ${field} must be displayed`);
 }
 
