@@ -29,7 +29,7 @@ GitHub Pages est activé sur le dépôt et le workflow de publication a réussi 
 
 Consulter l'exécution [Deploy IMPACT Web to GitHub Pages](https://github.com/zallyx62/IMPACT-/actions/runs/41046643013) pour voir le build et le déploiement réussis.
 
-Le workflow construit l'application, exécute les contrôles essentiels, puis publie uniquement le dossier de production `app/dist`. Avant le build, un générateur applique les règles de publication éditoriale et n'inclut dans le bundle que les entités, sources, affirmations, preuves, relations, campagnes, réponses et engagements ayant passé la validation humaine. Les brouillons non examinés restent dans le dépôt source, mais ne sont pas embarqués dans le site public. Le workflow ne publie ni les sources de développement ni les fichiers Android.
+Le workflow construit l'application, exécute les contrôles essentiels, puis publie uniquement le dossier de production `app/dist`. Avant le build, un générateur applique les règles de publication éditoriale et n'inclut dans le bundle que les entités, sources, affirmations, preuves, relations, campagnes, réponses et engagements ayant passé soit la validation humaine, soit le contrôle documenté fondé sur les preuves défini dans la charte. Les enregistrements qui ne satisfont aucun de ces deux parcours restent dans le dépôt source, mais ne sont pas embarqués dans le site public. Le workflow ne publie ni les sources de développement ni les fichiers Android.
 
 Le réglage Pages est déjà activé dans les paramètres du dépôt. Le workflow ne déploie que depuis `main`.
 
