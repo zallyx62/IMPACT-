@@ -12,6 +12,7 @@ const published = [
 
 const summary = getDossierSummary("nestle", published);
 assert.ok(summary, "Nestlé summary is available when all referenced claims are published");
+assert.equal(summary.assessedAt, "2026-10-30");
 assert.equal(summary.level, "high");
 assert.equal(summary.boycottPriority, "consider");
 assert.equal(summary.confidence, "moderate");
