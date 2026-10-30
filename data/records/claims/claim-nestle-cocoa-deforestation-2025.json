@@ -3,7 +3,7 @@
   "subject_entity_id": "nestle",
   "statement": "Nestlé déclare que 91,7 % de sa chaîne d'approvisionnement primaire en cacao a été évaluée comme exempte de déforestation pour 2025 ; la même page indique que 8,3 % du volume de cacao reste classé comme inconnu.",
   "topic": "environment",
-  "claim_status": "not_reviewed",
+  "claim_status": "confirmed",
   "source_ids": [
     "source-nestle-deforestation-supply-chains-2025"
   ],
@@ -11,6 +11,10 @@
     "evidence-nestle-cocoa-deforestation-2025"
   ],
   "reviewed_at": null,
-  "uncertainty_note": "Ce sont des chiffres publiés par Nestlé selon sa propre méthode d'évaluation. La catégorie « inconnu » signifie que les volumes ne sont pas encore tracés ou évalués comme exempts de déforestation. La page indique une modification de méthodologie au premier semestre 2026 ; la notion évaluée ne prouve pas une vérification indépendante de chaque exploitation en amont.",
-  "editorial_note": "Ne pas présenter 91,7 % comme une certification indépendante universelle ni le solde de 8,3 % comme une preuve de déforestation. Décrire la méthodologie et son changement en 2026."
+  "uncertainty_note": "Ce sont des chiffres publiés par Nestlé selon sa propre méthode d'évaluation. La catégorie « inconnu » signifie que les volumes ne sont pas tracés ou ne sont pas encore évalués comme exempts de déforestation ; elle ne prouve pas que ces volumes proviennent de zones déforestées. La catégorie « évalué comme exempt de déforestation » ne prouve pas une vérification indépendante de chaque exploitation en amont. La page indique que la méthode de calcul a été modifiée au premier semestre 2026, en convertissant les volumes à leur état frais d'origine plutôt qu'à leur forme transformée ; les comparaisons avec les anciens chiffres doivent donc être prudentes.",
+  "editorial_note": "Ne pas présenter 91,7 % comme une certification indépendante universelle ni le solde de 8,3 % comme une preuve de déforestation. Décrire la méthodologie et son changement en 2026.",
+  "publication_basis": "evidence_verified",
+  "published_at": "2026-10-30",
+  "requires_human_review": false,
+  "publication_note": "Cette affirmation rapporte exclusivement les chiffres publiés par Nestlé sur sa propre page officielle pour 2025. Elle distingue la part évaluée comme exempte de déforestation de la part classée inconnue et précise que la méthode a changé en 2026. Elle ne présente pas ces chiffres comme une certification indépendante de chaque exploitation."
 }
