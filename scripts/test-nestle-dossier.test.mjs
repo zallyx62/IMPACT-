@@ -81,6 +81,13 @@ describe("Nestlé dossier editorial gate", () => {
       "source-senat-2025-enquete-eaux-minerales",
       "source-justice-2024-cjipe-nestle",
       "source-nestle-2024-reponse-cjipe",
+      "source-atni-bms-index-2024",
+      "source-nestle-bms-policy-2024",
+      "source-public-eye-baby-food-2024",
+      "source-bmj-nestle-sugar-2024",
+      "source-nestle-sugar-response-2025",
+      "source-fla-cocoa-cameroon-2022",
+      "source-nestle-cocoa-plan",
     ]);
     const claimIds = [
       "claim-nestle-water-treatments",
