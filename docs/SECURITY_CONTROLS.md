@@ -14,7 +14,7 @@
 - `npm audit` couvre les vulnérabilités connues des dépendances publiées dans les avis npm ; il ne remplace pas une analyse de code ni une revue manuelle.
 - Les contrôles actuels ne testent pas l'application sur des appareils physiques.
 - Aucun test d'intrusion indépendant n'a été réalisé.
-- **État du dépôt vérifié le 30 octobre 2026 à 12:42 :** le ruleset de dépôt `Protection de main` (ID `26202059`) est actif. Sa cible `~DEFAULT_BRANCH` désigne la branche par défaut du dépôt, actuellement `main`. Les règles d'interdiction de suppression et de force-push sont actives. Le passage par Pull Request est obligatoire, sans approbation humaine imposée (seuil de zéro). L'exigence de contrôles de statut est activée, mais sa liste est encore vide : il faut y sélectionner `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions` (CodeQL) pour que les deux vérifications deviennent réellement bloquantes.
+- **État du dépôt vérifié le 30 octobre 2026 à 12:55 :** le ruleset de dépôt `Protection de main` (ID `26202059`) est actif. Sa cible `~DEFAULT_BRANCH` désigne la branche par défaut du dépôt, actuellement `main`. L'interdiction de suppression est active. La règle `Block force pushes` n'apparaît pas dans la configuration enregistrée et doit être réactivée. Le passage par Pull Request est obligatoire, sans approbation humaine imposée (seuil de zéro). L'exigence de contrôles de statut est activée, mais le second contrôle a été enregistré avec le texte supplémentaire `Ne sélectionne` : il faut le remplacer par le nom exact `Analyze Java, JavaScript, TypeScript and GitHub Actions`. `Quality checks` est correctement enregistré.
 - La règle classique de protection de branche peut afficher un état différent : les rulesets sont un mécanisme distinct. L'état de Secret Scanning, de Push Protection, des alertes Dependabot et du signalement privé n'a pas été confirmé par cette vérification.
 - Une recherche du code indexé sur `main` n'a pas trouvé les motifs courants `BEGIN PRIVATE KEY`, `ghp_`, `AKIA`, `password =` et `secret =` ; cela ne remplace pas Secret Scanning et ne couvre pas l'historique complet.
 
@@ -24,10 +24,11 @@ Ouvrir le [ruleset Protection de main](https://github.com/zallyx62/IMPACT-/rules
 
 La configuration actuellement enregistrée est :
 - cibler la branche par défaut (actuellement `main`) ;
-- interdire la suppression de la branche et les force-push ;
+- interdire la suppression de la branche ;
+- réactiver `Block force pushes` ;
 - demander une Pull Request pour intégrer les changements ;
 - ne pas exiger d'approbation humaine obligatoire tant qu'il n'existe pas de second mainteneur disponible ;
-- **terminer la liste des contrôles obligatoires** en ajoutant `Quality checks` et `Analyze Java, JavaScript, TypeScript and GitHub Actions` (CodeQL).
+- conserver `Quality checks` et corriger le second contrôle pour qu'il soit exactement `Analyze Java, JavaScript, TypeScript and GitHub Actions` (CodeQL).
 
 Le workflow `IMPACT checks` s'exécute sur toutes les Pull Requests vers `main`, y compris les modifications de documentation.
 
