@@ -10,6 +10,9 @@ assert.match(css, /\.language-select:focus-visible/);
 assert.match(app, /id="language-select"/);
 assert.match(app, /<option value="fr">Français<\/option>/);
 assert.match(app, /<option value="en">English<\/option>/);
+assert.match(app, /document\.documentElement\.lang = language/);
+assert.match(app, /document\.title = language === "fr"/);
+assert.match(app, /meta\[name="description"\]/);
 assert.match(css, /@media \(max-width: 760px\)/);
 assert.match(css, /@media \(max-width: 390px\)/);
 assert.equal((css.match(/prefers-reduced-motion:\s*reduce/g) ?? []).length, 1,
