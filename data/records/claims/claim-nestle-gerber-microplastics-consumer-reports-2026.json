@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-gerber-microplastics-consumer-reports-2026",
+  "subject_entity_id": "nestle",
+  "statement": "Dans son enquête publiée en septembre 2026, Consumer Reports rapporte 728 294 particules microplastiques par portion de 99 g pour une purée Gerber Organic Plant Protein Banana Berry and Veggie Smash avec avoine. L'enquête indique que les analyses de microplastiques portaient sur 15 purées et un jus, testés en deux à quatre lots par produit.",
+  "topic": "environment",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-consumer-reports-baby-food-testing-2026"
+  ],
+  "evidence_ids": [
+    "evidence-consumer-reports-gerber-microplastics-2026",
+    "evidence-fda-microplastics-health-uncertainty-2026"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le résultat concerne un produit et les lots testés par Consumer Reports, pas l'ensemble de la gamme Gerber. Le sous-échantillon microplastiques ne comprend que 15 purées et un jus, choisis selon les contraintes analytiques du laboratoire. Consumer Reports indique ne pas avoir analysé la composition de l'emballage et évoque plusieurs sources possibles de contamination. La FDA a déclaré ne pas avoir examiné les méthodes, données brutes ou rapports analytiques de cette enquête. La présence de particules ne prouve pas à elle seule un risque sanitaire ; Consumer Reports précise ne pas recommander d'éviter les produits testés. Les méthodes de mesure des microplastiques ne sont pas encore standardisées.",
+  "editorial_note": "Toujours attribuer le chiffre à Consumer Reports et à son enquête de septembre 2026. Afficher le produit exact, la portion de 99 g, le sous-échantillon et les limites. Ne pas présenter le chiffre comme une moyenne sans preuve explicite. Ne pas conclure que l'emballage est la source certaine ni qu'un effet sanitaire a été démontré."
+}
