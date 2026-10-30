@@ -33,6 +33,7 @@ function requireSourcedArray(schema, field, label) {
 }
 
 requireFields(claim, ["id", "subject_entity_id", "statement", "claim_status", "source_ids", "reviewed_at", "uncertainty_note"], "claim");
+assert.equal(claim.properties.requires_human_review.type, "boolean", "high-risk claims must be able to require human review");
 assert.ok(claim.allOf.some((rule) => rule.if?.properties?.publication_basis?.const === "evidence_verified" &&
   ["published_at", "publication_note"].every((field) => rule.then?.required?.includes(field))),
   "evidence-published claims must record publication date and rationale");
