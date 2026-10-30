@@ -27,6 +27,8 @@ describe("Nestlé dossier editorial gate", () => {
       "source-nestle-non-financial-statement-2024-bms",
       "source-fla-cocoa-cameroon-iem-2021",
       "source-greenpeace-baby-food-plastic-pouches-2026",
+      "source-nestle-baby-food-plastic-packaging-response-2026",
+      "source-fda-microplastics-food-guidance-2026",
       "source-science-advances-plastic-brand-audit-2024",
       "source-bffp-asian-plastic-sachet-audit-2024",
       "source-nestle-packaging-progress-2025",
@@ -73,6 +75,7 @@ describe("Nestlé dossier editorial gate", () => {
       "evidence-nestle-bms-policy-gaps",
       "evidence-nestle-baby-food-added-sugar",
       "evidence-nestle-baby-food-microplastics-2026",
+      "evidence-fda-microplastics-health-uncertainty-2026",
       "evidence-nestle-cocoa-cameroon-child-labor",
       "evidence-nestle-cocoa-cameroon-forced-labor-risk",
       "evidence-nestle-bms-marketing-company-count-2024",
@@ -91,6 +94,7 @@ describe("Nestlé dossier editorial gate", () => {
       "response-nestle-bms-marketing-2024",
       "response-nestle-plastic-pollution-2024",
       "response-nestle-liberia-cocoa-deforestation-2025",
+      "response-nestle-baby-food-microplastics-2026",
     ].map((id) => readRecord("responses", id)));
     const data = { entities: [entity], sources, claims, evidence, relationships: [], campaigns: [], responses, commitments: [] };
 
@@ -206,6 +210,16 @@ describe("Nestlé dossier editorial gate", () => {
     assert.ok(claim.evidence_ids.includes(evidence.id));
     assert.ok(evidence.supports_claim_ids.includes(claim.id));
     assert.match(evidence.limitations, /ne démontre ni.*effet sanitaire/i);
+
+    const fdaSource = await readRecord("sources", "source-fda-microplastics-food-guidance-2026");
+    const fdaEvidence = await readRecord("evidence", "evidence-fda-microplastics-health-uncertainty-2026");
+    const nestleResponse = await readRecord("responses", "response-nestle-baby-food-microplastics-2026");
+    assert.equal(fdaSource.review_status, "to_review");
+    assert.match(fdaEvidence.summary, /ne démontrent pas que les niveaux détectés.*présentent un risque/i);
+    assert.match(claim.uncertainty_note, /La FDA indique/i);
+    assert.equal(nestleResponse.publication_status, "published");
+    assert.ok(nestleResponse.related_claim_ids.includes(claim.id));
+    assert.equal(nestleResponse.source_id, "source-nestle-baby-food-plastic-packaging-response-2026");
   });
 
 });
