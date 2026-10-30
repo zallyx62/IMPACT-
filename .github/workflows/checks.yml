@@ -7,7 +7,8 @@ on:
       - "data/schema/**"
       - "data/records/**"
       - "scripts/**"
-      - ".github/workflows/checks.yml"
+      - ".github/workflows/**"
+      - ".github/dependabot.yml"
   pull_request:
     paths:
       - "app/**"
