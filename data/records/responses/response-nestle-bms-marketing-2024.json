@@ -1,0 +1,11 @@
+{
+  "id": "response-nestle-bms-marketing-2024",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-bms-marketing-atni-2024"
+  ],
+  "summary": "Dans sa déclaration extra-financière 2024, Nestlé indique qu'ATNi n'a relevé aucune non-conformité à la politique Nestlé ou à la réglementation locale dans les cinq pays étudiés. Nestlé rapporte par ailleurs 186 cas de non-conformité à sa propre politique en 2024, dont 26 attribués à l'entreprise et 160 à des tiers contractuels. Ces chiffres ne sont pas directement comparables aux 219 observations d'ATNi, qui évalue l'alignement sur le Code international de l'OMS.",
+  "source_id": "source-nestle-non-financial-statement-2024-bms",
+  "publication_status": "published",
+  "full_response_url": "https://www.nestle.fr/sites/g/files/pydnoa566/files/2025-04/non-financial-statement-2024.pdf"
+}
