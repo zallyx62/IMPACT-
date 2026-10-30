@@ -123,7 +123,7 @@ Les préférences temporaires d'interface restent en mémoire pendant la session
 
 ## 6. Fonctionnement hors ligne
 
-Le service worker met en cache les ressources de l'application servies depuis la même origine. Le premier chargement nécessite une connexion ; ensuite, les ressources déjà mises en cache peuvent rester disponibles hors ligne.
+Le service worker met en cache les navigations de l'application et les ressources statiques du shell et des bundles `/assets/` sur la même origine. Les chemins dynamiques et les requêtes API ne sont pas interceptés ni mis en cache. Le premier chargement nécessite une connexion ; ensuite, les ressources déjà mises en cache peuvent rester disponibles hors ligne.
 
 Le cache ne rend pas automatiquement les futures données nouvelles ou les dossiers jamais téléchargés disponibles hors ligne. Ces comportements devront être testés sur téléphone Android, navigateur de bureau et lors des mises à jour.
 
@@ -142,7 +142,7 @@ Exigences :
 
 ## 8. Qualité et sécurité
 
-Les contrôles automatisés exécutés dans GitHub Actions sont :
+Les contrôles automatisés exécutés dans GitHub Actions (y compris les changements sous `data/records/` lors des pull requests) sont :
 1. installer les dépendances avec `npm ci` ;
 2. auditer les dépendances avec `npm audit` ;
 3. vérifier TypeScript ;
