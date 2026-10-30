@@ -58,7 +58,7 @@
 4. Réaliser une revue des chemins PWA et du service worker.
 5. Vérifier manuellement l'interface sur mobile.
 6. Demander une revue humaine de la sécurité, de la confidentialité et de l'accessibilité.
-7. Seulement ensuite, envisager un premier hébergement public.
+8. Seulement ensuite, envisager un premier hébergement public.
 
 ## Risques à suivre
 
