@@ -18,7 +18,7 @@ Le projet veut aider chacun à comprendre, vérifier et comparer des information
 - Pas de compte obligatoire pour consulter les contenus.
 - Fonctionnement hors ligne recherché en priorité.
 - Sources, dates, incertitudes et corrections visibles.
-- Validation humaine des informations éditoriales.
+- Vérification éditoriale humaine ou assistée par IA, avec méthode clairement indiquée et sans présenter l'une pour l'autre.
 - Aucune IA générative intégrée au produit destiné au public.
 
 ## Les six univers
@@ -44,7 +44,7 @@ Le projet veut aider chacun à comprendre, vérifier et comparer des information
 
 **Phase : prototype web 0.1 en construction.**
 
-Le prototype propose une interface en français, un mode sombre par défaut, un mode clair et cinq couleurs d’accent personnalisables (vert, bleu, violet, orange et rose), des préférences conservées localement et une navigation compatible avec le bouton Retour Android, un lecteur de dossiers documentés et les six univers prévus. Le dépôt contient un corpus Nestlé en brouillon (eaux, alimentation infantile, cacao, travail, emballages et environnement), mais aucun dossier n'est publié : la validation humaine reste obligatoire. Les tests automatisés du service worker couvrent le cache initial, les mises à jour, le repli hors ligne et les exclusions de requêtes. La CI vérifie également les icônes PWA générées (180, 192 et 512 px), le manifeste et le paquet de production. Au 30 octobre 2026, les contrôles Web complets, l'audit npm et l'analyse CodeQL ont réussi sur `main` (commit `794b5b0`). Le build Android debug et release a réussi sur `main` (commit `94417b1`) ; l'APK debug de test est disponible temporairement dans [l'exécution GitHub Actions](https://github.com/zallyx62/IMPACT-/actions/runs/41043170926). Le propriétaire a également rapporté une installation et une utilisation de base réussies sur un téléphone. Les essais multi-appareils, l'accessibilité et la signature de la version release restent à faire.
+Le prototype propose une interface en français, un mode sombre par défaut, un mode clair et cinq couleurs d’accent personnalisables (vert, bleu, violet, orange et rose), des préférences conservées localement et une navigation compatible avec le bouton Retour Android, un lecteur de dossiers documentés et les six univers prévus. Le dépôt contient un corpus Nestlé en brouillon (eaux, alimentation infantile, cacao, travail, emballages et environnement), les dossiers ne sont publiés qu'affirmation par affirmation après vérification des sources et de leurs limites ; la méthode de revue (humaine ou assistée par IA) est indiquée. Les tests automatisés du service worker couvrent le cache initial, les mises à jour, le repli hors ligne et les exclusions de requêtes. La CI vérifie également les icônes PWA générées (180, 192 et 512 px), le manifeste et le paquet de production. Au 30 octobre 2026, les contrôles Web complets, l'audit npm et l'analyse CodeQL ont réussi sur `main` (commit `794b5b0`). Le build Android debug et release a réussi sur `main` (commit `94417b1`) ; l'APK debug de test est disponible temporairement dans [l'exécution GitHub Actions](https://github.com/zallyx62/IMPACT-/actions/runs/41043170926). Le propriétaire a également rapporté une installation et une utilisation de base réussies sur un téléphone. Les essais multi-appareils, l'accessibilité et la signature de la version release restent à faire.
 
 ## Utiliser et installer IMPACT
 

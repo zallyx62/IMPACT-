@@ -127,9 +127,13 @@ Les financements et soutiens matériels éventuels doivent être rendus publics 
 
 ## 11. Utilisation d'outils automatisés et d'IA
 
-Des outils automatisés peuvent assister certaines tâches techniques ou organisationnelles pendant le développement du projet.
+Des outils automatisés et l'IA peuvent assister la recherche documentaire, la comparaison des sources, le contrôle des citations, la détection des contradictions et les tests de cohérence éditoriale. Le fondateur a autorisé cette assistance pour préparer et vérifier les contenus publiés sur IMPACT.
 
-Aucun texte généré automatiquement ne doit être publié comme information vérifiée sans examen humain. Aucune IA générative n'est prévue dans le fonctionnement destiné au public. Les décisions éditoriales et validations sont humaines.
+Une vérification assistée par IA n'est jamais présentée comme une validation humaine. Chaque fiche doit indiquer la méthode de revue (humaine ou assistée par IA), la date et, lorsque cela est pertinent, les limites de l'automatisation. Aucune IA générative n'est intégrée au produit destiné au public.
+
+L'IA ne peut pas transformer une allégation en fait établi, ni remplacer une source primaire accessible. Les faits publiables doivent être appuyés par des documents officiels, des études scientifiques, des enquêtes journalistiques ou associatives sérieuses, ou plusieurs sources indépendantes concordantes. Les déclarations d'entreprise sont attribuées à l'entreprise. Les enquêtes qualitatives sont limitées à leur échantillon. Les procédures en cours, sanctions, décisions non définitives et contestations sont décrites avec leur statut exact.
+
+Les affirmations graves, les risques sanitaires, les accusations de travail forcé, les décès, les infractions pénales et les imputations individuelles exigent un niveau de prudence renforcé : corroboration indépendante lorsque possible, réponse de la partie concernée, formulation strictement limitée aux éléments établis et absence de causalité non démontrée. En cas de doute sérieux, l'affirmation reste non publiée ou est présentée explicitement comme allégation/incertitude.
 
 ## 12. Processus minimal de validation
 
@@ -142,7 +146,7 @@ Avant publication, le responsable éditorial vérifie :
 6. les risques de confusion, de diffamation ou d'atteinte à la vie privée ;
 7. la cohérence des statuts et de l'historique.
 
-Les sujets sensibles ou les accusations graves nécessitent un examen renforcé et, si nécessaire, un avis juridique compétent.
+Les sujets sensibles ou les accusations graves nécessitent un examen renforcé, plusieurs sources indépendantes lorsque possible et, si nécessaire, un avis juridique compétent. La méthode de revue est enregistrée explicitement : `human` ou `ai_assisted`.
 
 ## 13. Limites et responsabilité
 
