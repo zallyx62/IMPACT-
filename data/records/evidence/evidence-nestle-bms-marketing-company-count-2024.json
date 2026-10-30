@@ -1,0 +1,11 @@
+{
+  "id": "evidence-nestle-bms-marketing-company-count-2024",
+  "source_id": "source-nestle-non-financial-statement-2024-bms",
+  "locator": "Non-Financial Statement 2024, pages 96-97, section « Nestlé's non-compliance »",
+  "summary": "Nestlé déclare 186 cas en 2024, dont 26 attribués à l'entreprise et 160 à des tiers contractuels. Le rapport précise que 91 % des 186 cas ont été détectés par les mécanismes internes de l'entreprise.",
+  "excerpt": "In 2024, Nestlé observed 186 instances of non-compliance.",
+  "limitations": "Auto-déclaration de Nestlé selon sa politique interne et les mécanismes de contrôle décrits dans le rapport ; ce chiffre n'est pas une évaluation indépendante.",
+  "supports_claim_ids": [
+    "claim-nestle-bms-marketing-company-count-2024"
+  ]
+}
