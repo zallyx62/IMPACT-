@@ -277,6 +277,8 @@ describe("Nestlé dossier editorial gate", () => {
       "the serious consumer-deception characterization remains unpublished pending enhanced review");
     assert.equal(unresolvedMicrofiltration.claim_status, "not_reviewed",
       "the complex microfiltration regulatory interpretation remains unpublished pending further review");
+    assert.equal(unresolvedDeception.requires_human_review, true);
+    assert.equal(unresolvedMicrofiltration.requires_human_review, true);
 
     const response = await readRecord("responses", "response-nestle-water-cjipe");
     assert.deepEqual(response.related_claim_ids, [treatments.id, cjipe.id, health.id]);
