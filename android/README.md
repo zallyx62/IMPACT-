@@ -9,7 +9,7 @@ The Android project is a local, offline-first host for the IMPACT web applicatio
 - Android SDK Platform 36 and Build Tools 36.0.0
 - Node.js 22.12 or later and npm
 
-The Android Gradle Plugin is pinned to 9.5.0. The WebView asset handler serves the APK assets root at the local `/impact/` origin path and uses the AndroidX WebKit 1.18.0 `AssetsPathHandler(Context)` constructor.
+The Android Gradle Plugin is pinned to 9.5.0. The WebView asset handler serves the APK assets root at the local `/impact/` origin path and uses the AndroidX WebKit 1.18.0 `AssetsPathHandler(Context)` constructor. Requests for the root path map explicitly to `index.html`, allowing the bundled service worker to cache its shell.
 
 ## Build
 
