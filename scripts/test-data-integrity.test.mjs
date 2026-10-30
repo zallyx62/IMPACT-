@@ -98,7 +98,7 @@ describe("validateCollections", () => {
 
   it("checks entity, source and claim references for editorial history records", () => {
     const broken = structuredClone(valid);
-    broken.changes = [{ id: "change-one", entity_id: "missing-entity", source_ids: ["missing-source"], claim_ids: ["missing-claim"] }];
+    broken.changes = [{ id: "change-one", entity_id: "missing-entity", source_ids: ["missing-source"], claim_ids: ["missing-claim"], event_date: "2026-12-01", reviewed_at: "2026-01-01" }];
     const errors = validateCollections(broken);
     assert.equal(errors.length, 3);
     assert.ok(errors.some((error) => error.includes("missing-entity")));
