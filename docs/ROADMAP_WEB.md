@@ -28,6 +28,8 @@ Cette feuille de route décrit la cible à long terme et distingue les fonctions
 - Exploration des dossiers par univers.
 - Atelier local de préparation de projets (fiche copiable et téléchargeable en Markdown), sans envoi ni publication.
 - Bibliothèque locale de trois canevas méthodologiques : diagnostic, expérimentation limitée et évaluation ; ils ne sont pas présentés comme des interventions dont l'efficacité serait démontrée.
+- Suivi facultatif des dossiers dans le stockage local de l'appareil, avec détection des nouveautés documentées à la prochaine consultation (sans notification en arrière-plan).
+- Guide d'action dans chaque dossier pour examiner les preuves, limites, réponses, engagements et alternatives avant de choisir une action.
 - Préférences d'apparence locales et socle PWA.
 
 ## Ordre de réalisation Web
