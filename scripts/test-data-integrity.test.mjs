@@ -100,9 +100,10 @@ describe("validateCollections", () => {
     const broken = structuredClone(valid);
     broken.changes = [{ id: "change-one", entity_id: "missing-entity", source_ids: ["missing-source"], claim_ids: ["missing-claim"], event_date: "2026-12-01", reviewed_at: "2026-01-01" }];
     const errors = validateCollections(broken);
-    assert.equal(errors.length, 3);
+    assert.equal(errors.length, 4);
     assert.ok(errors.some((error) => error.includes("missing-entity")));
     assert.ok(errors.some((error) => error.includes("missing-source")));
     assert.ok(errors.some((error) => error.includes("missing-claim")));
+    assert.ok(errors.some((error) => error.includes('"event_date" must not be later than "reviewed_at"')));
   });
 });
