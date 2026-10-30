@@ -80,7 +80,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
   const entitySources = dossier.sources.filter((source) => dossier.entity.source_ids.includes(source.id));
   const sourceReference = (sourceId: string) => {
     const source = sourceById.get(sourceId);
-    if (!source) return <span key={sourceId}>{sourceId}</span>;
+    if (!source) return null;
     const href = safeExternalUrl(source.url);
     return href
       ? <a key={source.id} href={href} target="_blank" rel="noopener noreferrer">{source.title}</a>
@@ -144,7 +144,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                   <strong>{t.sources}</strong>
                   {claim.source_ids.map((sourceId) => {
                     const source = sourceById.get(sourceId);
-                    if (!source) return <span key={sourceId}>{sourceId}</span>;
+                    if (!source) return null;
                     const href = safeExternalUrl(source.url);
                     return (
                       <div className="source-reference" key={source.id}>
