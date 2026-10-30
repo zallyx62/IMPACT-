@@ -21,7 +21,7 @@ async function loadCollection(name) {
   const directory = path.join(recordsRoot, name);
   const entries = await readdir(directory, { withFileTypes: true });
   const records = [];
-  for (const entry of entries.filter((item) => item.isFile() && item.name.endsWith(".json")).sort((a, b) => a.name.localeCompare(b.name))) {
+  for (const entry of entries.filter((item) => item.isFile() && item.name.endsWith(".json")).sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))) {
     const record = JSON.parse(await readFile(path.join(directory, entry.name), "utf8"));
     records.push(record);
   }
