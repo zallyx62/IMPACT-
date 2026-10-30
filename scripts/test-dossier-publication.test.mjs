@@ -104,6 +104,7 @@ describe("buildEntityDossier publication rules", () => {
     verified.claims[0].publication_basis = "evidence_verified";
     verified.claims[0].published_at = "2026-10-30";
     verified.claims[0].publication_note = "The wording reports only the observation made in the cited primary report.";
+    verified.claims[0].requires_human_review = false;
     const published = getPublishedEntities(verified);
     assert.deepEqual(published.map((item) => item.id), ["entity-one"]);
     const dossier = buildEntityDossier("entity-one", verified);
