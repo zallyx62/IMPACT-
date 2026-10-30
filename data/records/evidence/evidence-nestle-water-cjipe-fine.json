@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-water-cjipe-fine",
+  "source_id": "source-nestle-2024-reponse-cjipe",
+  "locator": "Communiqué de presse de Nestlé Waters Supply Est du 10 septembre 2024, paragraphe relatif à la convention",
+  "summary": "Dans son communiqué du 10 septembre 2024, Nestlé Waters Supply Est indique que la convention judiciaire d'intérêt public environnementale est assortie du paiement d'une amende de deux millions d'euros.",
+  "supports_claim_ids": [
+    "claim-nestle-water-cjipe"
+  ],
+  "limitations": "Montant rapporté par le communiqué de l'entreprise ; à lire avec la convention judiciaire publiée par le ministère de la Justice."
+}
