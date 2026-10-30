@@ -17,6 +17,6 @@ test("search is accent-insensitive and returns all methods for an empty query", 
   assert.equal(searchSolutionMethods("").length, 3);
   assert.deepEqual(searchSolutionMethods("expérimenter").map((method) => method.id), ["pilot"]);
   assert.deepEqual(searchSolutionMethods("securite").map((method) => method.id), ["pilot"]);
-  assert.deepEqual(searchSolutionMethods("indicateur").map((method) => method.id), ["diagnostic", "pilot", "evaluation"]);
+  assert.deepEqual(searchSolutionMethods("indicateur").map((method) => method.id), ["pilot", "evaluation"]);
   assert.deepEqual(searchSolutionMethods("aucun résultat correspondant"), []);
 });
