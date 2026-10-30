@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-cocoa-cameroon-forced-labor-risk",
+  "subject_entity_id": "nestle",
+  "statement": "Dans la même évaluation de la chaîne d'approvisionnement en cacao au Cameroun, la Fair Labor Association a décrit un cas de travailleur présentant plusieurs indicateurs de risque de travail forcé, notamment une retenue de rémunération, l'absence de contrat écrit et l'absence de mécanisme de plainte.",
+  "topic": "human_rights",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-fla-cocoa-cameroon-2022"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-cocoa-cameroon-forced-labor-risk"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le rapport parle d'indicateurs de risque dans un cas observé chez un fournisseur de la chaîne étudiée ; il ne conclut pas que Nestlé employait directement ce travailleur ni que ces pratiques caractérisent l'ensemble de sa chaîne d'approvisionnement.",
+  "editorial_note": "Garder le périmètre fournisseur, pays, échantillon et date visibles. Ne pas transformer un indicateur de risque en condamnation ou constat généralisé."
+}
