@@ -8,13 +8,13 @@
 - Interface publique en français uniquement ; aucune autre langue n'est prévue dans le périmètre actuel.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
-- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; deux constats Nestlé limités à des produits Gerber précis sont publiés selon le seuil documentaire, les autres sujets restant en préparation.
+- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; cinq constats Nestlé sont publiés selon le seuil documentaire : trois sur les pratiques de Nestlé Waters en France et deux sur des produits Gerber testés ; les autres sujets restent en préparation.
 - Publication possible sans validation humaine préalable lorsque la source, la méthode, les limites et la formulation sont documentées selon la charte ; examen humain renforcé pour les cas sensibles.
 - Pages explicatives de sélection pour les univers.
 - Présentation des outils futurs et de leur statut.
 - Engagements de confidentialité visibles.
 - Manifest PWA et mise en cache de ressources statiques.
-- Chargement des données éditoriales JSON versionnées ; génération avant build d'un jeu public ne contenant que les enregistrements validés humainement.
+- Chargement des données éditoriales JSON versionnées ; génération avant build d'un jeu public ne contenant que les enregistrements ayant satisfait à la validation humaine ou au parcours documentaire tracé de la charte.
 - Validation des huit types d'enregistrements et de leurs références croisées.
 - Audit npm et vérification automatisée du paquet PWA.
 - Contrôle de typage, tests unitaires, tests simulés du service worker, contrôle des contrastes en thèmes clair et sombre, invariants d'interface, validation des schémas et build dans GitHub Actions.
