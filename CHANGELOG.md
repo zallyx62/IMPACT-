@@ -5,6 +5,10 @@ Ce fichier décrit les changements destinés aux utilisateurs. Les versions publ
 ## [Non publié] — développement en cours
 
 ### Application Web
+- Publication documentaire sans validation humaine systématique : traçabilité de la méthode, date et justification de vérification des sources, ainsi que date et justification de publication des affirmations.
+- Deux constats Gerber publiés avec un périmètre précis : rapport Greenpeace/SINTEF sur trois sachets d'un produit et enquête Consumer Reports sur une purée identifiée, avec limites, contexte FDA/EFSA et réponse de Nestlé/Gerber.
+- Interface modernisée et mentions visibles distinguant validation humaine et publication fondée sur les preuves.
+- Recherche locale étendue aux notes de vérification documentaire.
 - Icônes PWA PNG 192 × 192 et 512 × 512 pour Chromium, icône Apple Touch 180 × 180 ; génération automatique depuis la même identité SVG.
 - Service worker v0.6 : mise en cache hors ligne des icônes d'installation.
 - Contrôle de build PWA renforcé : dimensions PNG, manifeste, icône iOS et cache des icônes.
