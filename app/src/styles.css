@@ -547,6 +547,7 @@ body { letter-spacing: -.008em; }
 button, .settings-trigger, .search-field { -webkit-tap-highlight-color: transparent; }
 button:active { transform: translateY(0) scale(.99); }
 @media (max-width: 760px) {
+  .dossier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .header-inner { min-height: 68px; }
   .brand { flex: 0 1 auto; }
   .header-actions { width: auto; margin-left: auto; }
@@ -556,6 +557,7 @@ button:active { transform: translateY(0) scale(.99); }
   .dossier-card { min-height: 185px; }
 }
 @media (max-width: 430px) {
+  .dossier-grid { grid-template-columns: 1fr; }
   .header-inner { align-items: center; flex-wrap: nowrap; gap: .5rem; }
   .brand { min-width: 0; }
   .brand-copy span { max-width: 145px; }
