@@ -38,7 +38,7 @@ function isPublishableClaim(claim: ClaimRecord, sourceIds: Set<string>): boolean
       Boolean(claim.published_at) && Boolean(claim.publication_note?.trim()));
   return claim.claim_status !== "not_reviewed" && eligible &&
     Array.isArray(claim.source_ids) && claim.source_ids.length > 0 &&
-    claim.source_ids.every((id) => sourceIds.has(id));
+    claim.source_ids.some((id) => sourceIds.has(id));
 }
 
 export function getPublishedEntities(data: DossierCollections): EntityRecord[] {
@@ -63,7 +63,7 @@ export function buildEntityDossier(entityId: string, data: DossierCollections): 
     publishableEntityIds.has(item.from_entity_id) &&
     publishableEntityIds.has(item.to_entity_id) &&
     item.source_ids.length > 0 &&
-    item.source_ids.every((id) => publishableSources.has(id)),
+    item.source_ids.some((id) => publishableSources.has(id)),
   );
 
   const entityCampaigns = data.campaigns.filter((item) =>
