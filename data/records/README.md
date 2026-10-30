@@ -31,4 +31,4 @@ Le validateur contrôle d'abord chaque fichier avec son schéma JSON (types, cha
 - chaque relation pointe vers deux entités existantes et des sources ;
 - les campagnes, réponses et engagements ne contiennent pas de références cassées.
 
-Les dossiers sont actuellement vides : aucun contenu factuel n'est publié par ce simple dispositif. Toute donnée ajoutée doit être sourcée, examinée et validée selon la charte éditoriale.
+Les dossiers sont actuellement vides : aucun contenu factuel n'est publié par ce simple dispositif. Le lecteur public n'affiche que les entités marquées `published` et les éléments associés disposant d'au moins une source au statut `reviewed`. Les réponses ne sont affichées que si elles sont publiées et reliées à une source examinée. Toute donnée ajoutée doit être sourcée, examinée et validée selon la charte éditoriale.
