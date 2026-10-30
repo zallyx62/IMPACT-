@@ -8,7 +8,7 @@
 - Interface publique en français uniquement ; aucune autre langue n'est prévue dans le périmètre actuel.
 - Navigation dans les six univers.
 - Recherche locale parmi les dossiers publiés, les univers et les outils du prototype.
-- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; cinq constats Nestlé sont publiés selon le seuil documentaire : trois sur les pratiques de Nestlé Waters en France et deux sur des produits Gerber testés ; les autres sujets restent en préparation.
+- Lecteur de dossiers documentés, avec affirmations, sources, preuves et incertitudes ; six constats Nestlé sont publiés selon le seuil documentaire : trois sur les pratiques de Nestlé Waters en France, deux sur des produits Gerber testés et un sur un audit scientifique mondial de déchets plastiques de marque ; les autres sujets restent en préparation.
 - Publication possible sans validation humaine préalable lorsque la source, la méthode, les limites et la formulation sont documentées selon la charte ; examen humain renforcé pour les cas sensibles.
 - Pages explicatives de sélection pour les univers.
 - Présentation des outils futurs et de leur statut.
