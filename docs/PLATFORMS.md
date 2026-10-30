@@ -25,7 +25,7 @@ La version Web fonctionne dans les navigateurs modernes sur Android, iOS/iPadOS,
 
 ### Publication GitHub Pages — activée
 
-GitHub Pages est activé sur le dépôt et le workflow de publication a réussi le 30 octobre 2026. Les mises à jour de l'application, des scripts et de la documentation déclenchent une reconstruction et une publication après les contrôles.
+GitHub Pages est activé sur le dépôt et le workflow de publication a réussi le 30 octobre 2026. Les modifications de l'application, des enregistrements éditoriaux (`data/`), des scripts et de la documentation déclenchent une reconstruction et une publication après les contrôles.
 
 Consulter l'exécution [Deploy IMPACT Web to GitHub Pages](https://github.com/zallyx62/IMPACT-/actions/runs/41046643013) pour voir le build et le déploiement réussis.
 
