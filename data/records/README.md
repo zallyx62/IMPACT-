@@ -6,12 +6,13 @@ Les enregistrements réels seront ajoutés ici, séparés par type :
 - `sources/` : documents et ressources consultés ;
 - `claims/` : affirmations documentées ;
 - `evidence/` : éléments précis extraits des sources ;
-- `relationships/` : liens qualifiés entre entités ;
+- `relationships/` : liens qualifiés entre entités ; le type `alternative_to` relie une alternative (from) à l'entité remplacée (to), avec le critère de substitution et ses limites explicités dans `notes` ;
 - `campaigns/` : campagnes publiques ;
 - `responses/` : réponses des entités ;
-- `commitments/` : engagements et résultats mesurés.
+- `commitments/` : engagements et résultats mesurés ;
+- `changes/` : corrections et évolutions éditoriales datées, examinées et reliées à des sources et, si possible, aux constats concernés.
 
-Chaque enregistrement doit être un fichier JSON contenant un seul objet, avec un identifiant stable. Son nom de fichier peut reprendre cet identifiant.
+Les changements éditoriaux doivent décrire un événement réel, sa date, sa nature et son incidence, avec une source consultable et une date d’examen. Ils ne sont jamais générés automatiquement à partir d’une simple différence de texte.\n\nChaque enregistrement doit être un fichier JSON contenant un seul objet, avec un identifiant stable. Son nom de fichier peut reprendre cet identifiant.
 
 ## Contrôles avant intégration
 

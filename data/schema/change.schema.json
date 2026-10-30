@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IMPACT — Évolution éditoriale documentée",
+  "description": "Correction ou évolution d'un dossier, publiée uniquement après examen et avec des sources consultables.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "entity_id", "event_date", "event_type", "title", "summary", "source_ids", "reviewed_at"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+    "entity_id": { "type": "string", "minLength": 3, "maxLength": 80 },
+    "event_date": { "type": "string", "format": "date" },
+    "event_type": { "type": "string", "enum": ["correction", "new_evidence", "scope_update", "status_change", "remediation", "other"] },
+    "title": { "type": "string", "minLength": 5, "maxLength": 180 },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 3000 },
+    "source_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "reviewed_at": { "type": "string", "format": "date" },
+    "claim_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 },
+      "uniqueItems": true
+    }
+  }
+}

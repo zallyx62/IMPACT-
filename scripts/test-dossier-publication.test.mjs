@@ -42,6 +42,11 @@ const data = {
     { id: "response-no-published-claim", entity_id: "entity-two", related_claim_ids: ["claim-pending"], summary: "A response whose related claim is not publishable.", source_id: "source-reviewed", publication_status: "published" },
     { id: "response-pending-source", entity_id: "entity-two", related_claim_ids: [], summary: "A response backed by a source awaiting review.", source_id: "source-pending", publication_status: "published" },
   ],
+  changes: [
+    { id: "change-reviewed", entity_id: "entity-one", event_date: "2026-10-29", event_type: "correction", title: "Correction documentée", summary: "A reviewed correction with a supporting source.", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30", claim_ids: ["claim-reviewed", "claim-pending"] },
+    { id: "change-pending-source", entity_id: "entity-one", event_date: "2026-10-29", event_type: "new_evidence", title: "Source en attente", summary: "A change supported by a source that is not reviewed.", source_ids: ["source-pending"], reviewed_at: "2026-10-30" },
+    { id: "change-unreviewed", entity_id: "entity-one", event_date: "2026-10-29", event_type: "other", title: "Changement non examiné", summary: "This change has not passed editorial review.", source_ids: ["source-reviewed"], reviewed_at: "" },
+  ],
   commitments: [
     { id: "commitment-reviewed", entity_id: "entity-one", statement: "A reviewed public commitment for the test.", announced_at: "2026-10-30", status: "in_progress", source_ids: ["source-reviewed"], reviewed_at: "2026-10-30" },
     { id: "commitment-pending", entity_id: "entity-one", statement: "An unreviewed commitment for the test.", announced_at: "2026-10-30", status: "announced", source_ids: ["source-pending"], reviewed_at: "2026-10-30" },
@@ -179,6 +184,12 @@ describe("buildEntityDossier publication rules", () => {
       assert.ok(!dossier.claims.some((item) => item.id === "claim-reviewed"),
         "allegations and explicitly high-risk claims must not pass the evidence-only gate");
     }
+  });
+
+  it("publishes only reviewed and sourced editorial changes", () => {
+    const dossier = buildEntityDossier("entity-one", data);
+    assert.deepEqual(dossier.changes.map((item) => item.id), ["change-reviewed"]);
+    assert.deepEqual(dossier.changes[0].claim_ids, ["claim-reviewed"]);
   });
 
   it("does not expose draft entities", () => {

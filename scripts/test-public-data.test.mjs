@@ -47,6 +47,12 @@ for (const item of publicRecords.responses) {
   assert.ok(item.source_id && sourceIds.has(item.source_id));
   assert.ok(item.related_claim_ids.length > 0 && item.related_claim_ids.every((id) => claimIds.has(id)));
 }
+for (const item of publicRecords.changes ?? []) {
+  assert.ok(entityIds.has(item.entity_id));
+  assert.ok(item.reviewed_at);
+  assert.ok(item.source_ids.length > 0 && item.source_ids.every((id) => sourceIds.has(id)));
+  assert.ok((item.claim_ids ?? []).every((id) => claimIds.has(id)));
+}
 for (const item of publicRecords.commitments) {
   assert.ok(entityIds.has(item.entity_id));
   assert.ok(item.source_ids.length > 0 && item.source_ids.every((id) => sourceIds.has(id)));

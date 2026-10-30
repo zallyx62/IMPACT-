@@ -20,8 +20,10 @@ Cette feuille de route décrit la cible à long terme et distingue les fonctions
 - Centre de preuves et navigation directe vers les dossiers.
 - Comparateur de documentation, sans note morale ni mesure artificielle de l'impact réel.
 - Résumé éditorial réutilisable des dossiers : gravité documentée, priorité du boycott et solidité des preuves, avec motifs sourcés, limites et liens vers les constats complets.
-- Explorateur des relations publiées entre acteurs.
-- Observatoire des engagements documentés.
+- Explorateur des relations publiées entre acteurs, avec relations de propriété, de fourniture et alternatives explicitement distinguées.
+- Observatoire des engagements documentés avec signalement calculé des échéances dépassées.
+- Journal éditorial des corrections et évolutions, daté, sourcé et publié seulement après examen.
+- Chronologie des constats, réponses, engagements et corrections explicitement datées ; un journal éditorial séparé conserve les corrections et évolutions examinées.
 - Formulaire local de proposition de source ou de correction.
 - Exploration des dossiers par univers.
 - Atelier local de préparation de projets (fiche copiable et téléchargeable en Markdown), sans envoi ni publication.
@@ -38,6 +40,8 @@ Cette feuille de route décrit la cible à long terme et distingue les fonctions
 - Documenter les limites de l'hébergement statique et les métadonnées réseau que l'hébergeur peut traiter.
 
 ### Priorité 2 — Connaissances et solutions
+- Relier des alternatives uniquement lorsque les deux entités sont publiées et que la relation possède une source vérifiable ; documenter le critère de substitution et ses limites.
+- Ne pas qualifier une alternative de « meilleure » sans comparaison indépendante et critères explicites.
 - Construire une bibliothèque de solutions reproductibles avec méthode, conditions, ressources, coûts éventuels, risques, sources et résultats.
 - Séparer les solutions expérimentées, les propositions et les hypothèses.
 - Ajouter des guides pratiques réutilisables et téléchargeables hors ligne.

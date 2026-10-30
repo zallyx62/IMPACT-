@@ -5,6 +5,7 @@ import { getEntityDossier, getPublishedEntities, type EntityRecord } from "./dat
 import DossierPanel from "./DossierPanel";
 import EvidenceCentre from "./EvidenceCentre";
 import ActorMap from "./ActorMap";
+import AlternativeExplorer from "./AlternativeExplorer";
 import CommitmentTracker from "./CommitmentTracker";
 import CitizenContribution from "./CitizenContribution";
 import SolutionWorkshop from "./SolutionWorkshop";
@@ -33,6 +34,11 @@ function getInitialAccent(): Accent {
     return "green";
   }
 }
+
+const topicLabels: Record<string, string> = {
+  animals_food: "Animaux et alimentation", environment: "Environnement", human_rights: "Droits humains",
+  business_consumption: "Entreprises et consommation", technology_privacy: "Technologie et numérique", other: "Autre",
+};
 
 const entityTypeLabels: Record<Language, Record<string, string>> = {
   fr: {
@@ -118,8 +124,9 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
   const right = getEntityDossier(rightId);
   const leftMetrics = left ? getComparisonMetrics(left) : null;
   const rightMetrics = right ? getComparisonMetrics(right) : null;
+  const topics = [...new Set([...Object.keys(leftMetrics?.claimsByTopic ?? {}), ...Object.keys(rightMetrics?.claimsByTopic ?? {})])].sort();
   const metrics = [
-    ["claims", "Affirmations documentées"],
+    ["claims", "Constats publiés"],
     ["verifiedSources", "Sources vérifiées selon la charte"],
     ["evidence", "Éléments de preuve"],
     ["commitments", "Engagements suivis"],
@@ -161,13 +168,20 @@ function ComparisonTool({ entities: availableEntities, leftId, rightId, onLeftCh
                 <thead><tr><th scope="col">Critère documentaire</th><th scope="col">{left?.entity.name ?? "Premier dossier"}</th><th scope="col">{right?.entity.name ?? "Second dossier"}</th></tr></thead>
                 <tbody>{metrics.map(([key, label]) => (
                   <tr key={key}><th scope="row">{label}</th><td>{leftMetrics?.[key] ?? "Non disponible"}</td><td>{rightMetrics[key] ?? "Non disponible"}</td></tr>
-                ))}</tbody>
+                ))}
+                {topics.map((topic) => (
+                  <tr key={`topic-${topic}`}><th scope="row">Constats publiés · {(topicLabels[topic] ?? topic.replaceAll("_", " "))}</th>
+                    <td>{leftMetrics?.claimsByTopic[topic] ?? 0}</td><td>{rightMetrics.claimsByTopic[topic] ?? 0}</td></tr>
+                ))}
+                <tr><th scope="row">Dernier examen documenté</th>
+                  <td>{leftMetrics?.lastReviewedAt ? new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" }).format(new Date(leftMetrics.lastReviewedAt)) : "Non daté"}</td><td>{rightMetrics.lastReviewedAt ? new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" }).format(new Date(rightMetrics.lastReviewedAt)) : "Non daté"}</td></tr>
+                </tbody>
               </table>
             </div>
           )}
         </>
       )}
-      <p className="comparison-caveat">Un nombre plus élevé de documents ne signifie pas automatiquement un meilleur ou un moins bon comportement. Les données manquantes ne sont pas assimilées à zéro impact.</p>
+      <p className="comparison-caveat">Un nombre plus élevé de documents ne signifie pas automatiquement un meilleur ou un moins bon comportement. Zéro signifie qu’aucun constat n’est publié dans cette catégorie, pas qu’aucun impact n’existe. Les données manquantes ne sont pas assimilées à zéro impact.</p>
     </section>
   );
 }
@@ -388,6 +402,8 @@ function App() {
                 onLeftChange={setComparisonLeftId} onRightChange={setComparisonRightId} />
             ) : chosen.type === "tool" && chosen.id === "network" ? (
               <ActorMap entities={publishedEntities} />
+            ) : chosen.type === "tool" && chosen.id === "alternatives" ? (
+              <AlternativeExplorer entities={publishedEntities} onOpen={(id) => open("entity", id)} />
             ) : chosen.type === "tool" && chosen.id === "history" ? (
               <CommitmentTracker entities={publishedEntities} />
             ) : chosen.type === "tool" && chosen.id === "participate" ? (

@@ -110,6 +110,11 @@ export interface ResponseRecord {
   full_response_url?: string | null;
 }
 
+export interface ChangeRecord {
+  id: string; entity_id: string; event_date: string; event_type: string;
+  title: string; summary: string; source_ids: string[]; reviewed_at: string; claim_ids?: string[];
+}
+
 export interface CommitmentRecord {
   id: string;
   entity_id: string;
@@ -133,6 +138,7 @@ export const relationships = publicRecords.relationships as RelationshipRecord[]
 export const campaigns = publicRecords.campaigns as CampaignRecord[];
 export const responses = publicRecords.responses as ResponseRecord[];
 export const commitments = publicRecords.commitments as CommitmentRecord[];
+export const changes = publicRecords.changes as ChangeRecord[];
 
 export interface EntityDossier {
   entity: EntityRecord;
@@ -143,6 +149,7 @@ export interface EntityDossier {
   campaigns: CampaignRecord[];
   responses: ResponseRecord[];
   commitments: CommitmentRecord[];
+  changes: ChangeRecord[];
 }
 
 export function getPublishedEntities(): EntityRecord[] {
@@ -159,5 +166,6 @@ export function getEntityDossier(entityId: string): EntityDossier | undefined {
     campaigns,
     responses,
     commitments,
+    changes,
   });
 }

@@ -11,6 +11,7 @@ const valid = {
   campaigns: [{ id: "campaign-one", target_entity_ids: ["entity-one"], demands: ["A documented demand"], source_ids: ["source-one"], claim_ids: ["claim-one"], response_ids: ["response-one"] }],
   responses: [{ id: "response-one", entity_id: "entity-one", related_claim_ids: ["claim-one"], source_id: "source-one" }],
   commitments: [{ id: "commitment-one", entity_id: "entity-one", source_ids: ["source-one"] }],
+  changes: [],
 };
 
 describe("validateCollections", () => {
@@ -95,4 +96,14 @@ describe("validateCollections", () => {
     assert.ok(errors.some((error) => error.includes("missing-commitment-entity")));
   });
 
+  it("checks entity, source and claim references for editorial history records", () => {
+    const broken = structuredClone(valid);
+    broken.changes = [{ id: "change-one", entity_id: "missing-entity", source_ids: ["missing-source"], claim_ids: ["missing-claim"], event_date: "2026-12-01", reviewed_at: "2026-01-01" }];
+    const errors = validateCollections(broken);
+    assert.equal(errors.length, 4);
+    assert.ok(errors.some((error) => error.includes("missing-entity")));
+    assert.ok(errors.some((error) => error.includes("missing-source")));
+    assert.ok(errors.some((error) => error.includes("missing-claim")));
+    assert.ok(errors.some((error) => error.includes('"event_date" must not be later than "reviewed_at"')));
+  });
 });

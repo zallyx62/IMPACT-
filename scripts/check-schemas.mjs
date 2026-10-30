@@ -13,6 +13,7 @@ const evidence = await loadSchema("evidence");
 const campaign = await loadSchema("campaign");
 const response = await loadSchema("response");
 const commitment = await loadSchema("commitment");
+const change = await loadSchema("change");
 
 function requireFields(schema, fields, label) {
   for (const field of fields) {
@@ -56,6 +57,8 @@ requireSourcedArray(entity, "source_ids", "entity");
 requireWebUrl(entity, "website", "entity");
 requireFields(relationship, ["id", "from_entity_id", "to_entity_id", "relationship_type", "knowledge_status", "source_ids"], "relationship");
 requireSourcedArray(relationship, "source_ids", "relationship");
+assert.ok(relationship.properties.relationship_type.enum.includes("alternative_to"), "alternatives must use an explicit relationship type");
+assert.ok(relationship.allOf.some((rule) => rule.if?.properties?.relationship_type?.const === "alternative_to" && rule.then?.required?.includes("notes")), "alternative relationships must explain their scope and limitations");
 requireFields(evidence, ["id", "source_id", "locator", "summary"], "evidence");
 requireFields(campaign, ["id", "title", "target_entity_ids", "demands", "campaign_status", "source_ids"], "campaign");
 requireSourcedArray(campaign, "source_ids", "campaign");
@@ -64,7 +67,9 @@ assert.equal(campaign.properties.demands.minItems, 1, "Every campaign must state
 requireFields(response, ["id", "entity_id", "related_claim_ids", "summary", "publication_status"], "response");
 assert.equal(response.properties.related_claim_ids.minItems, 1, "Every response must relate to at least one claim");
 requireFields(commitment, ["id", "entity_id", "statement", "announced_at", "status", "source_ids", "reviewed_at"], "commitment");
+requireFields(change, ["id", "entity_id", "event_date", "event_type", "title", "summary", "source_ids", "reviewed_at"], "change");
+requireSourcedArray(change, "source_ids", "change");
 requireSourcedArray(commitment, "source_ids", "commitment");
 assert.ok(commitment.allOf.some((rule) => rule.if?.properties?.status?.const === "achieved" && rule.then?.required?.includes("measurement_method") && rule.then?.required?.includes("observed_result")), "Achieved commitments must require a measurement method and observed result");
 
-console.log("All eight JSON schemas and editorial invariants are valid.");
+console.log("All nine JSON schemas and editorial invariants are valid.");
