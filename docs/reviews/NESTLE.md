@@ -114,9 +114,9 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 Ne publier le dossier qu'après :
 
-1. examen humain des 20 sources ;
-2. examen humain des 20 affirmations et de leurs 22 éléments de preuve ;
-3. vérification des réponses de Nestlé ;
+1. examen humain des 25 sources ;
+2. examen humain des 21 affirmations et de leurs 26 éléments de preuve ;
+3. vérification des réponses de Nestlé et de Gerber, en les attribuant clairement aux entreprises ;
 4. correction de toute formulation trop large ou ambiguë ;
 5. mise à jour cohérente des statuts, dates de revue et références ;
 6. nouvelle exécution complète des contrôles automatisés.
