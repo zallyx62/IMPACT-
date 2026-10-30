@@ -29,7 +29,7 @@ public final class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setStatusBarColor(Color.rgb(18, 102, 79));
+        getWindow().setStatusBarColor(Color.rgb(17, 27, 22));
         getWindow().setNavigationBarColor(Color.rgb(17, 27, 22));
 
         webView = new WebView(this);
@@ -37,7 +37,7 @@ public final class MainActivity extends Activity {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
         ));
-        webView.setBackgroundColor(Color.rgb(247, 248, 244));
+        webView.setBackgroundColor(Color.rgb(17, 27, 22));
 
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
