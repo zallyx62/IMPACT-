@@ -79,7 +79,7 @@ export const tools: CatalogItem[] = [
     title: { fr: "Centre de preuves", en: "Evidence centre" },
     description: { fr: "Sources, dates, limites et corrections accessibles.", en: "Accessible sources, dates, limitations and corrections." },
     detail: {
-      fr: "La future fiche séparera une affirmation de ses sources et des éléments précis qui l'étayent ou la contredisent. Elle exposera aussi les inconnues et la date de dernière vérification.",
+      fr: "Retrouvez les éléments précis qui étayent, nuancent ou contredisent les affirmations publiées, avec leurs sources, leurs dates et leurs limites.",
       en: "A future record will separate a claim from its sources and the specific evidence supporting or contradicting it. It will also show unknowns and the last review date."
     },
     keywords: ["preuve", "source", "correction", "fiabilité", "evidence", "source", "correction", "reliability"]

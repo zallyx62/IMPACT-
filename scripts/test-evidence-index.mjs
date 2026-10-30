@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { buildEvidenceIndex } from "../app/src/data/evidence-index.ts";
+import { buildEvidenceIndex, filterEvidenceIndex } from "../app/src/data/evidence-index.ts";
 
 function dossier() {
   const claims = [
@@ -56,4 +56,24 @@ describe("buildEvidenceIndex", () => {
     assert.equal(index.length, 8);
     assert.equal(index.filter((item) => item.id === "evidence-support").length, 2);
   });
+});
+
+describe("filterEvidenceIndex", () => {
+ const index = buildEvidenceIndex([dossier()]);
+ it("filters each evidence relation independently", () => {
+  assert.equal(filterEvidenceIndex(index, "", "all").length, 4);
+  assert.deepEqual(filterEvidenceIndex(index, "", "supports").map(x => x.id), ["evidence-support"]);
+  assert.deepEqual(filterEvidenceIndex(index, "", "contradicts").map(x => x.id), ["evidence-contradict"]);
+  assert.deepEqual(filterEvidenceIndex(index, "", "mixed").map(x => x.id), ["evidence-mixed"]);
+  assert.deepEqual(filterEvidenceIndex(index, "", "context").map(x => x.id), ["evidence-context"]);
+ });
+ it("searches source, claim and evidence text case-insensitively", () => {
+  assert.equal(filterEvidenceIndex(index, "SOURCE PUBLIQUE", "all").length, 4);
+  assert.equal(filterEvidenceIndex(index, "affirmation b", "all").length, 2);
+  assert.deepEqual(filterEvidenceIndex(index, "nuancé", "all").map(x => x.id), ["evidence-mixed"]);
+ });
+ it("combines the relation filter with text search", () => {
+  assert.deepEqual(filterEvidenceIndex(index, "affirmation a", "supports").map(x => x.id), ["evidence-support"]);
+  assert.equal(filterEvidenceIndex(index, "introuvable", "all").length, 0);
+ });
 });
