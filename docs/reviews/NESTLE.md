@@ -73,9 +73,13 @@ Affirmations à examiner :
 
 ## 5. Emballages plastiques et pollution
 
-Affirmations à examiner :
+Affirmations publiées selon les critères documentaires :
 
 - `claim-nestle-baby-food-plastic-pouches-2025` — étude commandée par Greenpeace et réalisée par SINTEF sur trois sachets d'un produit de yaourt Gerber ; les éléments FDA et EFSA sont associés comme contexte scientifique général.
+- `claim-nestle-gerber-microplastics-consumer-reports-2026` — résultat rapporté par Consumer Reports pour une purée Gerber précisément identifiée.
+
+Affirmations encore à examiner :
+
 - `claim-nestle-branded-plastic-audit-2024` — part de Nestlé dans les objets plastiques de marque recensés par une étude scientifique fondée sur des audits citoyens.
 - `claim-nestle-plastic-sachets-asia-2024` — audit de sachets à usage unique dans quatre pays asiatiques.
 - `claim-nestle-packaging-progress-2025` — indicateurs de progrès déclarés par Nestlé.
@@ -102,14 +106,17 @@ La réponse de Nestlé est enregistrée séparément : l'entreprise déclare ne 
 
 **Point de vigilance :** l'enquête décrit un risque d'exposition et de traçabilité, pas la preuve qu'un lot précis de cacao libérien se trouve dans un produit Nestlé. Ne pas écrire que Nestlé achète directement au Liberia ou que chaque KitKat contient ce cacao.
 
-## Sources de l'entreprise à examiner en regard des évaluations indépendantes
+## Sources déjà vérifiées et publiées en contexte
+
+- `source-nestle-baby-food-plastic-packaging-response-2026` — position officielle de Nestlé sur les emballages plastiques des aliments pour bébés ; elle ne fournit pas de résultats analytiques propres aux sachets étudiés.
+- `source-fda-microplastics-food-guidance-2026` — contexte général de la FDA sur les microplastiques alimentaires, les preuves de migration et les limites des connaissances.
+- `source-efsa-food-contact-microplastics-review-2025` et `source-efsa-microplastics-food-risk-status-2026` — revue technique sur la libération par les matériaux au contact des aliments et état de l'évaluation des risques par l'EFSA.
+
+## Autres sources de l'entreprise à examiner en regard des évaluations indépendantes
 
 - `source-nestle-2024-reponse-cjipe` — réponse de Nestlé Waters sur l'affaire des eaux.
 - `source-nestle-bms-policy-2024` et `source-nestle-non-financial-statement-2024-bms` — politique et chiffres déclarés par Nestlé sur le marketing des substituts du lait maternel.
 - `source-nestle-sugar-response-2025` — réponse de Nestlé sur l'enquête relative au sucre.
-- `source-nestle-baby-food-plastic-packaging-response-2026` — position officielle de Nestlé sur les emballages plastiques des aliments pour bébés ; elle ne fournit pas de résultats analytiques propres aux sachets étudiés.
-- `source-fda-microplastics-food-guidance-2026` — contexte général de la FDA sur les microplastiques alimentaires, les preuves de migration et les limites des connaissances.
-- `source-efsa-food-contact-microplastics-review-2025` et `source-efsa-microplastics-food-risk-status-2026` — revue technique sur la libération par les matériaux au contact des aliments et état de l'évaluation des risques par l'EFSA.
 - `source-nestle-cocoa-plan` — programme cacao et système CLMRS présenté par Nestlé.
 
 ## Conditions de publication
