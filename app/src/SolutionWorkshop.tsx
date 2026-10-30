@@ -1,6 +1,7 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { buildSolutionPlan } from "./data/solution-plan";
 import { searchSolutionMethods } from "./data/solution-library";
+import { projectMarkdownFilename } from "./data/solution-export";
 
 export default function SolutionWorkshop() {
   const [objective, setObjective] = useState("");
@@ -12,6 +13,20 @@ export default function SolutionWorkshop() {
   const [error, setError] = useState("");
   const [methodQuery, setMethodQuery] = useState("");
   const methods = useMemo(() => searchSolutionMethods(methodQuery), [methodQuery]);
+
+  function downloadPlan() {
+    if (!plan) return;
+    const blob = new Blob([plan], { type: "text/markdown;charset=utf-8" });
+    const objectUrl = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = objectUrl;
+    link.download = projectMarkdownFilename(objective);
+    link.hidden = true;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+  }
 
   function prepare(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,7 +44,7 @@ export default function SolutionWorkshop() {
       <div className="solution-workshop-heading">
         <div>
           <h3 id="solution-workshop-title">Transformer une idée en projet vérifiable</h3>
-          <p>Préparez un plan structuré, sans compte, sans transmission et sans publication automatique. Les champs restent dans cette page : copiez le résultat avant de la fermer.</p>
+          <p>Préparez un plan structuré, sans compte, sans transmission et sans publication automatique. Les champs restent dans cette page : copiez ou téléchargez la fiche pour la conserver.</p>
         </div>
         <span className="solution-local-label">Local uniquement</span>
       </div>
@@ -87,9 +102,12 @@ export default function SolutionWorkshop() {
       {error && <p className="solution-error" role="alert">{error}</p>}
       {plan && (
         <div className="solution-output">
-          <label htmlFor="solution-plan-output">Fiche de projet à copier ou enregistrer</label>
+          <label htmlFor="solution-plan-output">Fiche de projet à copier ou télécharger</label>
           <textarea id="solution-plan-output" value={plan} readOnly rows={18} onFocus={(event) => event.currentTarget.select()} />
-          <p className="solution-status" role="status">Fiche préparée sur cet appareil. Rien n’a été envoyé ni publié.</p>
+          <div className="solution-output-actions">
+            <button className="solution-download" type="button" onClick={downloadPlan}>Télécharger la fiche (.md)</button>
+            <p className="solution-status" role="status">Fiche préparée sur cet appareil. Le téléchargement est local : rien n’a été envoyé ni publié.</p>
+          </div>
         </div>
       )}
     </section>

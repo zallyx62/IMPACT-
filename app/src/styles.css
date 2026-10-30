@@ -847,3 +847,10 @@ button:active { transform: translateY(0) scale(.99); }
 .solution-method-content li{padding:.12rem 0}
 .solution-library-empty{margin:.8rem 0 0;color:var(--muted);font-size:.8rem}
 @media(max-width:560px){.solution-library-heading{display:grid}}
+
+
+/* Explicit local Markdown export action. */
+.solution-output-actions{display:grid;justify-items:start;gap:.35rem}
+.solution-download{min-height:42px;padding:.65rem 1rem;border:1px solid var(--green);border-radius:999px;background:var(--green);color:#fff;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
+.solution-download:hover{filter:brightness(.94)}
+.solution-download:focus-visible{outline:3px solid rgba(18,102,79,.25);outline-offset:3px}
