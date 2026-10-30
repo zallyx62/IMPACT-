@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-infant-deaths-parliamentary-status-2026",
+  "source_id": "source-assemblee-nationale-2026-cereulide-mission-flash",
+  "locator": "Compte rendu n° 75 du 19 mai 2026, lignes 180 à 181 et 189 à 198, interventions des députés sur le dernier point de situation sanitaire",
+  "summary": "Le compte rendu rapporte que le dernier point du ministère faisait état de trois décès de nourrissons ayant consommé des laits concernés par les rappels, sans lien formel de causalité établi à cette date. Il mentionne également un quatrième décès faisant l'objet d'une enquête distincte concernant un produit qui ne figurait pas parmi les lots rappelés. Ces chiffres concernent l'alerte multi-marques et ne peuvent pas être attribués à Nestlé seul.",
+  "supports_claim_ids": [
+    "claim-nestle-infant-deaths-no-causal-link-2026"
+  ],
+  "limitations": "Il s'agit d'informations rapportées lors d'une séance parlementaire, non d'une conclusion toxicologique ou judiciaire définitive. Les trois décès signalés ne sont pas présentés comme causés par les produits rappelés ; le quatrième cas est distinct et concerne un produit hors rappel."
+}
