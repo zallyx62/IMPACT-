@@ -127,8 +127,9 @@ describe("Nestlé dossier editorial gate", () => {
     const greenpeaceClaim = claims.find((claim) => claim.id === "claim-nestle-baby-food-plastic-pouches-2025");
     assert.equal(greenpeaceClaim.publication_basis, "evidence_verified");
     assert.equal(greenpeaceClaim.reviewed_at, null);
-    assert.ok(claims.filter((claim) => claim.id !== greenpeaceClaim.id).every((claim) => claim.reviewed_at === null));
-    assert.ok(claims.filter((claim) => claim.id !== greenpeaceClaim.id).every((claim) => claim.claim_status === "not_reviewed"));
+    const publishedClaimIds = new Set([greenpeaceClaim.id, "claim-nestle-gerber-microplastics-consumer-reports-2026"]);
+    assert.ok(claims.filter((claim) => !publishedClaimIds.has(claim.id)).every((claim) => claim.reviewed_at === null));
+    assert.ok(claims.filter((claim) => !publishedClaimIds.has(claim.id)).every((claim) => claim.claim_status === "not_reviewed"));
     assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["nestle"]);
     const dossier = buildEntityDossier("nestle", data);
     assert.ok(dossier);
