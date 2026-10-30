@@ -824,3 +824,10 @@ button:active { transform: translateY(0) scale(.99); }
 .solution-output textarea{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.78rem}
 .solution-status{color:var(--green);font-size:.82rem;line-height:1.5}
 @media(max-width:560px){.solution-workshop-heading{display:grid}.solution-local-label{justify-self:start}}
+
+
+/* Explicit local Markdown export action. */
+.solution-output-actions{display:grid;justify-items:start;gap:.35rem}
+.solution-download{min-height:42px;padding:.65rem 1rem;border:1px solid var(--green);border-radius:999px;background:var(--green);color:#fff;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
+.solution-download:hover{filter:brightness(.94)}
+.solution-download:focus-visible{outline:3px solid rgba(18,102,79,.25);outline-offset:3px}
