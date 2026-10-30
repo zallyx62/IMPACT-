@@ -44,7 +44,7 @@ Le projet veut aider chacun à comprendre, vérifier et comparer des information
 
 **Phase : prototype web 0.1 en construction.**
 
-Le prototype propose une interface en français, un mode sombre par défaut, un mode clair et cinq couleurs d’accent personnalisables (vert, bleu, violet, orange et rose), des préférences conservées localement et une navigation compatible avec le bouton Retour Android, un lecteur de dossiers documentés et les six univers prévus. Le dépôt contient un corpus Nestlé en brouillon (eaux, alimentation infantile, cacao, travail, emballages et environnement), mais aucun dossier n'est publié : la validation humaine reste obligatoire. Les tests automatisés du service worker couvrent le cache initial, les mises à jour, le repli hors ligne et les exclusions de requêtes. Les tests automatisés Web et l'analyse CodeQL sont configurés dans GitHub Actions ; leur résultat doit être vérifié après chaque série de modifications. Un projet Android local embarqué existe désormais avec une CI de compilation. Le propriétaire a rapporté un test de base réussi de l'APK debug sur un téléphone le 30 octobre 2026 ; des essais sur plusieurs appareils et versions Android, l'audit d'accessibilité et toute publication stable restent à faire.
+Le prototype propose une interface en français, un mode sombre par défaut, un mode clair et cinq couleurs d’accent personnalisables (vert, bleu, violet, orange et rose), des préférences conservées localement et une navigation compatible avec le bouton Retour Android, un lecteur de dossiers documentés et les six univers prévus. Le dépôt contient un corpus Nestlé en brouillon (eaux, alimentation infantile, cacao, travail, emballages et environnement), mais aucun dossier n'est publié : la validation humaine reste obligatoire. Les tests automatisés du service worker couvrent le cache initial, les mises à jour, le repli hors ligne et les exclusions de requêtes. La CI vérifie également les icônes PWA générées (180, 192 et 512 px), le manifeste et le paquet de production. Au 30 octobre 2026, les contrôles Web complets, l'audit npm et l'analyse CodeQL ont réussi sur `main` (commit `97348ee`). Le build Android debug et release a réussi sur `main` (commit `94417b1`) ; l'APK debug de test est disponible temporairement dans [l'exécution GitHub Actions](https://github.com/zallyx62/IMPACT-/actions/runs/41043170926). Le propriétaire a également rapporté une installation et une utilisation de base réussies sur un téléphone. Les essais multi-appareils, l'accessibilité et la signature de la version release restent à faire.
 
 ## Utiliser et installer IMPACT
 
@@ -53,7 +53,7 @@ La version Web est la première cible. Elle est conçue pour fonctionner dans un
 | Plateforme | État actuel |
 |---|---|
 | Web (tous appareils) | **En ligne** via [GitHub Pages](https://zallyx62.github.io/IMPACT-/) ; prototype public, non version stable |
-| Android | APK debug de test via GitHub Actions ; aucune APK stable signée publiée |
+| Android | [APK debug de test](https://github.com/zallyx62/IMPACT-/actions/runs/41043170926) ; aucune APK stable signée publiée |
 | iPhone/iPad | Utilisation de la préversion Web publique dans Safari ; aucune application native iOS ni fichier IPA |
 | Windows / macOS / Linux | Utilisation de la préversion Web publique ; aucun installateur natif (.exe, .msi, .dmg, .deb, .rpm ou AppImage) |
 | GitHub | Code source et artefacts de test ; GitHub ne lance pas directement l'application depuis l'onglet Code |
@@ -62,7 +62,7 @@ La version Web est la première cible. Elle est conçue pour fonctionner dans un
 
 GitHub Pages est activé et le déploiement du 30 octobre 2026 a réussi. Les modifications du site sont désormais reconstruites et publiées par GitHub Actions après les contrôles automatisés. Le site reste un prototype public, pas une version stable.
 
-La page [GitHub Releases](https://github.com/zallyx62/IMPACT-/releases) ne contient pas encore de version officielle. Les APK de la CI sont des artefacts temporaires de test, pas des versions stables. iOS et les installateurs natifs de bureau ne sont pas encore développés.
+La page [GitHub Releases](https://github.com/zallyx62/IMPACT-/releases) ne contient pas encore de version officielle. Les APK de la CI sont des artefacts temporaires de test, pas des versions stables. Le build Android a produit une APK debug et une APK release non signée ; seule l'APK debug est fournie comme artefact téléchargeable. iOS et les installateurs natifs de bureau ne sont pas encore développés.
 
 Voir le [guide complet des plateformes, installations et versions](docs/PLATFORMS.md).
 
