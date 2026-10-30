@@ -149,6 +149,29 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "requires_human_review": {
+            "const": true
+          }
+        },
+        "required": [
+          "requires_human_review"
+        ]
+      },
+      "then": {
+        "properties": {
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": [
+          "reviewed_at"
+        ]
+      }
     }
   ]
 }
