@@ -1,0 +1,17 @@
+{
+  "id": "claim-nestle-guigoz-bacillus-cereus-recall-2025",
+  "subject_entity_id": "nestle",
+  "statement": "Le 11 décembre 2025, Nestlé France a publié un rappel volontaire et préventif d'un lot de Guigoz Optipro Relais 1 (800 g), GTIN 7613038317922, lot 52820346AB, en raison d'un risque de présence de Bacillus cereus. Ce rappel est distinct des rappels de 2026 concernant la céréulide et d'autres lots.",
+  "topic": "animals_food",
+  "claim_status": "not_reviewed",
+  "valid_from": "2025-12-11",
+  "source_ids": [
+    "source-rappelconso-guigoz-bacillus-cereus-2025"
+  ],
+  "evidence_ids": [
+    "evidence-rappelconso-guigoz-bacillus-cereus-2025"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Le rappel est volontaire et préventif, et porte sur un lot précis. Le risque mentionné est Bacillus cereus, non la céréulide. La fiche ne démontre pas que chaque unité du lot était contaminée.",
+  "editorial_note": "Présenter ce rappel séparément des rappels 2026 de céréulide. Ne pas fusionner les lots, les dates, les agents microbiologiques ou les causes."
+}
