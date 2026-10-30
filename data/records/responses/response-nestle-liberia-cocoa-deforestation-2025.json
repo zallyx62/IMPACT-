@@ -1,0 +1,11 @@
+{
+  "id": "response-nestle-liberia-cocoa-deforestation-2025",
+  "entity_id": "nestle",
+  "related_claim_ids": [
+    "claim-nestle-liberia-cocoa-deforestation-exposure-2025"
+  ],
+  "summary": "En réponse à Global Witness, Nestlé a déclaré ne pas exercer d'activité au Liberia et ne pas s'y approvisionner directement, tout en reconnaissant que la déforestation au Liberia constitue un risque croissant pour l'industrie du cacao. L'entreprise a indiqué que près de 90 % du cacao utilisé pour les KitKat produits en Europe relève d'un système Mixed Identity Preserved associé aux familles du programme Income Accelerator. Interrogée sur la manière dont elle exclut l'entrée de cacao libérien dans ses mélanges en bilan massique, Nestlé n'a pas fourni d'informations supplémentaires à Global Witness.",
+  "source_id": "source-global-witness-liberia-cocoa-deforestation-2025",
+  "publication_status": "published",
+  "full_response_url": "https://globalwitness.org/en/campaigns/forests/chocolate-giants-fuel-deforestation-in-west-africas-last-rainforest/"
+}
