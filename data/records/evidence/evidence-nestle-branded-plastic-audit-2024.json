@@ -1,0 +1,10 @@
+{
+  "id": "evidence-nestle-branded-plastic-audit-2024",
+  "source_id": "source-science-advances-plastic-brand-audit-2024",
+  "locator": "Science Advances 2024, abstract and results; DOI 10.1126/sciadv.adj8275",
+  "summary": "Analysis of 1,576 brand-audit events in 84 countries during 2018–2022 found 50% of collected items were unbranded. Among branded items, Nestlé accounted for 3% of the recorded count, placing it among the five largest brands in the dataset.",
+  "limitations": "This is an observational citizen-science dataset, not a census of global plastic waste or total production. The denominator is branded items recorded in the audits.",
+  "supports_claim_ids": [
+    "claim-nestle-branded-plastic-audit-2024"
+  ]
+}
