@@ -1,6 +1,6 @@
 # Revue éditoriale humaine — dossier Nestlé
 
-**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 20 sources sont `to_review`, les 20 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 22 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
+**État actuel : brouillon non publiable.** L'entité est `review_needed`, les 25 sources sont `to_review`, les 21 affirmations sont `not_reviewed` avec `reviewed_at: null`, et les 26 éléments de preuve restent associés à ces affirmations non examinées. Le lecteur public doit continuer à masquer ce dossier.
 
 Ce document sert de guide de vérification. Il ne vaut pas validation éditoriale.
 
@@ -71,7 +71,8 @@ Affirmations à examiner :
 
 Affirmations à examiner :
 
-- `claim-nestle-baby-food-plastic-pouches-2025` — étude commandée par Greenpeace et réalisée par SINTEF sur trois sachets Gerber de yaourt.
+- `claim-nestle-baby-food-plastic-pouches-2025` — étude commandée par Greenpeace et réalisée par SINTEF sur trois sachets d'un produit de yaourt Gerber ; les éléments FDA et EFSA sont associés comme contexte scientifique général.
+- `claim-nestle-gerber-microplastics-consumer-reports-2026` — enquête Consumer Reports publiée en septembre 2026, qui rapporte 728 294 particules par portion de 99 g pour une purée Gerber précise ; le sous-échantillon microplastiques porte sur 15 purées et un jus, testés en deux à quatre lots par produit.
 - `claim-nestle-branded-plastic-audit-2024` — part de Nestlé dans les objets plastiques de marque recensés par une étude scientifique fondée sur des audits citoyens.
 - `claim-nestle-plastic-sachets-asia-2024` — audit de sachets à usage unique dans quatre pays asiatiques.
 - `claim-nestle-packaging-progress-2025` — indicateurs de progrès déclarés par Nestlé.
