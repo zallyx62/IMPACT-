@@ -223,7 +223,7 @@ function App() {
             <span className="brand-copy"><strong>IMPACT</strong><span>{language === "fr" ? "Comprendre. Choisir. Agir." : "Understand. Choose. Act."}</span></span>
           </button>
           <div className="header-actions">
-            <a className="text-link" href="#method">{t.method}</a>
+            <a className="text-link" href="#method" onClick={() => { setSelection(null); setQuery(""); }}>{t.method}</a>
             <details className="settings-menu">
               <summary className="settings-trigger" aria-label={t.settings}>
                 <span className="settings-icon" aria-hidden="true">⚙</span><span>{t.settings}</span>
