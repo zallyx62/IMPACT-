@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-water-vosges-surveillance",
+  "subject_entity_id": "nestle",
+  "statement": "Le rapport sénatorial indique que les analyses virologiques réalisées dans les Vosges n'ont révélé aucune contamination virale de l'eau et que la surveillance renforcée n'a pas relevé de risque sanitaire avéré depuis octobre 2023.",
+  "topic": "business_consumption",
+  "claim_status": "confirmed",
+  "source_ids": [
+    "source-senat-2025-enquete-eaux-minerales"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-water-vosges-surveillance"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "Ce constat porte sur les analyses et la période décrites dans le rapport pour les sites des Vosges ; il ne doit pas être généralisé à d'autres sites, périodes ou produits.",
+  "editorial_note": "Présenter ce résultat positif en regard des incertitudes relevées séparément dans le Gard."
+}
