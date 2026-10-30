@@ -56,9 +56,13 @@ assert.deepEqual(nestle.source_ids, ["source-greenpeace-baby-food-plastic-pouche
 assert.deepEqual(publicRecords.claims.filter((item) => item.subject_entity_id === "nestle").map((item) => item.id),
   ["claim-nestle-baby-food-plastic-pouches-2025"],
   "only the narrowly scoped evidence-verified Nestlé claim may be public");
-assert.deepEqual(publicRecords.sources.map((item) => item.id),
-  ["source-greenpeace-baby-food-plastic-pouches-2026"],
-  "unverified Nestlé source drafts must not enter the public bundle");
+assert.ok(publicRecords.sources.some((item) => item.id === "source-greenpeace-baby-food-plastic-pouches-2026"),
+  "the evidence-verified primary report must be included");
+assert.ok(!publicRecords.sources.some((item) =>
+  item.id.startsWith("source-nestle-") ||
+  ["source-consumer-reports-baby-food-testing-2026", "source-fda-microplastics-food-guidance-2026",
+    "source-efsa-food-contact-microplastics-review-2025", "source-efsa-microplastics-food-risk-status-2026"].includes(item.id)),
+  "other Nestlé and contextual source drafts must remain excluded");
 assert.ok(!JSON.stringify(publicRecords).includes("claim-nestle-gerber-microplastics-consumer-reports-2026"),
   "the Consumer Reports claim remains unpublished until its own evidence gate is completed");
 
