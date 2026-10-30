@@ -29,6 +29,16 @@ describe("JSON Schema validation", () => {
     assert.ok(errors.some((error) => error.includes("must be equal to one of the allowed values")));
   });
 
+  it("rejects non-web URL protocols in sources and entities", async () => {
+    const validators = await compileRecordValidators();
+    const invalid = structuredClone(valid);
+    invalid.sources[0].url = "javascript:alert(1)";
+    invalid.entities[0].website = "data:text/html,unsafe";
+    const errors = validateSchemaRecords(invalid, validators);
+    assert.ok(errors.some((error) => error.includes("url") && error.includes("must match pattern")));
+    assert.ok(errors.some((error) => error.includes("website") && error.includes("must match pattern")));
+  });
+
   it("requires measurement details for achieved commitments", async () => {
     const validators = await compileRecordValidators();
     const invalid = structuredClone(valid);
