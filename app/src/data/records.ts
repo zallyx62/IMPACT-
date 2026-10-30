@@ -22,6 +22,8 @@ export interface SourceRecord {
   published_at?: string | null;
   accessed_at: string;
   limitations?: string;
+  source_license?: string;
+  rights_note?: string;
   review_status: string;
 }
 
