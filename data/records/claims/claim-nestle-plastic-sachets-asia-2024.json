@@ -1,0 +1,16 @@
+{
+  "id": "claim-nestle-plastic-sachets-asia-2024",
+  "subject_entity_id": "nestle",
+  "statement": "Dans un audit citoyen publié en avril 2024 sur les sachets plastiques à usage unique en Inde, en Indonésie, aux Philippines et au Viet Nam, Break Free From Plastic a classé Nestlé parmi les dix entreprises les plus souvent identifiées dans les déchets collectés.",
+  "topic": "environment",
+  "claim_status": "not_reviewed",
+  "source_ids": [
+    "source-bffp-asian-plastic-sachet-audit-2024"
+  ],
+  "evidence_ids": [
+    "evidence-nestle-plastic-sachets-asia-2024"
+  ],
+  "reviewed_at": null,
+  "uncertainty_note": "L'audit repose sur des collectes citoyennes dans 50 lieux et ne constitue pas un échantillon représentatif de toutes les ventes ou de tous les déchets. Le résumé public ne fournit pas de total spécifique à Nestlé. Break Free From Plastic est une coalition militante.",
+  "editorial_note": "Présenter la méthodologie et le statut militant de l'organisation. Ne pas convertir le classement d'un audit de déchets collectés en estimation de part de marché ou de tonnage total."
+}
