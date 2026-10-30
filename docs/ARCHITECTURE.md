@@ -100,7 +100,7 @@ Les dépendances doivent continuer à être réexaminées régulièrement ; l'au
 
 - `app/src/data/catalog.ts` contient uniquement la navigation et les textes génériques du prototype.
 - `data/schema/` définit huit structures : entités, sources, affirmations, preuves, relations, campagnes, réponses et engagements.
-- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Les dossiers sont actuellement vides.
+- `data/records/` contient les enregistrements JSON versionnés, séparés par type. Le dépôt contient désormais des brouillons documentaires (notamment Nestlé/eaux et marketing infantile), mais ils restent invisibles tant que l'entité est `review_needed`, les sources `to_review` et les affirmations `not_reviewed`.
 - `app/src/data/records.ts` charge les enregistrements publiés ; `dossier-builder.ts` applique les règles de publication avant affichage.
 - Aucun dossier réel d'entreprise ne doit être inventé ou publié sans recherche et validation éditoriale.
 - Une source, une affirmation et un élément de preuve restent trois objets distincts.
