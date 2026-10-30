@@ -15,5 +15,6 @@
   "editorial_note": "Ce point doit être présenté à proximité des faits de non-conformité afin de ne pas laisser croire qu'une infraction de conformité équivaut automatiquement à un dommage sanitaire démontré.",
   "publication_basis": "evidence_verified",
   "published_at": "2026-10-30",
-  "publication_note": "L'affirmation rapporte précisément la conclusion exprimée par le Gouvernement dans sa réponse parlementaire, à la date de publication. Elle ne signifie ni que les traitements utilisés étaient conformes, ni qu'aucune incertitude n'a existé sur tous les sites et à toutes les périodes."
+  "publication_note": "L'affirmation rapporte précisément la conclusion exprimée par le Gouvernement dans sa réponse parlementaire, à la date de publication. Elle ne signifie ni que les traitements utilisés étaient conformes, ni qu'aucune incertitude n'a existé sur tous les sites et à toutes les périodes.",
+  "requires_human_review": false
 }
