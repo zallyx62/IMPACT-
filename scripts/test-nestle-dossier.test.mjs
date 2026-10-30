@@ -113,13 +113,14 @@ describe("Nestlé dossier editorial gate", () => {
     assert.equal(entity.status, "published");
     assert.equal(entity.reviewed_at, null);
     assert.equal(entity.publication_basis, "evidence_verified");
-    assert.deepEqual(entity.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026"]);
+    assert.deepEqual(entity.source_ids, ["source-greenpeace-baby-food-plastic-pouches-2026", "source-consumer-reports-baby-food-testing-2026"]);
     const evidenceVerifiedSourceIds = [
       "source-greenpeace-baby-food-plastic-pouches-2026",
       "source-fda-microplastics-food-guidance-2026",
       "source-efsa-food-contact-microplastics-review-2025",
       "source-efsa-microplastics-food-risk-status-2026",
       "source-nestle-baby-food-plastic-packaging-response-2026",
+      "source-consumer-reports-baby-food-testing-2026",
     ];
     assert.ok(sources.filter((source) => evidenceVerifiedSourceIds.includes(source.id)).every((source) => source.review_status === "evidence_verified"));
     assert.ok(sources.filter((source) => !evidenceVerifiedSourceIds.includes(source.id)).every((source) => source.review_status === "to_review"));
@@ -131,9 +132,9 @@ describe("Nestlé dossier editorial gate", () => {
     assert.deepEqual(getPublishedEntities(data).map((item) => item.id), ["nestle"]);
     const dossier = buildEntityDossier("nestle", data);
     assert.ok(dossier);
-    assert.deepEqual(dossier.claims.map((claim) => claim.id), [greenpeaceClaim.id]);
+    assert.deepEqual(dossier.claims.map((claim) => claim.id).sort(), [greenpeaceClaim.id, "claim-nestle-gerber-microplastics-consumer-reports-2026"].sort());
     assert.deepEqual(new Set(dossier.sources.map((source) => source.id)), new Set(evidenceVerifiedSourceIds));
-    assert.deepEqual(dossier.responses.map((response) => response.id), ["response-nestle-baby-food-microplastics-2026"]);
+    assert.deepEqual(dossier.responses.map((response) => response.id).sort(), ["response-nestle-baby-food-microplastics-2026", "response-gerber-consumer-reports-baby-food-testing-2026"].sort());
   });
 
   it("links every Nestlé claim to existing sources and evidence", async () => {
@@ -279,9 +280,10 @@ describe("Nestlé dossier editorial gate", () => {
     const crClaim = await readRecord("claims", "claim-nestle-gerber-microplastics-consumer-reports-2026");
     const crEvidence = await readRecord("evidence", "evidence-consumer-reports-gerber-microplastics-2026");
     const gerberResponse = await readRecord("responses", "response-gerber-consumer-reports-baby-food-testing-2026");
-    assert.equal(crSource.review_status, "to_review");
+    assert.equal(crSource.review_status, "evidence_verified");
     assert.match(crEvidence.summary, /728 294 particules/i);
-    assert.equal(crClaim.claim_status, "not_reviewed");
+    assert.equal(crClaim.claim_status, "confirmed");
+    assert.equal(crClaim.publication_basis, "evidence_verified");
     assert.equal(crClaim.reviewed_at, null);
     assert.match(crClaim.uncertainty_note, /La FDA a déclaré ne pas avoir examiné/i);
     assert.ok(crClaim.evidence_ids.includes(crEvidence.id));
