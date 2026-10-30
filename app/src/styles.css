@@ -241,3 +241,8 @@ a { color: inherit; }
 .extra-sources { display: flex; flex-wrap: wrap; gap: .35rem .75rem; margin-top: .5rem; font-size: .78rem; }
 .extra-sources a { color: var(--green-deep); font-weight: 700; overflow-wrap: anywhere; }
 .extra-sources span { color: var(--muted); }
+
+/* Keep dossier cards on the dark surface after their base component styles. */
+@media (prefers-color-scheme: dark) {
+  .dossier-card, .claim-card { background: var(--paper); }
+}
