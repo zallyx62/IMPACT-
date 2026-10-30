@@ -13,5 +13,6 @@
   ],
   "reviewed_at": null,
   "uncertainty_note": "Évaluation historique limitée à trois coopératives et six communautés approvisionnant un fournisseur de premier rang. L'absence de cas observé dans les fermes visitées ne prouve pas l'absence de travail des enfants dans toute la chaîne ; les attitudes rapportées ne prouvent pas non plus qu'un cas précis s'est produit.",
-  "editorial_note": "Comparer avec le dispositif CLMRS que Nestlé dit avoir développé avec l'International Cocoa Initiative depuis 2012. Ne pas présenter cette étude de 2020 comme un état des lieux actuel."
+  "editorial_note": "Comparer avec le dispositif CLMRS que Nestlé dit avoir développé avec l'International Cocoa Initiative depuis 2012. Ne pas présenter cette étude de 2020 comme un état des lieux actuel.",
+  "requires_human_review": true
 }
