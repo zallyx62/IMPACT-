@@ -15,15 +15,17 @@ Chaque enregistrement doit être un fichier JSON contenant un seul objet, avec u
 
 ## Contrôles avant intégration
 
-Depuis la racine du dépôt :
+Depuis la racine du dépôt, après avoir installé les dépendances de développement :
 
 ```sh
+cd app && npm ci
+cd ..
 node scripts/check-schemas.mjs
 node scripts/check-data.mjs
 node --test scripts/test-data-integrity.test.mjs
 ```
 
-Le contrôle des références vérifie notamment que :
+Le validateur contrôle d'abord chaque fichier avec son schéma JSON (types, champs obligatoires, formats, énumérations et contraintes conditionnelles), puis vérifie les références croisées. Il contrôle notamment que :
 - chaque affirmation pointe vers une entité et au moins une source existantes ;
 - chaque preuve pointe vers une source existante ;
 - chaque relation pointe vers deux entités existantes et des sources ;
