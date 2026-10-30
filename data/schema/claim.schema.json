@@ -90,6 +90,10 @@
       "type": ["string", "null"],
       "format": "date"
     },
+    "review_method": {
+      "type": "string",
+      "enum": ["human", "ai_assisted"]
+    },
     "uncertainty_note": {
       "type": "string",
       "maxLength": 2000
