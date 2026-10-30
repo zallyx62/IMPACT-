@@ -13,6 +13,7 @@ const labels = {
     label: "DOSSIER DOCUMENTÉ",
     reviewed: "Dernière vérification",
     claims: "Affirmations examinées",
+    claimAbout: "Concerne",
     noClaims: "Aucune affirmation publiée dans ce dossier.",
     status: "État de l’examen",
     uncertainty: "Limites et incertitudes",
@@ -40,6 +41,7 @@ const labels = {
     label: "DOCUMENTED DOSSIER",
     reviewed: "Last reviewed",
     claims: "Reviewed claims",
+    claimAbout: "About",
     noClaims: "No claims have been published in this dossier.",
     status: "Review status",
     uncertainty: "Limitations and uncertainty",
@@ -160,6 +162,9 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                   <span className="claim-topic">{displayValue("topic", claim.topic, language)}</span>
                   <span className="claim-status">{t.statuses[claim.claim_status] ?? claim.claim_status}</span>
                 </div>
+                {claim.subject_entity_id !== dossier.entity.id && (
+                  <p className="claim-reviewed"><strong>{t.claimAbout} :</strong> {entityName(claim.subject_entity_id)}</p>
+                )}
                 <p className="claim-statement">{claim.statement}</p>
                 <p className="claim-reviewed">{t.reviewed} : {dateLabel(claim.reviewed_at, language)}</p>
                 {claim.uncertainty_note && (
