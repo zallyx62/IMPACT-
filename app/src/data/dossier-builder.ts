@@ -36,7 +36,7 @@ function isPublishableClaim(claim: ClaimRecord, sourceIds: Set<string>): boolean
   const eligible = claim.reviewed_at !== null ||
     (claim.publication_basis === "evidence_verified" &&
       (claim.claim_status === "confirmed" || claim.claim_status === "corroborated") &&
-      claim.requires_human_review !== true &&
+      claim.requires_human_review === false &&
       Boolean(claim.published_at) && Boolean(claim.publication_note?.trim()));
   return claim.claim_status !== "not_reviewed" && eligible &&
     Array.isArray(claim.source_ids) && claim.source_ids.length > 0 &&
