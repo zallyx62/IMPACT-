@@ -39,6 +39,15 @@ describe("JSON Schema validation", () => {
     assert.ok(errors.some((error) => error.includes("website") && error.includes("must match pattern")));
   });
 
+  it("requires a human review date for high-risk claims", async () => {
+    const validators = await compileRecordValidators();
+    const invalid = structuredClone(valid);
+    invalid.claims[0].requires_human_review = true;
+    invalid.claims[0].reviewed_at = null;
+    const errors = validateSchemaRecords(invalid, validators);
+    assert.ok(errors.some((error) => error.includes("reviewed_at") && error.includes("must be string")));
+  });
+
   it("requires measurement details for achieved commitments", async () => {
     const validators = await compileRecordValidators();
     const invalid = structuredClone(valid);
