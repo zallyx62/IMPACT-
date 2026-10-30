@@ -57,6 +57,7 @@ requireSourcedArray(entity, "source_ids", "entity");
 requireWebUrl(entity, "website", "entity");
 requireFields(relationship, ["id", "from_entity_id", "to_entity_id", "relationship_type", "knowledge_status", "source_ids"], "relationship");
 requireSourcedArray(relationship, "source_ids", "relationship");
+assert.ok(relationship.properties.relationship_type.enum.includes("alternative_to"), "alternatives must use an explicit relationship type");
 requireFields(evidence, ["id", "source_id", "locator", "summary"], "evidence");
 requireFields(campaign, ["id", "title", "target_entity_ids", "demands", "campaign_status", "source_ids"], "campaign");
 requireSourcedArray(campaign, "source_ids", "campaign");
