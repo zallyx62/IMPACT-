@@ -70,6 +70,7 @@ Les dépendances sont surveillées chaque semaine par Dependabot et auditées av
 │   │   ├── data/catalog.ts
 │   │   ├── data/records.ts
 │   │   ├── data/dossier-builder.ts
+│   │   ├── data/public-records.generated.ts (généré, ignoré par Git)
 │   │   ├── App.tsx
 │   │   ├── DossierPanel.tsx
 │   │   ├── main.tsx
