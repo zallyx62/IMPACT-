@@ -31,6 +31,6 @@ Le validateur contrôle d'abord chaque fichier avec son schéma JSON (types, cha
 - chaque relation pointe vers deux entités existantes et des sources ;
 - les campagnes, réponses et engagements ne contiennent pas de références cassées.
 
-Chaque entité doit elle-même référencer au moins une source ; le lecteur ne l'affiche que si au moins une de ces sources est au statut `reviewed`.
+Chaque entité doit elle-même référencer au moins une source ; le lecteur ne l'affiche que si au moins une de ces sources est au statut `reviewed`. Le guide de revue humaine du premier dossier se trouve dans `docs/reviews/NESTLE.md`.
 
 Un premier dossier de travail sur Nestlé est présent dans les collections. Il est explicitement marqué `review_needed` ; ses sources sont au statut `to_review` et ses dates `reviewed_at` restent nulles. Il n'est donc pas visible dans l'application publique tant qu'une personne responsable n'a pas examiné les sources et validé chaque affirmation. Le lecteur public n'affiche que les entités marquées `published` et les éléments associés disposant d'au moins une source au statut `reviewed`. Les réponses ne sont affichées que si elles sont publiées et reliées à une source examinée. Toute donnée ajoutée doit être sourcée, examinée et validée selon la charte éditoriale.
