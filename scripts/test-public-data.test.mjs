@@ -16,6 +16,8 @@ assert.ok(publicRecords.sources.every((item) => item.review_status === "reviewed
 assert.ok(publicRecords.claims.every((item) => item.claim_status !== "not_reviewed" &&
   (item.reviewed_at !== null || (item.publication_basis === "evidence_verified" && item.published_at && item.publication_note))),
   "public claims must pass human review or the documented evidence gate");
+assert.ok(publicRecords.claims.filter((item) => item.publication_basis === "evidence_verified").every((item) => item.requires_human_review === false),
+  "evidence-only claims must explicitly declare that enhanced human review is not required");
 assert.ok(publicRecords.evidence.every((item) => sourceIds.has(item.source_id)),
   "public evidence must only reference public sources");
 
