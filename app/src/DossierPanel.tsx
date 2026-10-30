@@ -26,7 +26,7 @@ const labels = {
     commitments: "Engagements suivis",
     sourceArchive: "Copie d’archive", sourceAccessed: "Consultée le", sourcePublished: "Publiée le", sourceType: "Nature de la source", sourceLanguage: "Langue", sourceMethodology: "Méthode", sourceConflicts: "Intérêts ou liens pertinents", sourceLicense: "Licence de la source", sourceRights: "Conditions de réutilisation",
     noDescription: "Aucune description éditoriale n’a encore été publiée.",
-    type: "Type d’entité", demands: "Demandes", outcome: "Résultat rapporté", measurement: "Méthode de mesure", observed: "Résultat observé", publication: "Statut de publication", relationshipStatus: "État de la relation", targetDate: "Échéance",
+    type: "Type d’entité", countries: "Pays concernés", period: "Période concernée", editorialNote: "Note éditoriale", started: "Début", ended: "Fin", received: "Réponse reçue le", published: "Publiée le", fullResponse: "Réponse complète", baseline: "Situation de référence", targetValue: "Valeur cible", demands: "Demandes", outcome: "Résultat rapporté", measurement: "Méthode de mesure", observed: "Résultat observé", publication: "Statut de publication", relationshipStatus: "État de la relation", targetDate: "Échéance",
     statuses: {
       confirmed: "Confirmée",
       corroborated: "Corroborée",
@@ -54,7 +54,7 @@ const labels = {
     commitments: "Tracked commitments",
     sourceArchive: "Archived copy", sourceAccessed: "Accessed on", sourcePublished: "Published on", sourceType: "Source type", sourceLanguage: "Language", sourceMethodology: "Methodology", sourceConflicts: "Relevant interests or affiliations", sourceLicense: "Source licence", sourceRights: "Reuse conditions",
     noDescription: "No editorial description has been published yet.",
-    type: "Entity type", demands: "Demands", outcome: "Reported outcome", measurement: "Measurement method", observed: "Observed result", publication: "Publication status", relationshipStatus: "Relationship status", targetDate: "Target date",
+    type: "Entity type", countries: "Countries concerned", period: "Relevant period", editorialNote: "Editorial note", started: "Started", ended: "Ended", received: "Response received", published: "Published on", fullResponse: "Full response", baseline: "Baseline", targetValue: "Target value", demands: "Demands", outcome: "Reported outcome", measurement: "Measurement method", observed: "Observed result", publication: "Publication status", relationshipStatus: "Relationship status", targetDate: "Target date",
     statuses: {
       confirmed: "Confirmed",
       corroborated: "Corroborated",
@@ -155,6 +155,7 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         <p>{dossier.entity.description || t.noDescription}</p>
         <div className="dossier-meta">
           <span>{t.type} : {displayValue("entityType", dossier.entity.entity_type, language)}</span>
+          {dossier.entity.country_codes && dossier.entity.country_codes.length > 0 && <span>{t.countries} : {dossier.entity.country_codes.join(", ")}</span>}
           <span>{t.reviewed} : {dateLabel(dossier.entity.reviewed_at, language)}</span>
         </div>
         {entityWebsite && (
@@ -186,6 +187,8 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
                 )}
                 <p className="claim-statement">{claim.statement}</p>
                 <p className="claim-reviewed">{t.reviewed} : {dateLabel(claim.reviewed_at, language)}</p>
+                {(claim.valid_from || claim.valid_until) && <p className="claim-reviewed">{t.period} : {claim.valid_from ? dateLabel(claim.valid_from, language) : "…"} – {claim.valid_until ? dateLabel(claim.valid_until, language) : "…"}</p>}
+                {claim.editorial_note && <p className="claim-reviewed"><strong>{t.editorialNote} :</strong> {claim.editorial_note}</p>}
                 {claim.uncertainty_note && (
                   <p className="claim-uncertainty"><strong>{t.uncertainty} :</strong> {claim.uncertainty_note}</p>
                 )}
@@ -214,26 +217,26 @@ export default function DossierPanel({ dossier, language, onBack }: Props) {
         <section className="dossier-section">
           <h3>{t.relationships}</h3>
           <ul>{dossier.relationships.map((item) => (
-            <li key={item.id}><strong>{entityName(item.from_entity_id)} → {displayValue("relationshipType", item.relationship_type, language)} → {entityName(item.to_entity_id)}</strong><span>{t.relationshipStatus} : {displayValue("knowledgeStatus", item.knowledge_status, language)}</span><div className="extra-sources">{item.source_ids.map(sourceReference)}</div></li>
+            <li key={item.id}><strong>{entityName(item.from_entity_id)} → {displayValue("relationshipType", item.relationship_type, language)} → {entityName(item.to_entity_id)}</strong><span>{t.relationshipStatus} : {displayValue("knowledgeStatus", item.knowledge_status, language)}</span>{(item.valid_from || item.valid_until) && <span>{t.period} : {item.valid_from ? dateLabel(item.valid_from, language) : "…"} – {item.valid_until ? dateLabel(item.valid_until, language) : "…"}</span>}{item.notes && <span>{item.notes}</span>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></li>
           ))}</ul>
         </section>
       )}
       {dossier.campaigns.length > 0 && (
         <section className="dossier-section">
           <h3>{t.campaigns}</h3>
-          <div className="dossier-list">{dossier.campaigns.map((item) => <article className="claim-card" key={item.id}><strong>{item.title}</strong><p>{displayValue("campaignStatus", item.campaign_status, language)}</p>{item.organizer_entity_id && <p><strong>{t.organizer} :</strong> {entityName(item.organizer_entity_id)}</p>}<p><strong>{t.targets} :</strong> {item.target_entity_ids.map(entityName).join(", ")}</p><strong>{t.demands}</strong><ul>{item.demands.map((demand) => <li key={demand}>{demand}</li>)}</ul>{item.outcome_summary && <p>{t.outcome} : {item.outcome_summary}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
+          <div className="dossier-list">{dossier.campaigns.map((item) => <article className="claim-card" key={item.id}><strong>{item.title}</strong><p>{displayValue("campaignStatus", item.campaign_status, language)}</p>{(item.started_at || item.ended_at) && <p>{t.started} : {item.started_at ? dateLabel(item.started_at, language) : "…"} · {t.ended} : {item.ended_at ? dateLabel(item.ended_at, language) : "…"}</p>}{item.organizer_entity_id && <p><strong>{t.organizer} :</strong> {entityName(item.organizer_entity_id)}</p>}<p><strong>{t.targets} :</strong> {item.target_entity_ids.map(entityName).join(", ")}</p><strong>{t.demands}</strong><ul>{item.demands.map((demand) => <li key={demand}>{demand}</li>)}</ul>{item.outcome_summary && <p>{t.outcome} : {item.outcome_summary}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
         </section>
       )}
       {dossier.responses.length > 0 && (
         <section className="dossier-section">
           <h3>{t.responses}</h3>
-          <div className="dossier-list">{dossier.responses.map((item) => <article className="claim-card" key={item.id}><p>{item.summary}</p><p>{t.publication} : {displayValue("publicationStatus", item.publication_status, language)}</p>{item.source_id && <div className="extra-sources">{sourceReference(item.source_id)}</div>}</article>)}</div>
+          <div className="dossier-list">{dossier.responses.map((item) => <article className="claim-card" key={item.id}><p>{item.summary}</p><p>{t.publication} : {displayValue("publicationStatus", item.publication_status, language)}</p>{item.received_at && <p>{t.received} : {dateLabel(item.received_at, language)}</p>}{item.published_at && <p>{t.published} : {dateLabel(item.published_at, language)}</p>}{item.full_response_url && safeExternalUrl(item.full_response_url) && <p><a href={safeExternalUrl(item.full_response_url)} target="_blank" rel="noopener noreferrer">{t.fullResponse}</a></p>}{item.source_id && <div className="extra-sources">{sourceReference(item.source_id)}</div>}</article>)}</div>
         </section>
       )}
       {dossier.commitments.length > 0 && (
         <section className="dossier-section">
           <h3>{t.commitments}</h3>
-          <div className="dossier-list">{dossier.commitments.map((item) => <article className="claim-card" key={item.id}><p className="claim-statement">{item.statement}</p><p>{displayValue("commitmentStatus", item.status, language)}{item.target_date ? ` · ${t.targetDate} : ${dateLabel(item.target_date, language)}` : ""}</p>{item.measurement_method && <p><strong>{t.measurement} :</strong> {item.measurement_method}</p>}{item.observed_result && <p><strong>{t.observed} :</strong> {item.observed_result}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
+          <div className="dossier-list">{dossier.commitments.map((item) => <article className="claim-card" key={item.id}><p className="claim-statement">{item.statement}</p><p>{displayValue("commitmentStatus", item.status, language)}{item.target_date ? ` · ${t.targetDate} : ${dateLabel(item.target_date, language)}` : ""}</p>{item.baseline && <p><strong>{t.baseline} :</strong> {item.baseline}</p>}{item.target_value && <p><strong>{t.targetValue} :</strong> {item.target_value}</p>}{item.measurement_method && <p><strong>{t.measurement} :</strong> {item.measurement_method}</p>}{item.observed_result && <p><strong>{t.observed} :</strong> {item.observed_result}</p>}<div className="extra-sources">{item.source_ids.map(sourceReference)}</div></article>)}</div>
         </section>
       )}
     </section>

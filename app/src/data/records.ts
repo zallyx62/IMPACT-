@@ -11,6 +11,9 @@ export interface EntityRecord {
   status: string;
   reviewed_at: string;
   source_ids: string[];
+  country_codes?: string[];
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface SourceRecord {
@@ -41,6 +44,9 @@ export interface ClaimRecord {
   evidence_ids?: string[];
   reviewed_at: string;
   uncertainty_note: string;
+  valid_from?: string | null;
+  valid_until?: string | null;
+  editorial_note?: string;
 }
 
 export interface EvidenceRecord {
@@ -61,6 +67,9 @@ export interface RelationshipRecord {
   relationship_type: string;
   knowledge_status: string;
   source_ids: string[];
+  valid_from?: string | null;
+  valid_until?: string | null;
+  notes?: string;
 }
 
 export interface CampaignRecord {
@@ -74,6 +83,8 @@ export interface CampaignRecord {
   response_ids?: string[];
   source_ids: string[];
   outcome_summary?: string;
+  started_at?: string | null;
+  ended_at?: string | null;
 }
 
 export interface ResponseRecord {
@@ -83,6 +94,9 @@ export interface ResponseRecord {
   summary: string;
   source_id?: string | null;
   publication_status: string;
+  received_at?: string | null;
+  published_at?: string | null;
+  full_response_url?: string | null;
 }
 
 export interface CommitmentRecord {
@@ -96,6 +110,8 @@ export interface CommitmentRecord {
   reviewed_at: string;
   measurement_method?: string;
   observed_result?: string;
+  baseline?: string;
+  target_value?: string;
 }
 
 function loadRecords<T>(modules: Record<string, unknown>): T[] {
