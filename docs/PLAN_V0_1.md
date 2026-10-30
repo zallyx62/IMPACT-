@@ -39,6 +39,8 @@
 - Les tests d'intégrité, JSON Schema et règles de publication réussissent.
 - `npm audit --audit-level=high` ne signale aucune vulnérabilité.
 - `node scripts/check-data.mjs` valide les enregistrements et leurs références.
+- Le générateur de données publiques n'inclut que les enregistrements ayant passé la règle de publication humaine.
+- Les tests vérifient les références du jeu public et l'absence de tout identifiant de dossier exclu dans le bundle de production.
 - Le contrôle PWA vérifie les fichiers générés après le build.
 - `npm run build` réussit.
 - Les six univers s'affichent et sont sélectionnables.
